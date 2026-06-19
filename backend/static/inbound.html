@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshBus | Inbound Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+  /* ─────────────────────────────────────────────────
+     VARIABLES & RESET
+  ──────────────────────────────────────────────────── */
+  :root {
+    --blue:#1A73E8; --blue-d:#1557b0; --blue-soft:rgba(26,115,232,.1);
+    --yellow:#FBBC04; --yellow-soft:rgba(251,188,4,.1);
+    --green:#16a34a; --green-soft:rgba(22,163,74,.1);
+    --red:#dc2626; --red-soft:rgba(220,38,38,.09);
+    --amber:#d97706; --amber-soft:rgba(217,119,6,.1);
+    --purple:#7c3aed; --purple-soft:rgba(124,58,237,.1);
+
+    --bg:#f0f4fa; --surface:#fff; --surface2:#f8faff;
+    --border:#e2e8f3; --border-focus:var(--blue);
+    --text:#0f1d35; --text2:#374151; --text-m:#6b7280;
+
+    --sidebar:#0f1d35; --sidebar-w:258px;
+    --hdr-h:62px;
+    --r:12px; --r-sm:8px;
+    --shadow:0 1px 3px rgba(0,0,0,.07),0 4px 14px rgba(0,0,0,.04);
+    --shadow-md:0 4px 12px rgba(0,0,0,.09),0 12px 36px rgba(0,0,0,.05);
+    --shadow-blue:0 4px 20px rgba(26,115,232,.25);
+    --tr:.18s ease;
+  }
+  [data-theme="dark"] {
+    --bg:#0a0f1e; --surface:#111927; --surface2:#1a2436;
+    --border:#1e2d45; --text:#f1f5f9; --text2:#cbd5e1; --text-m:#64748b;
+    --shadow:0 1px 3px rgba(0,0,0,.5),0 4px 14px rgba(0,0,0,.3);
+    --shadow-md:0 4px 12px rgba(0,0,0,.6),0 12px 36px rgba(0,0,0,.4);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;overflow:hidden;}
+  body{font-family:'Inter',sans-serif;font-size:14px;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;}
+  a{text-decoration:none;color:inherit;}
+  button{font-family:inherit;cursor:pointer;}
+  input,select{font-family:inherit;}
+
+  /* ─── HEADER ─── */
+  .hdr {
+    height:var(--hdr-h); background:var(--surface); border-bottom:1px solid var(--border);
+    display:flex; align-items:center; padding:0 1.5rem; gap:1rem; flex-shrink:0; z-index:100;
+  }
+  .hdr-logo { display:flex; align-items:center; gap:10px; text-decoration:none; flex-shrink:0; }
+  .hdr-lm {
+    width:32px; height:32px; border-radius:9px; background:var(--blue);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hdr-lm svg { width:18px; height:18px; }
+  .hdr-ln { font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:800; color:var(--text); }
+  .hdr-sep { width:1px; height:22px; background:var(--border); flex-shrink:0; }
+  .hdr-scope {
+    display:flex; align-items:center; gap:6px; background:var(--surface2); border:1px solid var(--border);
+    border-radius:7px; padding:5px 12px; font-size:0.8rem; font-weight:600; color:var(--text-m);
+  }
+  .hdr-scope svg { width:12px; }
+  .hdr-fill { flex:1; }
+  .hdr-datewrap {
+    display:flex; align-items:center; background:var(--surface2); border:1px solid var(--border);
+    border-radius:8px; padding:0 12px; height:36px; gap:8px; font-size:0.8rem; font-weight:600;
+  }
+  .hdr-datewrap svg { width:13px; color:var(--text-m); flex-shrink:0; }
+  .hdr-datewrap input {
+    background:none; border:none; outline:none; color:var(--text); font-family:inherit;
+    font-size:0.8rem; font-weight:600; width:110px; cursor:pointer;
+  }
+  .hdr-datewrap .sep { color:var(--text-m); }
+  .hdr-vbtns {
+    display:flex; background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:3px; gap:2px;
+  }
+  .hdr-vbtn {
+    background:transparent; border:none; padding:4px 12px; border-radius:6px;
+    font-size:0.77rem; font-weight:600; color:var(--text-m); transition:all var(--tr);
+  }
+  .hdr-vbtn.active { background:var(--surface); color:var(--text); box-shadow:var(--shadow); }
+  .hdr-acts { display:flex; gap:3px; }
+  .hdr-ibtn {
+    width:34px; height:34px; border-radius:50%; background:transparent; border:none;
+    display:flex; align-items:center; justify-content:center; color:var(--text-m); transition:all var(--tr);
+  }
+  .hdr-ibtn:hover { background:var(--surface2); color:var(--text); }
+  .hdr-ibtn svg { width:16px; }
+  .hdr-user { display:flex; align-items:center; gap:8px; cursor:pointer; }
+  .hdr-av { width:32px; height:32px; border-radius:50%; border:2px solid var(--border); overflow:hidden; }
+  .hdr-av img { width:100%; height:100%; object-fit:cover; }
+  .hdr-un { font-size:0.82rem; font-weight:700; }
+
+  /* ─── APP BODY ─── */
+  .app-body { display:flex; flex:1; overflow:hidden; }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    width:var(--sidebar-w); background:var(--sidebar); flex-shrink:0;
+    overflow-y:auto; display:flex; flex-direction:column;
+    scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.08) transparent;
+    padding:1.25rem 1rem; gap:0.3rem;
+  }
+  .sb-sec { font-size:0.67rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,.3); padding:0.8rem 0.75rem 0.35rem; }
+  .sb-sync {
+    display:flex; align-items:center; gap:8px; background:rgba(22,163,74,.12);
+    border:1px solid rgba(22,163,74,.25); border-radius:9px; padding:9px 12px;
+    font-size:0.75rem; font-weight:600; color:#4ade80; margin-bottom:0.25rem;
+  }
+  .sb-dot { width:6px; height:6px; border-radius:50%; background:#4ade80; animation:sbpulse 1.5s ease-in-out infinite; flex-shrink:0; }
+  @keyframes sbpulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .sb-fg {
+    background:rgba(255,255,255,.05); border-radius:9px; padding:0.75rem;
+    display:flex; flex-direction:column; gap:3px; margin-bottom:3px;
+  }
+  .sb-fg label { font-size:0.7rem; font-weight:600; color:rgba(255,255,255,.4); margin-bottom:2px; }
+  .sb-fg select, .sb-fg input[type="text"] {
+    width:100%; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1);
+    border-radius:7px; padding:7px 10px; color:#fff; font-size:0.8rem; font-weight:500;
+    outline:none; -webkit-appearance:none; transition:border-color var(--tr);
+  }
+  .sb-fg select:focus, .sb-fg input:focus { border-color:var(--yellow); }
+  .sb-fg select option { background:#1a2436; }
+  .sb-btn {
+    width:100%; border:none; border-radius:8px; padding:9px; font-size:0.78rem;
+    font-weight:700; display:flex; align-items:center; justify-content:center; gap:6px;
+    transition:all var(--tr); margin-top:4px;
+  }
+  .sb-btn svg { width:13px; }
+  .sb-btn-primary { background:var(--blue); color:#fff; }
+  .sb-btn-primary:hover { background:var(--blue-d); }
+  .sb-btn-warn { background:rgba(220,38,38,.15); color:#f87171; border:1px solid rgba(220,38,38,.25); }
+  .sb-btn-warn:hover { background:rgba(220,38,38,.25); }
+  .sb-btn-yellow { background:var(--yellow); color:#0f1d35; }
+  .sb-btn-yellow:hover { filter:brightness(1.08); }
+
+  /* ─── MAIN ─── */
+  .app-main { flex:1; overflow-y:auto; padding:1.75rem 2rem; display:flex; flex-direction:column; gap:1.75rem; }
+
+  /* Scrollbar */
+  .app-main::-webkit-scrollbar { width:5px; }
+  .app-main::-webkit-scrollbar-thumb { background:rgba(0,0,0,.12); border-radius:99px; }
+  [data-theme="dark"] .app-main::-webkit-scrollbar-thumb { background:rgba(255,255,255,.1); }
+
+  /* ─── PAGE TITLE ─── */
+  .pg-head { display:flex; align-items:center; justify-content:space-between; }
+  .pg-head h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.55rem; font-weight:800; letter-spacing:-0.03em; }
+  .pg-head p { font-size:0.82rem; color:var(--text-m); margin-top:3px; }
+  .pg-badge { font-size:0.72rem; font-weight:700; padding:4px 12px; border-radius:100px; background:var(--blue-soft); color:var(--blue); border:1px solid rgba(26,115,232,.2); }
+
+  /* ─── HERO KPI CARDS (4 always visible) ─── */
+  .hero-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+  .hero-card {
+    background:var(--surface); border:1.5px solid var(--border); border-radius:var(--r);
+    padding:1.25rem 1.5rem; box-shadow:var(--shadow); position:relative; overflow:hidden;
+    transition:box-shadow var(--tr), transform var(--tr);
+  }
+  .hero-card:hover { box-shadow:var(--shadow-md); transform:translateY(-2px); }
+  .hero-card::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius:var(--r) var(--r) 0 0; opacity:0; transition:opacity var(--tr); background:var(--accent,var(--blue)); }
+  .hero-card:hover::after { opacity:1; }
+  .hc-lbl { font-size:0.75rem; font-weight:700; color:var(--text-m); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem; }
+  .hc-val { font-family:'Plus Jakarta Sans',sans-serif; font-size:2.4rem; font-weight:800; line-height:1; letter-spacing:-0.05em; }
+  .hc-val .unit { font-size:1.3rem; font-weight:700; opacity:.6; }
+  .hc-sub { font-size:0.74rem; color:var(--text-m); margin-top:6px; }
+
+  /* ─── SEGMENT SWITCHER ─── */
+  .seg-bar {
+    display:flex; background:var(--surface); border:1px solid var(--border); border-radius:var(--r);
+    padding:5px; gap:4px; box-shadow:var(--shadow);
+  }
+  .seg-btn {
+    flex:1; background:none; border:none; padding:9px 14px; border-radius:var(--r-sm);
+    font-size:0.82rem; font-weight:600; color:var(--text-m);
+    display:flex; align-items:center; justify-content:center; gap:7px;
+    transition:all .2s; white-space:nowrap;
+  }
+  .seg-btn svg { width:14px; }
+  .seg-btn.active { background:var(--blue); color:#fff; box-shadow:var(--shadow-blue); }
+
+  /* ─── METRIC BUNCHES ─── */
+  .bunch { display:none; animation:fadeUp .3s ease forwards; }
+  .bunch.active { display:block; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .bunch-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:1.25rem; }
+
+  /* Metric Card */
+  .mc {
+    background:var(--surface); border:1.5px solid var(--border); border-radius:var(--r);
+    padding:1.2rem 1.3rem; box-shadow:var(--shadow); position:relative; overflow:hidden;
+    transition:all var(--tr);
+  }
+  .mc:hover { box-shadow:var(--shadow-md); transform:translateY(-2px); border-color:rgba(26,115,232,.3); }
+  .mc-head { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:0.7rem; gap:8px; }
+  .mc-lbl { font-size:0.76rem; font-weight:600; color:var(--text-m); line-height:1.3; }
+  .mc-icon {
+    width:30px; height:30px; border-radius:8px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--ib,var(--blue-soft)); color:var(--ic,var(--blue));
+  }
+  .mc-icon svg { width:14px; }
+  .mc-val { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.85rem; font-weight:800; line-height:1; letter-spacing:-0.04em; display:flex; align-items:baseline; gap:3px; }
+  .mc-unit { font-size:0.95rem; font-weight:600; opacity:.55; }
+  .mc-foot { font-size:0.7rem; color:var(--text-m); margin-top:6px; }
+
+  /* Color helpers for mc */
+  .c-blue{color:var(--blue)!important;} .c-green{color:var(--green)!important;} .c-red{color:var(--red)!important;} .c-amber{color:var(--amber)!important;} .c-purple{color:var(--purple)!important;}
+  .b-red{--ib:var(--red-soft);--ic:var(--red)!important;} .b-green{--ib:var(--green-soft);--ic:var(--green)!important;} .b-amber{--ib:var(--amber-soft);--ic:var(--amber)!important;} .b-purple{--ib:var(--purple-soft);--ic:var(--purple)!important;}
+
+  /* ─── CHARTS ─── */
+  .chart-row { display:grid; gap:1.25rem; }
+  .cr-main { grid-template-columns:2fr 1fr; }
+  .cr-3 { grid-template-columns:1fr 1fr 1fr; }
+  .cr-full { grid-template-columns:1fr; }
+
+  .panel {
+    background:var(--surface); border:1.5px solid var(--border); border-radius:var(--r);
+    padding:1.4rem; box-shadow:var(--shadow);
+  }
+  .ph { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:1.2rem; }
+  .ph-left { }
+  .ph-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:0.95rem; font-weight:700; }
+  .ph-sub { font-size:0.74rem; color:var(--text-m); margin-top:3px; }
+  .ph-actions { display:flex; gap:5px; }
+  .ph-seg {
+    background:var(--surface2); border:1px solid var(--border); color:var(--text-m);
+    border-radius:6px; padding:4px 10px; font-size:0.72rem; font-weight:600;
+    cursor:pointer; transition:all var(--tr);
+  }
+  .ph-seg.active { background:var(--blue); border-color:var(--blue); color:#fff; }
+
+  .canvas-wrap { position:relative; width:100%; }
+
+  /* ─── HEATMAP ─── */
+  .heatmap-grid-wrap { overflow-x:auto; }
+  .hm-labels-row {
+    display:grid; grid-template-columns:46px repeat(24,1fr); gap:3px; margin-bottom:4px;
+  }
+  .hm-h-lbl { font-size:0.6rem; color:var(--text-m); font-weight:700; text-align:center; }
+  .hm-row-wrap { display:grid; grid-template-columns:46px repeat(24,1fr); gap:3px; margin-bottom:3px; align-items:center; }
+  .hm-day-lbl { font-size:0.72rem; font-weight:700; color:var(--text-m); text-align:right; padding-right:10px; }
+  .hm-cell {
+    aspect-ratio:1.2; border-radius:3px; cursor:crosshair;
+    transition:transform .1s, box-shadow .1s;
+    background:rgba(0,0,0,.04);
+  }
+  [data-theme="dark"] .hm-cell { background:rgba(255,255,255,.03); }
+  .hm-cell:hover { transform:scale(1.6); z-index:10; position:relative; box-shadow:0 0 10px rgba(251,188,4,.5); }
+  .hm-tip {
+    position:fixed; z-index:9999; background:var(--text); color:var(--surface);
+    border-radius:8px; padding:8px 12px; font-size:0.76rem; font-weight:700;
+    pointer-events:none; display:none; white-space:nowrap; box-shadow:var(--shadow-md);
+  }
+
+  /* ─── TOP 10 DISPOSITIONS TABLE ─── */
+  .top-10-row { display:flex; align-items:center; padding:9px 0; border-bottom:1px solid var(--border); gap:10px; }
+  .top-10-row:last-child { border-bottom:none; }
+  .top-10-rank { width:22px; height:22px; border-radius:6px; background:var(--blue-soft); color:var(--blue); font-size:0.72rem; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .top-10-rank.gold { background:rgba(251,188,4,.15); color:var(--amber); }
+  .top-10-name { flex:1; font-size:0.82rem; font-weight:600; color:var(--text2); }
+  .top-10-bar-wrap { width:120px; height:6px; background:var(--surface2); border-radius:99px; overflow:hidden; }
+  .top-10-bar { height:100%; border-radius:99px; background:var(--blue); transition:width .5s ease; }
+  .top-10-count { font-family:'Plus Jakarta Sans',sans-serif; font-size:0.85rem; font-weight:800; color:var(--text); min-width:36px; text-align:right; }
+  .top-10-pct { font-size:0.72rem; color:var(--text-m); font-weight:600; min-width:38px; text-align:right; }
+
+  /* Legend */
+  .legend { display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
+  .lg-item { display:flex; align-items:center; gap:5px; font-size:0.74rem; color:var(--text-m); font-weight:500; }
+  .lg-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .lg-line { width:16px; height:2px; border-radius:2px; flex-shrink:0; }
+
+  /* Utility */
+  @media(max-width:1280px) { .hero-row{grid-template-columns:repeat(2,1fr);} .cr-main{grid-template-columns:1fr;} .cr-3{grid-template-columns:1fr 1fr;} }
+  @media(max-width:900px) { .cr-3{grid-template-columns:1fr;} .sidebar{display:none;} }
+  </style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="hdr">
+  <a href="/campaign" class="hdr-logo">
+    <div class="hdr-lm">
+      <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="6" fill="white"/><rect x="8" y="8" width="16" height="3" rx="1.5" fill="#1A73E8"/><rect x="8" y="14" width="10" height="3" rx="1.5" fill="#1A73E8"/><rect x="8" y="20" width="16" height="3" rx="1.5" fill="rgba(26,115,232,0.35)"/></svg>
+    </div>
+    <span class="hdr-ln">FreshBus Analytics</span>
+  </a>
+  <div class="hdr-sep"></div>
+  <div class="hdr-scope">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+    Inbound Scope
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
+  </div>
+  <div class="hdr-fill"></div>
+
+  <!-- Date pickers -->
+  <div class="hdr-datewrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    <input type="text" id="filter_start_date" placeholder="Start Date" readonly>
+    <span class="sep">→</span>
+    <input type="text" id="filter_end_date" placeholder="End Date" readonly>
+  </div>
+
+  <!-- View period -->
+  <div class="hdr-vbtns">
+    <button class="hdr-vbtn" data-view="1hr">1 Hr</button>
+    <button class="hdr-vbtn" data-view="2hr">2 Hr</button>
+    <button class="hdr-vbtn" data-view="3hr">3 Hr</button>
+    <button class="hdr-vbtn active" data-view="daily">Daily</button>
+    <button class="hdr-vbtn" data-view="yesterday">Yesterday</button>
+    <button class="hdr-vbtn" data-view="weekly">Weekly</button>
+    <button class="hdr-vbtn" data-view="monthly">Monthly</button>
+  </div>
+
+  <!-- Actions -->
+  <div class="hdr-acts">
+    <button class="hdr-ibtn" id="refreshBtn" title="Refresh data">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 019-9 9 9 0 016.36 2.64L21 9M21 3v6h-6M21 12a9 9 0 01-9 9 9 9 0 01-6.36-2.64L3 15M3 21v-6h6"/></svg>
+    </button>
+    <button class="hdr-ibtn" id="themeBtn" title="Toggle dark/light">
+      <svg id="themeIco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+  </div>
+
+  <div class="hdr-user">
+    <div class="hdr-av"><img src="https://ui-avatars.com/api/?name=Admin&background=1A73E8&color=fff&size=64" alt=""></div>
+    <span class="hdr-un">Admin</span>
+  </div>
+</header>
+
+<div class="app-body">
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sb-sec">Status</div>
+  <div class="sb-sync"><div class="sb-dot"></div><span>OzoneTel Live</span></div>
+
+  <div class="sb-sec">Filters</div>
+
+  <div class="sb-fg">
+    <label>Skill Type</label>
+    <select id="f_skill" name="skill"><option value="">All Skills</option></select>
+  </div>
+  <div class="sb-fg">
+    <label>Campaign</label>
+    <select id="f_campaign" name="campaign"><option value="">All Campaigns</option></select>
+  </div>
+  <div class="sb-fg">
+    <label>Call Status</label>
+    <select id="f_status" name="status"><option value="">All Statuses</option></select>
+  </div>
+  <div class="sb-fg">
+    <label>Agent Name</label>
+    <select id="f_agent" name="agent"><option value="">All Agents</option></select>
+  </div>
+  <div class="sb-fg">
+    <label>Call Type</label>
+    <select id="f_call_type" name="call_type">
+      <option value="inbound" selected>Inbound</option>
+      <option value="">All Call Types</option>
+    </select>
+  </div>
+  <div class="sb-fg">
+    <label>Hangup By</label>
+    <select id="f_hangup_by" name="hangup_by"><option value="">All Hangup By</option></select>
+  </div>
+  <div class="sb-fg">
+    <label>Disconnection Status</label>
+    <select id="f_dial_status" name="dial_status"><option value="">All Disconnection Statuses</option></select>
+  </div>
+  <div class="sb-fg">
+    <label>Transfer Details</label>
+    <select id="f_transfer_details" name="transfer_details">
+      <option value="">All Transfer Details</option>
+      <option value="agent">Agent</option>
+      <option value="csat_ivr[ivr]">CSAT_IVR[IVR]</option>
+      <option value="phone">Phone</option>
+      <option value="n/a">N/A</option>
+    </select>
+  </div>
+  <div class="sb-fg">
+    <label>Ratings</label>
+    <select id="f_ratings" name="ratings">
+      <option value="">All Ratings</option>
+      <option value="0">0</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  </div>
+  <div class="sb-fg">
+    <label>Disposition</label>
+    <select id="f_disposition" name="disposition"><option value="">All Dispositions</option></select>
+  </div>
+
+  <div class="sb-sec" style="margin-top:.5rem;">Actions</div>
+  <button class="sb-btn sb-btn-primary" id="applyBtn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    Apply Filters
+  </button>
+  <button class="sb-btn sb-btn-primary" id="clearBtn" style="background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);margin-top:2px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+    Reset Filters
+  </button>
+  <button class="sb-btn sb-btn-yellow" id="syncBtn" style="margin-top:8px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 019-9 9 9 0 016.36 2.64L21 9M21 3v6h-6"/></svg>
+    Run Sync
+  </button>
+  <button class="sb-btn sb-btn-warn" id="wipeBtn" style="margin-top:3px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
+    Wipe Database
+  </button>
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="app-main">
+
+  <!-- Page Title -->
+  <div class="pg-head">
+    <div>
+      <h1>Inbound Intelligence</h1>
+      <p id="dataRangeLabel">Live performance analytics · All metrics per business formulas</p>
+    </div>
+    <span class="pg-badge" id="recordsBadge">Loading…</span>
+  </div>
+
+  <!-- ALWAYS VISIBLE: 4 Hero KPIs -->
+  <div class="hero-row">
+    <div class="hero-card" style="--accent:var(--blue)">
+      <div class="hc-lbl">Total Calls Offered</div>
+      <div class="hc-val c-blue" id="h-total">—</div>
+      <div class="hc-sub">All incoming trunks</div>
+    </div>
+    <div class="hero-card" style="--accent:var(--green)">
+      <div class="hc-lbl">Service Level (SL%)</div>
+      <div class="hc-val c-green"><span id="h-sl_pct">—</span><span class="unit">%</span></div>
+      <div class="hc-sub" id="h-sl_calls_sub">— calls answered ≤30s</div>
+    </div>
+    <div class="hero-card" style="--accent:var(--red)">
+      <div class="hc-lbl">Net Abandonment</div>
+      <div class="hc-val c-red"><span id="h-net_abn">—</span></div>
+      <div class="hc-sub"><span id="h-net_pct">—</span>% Net Abn Rate</div>
+    </div>
+    <div class="hero-card" style="--accent:var(--amber)">
+      <div class="hc-lbl">Answered AHT</div>
+      <div class="hc-val c-amber"><span id="h-aht">—</span><span class="unit">s</span></div>
+      <div class="hc-sub">Avg handling duration</div>
+    </div>
+  </div>
+
+  <!-- SEGMENT SWITCHER -->
+  <div class="seg-bar">
+    <button class="seg-btn active" data-bunch="traffic">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Volume & Funnel
+    </button>
+    <button class="seg-btn" data-bunch="service">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+      Service & Ops
+    </button>
+    <button class="seg-btn" data-bunch="failure">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+      Abandonment
+    </button>
+    <button class="seg-btn" data-bunch="quality">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+      Exceptions & QA
+    </button>
+  </div>
+
+  <!-- BUNCH 1: Volume & Funnel -->
+  <div class="bunch active" id="bunch-traffic">
+    <div class="bunch-grid">
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Calls Answered</span><div class="mc-icon b-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div></div><div class="mc-val c-green" id="m-answered">—</div><div class="mc-foot">Status = Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Overall Abandoned</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.5 16.5L19 19M5.3 5.3A14.96 14.96 0 001 12"/></svg></div></div><div class="mc-val c-red" id="m-overall_abn">—</div><div class="mc-foot">Status = Unanswered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Answer Level (AL%)</span><div class="mc-icon b-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div></div><div class="mc-val c-green"><span id="m-al_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Answered / Agent Offered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">WH Calls Offered</span><div class="mc-icon b-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div></div><div class="mc-val c-purple" id="m-wh_offered">—</div><div class="mc-foot">Campaign = WomenHelpline</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">WH Calls Answered</span><div class="mc-icon b-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div></div><div class="mc-val c-green" id="m-wh_answered">—</div><div class="mc-foot">WomenHelpline + Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Travel Update Offered</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div></div><div class="mc-val" id="m-travel_update_offered">—</div><div class="mc-foot">Campaign = TravelUpdate</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Inbound + WH Offered</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div></div><div class="mc-val" id="m-inbound_wh_offered">—</div><div class="mc-foot">Total − TravelUpdate</div></div>
+    </div>
+  </div>
+
+  <!-- BUNCH 2: Service & Ops -->
+  <div class="bunch" id="bunch-service">
+    <div class="bunch-grid">
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Agent Calls Offered</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div></div><div class="mc-val" id="m-agent_offered">—</div><div class="mc-foot">Agent ≠ blank, Answered + Unanswered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">SL Calls (≤30s)</span><div class="mc-icon b-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div></div><div class="mc-val c-green" id="m-sl_calls">—</div><div class="mc-foot">TTA ≤30s + Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Service Level (SL%)</span><div class="mc-icon b-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div></div><div class="mc-val c-green"><span id="m-sl_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">SL Calls / Agent Offered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Avg Wait Time</span><div class="mc-icon b-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div><div class="mc-val c-amber"><span id="m-avg_wait">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Avg(Time to Answer)</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Avg Hold Time</span><div class="mc-icon b-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div><div class="mc-val"><span id="m-avg_hold">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Avg Hold Time where Hold &gt;0</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">On Hold Calls</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div><div class="mc-val" id="m-on_hold">—</div><div class="mc-foot">Hold Time &gt; 0s</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Handling &gt;5 mins</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/></svg></div></div><div class="mc-val c-red" id="m-long_calls">—</div><div class="mc-foot">Answered + Duration &gt;300s</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Long Call %</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg></div></div><div class="mc-val c-red"><span id="m-long_call_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Long Calls / Answered</div></div>
+    </div>
+  </div>
+
+  <!-- BUNCH 3: Abandonment -->
+  <div class="bunch" id="bunch-failure">
+    <div class="bunch-grid">
+      <div class="mc" style="border-color:rgba(220,38,38,.3)"><div class="mc-head"><span class="mc-lbl">Net Abandoned Calls</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div></div><div class="mc-val c-red" id="m-net_abn">—</div><div class="mc-foot">Agent ≠ blank, Unanswered, Duration &gt;5s</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Net Abn %</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg></div></div><div class="mc-val c-red"><span id="m-net_abn_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Net Abn / Total Offered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Short Call Abn</span><div class="mc-icon b-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div></div><div class="mc-val c-amber" id="m-short_abn">—</div><div class="mc-foot">Unanswered, Duration ≤5s</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Short Call % – Abn</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-short_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Short Abn / Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Gross Abn% (WO Short)</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div></div><div class="mc-val c-red"><span id="m-gross_abn_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">(Overall Abn − Short) / Total Offered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Queue Level Failure</span><div class="mc-icon b-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div></div><div class="mc-val c-purple" id="m-queue_level">—</div><div class="mc-foot">Agent = queue, Unanswered, &gt;5s</div></div>
+    </div>
+  </div>
+
+  <!-- BUNCH 4: Exceptions & QA -->
+  <div class="bunch" id="bunch-quality">
+    <div class="bunch-grid">
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Repeat Calls</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div></div><div class="mc-val" id="m-same_day_repeat">—</div><div class="mc-foot">Same Caller + Same Date, count &gt;1</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Same Day Repeat %</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div></div><div class="mc-val"><span id="m-repeat_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Same Day Repeats / Total Offered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Same Day Disp. Repeat %</span><div class="mc-icon b-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div></div><div class="mc-val c-amber"><span id="m-disp_repeat_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Disp Repeat / Calls Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call Drop</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.5 16.5L19 19M5.3 5.3A14.96 14.96 0 001 12"/></svg></div></div><div class="mc-val c-red" id="m-call_drop">—</div><div class="mc-foot">Answered + Disp = Call Drop</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Blank Call</span><div class="mc-icon b-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div></div><div class="mc-val c-amber" id="m-blank_call">—</div><div class="mc-foot">Answered + Disp = Blank Call</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call Back</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 14 4 19 4 14"/><path d="M20 4v7a4 4 0 01-4 4H4"/></svg></div></div><div class="mc-val" id="m-call_back">—</div><div class="mc-foot">Call Drop + Blank Call</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Agent Disconnected</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="18" y1="8" x2="23" y2="13"/><line x1="23" y1="8" x2="18" y2="13"/></svg></div></div><div class="mc-val c-red" id="m-agent_disconnected">—</div><div class="mc-foot">Answered + Hangup = AgentHangup</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Agent Disconnected %</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div></div><div class="mc-val c-red"><span id="m-agent_disconnected_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Agent Disconnected / Answered</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ CHARTS ROW 1: Trend + Distribution ═══ -->
+  <div class="chart-row cr-main">
+    <div class="panel">
+      <div class="ph">
+        <div class="ph-left">
+          <div class="ph-title">Volume vs Abandonment Trend</div>
+          <div class="ph-sub">Comparison over selected period</div>
+        </div>
+        <div class="legend">
+          <div class="lg-item"><div class="lg-line" style="background:#1A73E8"></div> Offered</div>
+          <div class="lg-item"><div class="lg-line" style="background:#16a34a; border-style:dashed"></div> Answered</div>
+          <div class="lg-item"><div class="lg-dot" style="background:#dc2626"></div> Abandoned</div>
+        </div>
+      </div>
+      <div class="canvas-wrap" style="height:300px"><canvas id="trendChart"></canvas></div>
+    </div>
+
+    <div class="panel">
+      <div class="ph">
+        <div class="ph-title">Outcome Distribution</div>
+        <div class="ph-actions">
+          <button class="ph-seg active" data-dist="dispositions">Disp</button>
+          <button class="ph-seg" data-dist="campaigns">Camp</button>
+          <button class="ph-seg" data-dist="agents">Agents</button>
+        </div>
+      </div>
+      <div class="canvas-wrap" style="height:300px"><canvas id="distChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ═══ CHARTS ROW 2: Heatmap ═══ -->
+  <div class="panel">
+    <div class="ph">
+      <div class="ph-left">
+        <div class="ph-title">Traffic Intensity Heatmap</div>
+        <div class="ph-sub">Call volume by Day of Week × Hour of Day</div>
+      </div>
+      <div class="legend">
+        <div class="lg-item"><div class="lg-dot" style="background:#dbeafe"></div>Low</div>
+        <div class="lg-item"><div class="lg-dot" style="background:#93c5fd"></div>Mid</div>
+        <div class="lg-item"><div class="lg-dot" style="background:#FBBC04"></div>High</div>
+        <div class="lg-item"><div class="lg-dot" style="background:#ea580c"></div>Peak</div>
+      </div>
+    </div>
+    <div class="heatmap-grid-wrap">
+      <div class="hm-labels-row" id="hmHdrs"></div>
+      <div id="hmRows"></div>
+    </div>
+  </div>
+
+  <!-- ═══ BUCKETIZATION INSIGHTS ═══ -->
+  <div class="chart-row cr-main">
+    <div class="panel">
+      <div class="ph">
+        <div class="ph-left">
+          <div class="ph-title">Handling & Wait Time Buckets</div>
+          <div class="ph-sub">Call counts grouped by duration thresholds</div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div>
+          <div style="font-size:0.75rem; font-weight:700; color:var(--text-m); margin-bottom:0.5rem; text-align:center;">Wait Time (TTA)</div>
+          <div class="canvas-wrap" style="height:200px"><canvas id="ttaBucketChart"></canvas></div>
+        </div>
+        <div>
+          <div style="font-size:0.75rem; font-weight:700; color:var(--text-m); margin-bottom:0.5rem; text-align:center;">Talk Time (AHT)</div>
+          <div class="canvas-wrap" style="height:200px"><canvas id="durBucketChart"></canvas></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="ph">
+        <div class="ph-left">
+          <div class="ph-title">CSAT Ratings Distribution</div>
+          <div class="ph-sub">Customer feedback count (0 to 5 stars)</div>
+        </div>
+      </div>
+      <div class="canvas-wrap" style="height:220px"><canvas id="ratingDistChart"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ═══ CHARTS ROW 3: 3-col comparison ═══ -->
+  <div class="chart-row cr-3">
+    <div class="panel">
+      <div class="ph"><div class="ph-title">SL% vs AL% Comparison</div></div>
+      <div class="canvas-wrap" style="height:260px"><canvas id="slAlChart"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="ph"><div class="ph-title">Abandonment Breakdown</div></div>
+      <div class="canvas-wrap" style="height:260px"><canvas id="abnChart"></canvas></div>
+    </div>
+    <div class="panel">
+      <div class="ph"><div class="ph-title">Quality Radar</div></div>
+      <div class="canvas-wrap" style="height:260px"><canvas id="qaRadar"></canvas></div>
+    </div>
+  </div>
+
+  <!-- ═══ TOP 10 DISPOSITIONS ═══ -->
+  <div class="panel">
+    <div class="ph">
+      <div class="ph-left">
+        <div class="ph-title">Top 10 Dispositions</div>
+        <div class="ph-sub">Ranked by call frequency in selected period</div>
+      </div>
+    </div>
+    <div id="top10List"></div>
+  </div>
+
+</main>
+</div>
+
+<div class="hm-tip" id="hmTip"></div>
+
+<script src="/script.js"></script>
+</body>
+</html>

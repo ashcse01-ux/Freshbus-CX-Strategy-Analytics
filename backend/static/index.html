@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshBus Analytics Platform | Sign In</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <style>
+    body { margin:0; font-family:'Inter',sans-serif; overflow:hidden; }
+    .login-split { display:flex; height:100vh; }
+
+    /* Left branding panel */
+    .lp-left {
+      flex:1; position:relative; overflow:hidden;
+      background:linear-gradient(145deg,#061a3a 0%,#0a2d6e 55%,#1557b0 100%);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .lp-left::before {
+      content:''; position:absolute; width:700px; height:700px; border-radius:50%;
+      background:radial-gradient(circle,rgba(251,188,4,.13) 0%,transparent 65%);
+      top:-200px; right:-200px; pointer-events:none;
+    }
+    .lp-left::after {
+      content:''; position:absolute; width:500px; height:500px; border-radius:50%;
+      background:radial-gradient(circle,rgba(26,115,232,.22) 0%,transparent 65%);
+      bottom:-150px; left:-100px; pointer-events:none;
+    }
+    .lp-inner { position:relative; z-index:2; padding:4rem; max-width:580px; }
+
+    /* Logo */
+    .lp-logo { display:flex; align-items:center; gap:16px; margin-bottom:3.5rem; }
+    .lp-logo-mark {
+      width:60px; height:60px; border-radius:14px;
+      background:#1A73E8; display:flex; align-items:center; justify-content:center;
+      box-shadow:0 8px 32px rgba(26,115,232,.45); flex-shrink:0;
+    }
+    .lp-logo-mark svg { width:36px; height:36px; }
+    .lp-logo-text { font-family:'Plus Jakarta Sans',sans-serif; }
+    .lp-logo-text .brand { font-size:1.8rem; font-weight:800; color:#fff; line-height:1; letter-spacing:-0.02em; }
+    .lp-logo-text .tag { font-size:0.78rem; font-weight:500; color:rgba(255,255,255,.5); margin-top:4px; letter-spacing:0.04em; text-transform:uppercase; }
+
+    .lp-headline {
+      font-family:'Plus Jakarta Sans',sans-serif; font-size:2.7rem; font-weight:800;
+      color:#fff; line-height:1.12; margin-bottom:1.2rem; letter-spacing:-0.04em;
+    }
+    .lp-headline .hl { color:#FBBC04; }
+    .lp-desc { color:rgba(255,255,255,.65); font-size:1.05rem; line-height:1.65; max-width:440px; margin-bottom:2.5rem; }
+
+    /* Floating metric pills */
+    .lp-pills { display:flex; flex-wrap:wrap; gap:10px; }
+    .lp-pill {
+      display:flex; align-items:center; gap:8px;
+      background:rgba(255,255,255,.09); backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.15); border-radius:100px;
+      padding:8px 16px; color:rgba(255,255,255,.85); font-size:0.82rem; font-weight:500;
+    }
+    .lp-pill .dot { width:6px; height:6px; border-radius:50%; background:#FBBC04; flex-shrink:0; }
+
+    /* Decorative stats cards */
+    .lp-stats { margin-top:3rem; display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+    .lp-stat {
+      background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12);
+      border-radius:12px; padding:1rem 1.2rem;
+    }
+    .lp-stat .sv { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.6rem; font-weight:800; color:#FBBC04; }
+    .lp-stat .sl { font-size:0.72rem; color:rgba(255,255,255,.55); margin-top:2px; font-weight:500; }
+
+    /* Right form panel */
+    .lp-right {
+      width:480px; flex-shrink:0;
+      background:#fff; display:flex; flex-direction:column;
+      justify-content:center; padding:3.5rem 3.5rem;
+      box-shadow:-24px 0 80px rgba(0,0,0,.13);
+    }
+    .lp-form-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.9rem; font-weight:800; color:#0f1d35; margin-bottom:6px; }
+    .lp-form-sub { color:#6b7280; font-size:0.9rem; margin-bottom:2.2rem; }
+
+    .form-field { margin-bottom:1.4rem; }
+    .form-field label { display:block; font-size:0.82rem; font-weight:600; color:#374151; margin-bottom:6px; }
+    .input-group { position:relative; display:flex; align-items:center; }
+    .input-group .ico { position:absolute; left:14px; color:#9ca3af; width:16px; pointer-events:none; }
+    .input-group svg { width:16px; height:16px; }
+    .input-group input {
+      width:100%; height:48px; padding:0 14px 0 44px;
+      background:#f9fafb; border:1.5px solid #e5e7eb; border-radius:10px;
+      color:#111827; font-size:0.95rem; font-family:inherit; outline:none;
+      transition:border-color .2s, box-shadow .2s;
+    }
+    .input-group input:focus { border-color:#1A73E8; box-shadow:0 0 0 3px rgba(26,115,232,.12); background:#fff; }
+    .input-group input::placeholder { color:#9ca3af; }
+
+    .err-box {
+      display:none; background:#fef2f2; border:1px solid rgba(220,38,38,.25);
+      color:#dc2626; border-radius:8px; padding:10px 14px;
+      font-size:0.82rem; font-weight:600; margin-bottom:1rem;
+    }
+
+    .btn-sign {
+      width:100%; height:50px; background:#1A73E8; color:#fff;
+      border:none; border-radius:10px; font-family:inherit;
+      font-size:0.97rem; font-weight:700; cursor:pointer;
+      display:flex; align-items:center; justify-content:center; gap:8px;
+      transition:all .2s; box-shadow:0 4px 16px rgba(26,115,232,.3);
+      margin-bottom:1.2rem;
+    }
+    .btn-sign:hover { background:#1557b0; transform:translateY(-1px); box-shadow:0 8px 24px rgba(26,115,232,.35); }
+    .btn-sign svg { width:18px; }
+
+    .or-div { display:flex; align-items:center; gap:12px; font-size:0.78rem; color:#9ca3af; font-weight:600; margin-bottom:1.2rem; }
+    .or-div::before, .or-div::after { content:''; flex:1; height:1px; background:#e5e7eb; }
+
+    .btn-google {
+      width:100%; height:46px; background:#fff; border:1.5px solid #e5e7eb; border-radius:10px;
+      font-family:inherit; font-size:0.9rem; font-weight:600; color:#374151; cursor:pointer;
+      display:flex; align-items:center; justify-content:center; gap:10px;
+      transition:all .2s;
+    }
+    .btn-google:hover { background:#f9fafb; border-color:#d1d5db; }
+    .btn-google svg { width:20px; }
+
+    .form-footer { text-align:center; margin-top:1.8rem; font-size:0.78rem; color:#9ca3af; }
+    .form-footer a { color:#1A73E8; font-weight:600; text-decoration:none; }
+
+    @media(max-width:900px) {
+      .lp-left { display:none; }
+      .lp-right { width:100%; padding:2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="login-split">
+  <!-- LEFT BRANDING PANEL -->
+  <div class="lp-left">
+    <div class="lp-inner">
+      <!-- Logo -->
+      <div class="lp-logo">
+        <div class="lp-logo-mark">
+          <!-- FreshBus official chevron-F mark, traced from brand assets -->
+          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Outer F vertical spine -->
+            <rect x="4" y="4" width="7" height="28" rx="2" fill="white"/>
+            <!-- Top horizontal bar — angled right like the brand chevron -->
+            <path d="M11 4 L32 4 L32 10 L18 10 L18 14 L11 14 Z" fill="white"/>
+            <!-- Middle horizontal bar — slightly shorter, brand proportion -->
+            <path d="M11 16 L26 16 L26 22 L18 22 L18 26 L11 26 Z" fill="white" opacity="0.75"/>
+          </svg>
+        </div>
+        <div class="lp-logo-text">
+          <div class="brand">FreshBus</div>
+          <div class="tag">Analytics Platform</div>
+        </div>
+      </div>
+
+      <h1 class="lp-headline">
+        One Command Center<br>
+        <span class="hl">for All Analysis.</span>
+      </h1>
+      <p class="lp-desc">
+        FreshBus Analytics is your single source of truth — bringing together Inbound operations, call centre KPIs, agent performance, and real-time intelligence into one seamless platform.
+      </p>
+
+      <div class="lp-pills">
+        <div class="lp-pill"><div class="dot"></div> Service Level %</div>
+        <div class="lp-pill"><div class="dot"></div> Net Abn %</div>
+        <div class="lp-pill"><div class="dot"></div> AHT Analysis</div>
+        <div class="lp-pill"><div class="dot"></div> Heatmaps</div>
+        <div class="lp-pill"><div class="dot"></div> Top 10 Dispositions</div>
+        <div class="lp-pill"><div class="dot"></div> Agent Disconnect %</div>
+      </div>
+
+      <div class="lp-stats">
+        <div class="lp-stat"><div class="sv">30+</div><div class="sl">Tracked Metrics</div></div>
+        <div class="lp-stat"><div class="sv">Live</div><div class="sl">OzoneTel Sync</div></div>
+        <div class="lp-stat"><div class="sv">4</div><div class="sl">Metric Bunches</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM PANEL -->
+  <div class="lp-right">
+    <div class="lp-form-title">Welcome back 👋</div>
+    <div class="lp-form-sub">Sign in to your FreshBus Analytics dashboard</div>
+
+    <form id="loginForm">
+      <div class="form-field">
+        <label for="u">Username</label>
+        <div class="input-group">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <input type="text" id="u" placeholder="freshbus" autocomplete="username">
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="p">Password</label>
+        <div class="input-group">
+          <div class="ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          </div>
+          <input type="password" id="p" placeholder="••••••••••" autocomplete="current-password">
+        </div>
+      </div>
+
+      <div class="err-box" id="loginErr">Invalid username or password. Please try again.</div>
+
+      <button type="submit" class="btn-sign">
+        Sign In
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+
+      <div class="or-div">CONTINUE WITH</div>
+
+      <button type="button" class="btn-google">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+          <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+          <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+          <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+        </svg>
+        Sign in with Google
+      </button>
+    </form>
+
+    <div class="form-footer">FreshBus Internal Use Only &bull; <a href="#">Privacy Policy</a></div>
+  </div>
+</div>
+
+<script>
+  const CREDS = { user: 'freshbus', pass: 'freshbus@2024' };
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const u = document.getElementById('u').value.trim();
+    const p = document.getElementById('p').value;
+    if (u === CREDS.user && p === CREDS.pass) {
+      window.location.href = '/campaign';
+    } else {
+      document.getElementById('loginErr').style.display = 'block';
+    }
+  });
+</script>
+</body>
+</html>
