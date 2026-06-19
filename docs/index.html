@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="styles.css">
   <style>
     body { margin:0; font-family:'Inter',sans-serif; overflow:hidden; }
     .login-split { display:flex; height:100vh; }
@@ -235,7 +235,7 @@
     const u = document.getElementById('u').value.trim();
     const p = document.getElementById('p').value;
     if (u === CREDS.user && p === CREDS.pass) {
-      window.location.href = '/campaign';
+      window.location.href = 'campaign.html';
     } else {
       document.getElementById('loginErr').style.display = 'block';
     }

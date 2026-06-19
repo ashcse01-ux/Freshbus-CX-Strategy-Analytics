@@ -6,10 +6,17 @@
 (function () {
   'use strict';
 
+  // Base URL for backend API requests.
+  // If hosting the frontend on GitHub Pages, replace the URL below with your deployed FastAPI backend URL.
+  // If running locally, keep it empty to use relative paths.
+  const API_BASE = window.location.hostname.includes('github.io')
+    ? 'https://your-deployed-backend-api.com' // <-- REPLACE WITH YOUR LIVE BACKEND URL (e.g. Render/Heroku/AWS)
+    : '';
+
   /* ─────────────────────────────────────────────────────
-     GUARD — only initialise on /inbound
+     GUARD — only initialise on inbound.html
   ─────────────────────────────────────────────────────── */
-  if (!window.location.pathname.includes('/inbound')) return;
+  if (!window.location.pathname.includes('inbound.html')) return;
 
   /* ─────────────────────────────────────────────────────
      STATE
@@ -162,14 +169,14 @@
   $('syncBtn')?.addEventListener('click', async () => {
     const btn = $('syncBtn');
     btn.disabled = true; btn.textContent = 'Syncing…';
-    try { await fetch('/api/sync/run', { method: 'POST' }); } catch(e) {}
+    try { await fetch(API_BASE + '/api/sync/run', { method: 'POST' }); } catch(e) {}
     btn.disabled = false; btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px"><path d="M3 12a9 9 0 019-9 9 9 0 016.36 2.64L21 9M21 3v6h-6"/></svg> Run Sync';
     await fetchData();
   });
 
   $('wipeBtn')?.addEventListener('click', async () => {
     if (!confirm('⚠️ This will permanently delete ALL data. Are you absolutely sure?')) return;
-    try { await fetch('/api/sync/wipe', { method: 'DELETE' }); alert('Database wiped.'); } catch(e) {}
+    try { await fetch(API_BASE + '/api/sync/wipe', { method: 'DELETE' }); alert('Database wiped.'); } catch(e) {}
   });
 
   function animateSpin(id) {
@@ -185,7 +192,7 @@
   ─────────────────────────────────────────────────────── */
   async function loadFilters() {
     try {
-      const r = await fetch('/api/metrics/filters?parent_campaign=Inbound');
+      const r = await fetch(API_BASE + '/api/metrics/filters?parent_campaign=Inbound');
       if (!r.ok) return;
       const d = await r.json();
       const fillSelect = (id, values) => {
@@ -246,7 +253,7 @@
       if (sd) params.set('start_date', sd);
       if (ed) params.set('end_date', ed);
 
-      const res = await fetch('/api/metrics/aggregate?' + params.toString());
+      const res = await fetch(API_BASE + '/api/metrics/aggregate?' + params.toString());
       if (!res.ok) { console.error('API error', res.status); return; }
       apiData = await res.json();
       renderDashboard(apiData);
