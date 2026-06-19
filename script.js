@@ -7,16 +7,16 @@
   'use strict';
 
   // Base URL for backend API requests.
-  // If hosting the frontend on GitHub Pages, replace the URL below with your deployed FastAPI backend URL.
-  // If running locally, keep it empty to use relative paths.
+  // When running on GitHub Pages, this defaults to your local backend (http://localhost:8000) so you can test it.
+  // If you deploy your backend to the cloud (e.g. Render, AWS), replace this with your deployed backend URL.
   const API_BASE = window.location.hostname.includes('github.io')
-    ? 'https://your-deployed-backend-api.com' // <-- REPLACE WITH YOUR LIVE BACKEND URL (e.g. Render/Heroku/AWS)
+    ? 'http://localhost:8000'
     : '';
 
   /* ─────────────────────────────────────────────────────
-     GUARD — only initialise on inbound.html
+     GUARD — only initialise on /inbound or inbound.html
   ─────────────────────────────────────────────────────── */
-  if (!window.location.pathname.includes('inbound.html')) return;
+  if (!window.location.pathname.includes('/inbound') && !window.location.pathname.includes('inbound.html')) return;
 
   /* ─────────────────────────────────────────────────────
      STATE
