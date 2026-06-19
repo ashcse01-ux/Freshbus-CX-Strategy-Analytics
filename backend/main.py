@@ -82,16 +82,19 @@ async def startup_event():
 
     asyncio.create_task(sync.bootstrap_historical_data())
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DOCS_DIR = os.path.join(os.path.dirname(BASE_DIR), "docs")
+
 # Explicit UI Routes
 @app.get("/campaign")
 async def serve_campaign():
-    return FileResponse("static/campaign.html")
+    return FileResponse(os.path.join(DOCS_DIR, "campaign.html"))
 
 @app.get("/inbound")
 async def serve_inbound():
-    return FileResponse("static/inbound.html")
+    return FileResponse(os.path.join(DOCS_DIR, "inbound.html"))
 
 
 # Mount static files for simple HTML/JS frontend
-os.makedirs("static", exist_ok=True)
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+os.makedirs(DOCS_DIR, exist_ok=True)
+app.mount("/", StaticFiles(directory=DOCS_DIR, html=True), name="static")
