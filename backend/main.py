@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -11,6 +11,12 @@ import os
 # Create the Global Master database tables (CampaignGroups)
 models.MasterBase.metadata.create_all(bind=master_engine)
 app = FastAPI(title="Dashboard Backend API")
+
+@app.middleware("http")
+async def add_private_network_header(request: Request, call_next):
+    response = await call_next(request)
+    response.headers["Access-Control-Allow-Private-Network"] = "true"
+    return response
 
 app.add_middleware(
     CORSMiddleware,
