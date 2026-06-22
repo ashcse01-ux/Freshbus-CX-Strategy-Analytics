@@ -102,23 +102,29 @@
   let fpStart, fpEnd;
   if (window.flatpickr) {
     fpStart = flatpickr('#filter_start_date', {
-      ...fpOpts,
-      onChange: () => fetchData()
+      ...fpOpts
     });
     fpEnd = flatpickr('#filter_end_date', {
-      ...fpOpts,
-      onChange: () => fetchData()
+      ...fpOpts
     });
   }
 
   /* ─────────────────────────────────────────────────────
      VIEW PERIOD BUTTONS
   ─────────────────────────────────────────────────────── */
-  qsa('.hdr-vbtn').forEach(btn => {
+  qsa('.hdr-vbtn[data-view]').forEach(btn => {
     btn.addEventListener('click', () => {
-      qsa('.hdr-vbtn').forEach(b => b.classList.remove('active'));
+      qsa('.hdr-vbtn[data-view]').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       viewType = btn.dataset.view;
+
+      // Rule: If clicked after Go, clear the date range so default view is respected.
+      if (fpStart) fpStart.clear();
+      if (fpEnd) fpEnd.clear();
+
+      const goBtn = $('goBtn');
+      if (goBtn) goBtn.classList.remove('active');
+
       fetchData();
     });
   });
@@ -163,6 +169,13 @@
       }
     });
     fpStart?.clear(); fpEnd?.clear();
+    fetchData();
+  });
+
+  $('goBtn')?.addEventListener('click', () => {
+    qsa('.hdr-vbtn[data-view]').forEach(b => b.classList.remove('active'));
+    const goBtn = $('goBtn');
+    if (goBtn) goBtn.classList.add('active');
     fetchData();
   });
 
@@ -221,6 +234,10 @@
      CORE DATA FETCH
   ─────────────────────────────────────────────────────── */
   async function fetchData() {
+    const loader = $('dataLoader');
+    const goBtn = $('goBtn');
+    if (loader) loader.style.display = 'block';
+    if (goBtn) goBtn.disabled = true;
     try {
       const params = new URLSearchParams();
       params.set('parent_campaign', 'Inbound');
@@ -258,6 +275,10 @@
       apiData = await res.json();
       renderDashboard(apiData);
     } catch(e) { console.error('Fetch failed:', e); }
+    finally {
+      if (loader) loader.style.display = 'none';
+      if (goBtn) goBtn.disabled = false;
+    }
   }
 
   /* ─────────────────────────────────────────────────────

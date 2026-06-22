@@ -1,0 +1,11 @@
+I've conducted a deep analysis comparing the manual Excel tracker data against the data processed by the API dashboard in `metrics_inbound.db`. 
+
+I discovered the root causes for the discrepancies you pointed out and successfully patched the formulas in the backend (`routers/metrics.py`). The dashboard API will now produce numbers mathematically consistent with your manual tracking.
+
+Here are the critical fixes I implemented:
+
+**1. Pollution from "Manual" Outbound Calls (The biggest issue)**
+The system was pulling in ALL call interactions from OzoneTel, including manual calls made by agents dialing out (`Call_Type == 'manual'`). This was severely bloating your `Gross Abn%`, `Net Abn%`, and overall call volume, because manual dial drop-offs were behaving differently than inbound behavior. 
+* **Fix**: Added a core dataset filter. The dashboard now explicitly filters for `Call_Type == 'inbound'` by default, aligning the total call volumes exactly to the patterns seen in your tracker.
+
+<truncated 2132 bytes>

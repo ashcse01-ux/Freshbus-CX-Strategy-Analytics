@@ -94,6 +94,27 @@ def read_aggregated_metrics(
     # OzoneTel may return multiple legs for the same Call_ID (e.g. transfer/retry). 
     # To match manual tracking and avoid double-counting, we resolve each Call_ID to a single "best" leg.
     if 'Call_ID' in df.columns and not df.empty:
+        # Pre-calculate TTA_Sec to compute cumulative wait time across all legs
+        df['temp_TTA_Sec'] = df['Time_to_Answer'].apply(parse_time_to_seconds)
+        df['temp_Dur_Sec'] = df['Duration'].apply(parse_time_to_seconds)
+        
+        # Calculate the absolute minimum Timestamp (when the very first leg started)
+        min_ts = df.groupby('Call_ID')['Timestamp'].min()
+        df['Min_Timestamp'] = df['Call_ID'].map(min_ts)
+        
+        # The time the agent actually picked up = this leg's Timestamp + this leg's TTA
+        df['Actual_Answer_Time'] = df['Timestamp'] + pd.to_timedelta(df['temp_TTA_Sec'], unit='s')
+        # The time the leg actually ended
+        df['Actual_End_Time'] = df['Timestamp'] + pd.to_timedelta(df['temp_Dur_Sec'], unit='s')
+        
+        # Cumulative Wait Time = (Actual Answer Time) - (Very First Leg Start Time)
+        df['Cum_TTA_Sec'] = (df['Actual_Answer_Time'] - df['Min_Timestamp']).dt.total_seconds().fillna(0).astype(int)
+        
+        # Cumulative Duration = (Max End Time) - (Very First Leg Start Time)
+        max_end_ts = df.groupby('Call_ID')['Actual_End_Time'].max()
+        df['Max_End_Timestamp'] = df['Call_ID'].map(max_end_ts)
+        df['Cum_Dur_Sec'] = (df['Max_End_Timestamp'] - df['Min_Timestamp']).dt.total_seconds().fillna(0).astype(int)
+        
         # Priority: answered > unanswered, agent assigned > no agent, disposition > no disposition
         df['_status_score'] = df['Status'].apply(lambda x: 0 if str(x).lower().strip() == 'answered' else 1)
         df['_agent_score'] = df['Agent'].apply(lambda x: 0 if str(x).strip() != '' else 1)
@@ -101,7 +122,13 @@ def read_aggregated_metrics(
         
         df = df.sort_values(by=['_status_score', '_agent_score', '_disp_score', 'Timestamp'])
         df = df.drop_duplicates(subset=['Call_ID'], keep='first')
-        df = df.drop(columns=['_status_score', '_agent_score', '_disp_score'])
+        
+        # Override the native Time_to_Answer value with our computed cumulative wait time
+        # so it accurately reflects the total time the customer spent waiting in the queue + ringing.
+        df['TTA_Sec_Override'] = df['Cum_TTA_Sec']
+        df['Duration_Sec_Override'] = df['Cum_Dur_Sec']
+        
+        df = df.drop(columns=['_status_score', '_agent_score', '_disp_score', 'Min_Timestamp', 'Actual_Answer_Time', 'Actual_End_Time', 'Max_End_Timestamp', 'Cum_TTA_Sec', 'Cum_Dur_Sec', 'temp_TTA_Sec', 'temp_Dur_Sec'])
 
     # --- DEFAULT DATE INTELLIGENCE ---
     # We want "Today" for Daily, but if Today is empty, fall back to the Latest Day found.
@@ -189,8 +216,8 @@ def read_aggregated_metrics(
         }
 
     # Time Normalization (convert to seconds)
-    df['TTA_Sec'] = df['Time_to_Answer'].apply(parse_time_to_seconds)
-    df['Duration_Sec'] = df['Duration'].apply(parse_time_to_seconds)
+    df['TTA_Sec'] = df['TTA_Sec_Override'] if 'TTA_Sec_Override' in df.columns else df['Time_to_Answer'].apply(parse_time_to_seconds)
+    df['Duration_Sec'] = df['Duration_Sec_Override'] if 'Duration_Sec_Override' in df.columns else df['Duration'].apply(parse_time_to_seconds)
     df['Hold_Sec'] = df['Hold_Time'].apply(parse_time_to_seconds)
     df['Handling_Sec'] = df['Handling_Time'].apply(parse_time_to_seconds)
 
@@ -209,20 +236,21 @@ def read_aggregated_metrics(
 
     # 2. Failure Metrics (Abandonment)
     overall_abn = int((df['Status'] == 'unanswered').sum())
-    # Net Abn: Agent assigned, Unanswered, Duration > 5s
-    net_abn_calls = int(((df['Agent'] != '') & (df['Status'] == 'unanswered') & (df['Duration_Sec'] > 5)).sum())
-    short_abn_calls = int(((df['Agent'] != '') & (df['Status'] == 'unanswered') & (df['Duration_Sec'] <= 5)).sum())
+    # Net Abn: Unanswered, Duration > 5s, Agent assigned
+    net_abn_calls = int(((df['Status'] == 'unanswered') & (df['Duration_Sec'] > 5) & (df['Agent'] != '')).sum())
+    short_abn_calls = int(((df['Status'] == 'unanswered') & (df['Duration_Sec'] <= 5) & (df['Agent'] != '')).sum())
     
     # Queue Level Failure (Abandoned before reaching an agent)
     queue_fail = int(((df['Agent'] == '') & (df['Status'] == 'unanswered')).sum())
 
     # 3. Quality & Efficiency Metrics
-    sl_calls = int(((df['TTA_Sec'] <= 20) & (df['Status'] == 'answered')).sum())
+    sl_calls = int(((df['TTA_Sec'] <= 30) & (df['Status'] == 'answered')).sum())
     on_hold_calls = int((df['Hold_Sec'] > 0).sum())
     long_calls_5m = int(((df['Status'] == 'answered') & (df['Handling_Sec'] > 300)).sum())
     
     # 4. Averages
-    avg_wait_time = df['TTA_Sec'].mean() if not df.empty else 0
+    ans_df = df[df['Status'] == 'answered']
+    avg_wait_time = ans_df['TTA_Sec'].mean() if not ans_df.empty else 0
     avg_hold_time = df[df['Hold_Sec'] > 0]['Hold_Sec'].mean() if (df['Hold_Sec'] > 0).any() else 0
     answered_aht = df[df['Status'] == 'answered']['Handling_Sec'].mean() if calls_answered > 0 else 0
 
@@ -233,7 +261,7 @@ def read_aggregated_metrics(
     repeat_calls_count = int(repeat_mask.sum())
     
     # Same Day Same Disposition Repeat (Count all rows involved in a same day disp repeat)
-    disp_repeat_mask = df.duplicated(subset=['Caller_No', 'Day_Key', 'Disposition'], keep=False)
+    disp_repeat_mask = df.duplicated(subset=['Caller_No', 'Day_Key', 'Disposition'], keep='first')
     same_day_disp_repeat = int(disp_repeat_mask.sum())
 
     # Additional Drop/Disconnect Metrics

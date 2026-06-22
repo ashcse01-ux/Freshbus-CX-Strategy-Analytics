@@ -1,0 +1,16 @@
+# Database files
+*.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+freshbus/
+
+# Environment
+.env
+.DS_Store
+
+# Large data files
+*.xlsx
+*.csv
