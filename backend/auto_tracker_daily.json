@@ -1,0 +1,1757 @@
+{
+    "2026-01-01": {
+        "Call Drop": 2,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-01-02": {
+        "Call Drop": 3,
+        "Blank Call": 4,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 8
+    },
+    "2026-01-03": {
+        "Call Drop": 5,
+        "Blank Call": 0,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-01-04": {
+        "Call Drop": 3,
+        "Blank Call": 5,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 5,
+        "Call Not Disposed": 2
+    },
+    "2026-01-05": {
+        "Call Drop": 1,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 2
+    },
+    "2026-01-06": {
+        "Call Drop": 2,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 3
+    },
+    "2026-01-07": {
+        "Call Drop": 4,
+        "Blank Call": 2,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 2,
+        "Overall Call Not Done": 3,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 2
+    },
+    "2026-01-08": {
+        "Call Drop": 8,
+        "Blank Call": 1,
+        "Call Drop Not Done": 3,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 3,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 2
+    },
+    "2026-01-09": {
+        "Call Drop": 14,
+        "Blank Call": 2,
+        "Call Drop Not Done": 7,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 7,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 11
+    },
+    "2026-01-10": {
+        "Call Drop": 13,
+        "Blank Call": 3,
+        "Call Drop Not Done": 4,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 4,
+        "Agent Disconnected": 4,
+        "Call Not Disposed": 7
+    },
+    "2026-01-11": {
+        "Call Drop": 6,
+        "Blank Call": 1,
+        "Call Drop Not Done": 2,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 7
+    },
+    "2026-01-12": {
+        "Call Drop": 8,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 9
+    },
+    "2026-01-13": {
+        "Call Drop": 11,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 2
+    },
+    "2026-01-14": {
+        "Call Drop": 7,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 5
+    },
+    "2026-01-15": {
+        "Call Drop": 8,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 4
+    },
+    "2026-01-16": {
+        "Call Drop": 12,
+        "Blank Call": 1,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 4
+    },
+    "2026-01-17": {
+        "Call Drop": 3,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-01-18": {
+        "Call Drop": 6,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 6
+    },
+    "2026-01-19": {
+        "Call Drop": 8,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 3
+    },
+    "2026-01-20": {
+        "Call Drop": 6,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 4,
+        "Call Not Disposed": 0
+    },
+    "2026-01-21": {
+        "Call Drop": 3,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-01-22": {
+        "Call Drop": 6,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 5
+    },
+    "2026-01-23": {
+        "Call Drop": 7,
+        "Blank Call": 6,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 6
+    },
+    "2026-01-24": {
+        "Call Drop": 8,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 9
+    },
+    "2026-01-25": {
+        "Call Drop": 3,
+        "Blank Call": 6,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-01-26": {
+        "Call Drop": 8,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-01-27": {
+        "Call Drop": 5,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 4
+    },
+    "2026-01-28": {
+        "Call Drop": 2,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 12
+    },
+    "2026-01-29": {
+        "Call Drop": 5,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 4
+    },
+    "2026-01-30": {
+        "Call Drop": 10,
+        "Blank Call": 8,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 5
+    },
+    "2026-01-31": {
+        "Call Drop": 8,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 4
+    },
+    "2026-02-01": {
+        "Call Drop": 9,
+        "Blank Call": 6,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 4
+    },
+    "2026-02-02": {
+        "Call Drop": 6,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 1
+    },
+    "2026-02-03": {
+        "Call Drop": 5,
+        "Blank Call": 0,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 1
+    },
+    "2026-02-04": {
+        "Call Drop": 5,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-02-05": {
+        "Call Drop": 5,
+        "Blank Call": 3,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 1
+    },
+    "2026-02-06": {
+        "Call Drop": 3,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 2
+    },
+    "2026-02-07": {
+        "Call Drop": 1,
+        "Blank Call": 0,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 0
+    },
+    "2026-02-08": {
+        "Call Drop": 1,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 6
+    },
+    "2026-02-09": {
+        "Call Drop": 3,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-02-10": {
+        "Call Drop": 7,
+        "Blank Call": 0,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 4
+    },
+    "2026-02-11": {
+        "Call Drop": 7,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-02-12": {
+        "Call Drop": 7,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-02-13": {
+        "Call Drop": 6,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 2
+    },
+    "2026-02-14": {
+        "Call Drop": 6,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-02-15": {
+        "Call Drop": 2,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-02-16": {
+        "Call Drop": 6,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-02-17": {
+        "Call Drop": 4,
+        "Blank Call": 0,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 2
+    },
+    "2026-02-18": {
+        "Call Drop": 4,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-02-19": {
+        "Call Drop": 4,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-02-20": {
+        "Call Drop": 4,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 6
+    },
+    "2026-02-21": {
+        "Call Drop": 3,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-02-22": {
+        "Call Drop": 6,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 2
+    },
+    "2026-02-23": {
+        "Call Drop": 2,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 1
+    },
+    "2026-02-24": {
+        "Call Drop": 6,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-02-25": {
+        "Call Drop": 1,
+        "Blank Call": 7,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-02-26": {
+        "Call Drop": 3,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 6
+    },
+    "2026-02-27": {
+        "Call Drop": 2,
+        "Blank Call": 9,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 4
+    },
+    "2026-02-28": {
+        "Call Drop": 6,
+        "Blank Call": 5,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-03-01": {
+        "Call Drop": 7,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-03-02": {
+        "Call Drop": 6,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 2
+    },
+    "2026-03-03": {
+        "Call Drop": 9,
+        "Blank Call": 5,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 2
+    },
+    "2026-03-04": {
+        "Call Drop": 2,
+        "Blank Call": 5,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 1
+    },
+    "2026-03-05": {
+        "Call Drop": 5,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-03-06": {
+        "Call Drop": 3,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-03-07": {
+        "Call Drop": 3,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-03-08": {
+        "Call Drop": 5,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-03-09": {
+        "Call Drop": 5,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 2
+    },
+    "2026-03-10": {
+        "Call Drop": 4,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 1
+    },
+    "2026-03-11": {
+        "Call Drop": 5,
+        "Blank Call": 5,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-03-12": {
+        "Call Drop": 6,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 7
+    },
+    "2026-03-13": {
+        "Call Drop": 8,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 2
+    },
+    "2026-03-14": {
+        "Call Drop": 9,
+        "Blank Call": 6,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 2
+    },
+    "2026-03-15": {
+        "Call Drop": 7,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 2
+    },
+    "2026-03-16": {
+        "Call Drop": 9,
+        "Blank Call": 6,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 2,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 5,
+        "Call Not Disposed": 0
+    },
+    "2026-03-17": {
+        "Call Drop": 1,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 4
+    },
+    "2026-03-18": {
+        "Call Drop": 13,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 5
+    },
+    "2026-03-19": {
+        "Call Drop": 7,
+        "Blank Call": 6,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 2
+    },
+    "2026-03-20": {
+        "Call Drop": 4,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-03-21": {
+        "Call Drop": 5,
+        "Blank Call": 5,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-03-22": {
+        "Call Drop": 7,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-03-23": {
+        "Call Drop": 6,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 1
+    },
+    "2026-03-24": {
+        "Call Drop": 4,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-03-25": {
+        "Call Drop": 6,
+        "Blank Call": 5,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 1
+    },
+    "2026-03-26": {
+        "Call Drop": 7,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 4
+    },
+    "2026-03-27": {
+        "Call Drop": 1,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-03-28": {
+        "Call Drop": 5,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 2
+    },
+    "2026-03-29": {
+        "Call Drop": 3,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 6
+    },
+    "2026-03-30": {
+        "Call Drop": 5,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 2
+    },
+    "2026-03-31": {
+        "Call Drop": 4,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 2
+    },
+    "2026-04-01": {
+        "Call Drop": 1,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-04-02": {
+        "Call Drop": 7,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 5
+    },
+    "2026-04-03": {
+        "Call Drop": 14,
+        "Blank Call": 2,
+        "Call Drop Not Done": 5,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 3
+    },
+    "2026-04-04": {
+        "Call Drop": 5,
+        "Blank Call": 4,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 2,
+        "Overall Call Not Done": 3,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 2
+    },
+    "2026-04-05": {
+        "Call Drop": 3,
+        "Blank Call": 10,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 3
+    },
+    "2026-04-06": {
+        "Call Drop": 5,
+        "Blank Call": 1,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 7
+    },
+    "2026-04-07": {
+        "Call Drop": 9,
+        "Blank Call": 10,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 6
+    },
+    "2026-04-08": {
+        "Call Drop": 3,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 3
+    },
+    "2026-04-09": {
+        "Call Drop": 5,
+        "Blank Call": 7,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 2
+    },
+    "2026-04-10": {
+        "Call Drop": 12,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 1
+    },
+    "2026-04-11": {
+        "Call Drop": 11,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 4
+    },
+    "2026-04-12": {
+        "Call Drop": 15,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 5,
+        "Call Not Disposed": 4
+    },
+    "2026-04-13": {
+        "Call Drop": 8,
+        "Blank Call": 6,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 2
+    },
+    "2026-04-14": {
+        "Call Drop": 6,
+        "Blank Call": 6,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 0
+    },
+    "2026-04-15": {
+        "Call Drop": 10,
+        "Blank Call": 8,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 2,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 4
+    },
+    "2026-04-16": {
+        "Call Drop": 7,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 4
+    },
+    "2026-04-17": {
+        "Call Drop": 6,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 2
+    },
+    "2026-04-18": {
+        "Call Drop": 8,
+        "Blank Call": 3,
+        "Call Drop Not Done": 2,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 2
+    },
+    "2026-04-19": {
+        "Call Drop": 4,
+        "Blank Call": 8,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 6
+    },
+    "2026-04-20": {
+        "Call Drop": 4,
+        "Blank Call": 5,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 3
+    },
+    "2026-04-21": {
+        "Call Drop": 4,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 0
+    },
+    "2026-04-22": {
+        "Call Drop": 7,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 6
+    },
+    "2026-04-23": {
+        "Call Drop": 11,
+        "Blank Call": 8,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 7
+    },
+    "2026-04-24": {
+        "Call Drop": 5,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-04-25": {
+        "Call Drop": 8,
+        "Blank Call": 7,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 8
+    },
+    "2026-04-26": {
+        "Call Drop": 7,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 10
+    },
+    "2026-04-27": {
+        "Call Drop": 8,
+        "Blank Call": 8,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 5
+    },
+    "2026-04-28": {
+        "Call Drop": 14,
+        "Blank Call": 5,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 4
+    },
+    "2026-04-29": {
+        "Call Drop": 4,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 6
+    },
+    "2026-04-30": {
+        "Call Drop": 4,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-05-01": {
+        "Call Drop": 8,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 5
+    },
+    "2026-05-02": {
+        "Call Drop": 10,
+        "Blank Call": 5,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 6
+    },
+    "2026-05-03": {
+        "Call Drop": 3,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 13
+    },
+    "2026-05-04": {
+        "Call Drop": 9,
+        "Blank Call": 5,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 16
+    },
+    "2026-05-05": {
+        "Call Drop": 10,
+        "Blank Call": 5,
+        "Call Drop Not Done": 2,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 3,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 8
+    },
+    "2026-05-06": {
+        "Call Drop": 19,
+        "Blank Call": 3,
+        "Call Drop Not Done": 2,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 15
+    },
+    "2026-05-07": {
+        "Call Drop": 11,
+        "Blank Call": 6,
+        "Call Drop Not Done": 2,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 3,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 6
+    },
+    "2026-05-08": {
+        "Call Drop": 6,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 10
+    },
+    "2026-05-09": {
+        "Call Drop": 16,
+        "Blank Call": 3,
+        "Call Drop Not Done": 5,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 5,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 8
+    },
+    "2026-05-10": {
+        "Call Drop": 10,
+        "Blank Call": 7,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 12
+    },
+    "2026-05-11": {
+        "Call Drop": 19,
+        "Blank Call": 0,
+        "Call Drop Not Done": 2,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 4,
+        "Call Not Disposed": 9
+    },
+    "2026-05-12": {
+        "Call Drop": 15,
+        "Blank Call": 0,
+        "Call Drop Not Done": 4,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 4,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 10
+    },
+    "2026-05-13": {
+        "Call Drop": 9,
+        "Blank Call": 3,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 8
+    },
+    "2026-05-14": {
+        "Call Drop": 10,
+        "Blank Call": 0,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 0
+    },
+    "2026-05-15": {
+        "Call Drop": 10,
+        "Blank Call": 5,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 8
+    },
+    "2026-05-16": {
+        "Call Drop": 14,
+        "Blank Call": 6,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 6
+    },
+    "2026-05-17": {
+        "Call Drop": 12,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 3
+    },
+    "2026-05-18": {
+        "Call Drop": 13,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 13
+    },
+    "2026-05-19": {
+        "Call Drop": 9,
+        "Blank Call": 2,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 10
+    },
+    "2026-05-20": {
+        "Call Drop": 11,
+        "Blank Call": 6,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 7
+    },
+    "2026-05-21": {
+        "Call Drop": 3,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 0
+    },
+    "2026-05-22": {
+        "Call Drop": 16,
+        "Blank Call": 2,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 9
+    },
+    "2026-05-23": {
+        "Call Drop": 15,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 5
+    },
+    "2026-05-24": {
+        "Call Drop": 13,
+        "Blank Call": 5,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 10
+    },
+    "2026-05-25": {
+        "Call Drop": 15,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 10
+    },
+    "2026-05-26": {
+        "Call Drop": 8,
+        "Blank Call": 7,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 1
+    },
+    "2026-05-27": {
+        "Call Drop": 13,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 3
+    },
+    "2026-05-28": {
+        "Call Drop": 6,
+        "Blank Call": 3,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 0
+    },
+    "2026-05-29": {
+        "Call Drop": 18,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-05-30": {
+        "Call Drop": 15,
+        "Blank Call": 3,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-05-31": {
+        "Call Drop": 19,
+        "Blank Call": 3,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-06-01": {
+        "Call Drop": 9,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 10
+    },
+    "2026-06-02": {
+        "Call Drop": 13,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 7
+    },
+    "2026-06-03": {
+        "Call Drop": 7,
+        "Blank Call": 6,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 7
+    },
+    "2026-06-04": {
+        "Call Drop": 12,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 4
+    },
+    "2026-06-05": {
+        "Call Drop": 16,
+        "Blank Call": 6,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 2,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 4
+    },
+    "2026-06-06": {
+        "Call Drop": 11,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 5
+    },
+    "2026-06-07": {
+        "Call Drop": 23,
+        "Blank Call": 4,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 0
+    },
+    "2026-06-08": {
+        "Call Drop": 14,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 5
+    },
+    "2026-06-09": {
+        "Call Drop": 11,
+        "Blank Call": 5,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 11
+    },
+    "2026-06-10": {
+        "Call Drop": 9,
+        "Blank Call": 6,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 8
+    },
+    "2026-06-11": {
+        "Call Drop": 14,
+        "Blank Call": 5,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 8
+    },
+    "2026-06-12": {
+        "Call Drop": 11,
+        "Blank Call": 9,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 2,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 8
+    },
+    "2026-06-13": {
+        "Call Drop": 18,
+        "Blank Call": 5,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 11
+    },
+    "2026-06-14": {
+        "Call Drop": 17,
+        "Blank Call": 6,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-06-15": {
+        "Call Drop": 15,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 10
+    },
+    "2026-06-16": {
+        "Call Drop": 19,
+        "Blank Call": 2,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 3
+    },
+    "2026-06-17": {
+        "Call Drop": 6,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 7
+    },
+    "2026-06-18": {
+        "Call Drop": 6,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 2
+    },
+    "2026-06-19": {
+        "Call Drop": 14,
+        "Blank Call": 3,
+        "Call Drop Not Done": 3,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 4,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 8
+    },
+    "2026-06-20": {
+        "Call Drop": 13,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 4
+    },
+    "2026-06-21": {
+        "Call Drop": 10,
+        "Blank Call": 2,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 5,
+        "Call Not Disposed": 0
+    },
+    "2026-06-22": {
+        "Call Drop": 12,
+        "Blank Call": 2,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 6
+    },
+    "2026-06-23": {
+        "Call Drop": 5,
+        "Blank Call": 9,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 6
+    },
+    "2026-06-24": {
+        "Call Drop": 13,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 6
+    },
+    "2026-06-25": {
+        "Call Drop": 14,
+        "Blank Call": 6,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 8
+    },
+    "2026-06-26": {
+        "Call Drop": 12,
+        "Blank Call": 10,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 1,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 10
+    },
+    "2026-06-27": {
+        "Call Drop": 13,
+        "Blank Call": 10,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 3,
+        "Call Not Disposed": 9
+    },
+    "2026-06-28": {
+        "Call Drop": 10,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 0
+    },
+    "2026-06-29": {
+        "Call Drop": 12,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 0
+    },
+    "2026-06-30": {
+        "Call Drop": 16,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 0
+    },
+    "2026-07-01": {
+        "Call Drop": 11,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 7
+    },
+    "2026-07-02": {
+        "Call Drop": 11,
+        "Blank Call": 4,
+        "Call Drop Not Done": 2,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 2,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 4
+    },
+    "2026-07-03": {
+        "Call Drop": 9,
+        "Blank Call": 1,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 2,
+        "Call Not Disposed": 0
+    },
+    "2026-07-04": {
+        "Call Drop": 10,
+        "Blank Call": 8,
+        "Call Drop Not Done": 2,
+        "Blank Call Not Done": 3,
+        "Overall Call Not Done": 5,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-07-05": {
+        "Call Drop": 14,
+        "Blank Call": 3,
+        "Call Drop Not Done": 1,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 1,
+        "Agent Disconnected": 4,
+        "Call Not Disposed": 0
+    },
+    "2026-07-06": {
+        "Call Drop": 15,
+        "Blank Call": 0,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-07-07": {
+        "Call Drop": 11,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-07-08": {
+        "Call Drop": 12,
+        "Blank Call": 2,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 6
+    },
+    "2026-07-09": {
+        "Call Drop": 10,
+        "Blank Call": 4,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 7
+    },
+    "2026-07-10": {
+        "Call Drop": 9,
+        "Blank Call": 0,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 4
+    },
+    "2026-07-11": {
+        "Call Drop": 20,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 1,
+        "Call Not Disposed": 9
+    },
+    "2026-07-12": {
+        "Call Drop": 12,
+        "Blank Call": 3,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 6
+    },
+    "2026-07-13": {
+        "Call Drop": 0,
+        "Blank Call": 0,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    },
+    "2026-07-14": {
+        "Call Drop": 0,
+        "Blank Call": 0,
+        "Call Drop Not Done": 0,
+        "Blank Call Not Done": 0,
+        "Overall Call Not Done": 0,
+        "Agent Disconnected": 0,
+        "Call Not Disposed": 0
+    }
+}

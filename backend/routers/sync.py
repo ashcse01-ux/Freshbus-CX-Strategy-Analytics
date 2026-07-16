@@ -67,12 +67,75 @@ def get_row_hash(row):
     return hashlib.md5(unique_str.encode()).hexdigest()
 
 # ---------------------------------------------------------------------------
-# Token Management — auto-refresh
+# Token Management  auto-refresh
 # ---------------------------------------------------------------------------
 
-def fetch_ozonetel_token():
+import base64
+import time
+
+TOKEN_CACHE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "token_cache.json")
+
+def get_jwt_exp(token):
+    try:
+        parts = token.split('.')
+        if len(parts) == 3:
+            payload_b64 = parts[1]
+            payload_b64 += '=' * (-len(payload_b64) % 4)
+            payload_json = base64.b64decode(payload_b64).decode('utf-8')
+            payload = json.loads(payload_json)
+            return payload.get('exp')
+    except Exception:
+        pass
+    return None
+
+def load_cached_token():
+    global _active_token
+    if os.path.exists(TOKEN_CACHE_FILE):
+        try:
+            with open(TOKEN_CACHE_FILE, "r") as f:
+                cache = json.load(f)
+            token = cache.get("token")
+            exp = cache.get("exp")
+            if token and exp:
+                if exp > time.time() + 300:
+                    _active_token = token
+                    print(" Loaded valid token from cache file.")
+                    return token
+        except Exception as e:
+            print(f" Failed to load cached token: {e}")
+    return None
+
+def save_cached_token(token):
+    global _active_token
+    _active_token = token
+    exp = get_jwt_exp(token)
+    if not exp:
+        exp = int(time.time()) + 3000
+    try:
+        with open(TOKEN_CACHE_FILE, "w") as f:
+            json.dump({"token": token, "exp": exp}, f)
+        print(" Saved token to cache file.")
+    except Exception as e:
+        print(f" Failed to save token to cache file: {e}")
+
+def clear_cached_token():
+    global _active_token
+    _active_token = None
+    if os.path.exists(TOKEN_CACHE_FILE):
+        try:
+            os.remove(TOKEN_CACHE_FILE)
+            print(" Cleared invalid/expired token from cache file.")
+        except Exception as e:
+            print(f" Failed to delete cache file: {e}")
+
+def fetch_ozonetel_token(force_refresh=False):
     """Generates a fresh bearer token from the OzoneTel Auth API."""
     global _active_token
+    if not force_refresh:
+        token = load_cached_token()
+        if token:
+            return token
+            
     if not OZONETEL_API_KEY or not OZONETEL_USER_NAME:
         raise Exception("OzoneTel credentials missing in .env")
     
@@ -86,9 +149,15 @@ def fetch_ozonetel_token():
         response = requests.post(OZONETEL_AUTH_URL, headers=headers, json=payload, timeout=30)
         if response.status_code == 200:
             data = response.json()
+            if str(data.get("status", "")).lower() == "false":
+                raise Exception(f"Auth failed via JSON body: {data}")
+            if "rate limit" in str(data.get("message", "")).lower():
+                raise Exception("OzoneTel Token Generation Rate Limit Exceeded.")
             token = data.get("token")
-            _active_token = token
-            print(f"🔑 Fresh token acquired.")
+            if not token:
+                raise Exception(f"Auth succeeded but no token returned: {data}")
+            save_cached_token(token)
+            print(f" Fresh token acquired.")
             return token
         else:
             raise Exception(f"Auth failed [{response.status_code}]: {response.text}")
@@ -98,12 +167,13 @@ def fetch_ozonetel_token():
 def get_or_refresh_token():
     """Returns the cached token, fetching a new one if none exists."""
     global _active_token
-    if not _active_token:
-        return fetch_ozonetel_token()
-    return _active_token
+    token = load_cached_token()
+    if token:
+        return token
+    return fetch_ozonetel_token(force_refresh=True)
 
 # ---------------------------------------------------------------------------
-# CDR Fetching — detects 401 and auto-refreshes token, with retry
+# CDR Fetching  detects 401 and auto-refreshes token, with retry
 # ---------------------------------------------------------------------------
 
 class RateLimitError(Exception):
@@ -123,10 +193,10 @@ def _is_rate_limited(data: dict) -> bool:
 
 def _try_fetch_cdrs(token, payload):
     """
-    Fetches CDR data using GET with JSON body — the only method OzoneTel accepts.
-    - GET with URL params → returns 'Invalid Json Pass Valid Json'
-    - POST → returns 405 Method Not Allowed
-    - GET with JSON body → works correctly
+    Fetches CDR data using GET with JSON body  the only method OzoneTel accepts.
+    - GET with URL params  returns 'Invalid Json Pass Valid Json'
+    - POST  returns 405 Method Not Allowed
+    - GET with JSON body  works correctly
     Returns (data, is_401).
     Raises RateLimitError if rate-limit detected in response body.
     """
@@ -141,9 +211,9 @@ def _try_fetch_cdrs(token, payload):
     # Log non-200 for diagnostics
     if r.status_code == 401:
         try:
-            print(f"    🔐 401 body: {r.json()}")
+            print(f"     401 body: {r.json()}")
         except Exception:
-            print(f"    🔐 401 raw: {r.text[:300]}")
+            print(f"     401 raw: {r.text[:300]}")
         return None, True
 
     if r.status_code != 200:
@@ -157,10 +227,10 @@ def _try_fetch_cdrs(token, payload):
     # Detect rate limit signalled via HTTP 200 + message body
     if _is_rate_limited(data):
         new_token = data.get("token") or None
-        print(f"    ⚡ Rate limit body detected. New token provided: {'yes' if new_token else 'no'}")
+        print(f"     Rate limit body detected. New token provided: {'yes' if new_token else 'no'}")
         raise RateLimitError(new_token=new_token)
 
-    # Detect "Invalid Json" — means we're sending the request wrong
+    # Detect "Invalid Json"  means we're sending the request wrong
     if isinstance(data, dict) and "invalid" in str(data.get("message", "")).lower():
         raise Exception(f"OzoneTel rejected request format: {data}")
 
@@ -188,8 +258,9 @@ def fetch_ozonetel_cdrs(token, from_date, to_date, campaign_name):
         raise   # bubble up so ingest_days can sleep + retry with new token
 
     if is_401:
-        print(f"⚠️  Token expired (HTTP 401). Re-authenticating...")
-        new_token = fetch_ozonetel_token()
+        print(f"  Token expired (HTTP 401). Re-authenticating...")
+        clear_cached_token()
+        new_token = fetch_ozonetel_token(force_refresh=True)
         import time; time.sleep(3)  # propagation delay
         data, is_401_again = _try_fetch_cdrs(new_token, payload)
         if is_401_again:
@@ -261,6 +332,10 @@ def map_ozonetel_to_model(oz_row):
             record_dict[model_key] = normalize_categorical(val)
         else:
             record_dict[model_key] = str(val).strip() if val is not None else ""
+            
+    # Always resolve chained agents (A -> B -> C) to the final agent bucket
+    if record_dict.get("Agent") and "->" in record_dict["Agent"]:
+        record_dict["Agent"] = record_dict["Agent"].split("->")[-1].strip()
     
     # Handle Transfer_Details construction
     t_details = oz_row.get("TransferDetails") or oz_row.get("Transfer_Details")
@@ -312,7 +387,7 @@ def get_missing_dates(db: Session, base_date: datetime, days: int = 15):
                 pass
 
     missing = [d for d in all_dates if d not in existing_dates]
-    print(f"📊 Coverage check: {len(all_dates) - len(missing)}/{len(all_dates)} days covered. "
+    print(f" Coverage check: {len(all_dates) - len(missing)}/{len(all_dates)} days covered. "
           f"Missing: {len(missing)} days.")
     return missing
 
@@ -322,25 +397,25 @@ def get_missing_dates(db: Session, base_date: datetime, days: int = 15):
 
 async def ingest_days(db: Session, dates_to_fetch: list, token: str, group, label: str = "Sync"):
     """
-    Iterates over dates × sub-campaigns for a SINGLE parent group, fetches data, 
+    Iterates over dates  sub-campaigns for a SINGLE parent group, fetches data, 
     deduplicates and inserts into the provided Tenant Session (`db`).
     """
     total_inserted = 0
     current_token = token
 
     for target_date in dates_to_fetch:
-        print(f"📅 [{label}] Processing {target_date} ---")
+        print(f" [{label}] Processing {target_date} ---")
         day_rows = []
         seen_hashes_for_day = set()
 
         target_campaigns = [sub.ozonetel_name for sub in group.sub_campaigns]
         
         if not target_campaigns:
-            print(f"  ⚠️ No sub-campaigns configured for {group.name}.")
+            print(f"   No sub-campaigns configured for {group.name}.")
             break
 
         for campaign_name in target_campaigns:
-            print(f"  🔍 Fetching {campaign_name} for {target_date}...")
+            print(f"   Fetching {campaign_name} for {target_date}...")
             attempt = 0
             max_attempts = 3
 
@@ -369,9 +444,9 @@ async def ingest_days(db: Session, dates_to_fetch: list, token: str, group, labe
                             seen_hashes_for_day.add(h)
                             campaign_count += 1
 
-                    print(f"    ✅ {campaign_name}: {campaign_count} new records "
+                    print(f"     {campaign_name}: {campaign_count} new records "
                           f"(API returned: {len(details)})")
-                    await asyncio.sleep(30)  # Rate limit — 2 req/min
+                    await asyncio.sleep(30)  # Rate limit  2 req/min
                     break  # success
 
                 except RateLimitError as rle:
@@ -379,10 +454,10 @@ async def ingest_days(db: Session, dates_to_fetch: list, token: str, group, labe
                     if rle.new_token:
                         current_token = rle.new_token
                         _active_token = rle.new_token
-                        print(f"    🔄 Rate limit hit for {campaign_name}. "
+                        print(f"     Rate limit hit for {campaign_name}. "
                               f"Got new token from response. Sleeping 60s then retrying...")
                     else:
-                        print(f"    🔄 Rate limit hit for {campaign_name}. "
+                        print(f"     Rate limit hit for {campaign_name}. "
                               f"Sleeping 60s then retrying...")
                     await asyncio.sleep(60)
                     attempt += 1
@@ -390,20 +465,25 @@ async def ingest_days(db: Session, dates_to_fetch: list, token: str, group, labe
                 except Exception as e:
                     attempt += 1
                     err_msg = str(e)
-                    print(f"    ❌ [{attempt}/{max_attempts}] Error for {campaign_name} "
+                    print(f"     [{attempt}/{max_attempts}] Error for {campaign_name} "
                           f"on {target_date}: {err_msg}")
                     
                     # Stop immediately if OzoneTel says the campaign name is invalid
                     if "invalid campaignname" in err_msg.lower():
-                        print(f"    🚫 Invalid campaign name detected: {campaign_name}. Skipping further attempts.")
+                        print(f"     Invalid campaign name detected: {campaign_name}. Skipping further attempts.")
                         break
+
+                    # Stop immediately on critical Auth or Rate Limit failures
+                    if "401 after token refresh" in err_msg or "rate limit" in err_msg.lower():
+                        print(f"     Critical Auth/Rate Limit Failure: Stopping entire bootstrap to prevent spam.")
+                        raise Exception(err_msg)
 
                     if attempt < max_attempts:
                         sleep_time = 30 * attempt
-                        print(f"    ⏳ Retrying in {sleep_time}s...")
+                        print(f"     Retrying in {sleep_time}s...")
                         await asyncio.sleep(sleep_time)
                     else:
-                        print(f"    🚫 Giving up on {campaign_name}/{target_date} after "
+                        print(f"     Giving up on {campaign_name}/{target_date} after "
                               f"{max_attempts} attempts.")
                         await asyncio.sleep(30)
 
@@ -412,15 +492,15 @@ async def ingest_days(db: Session, dates_to_fetch: list, token: str, group, labe
             db.execute(models.CallRecord.__table__.insert(), day_rows)
             db.commit()
             total_inserted += len(day_rows)
-            print(f"💾 Day Summary [{target_date}]: +{len(day_rows)} records committed. "
+            print(f" Day Summary [{target_date}]: +{len(day_rows)} records committed. "
                   f"Running total: {total_inserted}")
         else:
-            print(f"ℹ️  Day Summary [{target_date}]: No new records.")
+            print(f"  Day Summary [{target_date}]: No new records.")
 
     return total_inserted, current_token
 
 # ---------------------------------------------------------------------------
-# Bootstrap — Smart Resume
+# Bootstrap  Smart Resume
 # ---------------------------------------------------------------------------
 
 async def bootstrap_historical_data():
@@ -449,31 +529,36 @@ async def bootstrap_historical_data():
             tenant_db = TenantSessionLocal()
             
             try:
-                base_date = datetime.now()
+                base_date = pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None)
                 missing_dates = get_missing_dates(tenant_db, base_date, days=15)
 
+                # Always include today's date to fetch real-time call records
+                today_str = base_date.strftime("%Y-%m-%d")
+                if today_str not in missing_dates:
+                    missing_dates.append(today_str)
+
                 if not missing_dates:
-                    print(f"✅ {group.name}: All 15 days covered.")
+                    print(f" {group.name}: All 15 days covered.")
                     continue
 
-                print(f"🚀 {group.name} Bootstrap — filling {len(missing_dates)} days.")
+                print(f" {group.name} Bootstrap  filling {len(missing_dates)} days.")
                 total, token = await ingest_days(tenant_db, missing_dates, token, group, label=f"Bootstrap-{group.name}")
 
                 if total > 0:
                     new_sync = models.ProcessedSync(
-                        file_id=f"bootstrap_{datetime.now().strftime('%Y%m%d%H%M')}_{group.name}",
+                        file_id=f"bootstrap_{pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None).strftime('%Y%m%d%H%M')}_{group.name}",
                         filename=f"OzoneTel Bootstrap: {group.name}",
                         record_count=total
                     )
                     tenant_db.add(new_sync)
                     tenant_db.commit()
             except Exception as inner_e:
-                print(f"💥 Failed to sync group {group.name}: {str(inner_e)}")
+                print(f" Failed to sync group {group.name}: {str(inner_e)}")
             finally:
                 tenant_db.close()
 
     except Exception as e:
-        print(f"💥 Bootstrap failed with unrecoverable error: {str(e)}")
+        print(f" Bootstrap failed with unrecoverable error: {str(e)}")
     finally:
         is_bootstrapping = False
 
@@ -482,7 +567,7 @@ async def bootstrap_historical_data():
 # ---------------------------------------------------------------------------
 
 @router.post("/run")
-async def run_sync_api(campaign: str, db_master: Session = Depends(get_master_db)):
+async def run_sync_api(campaign: str = "Inbound", db_master: Session = Depends(get_master_db)):
     """Manual trigger: smart resume for 15 days for a specific tenant campaign."""
     from database import get_tenant_db_engine
     from sqlalchemy.orm import sessionmaker
@@ -492,8 +577,13 @@ async def run_sync_api(campaign: str, db_master: Session = Depends(get_master_db
     db_tenant = TenantSessionLocal()
     
     try:
-        base_date = datetime.now()
+        base_date = pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None)
         missing_dates = get_missing_dates(db_tenant, base_date, days=15)
+
+        # Always include today's date to fetch real-time call records
+        today_str = base_date.strftime("%Y-%m-%d")
+        if today_str not in missing_dates:
+            missing_dates.append(today_str)
 
         if not missing_dates:
             return {"status": "up_to_date", "message": f"All 15 days already covered for {campaign}.", "total_integrated": 0}
@@ -502,13 +592,18 @@ async def run_sync_api(campaign: str, db_master: Session = Depends(get_master_db
         if not group:
              raise HTTPException(status_code=404, detail="Campaign group not found in master DB")
 
-        token = get_or_refresh_token()
-        total, _ = await ingest_days(db_tenant, missing_dates, token, group, label=f"Manual-Sync-{campaign}")
+        from routers.google_sheets_sync import sync_manual_metrics, sync_auto_metrics
+        
+        # 1. Sync manual metrics
+        sync_manual_metrics()
+        
+        # 2. Sync auto metrics for missing dates
+        total = sync_auto_metrics(db_tenant, missing_dates)
 
         if total > 0:
             new_sync = models.ProcessedSync(
-                file_id=f"oz_manual_{datetime.now().strftime('%Y%m%d%H%M')}_{campaign}",
-                filename=f"OzoneTel Manual Sync: {campaign}",
+                file_id=f"gs_manual_{pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None).strftime('%Y%m%d%H%M')}_{campaign}",
+                filename=f"Google Sheets Sync: {campaign}",
                 record_count=total
             )
             db_tenant.add(new_sync)
@@ -520,7 +615,7 @@ async def run_sync_api(campaign: str, db_master: Session = Depends(get_master_db
             "dates_synced": missing_dates
         }
     except Exception as e:
-        db.rollback()
+        db_tenant.rollback()
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -548,7 +643,7 @@ def get_sync_status(campaign: str = None, db_master: Session = Depends(get_maste
         total_records = db_tenant.query(models.CallRecord).count()
 
         # Coverage summary
-        base_date = datetime.now()
+        base_date = pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None)
         missing_dates = get_missing_dates(db_tenant, base_date, days=15)
 
         # Config from Master
@@ -648,7 +743,12 @@ def wipe_database(campaign: str):
 
 
 async def background_monitoring_task():
-    """Standby — bootstrap handles initial fill; manual trigger for re-runs."""
-    print("🚀 OzoneTel Auto-Monitor Standby")
+    """Periodically syncs all active groups to keep the dashboard real-time."""
+    print(" OzoneTel Auto-Monitor Started (Runs every 10 minutes)")
     while True:
-        await asyncio.sleep(86400)
+        await asyncio.sleep(600)  # Wait 10 minutes
+        try:
+            print(" Running periodic background sync...")
+            await bootstrap_historical_data()
+        except Exception as e:
+            print(f" Periodic background sync failed: {e}")

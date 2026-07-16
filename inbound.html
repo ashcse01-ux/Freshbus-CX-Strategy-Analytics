@@ -14,98 +14,125 @@
      VARIABLES & RESET
   ──────────────────────────────────────────────────── */
   :root {
-    --blue:#1A73E8; --blue-d:#1557b0; --blue-soft:rgba(26,115,232,.1);
-    --yellow:#FBBC04; --yellow-soft:rgba(251,188,4,.1);
-    --green:#16a34a; --green-soft:rgba(22,163,74,.1);
-    --red:#dc2626; --red-soft:rgba(220,38,38,.09);
-    --amber:#d97706; --amber-soft:rgba(217,119,6,.1);
-    --purple:#7c3aed; --purple-soft:rgba(124,58,237,.1);
+    --blue:#1A73E8; --blue-d:#1557b0; --blue-soft:rgba(26,115,232,.15);
+    --yellow:#FBBC04; --yellow-soft:rgba(251,188,4,.15);
+    --green:#16a34a; --green-soft:rgba(22,163,74,.15);
+    --red:#dc2626; --red-soft:rgba(220,38,38,.15);
+    --amber:#d97706; --amber-soft:rgba(217,119,6,.15);
+    --purple:#7c3aed; --purple-soft:rgba(124,58,237,.15);
 
-    --bg:#f0f4fa; --surface:#fff; --surface2:#f8faff;
-    --border:#e2e8f3; --border-focus:var(--blue);
-    --text:#0f1d35; --text2:#374151; --text-m:#6b7280;
+    /* Liquid Glass Theme Colors */
+    --bg-gradient: radial-gradient(circle at 15% 50%, rgba(26, 115, 232, 0.2) 0%, transparent 50%),
+                   radial-gradient(circle at 85% 30%, rgba(251, 188, 4, 0.2) 0%, transparent 50%),
+                   linear-gradient(135deg, #f0f4fa 0%, #e2eafc 100%);
+    --surface: rgba(255, 255, 255, 0.6);
+    --surface-solid: rgba(255, 255, 255, 0.85);
+    --surface2: rgba(255, 255, 255, 0.4);
+    --border: rgba(255, 255, 255, 0.7);
+    --border-focus: var(--blue);
+    --text: #0f1d35; --text2: #374151; --text-m: #4b5563;
 
-    --sidebar:#0f1d35; --sidebar-w:258px;
-    --hdr-h:62px;
-    --r:12px; --r-sm:8px;
-    --shadow:0 1px 3px rgba(0,0,0,.07),0 4px 14px rgba(0,0,0,.04);
-    --shadow-md:0 4px 12px rgba(0,0,0,.09),0 12px 36px rgba(0,0,0,.05);
-    --shadow-blue:0 4px 20px rgba(26,115,232,.25);
-    --tr:.18s ease;
+    --sidebar: rgba(255, 255, 255, 0.45);
+    --sidebar-text: #0f1d35;
+    
+    --glass-blur: blur(20px);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+
+    --sidebar-w:258px;
+    --hdr-h:64px;
+    --r:16px; --r-sm:10px;
+    --shadow: var(--glass-shadow);
+    --shadow-md: 0 12px 40px rgba(26,115,232,.15);
+    --shadow-blue: 0 4px 20px rgba(251,188,4,.3);
+    --tr:.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
   [data-theme="dark"] {
-    --bg:#0a0f1e; --surface:#111927; --surface2:#1a2436;
-    --border:#1e2d45; --text:#f1f5f9; --text2:#cbd5e1; --text-m:#64748b;
-    --shadow:0 1px 3px rgba(0,0,0,.5),0 4px 14px rgba(0,0,0,.3);
-    --shadow-md:0 4px 12px rgba(0,0,0,.6),0 12px 36px rgba(0,0,0,.4);
+    --bg-gradient: radial-gradient(circle at 15% 50%, rgba(26, 115, 232, 0.25) 0%, transparent 50%),
+                   radial-gradient(circle at 85% 30%, rgba(251, 188, 4, 0.15) 0%, transparent 50%),
+                   linear-gradient(135deg, #0a0f1e 0%, #111927 100%);
+    --surface: rgba(17, 25, 39, 0.6);
+    --surface-solid: rgba(17, 25, 39, 0.9);
+    --surface2: rgba(26, 36, 54, 0.4);
+    --border: rgba(255, 255, 255, 0.1);
+    --text: #f1f5f9; --text2: #cbd5e1; --text-m: #94a3b8;
+    --sidebar: rgba(17, 25, 39, 0.6);
+    --sidebar-text: #f1f5f9;
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   html,body{height:100%;overflow:hidden;}
-  body{font-family:'Inter',sans-serif;font-size:14px;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;}
+  body{font-family:'Inter',sans-serif;font-size:14px;color:var(--text);background:var(--bg-gradient);background-attachment:fixed;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;}
   a{text-decoration:none;color:inherit;}
   button{font-family:inherit;cursor:pointer;}
   input,select{font-family:inherit;}
 
   /* ─── HEADER ─── */
   .hdr {
-    height:var(--hdr-h); background:var(--surface); border-bottom:1px solid var(--border);
+    height: 72px; background: #0c4dc3; /* Solid premium blue matching FreshBus logo */
     display:flex; align-items:center; padding:0 1.5rem; gap:1rem; flex-shrink:0; z-index:100;
+    box-shadow: 0 4px 15px rgba(12,77,195,0.25); border-bottom: none;
   }
-  .hdr-logo { display:flex; align-items:center; gap:10px; text-decoration:none; flex-shrink:0; }
+  .hdr-logo { display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0; }
   .hdr-lm {
-    width:32px; height:32px; border-radius:9px; background:var(--blue);
+    width:36px; height:36px; border-radius:8px;
     display:flex; align-items:center; justify-content:center;
   }
-  .hdr-lm svg { width:18px; height:18px; }
-  .hdr-ln { font-family:'Plus Jakarta Sans',sans-serif; font-size:1rem; font-weight:800; color:var(--text); }
-  .hdr-sep { width:1px; height:22px; background:var(--border); flex-shrink:0; }
-  .hdr-scope {
-    display:flex; align-items:center; gap:6px; background:var(--surface2); border:1px solid var(--border);
-    border-radius:7px; padding:5px 12px; font-size:0.8rem; font-weight:600; color:var(--text-m);
-  }
-  .hdr-scope svg { width:12px; }
+  .hdr-lm svg { width:100%; height:100%; }
+  
+  .hdr-brand-wrap { display: flex; flex-direction: column; justify-content: center; margin-top:-2px; }
+  .hdr-ln { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#FFEA20; line-height:1.1; letter-spacing:-0.03em; }
+  .hdr-sub { font-size:0.68rem; font-weight:600; color:rgba(255,255,255,0.65); letter-spacing:0.06em; text-transform:uppercase; margin-top:2px; }
+
+  .hdr-sep { width:1px; height:28px; background:rgba(255,255,255,0.15); flex-shrink:0; margin: 0 5px; }
+  
   .hdr-fill { flex:1; }
+  
   .hdr-datewrap {
-    display:flex; align-items:center; background:var(--surface2); border:1px solid var(--border);
-    border-radius:8px; padding:0 12px; height:36px; gap:8px; font-size:0.8rem; font-weight:600;
+    display:flex; align-items:center; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
+    border-radius:8px; padding:0 12px; height:38px; gap:8px; font-size:0.85rem; font-weight:600; color:#fff;
   }
-  .hdr-datewrap svg { width:13px; color:var(--text-m); flex-shrink:0; }
+  .hdr-datewrap svg { width:14px; color:rgba(255,255,255,0.7); flex-shrink:0; }
   .hdr-datewrap input {
-    background:none; border:none; outline:none; color:var(--text); font-family:inherit;
-    font-size:0.8rem; font-weight:600; width:110px; cursor:pointer;
+    background:none; border:none; outline:none; color:#fff; font-family:inherit;
+    font-size:0.85rem; font-weight:600; width:115px; cursor:pointer;
   }
-  .hdr-datewrap .sep { color:var(--text-m); }
+  .hdr-datewrap input::placeholder { color:rgba(255,255,255,0.6); }
+  .hdr-datewrap .sep { color:rgba(255,255,255,0.5); }
+  
   .hdr-vbtns {
-    display:flex; background:var(--surface2); border:1px solid var(--border); border-radius:8px; padding:3px; gap:2px;
+    display:flex; align-items:center; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); border-radius:8px; padding:4px; gap:4px;
   }
   .hdr-vbtn {
-    background:transparent; border:none; padding:4px 12px; border-radius:6px;
-    font-size:0.77rem; font-weight:600; color:var(--text-m); transition:all var(--tr);
+    background:transparent; border:none; padding:5px 14px; border-radius:6px;
+    font-size:0.8rem; font-weight:600; color:rgba(255,255,255,0.7); transition:all 0.2s ease;
   }
-  .hdr-vbtn.active { background:var(--surface); color:var(--text); box-shadow:var(--shadow); }
-  .hdr-acts { display:flex; gap:3px; }
+  .hdr-vbtn:hover { color:#fff; background:rgba(255,255,255,0.1); }
+  .hdr-vbtn.active { background:#fff; color:#0c4dc3; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+  
+  .hdr-acts { display:flex; gap:6px; }
   .hdr-ibtn {
-    width:34px; height:34px; border-radius:50%; background:transparent; border:none;
-    display:flex; align-items:center; justify-content:center; color:var(--text-m); transition:all var(--tr);
+    width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
+    display:flex; align-items:center; justify-content:center; color:#fff; transition:all 0.2s ease;
   }
-  .hdr-ibtn:hover { background:var(--surface2); color:var(--text); }
+  .hdr-ibtn:hover { background:rgba(255,255,255,0.25); transform:translateY(-1px); }
   .hdr-ibtn svg { width:16px; }
-  .hdr-user { display:flex; align-items:center; gap:8px; cursor:pointer; }
-  .hdr-av { width:32px; height:32px; border-radius:50%; border:2px solid var(--border); overflow:hidden; }
+  
+  .hdr-user { display:flex; align-items:center; gap:10px; cursor:pointer; padding-left:10px; border-left:1px solid rgba(255,255,255,0.2); }
+  .hdr-av { width:36px; height:36px; border-radius:50%; border:2px solid rgba(255,255,255,0.4); overflow:hidden; }
   .hdr-av img { width:100%; height:100%; object-fit:cover; }
-  .hdr-un { font-size:0.82rem; font-weight:700; }
+  .hdr-un { font-size:0.85rem; font-weight:700; color:#fff; }
 
   /* ─── APP BODY ─── */
   .app-body { display:flex; flex:1; overflow:hidden; }
 
   /* ─── SIDEBAR ─── */
   .sidebar {
-    width:var(--sidebar-w); background:var(--sidebar); flex-shrink:0;
+    width:var(--sidebar-w); background:var(--sidebar); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); flex-shrink:0;
     overflow-y:auto; display:flex; flex-direction:column;
     scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.08) transparent;
-    padding:1.25rem 1rem; gap:0.3rem;
+    padding:1.25rem 1rem; gap:0.3rem; border-right:1px solid var(--border);
   }
-  .sb-sec { font-size:0.67rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,.3); padding:0.8rem 0.75rem 0.35rem; }
+  .sb-sec { font-size:0.67rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-m); padding:0.8rem 0.75rem 0.35rem; }
   .sb-sync {
     display:flex; align-items:center; gap:8px; background:rgba(22,163,74,.12);
     border:1px solid rgba(22,163,74,.25); border-radius:9px; padding:9px 12px;
@@ -114,17 +141,17 @@
   .sb-dot { width:6px; height:6px; border-radius:50%; background:#4ade80; animation:sbpulse 1.5s ease-in-out infinite; flex-shrink:0; }
   @keyframes sbpulse{0%,100%{opacity:1}50%{opacity:.35}}
   .sb-fg {
-    background:rgba(255,255,255,.05); border-radius:9px; padding:0.75rem;
+    background:var(--surface2); border:1px solid var(--border); border-radius:9px; padding:0.75rem;
     display:flex; flex-direction:column; gap:3px; margin-bottom:3px;
   }
-  .sb-fg label { font-size:0.7rem; font-weight:600; color:rgba(255,255,255,.4); margin-bottom:2px; }
+  .sb-fg label { font-size:0.7rem; font-weight:600; color:var(--text-m); margin-bottom:2px; }
   .sb-fg select, .sb-fg input[type="text"] {
-    width:100%; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1);
-    border-radius:7px; padding:7px 10px; color:#fff; font-size:0.8rem; font-weight:500;
+    width:100%; background:var(--surface); border:1px solid var(--border);
+    border-radius:7px; padding:7px 10px; color:var(--text); font-size:0.8rem; font-weight:500;
     outline:none; -webkit-appearance:none; transition:border-color var(--tr);
   }
   .sb-fg select:focus, .sb-fg input:focus { border-color:var(--yellow); }
-  .sb-fg select option { background:#1a2436; }
+  .sb-fg select option { background:var(--surface-solid); color:var(--text); }
   .sb-btn {
     width:100%; border:none; border-radius:8px; padding:9px; font-size:0.78rem;
     font-weight:700; display:flex; align-items:center; justify-content:center; gap:6px;
@@ -140,6 +167,7 @@
 
   /* ─── MAIN ─── */
   .app-main { flex:1; overflow-y:auto; padding:1.75rem 2rem; display:flex; flex-direction:column; gap:1.75rem; }
+  .app-main > * { flex-shrink: 0; }
 
   /* Scrollbar */
   .app-main::-webkit-scrollbar { width:5px; }
@@ -152,28 +180,38 @@
   .pg-head p { font-size:0.82rem; color:var(--text-m); margin-top:3px; }
   .pg-badge { font-size:0.72rem; font-weight:700; padding:4px 12px; border-radius:100px; background:var(--blue-soft); color:var(--blue); border:1px solid rgba(26,115,232,.2); }
 
-  /* ─── HERO KPI CARDS (4 always visible) ─── */
-  .hero-row { display:grid; grid-template-columns:repeat(4,1fr); gap:1.25rem; }
+  /* ─── HERO KPI CARDS (Responsive & Sparklines) ─── */
+  .hero-row { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.25rem; }
   .hero-card {
-    background:var(--surface); border:1.5px solid var(--border); border-radius:var(--r);
+    background:var(--surface); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:1.5px solid var(--border); border-radius:var(--r);
     padding:1.25rem 1.5rem; box-shadow:var(--shadow); position:relative; overflow:hidden;
     transition:box-shadow var(--tr), transform var(--tr);
+    display: flex; flex-direction: column; justify-content: space-between; gap: 8px;
   }
   .hero-card:hover { box-shadow:var(--shadow-md); transform:translateY(-2px); }
   .hero-card::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius:var(--r) var(--r) 0 0; opacity:0; transition:opacity var(--tr); background:var(--accent,var(--blue)); }
   .hero-card:hover::after { opacity:1; }
-  .hc-lbl { font-size:0.75rem; font-weight:700; color:var(--text-m); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.5rem; }
+  .hc-top { display:flex; align-items:flex-start; justify-content:space-between; }
+  .hc-lbl { font-size:0.75rem; font-weight:700; color:var(--text-m); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.3rem; }
   .hc-val { font-family:'Plus Jakarta Sans',sans-serif; font-size:2.4rem; font-weight:800; line-height:1; letter-spacing:-0.05em; }
   .hc-val .unit { font-size:1.3rem; font-weight:700; opacity:.6; }
-  .hc-sub { font-size:0.74rem; color:var(--text-m); margin-top:6px; }
+  .hc-sub { font-size:0.74rem; color:var(--text-m); }
+  .hc-trend { font-size: 0.72rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 3px; margin-top: 4px; }
+  .hc-trend.up { background: rgba(22,163,74,0.15); color: var(--green); }
+  .hc-trend.down { background: rgba(220,38,38,0.15); color: var(--red); }
+  .hc-trend.neutral { background: rgba(107,114,128,0.15); color: var(--text-m); }
+  .hc-bot { display:flex; align-items:flex-end; justify-content:space-between; gap: 10px; }
+  .hc-chart { width: 80px; height: 35px; flex-shrink: 0; }
 
   /* ─── SEGMENT SWITCHER ─── */
   .seg-bar {
-    display:flex; background:var(--surface); border:1px solid var(--border); border-radius:var(--r);
+    display:flex; background:var(--surface); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:1px solid var(--border); border-radius:var(--r);
     padding:5px; gap:4px; box-shadow:var(--shadow);
+    overflow-x:auto; flex-wrap:nowrap; scrollbar-width:none; -ms-overflow-style:none;
   }
+  .seg-bar::-webkit-scrollbar { display:none; }
   .seg-btn {
-    flex:1; background:none; border:none; padding:9px 14px; border-radius:var(--r-sm);
+    flex:0 0 auto; background:none; border:none; padding:9px 14px; border-radius:var(--r-sm);
     font-size:0.82rem; font-weight:600; color:var(--text-m);
     display:flex; align-items:center; justify-content:center; gap:7px;
     transition:all .2s; white-space:nowrap;
@@ -185,11 +223,21 @@
   .bunch { display:none; animation:fadeUp .3s ease forwards; }
   .bunch.active { display:block; }
   @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
-  .bunch-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:1.25rem; }
+  .bunch-grid {
+    display:flex; flex-wrap:nowrap; overflow-x:auto; gap:1.25rem;
+    padding-bottom:1rem; /* Space for scrollbar */
+    scrollbar-width:thin; scrollbar-color:rgba(26,115,232,.35) rgba(0,0,0,0.03);
+  }
+  .bunch-grid::-webkit-scrollbar { height:8px; display:block; }
+  .bunch-grid::-webkit-scrollbar-track { background:rgba(0,0,0,0.03); border-radius:10px; }
+  [data-theme="dark"] .bunch-grid::-webkit-scrollbar-track { background:rgba(255,255,255,0.05); }
+  .bunch-grid::-webkit-scrollbar-thumb { background:rgba(26,115,232,.35); border-radius:10px; border: 2px solid transparent; background-clip: padding-box; }
+  .bunch-grid::-webkit-scrollbar-thumb:hover { background-color:rgba(26,115,232,.6); }
 
   /* Metric Card */
   .mc {
-    background:var(--surface); border:1.5px solid var(--border); border-radius:var(--r);
+    flex: 0 0 250px;
+    background:var(--surface); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:1.5px solid var(--border); border-radius:var(--r);
     padding:1.2rem 1.3rem; box-shadow:var(--shadow); position:relative; overflow:hidden;
     transition:all var(--tr);
   }
@@ -217,7 +265,7 @@
   .cr-full { grid-template-columns:1fr; }
 
   .panel {
-    background:var(--surface); border:1.5px solid var(--border); border-radius:var(--r);
+    background:var(--surface); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:1.5px solid var(--border); border-radius:var(--r);
     padding:1.4rem; box-shadow:var(--shadow);
   }
   .ph { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:1.2rem; }
@@ -266,6 +314,22 @@
   .top-10-count { font-family:'Plus Jakarta Sans',sans-serif; font-size:0.85rem; font-weight:800; color:var(--text); min-width:36px; text-align:right; }
   .top-10-pct { font-size:0.72rem; color:var(--text-m); font-weight:600; min-width:38px; text-align:right; }
 
+  /* Disposition toggle button */
+  .disp-toggle-btn {
+    background:var(--yellow-soft); color:var(--amber); border:1px solid rgba(217,119,6,.25);
+    border-radius:8px; padding:6px 14px; font-size:0.75rem; font-weight:700;
+    cursor:pointer; transition:all .2s; white-space:nowrap; font-family:inherit;
+  }
+  .disp-toggle-btn:hover { filter:brightness(1.08); }
+
+  /* Scrollable disposition container */
+  .disp-list-wrap {
+    max-height:480px; overflow-y:auto; padding-right:4px;
+    scrollbar-width:thin; scrollbar-color:rgba(26,115,232,.25) transparent;
+  }
+  .disp-list-wrap::-webkit-scrollbar { width:4px; }
+  .disp-list-wrap::-webkit-scrollbar-thumb { background:rgba(26,115,232,.25); border-radius:4px; }
+
   /* Legend */
   .legend { display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
   .lg-item { display:flex; align-items:center; gap:5px; font-size:0.74rem; color:var(--text-m); font-weight:500; }
@@ -273,8 +337,31 @@
   .lg-line { width:16px; height:2px; border-radius:2px; flex-shrink:0; }
 
   /* Utility */
-  @media(max-width:1280px) { .hero-row{grid-template-columns:repeat(2,1fr);} .cr-main{grid-template-columns:1fr;} .cr-3{grid-template-columns:1fr 1fr;} }
-  @media(max-width:900px) { .cr-3{grid-template-columns:1fr;} .sidebar{display:none;} }
+  @media(max-width:1440px) {
+    .hdr { padding: 0 1rem; gap: 0.5rem; }
+    .hdr-datewrap input { width: 90px; font-size: 0.75rem; }
+    .hdr-vbtn { padding: 4px 10px; font-size: 0.75rem; }
+    .hdr-vbtns { gap: 2px; }
+    .hdr-logo { gap: 8px; }
+    .hdr-brand-wrap { transform: scale(0.9); transform-origin: left center; }
+  }
+  @media(max-width:1280px) { 
+    .hero-row{grid-template-columns:repeat(2,1fr);} 
+    .cr-main{grid-template-columns:1fr;} 
+    .cr-3{grid-template-columns:1fr 1fr;} 
+  }
+  @media(max-width:1100px) {
+    .hdr { flex-wrap: wrap; height: auto; min-height: 72px; padding: 12px 1rem; }
+    .hdr-fill { display: none; }
+    .hdr-logo { margin-right: auto; }
+    .hdr-datewrap, .hdr-vbtns { order: 3; margin-top: 8px; }
+    .hdr-vbtns { overflow-x: auto; max-width: 100%; scrollbar-width: none; }
+    .hdr-vbtns::-webkit-scrollbar { display: none; }
+  }
+  @media(max-width:900px) { 
+    .cr-3{grid-template-columns:1fr;} 
+    .sidebar{display:none;} 
+  }
   </style>
 </head>
 <body>
@@ -282,27 +369,35 @@
 <header class="hdr">
   <a href="campaign.html" class="hdr-logo">
     <div class="hdr-lm">
-      <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="24" height="24" rx="6" fill="white"/><rect x="8" y="8" width="16" height="3" rx="1.5" fill="#1A73E8"/><rect x="8" y="14" width="10" height="3" rx="1.5" fill="#1A73E8"/><rect x="8" y="20" width="16" height="3" rx="1.5" fill="rgba(26,115,232,0.35)"/></svg>
+      <!-- FreshBus Yellow Logo SVG -->
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 32 82
+                 L 32 20
+                 C 32 14, 37 10, 43 10
+                 L 71 10
+                 C 80 10, 84 21, 76 28
+                 L 56 46
+                 L 70 46
+                 C 79 46, 83 57, 75 64
+                 L 43 92
+                 C 35 99, 32 92, 32 85
+                 Z" fill="#FFEA20"/>
+      </svg>
     </div>
-    <span class="hdr-ln">FreshBus Analytics</span>
+    <div class="hdr-brand-wrap">
+      <span class="hdr-ln">Fresh Bus</span>
+      <span class="hdr-sub">CX & Strategy Analytics</span>
+    </div>
   </a>
-  <div class="hdr-sep"></div>
-  <div class="hdr-scope">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-    Inbound Scope
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg>
-  </div>
-  <div class="hdr-fill"></div>
 
   <!-- Date pickers -->
-  <div class="hdr-datewrap">
+  <div class="hdr-datewrap" style="margin-left: 4px;">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
     <input type="text" id="filter_start_date" placeholder="Start Date" readonly>
     <span class="sep">→</span>
     <input type="text" id="filter_end_date" placeholder="End Date" readonly>
-    <button id="goBtn" class="hdr-vbtn active" style="padding:4px 10px; margin-left: 2px;">Go</button>
-    <div id="dataLoader" style="display:none; width:16px; height:16px; border:2px solid var(--blue); border-top-color:transparent; border-radius:50%; animation:spin 1s linear infinite; margin-left:4px;"></div>
   </div>
+  <div class="hdr-fill"></div>
   <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
 
   <!-- View period -->
@@ -310,10 +405,25 @@
     <button class="hdr-vbtn" data-view="1hr">1 Hr</button>
     <button class="hdr-vbtn" data-view="2hr">2 Hr</button>
     <button class="hdr-vbtn" data-view="3hr">3 Hr</button>
-    <button class="hdr-vbtn active" data-view="daily">Daily</button>
+    <button class="hdr-vbtn" data-view="daily">Today</button>
     <button class="hdr-vbtn" data-view="yesterday">Yesterday</button>
     <button class="hdr-vbtn" data-view="weekly">Weekly</button>
     <button class="hdr-vbtn" data-view="monthly">Monthly</button>
+    <button id="goBtn" class="hdr-vbtn" style="
+      padding: 6px 20px; 
+      margin-left: 12px; 
+      background: linear-gradient(135deg, rgba(255,234,32,0.9), rgba(255,200,0,0.8));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      color: #0c4dc3;
+      font-weight: 800;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    ">Go</button>
+    <div id="dataLoader" style="display:none; width:18px; height:18px; border:2.5px solid var(--text); border-top-color:transparent; border-radius:50%; animation:spin 1s linear infinite; margin-left:12px;"></div>
   </div>
 
   <!-- Actions -->
@@ -327,7 +437,7 @@
   </div>
 
   <div class="hdr-user">
-    <div class="hdr-av"><img src="https://ui-avatars.com/api/?name=Admin&background=1A73E8&color=fff&size=64" alt=""></div>
+    <div class="hdr-av"><img src="https://ui-avatars.com/api/?name=Admin&background=FFEA20&color=0c4dc3&size=64" alt=""></div>
     <span class="hdr-un">Admin</span>
   </div>
 </header>
@@ -403,7 +513,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
     Apply Filters
   </button>
-  <button class="sb-btn sb-btn-primary" id="clearBtn" style="background:rgba(255,255,255,.07);color:rgba(255,255,255,.6);margin-top:2px;">
+  <button class="sb-btn sb-btn-primary" id="clearBtn" style="background:var(--surface2);color:var(--text-muted);margin-top:2px;">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
     Reset Filters
   </button>
@@ -429,100 +539,375 @@
     <span class="pg-badge" id="recordsBadge">Loading…</span>
   </div>
 
-  <!-- ALWAYS VISIBLE: 4 Hero KPIs -->
+  <!-- ALWAYS VISIBLE: 5 Hero KPIs -->
   <div class="hero-row">
+    <!-- 1 -->
     <div class="hero-card" style="--accent:var(--blue)">
-      <div class="hc-lbl">Total Calls Offered</div>
-      <div class="hc-val c-blue" id="h-total">—</div>
-      <div class="hc-sub">All incoming trunks</div>
+      <div class="hc-top">
+        <div>
+          <div class="hc-lbl">Total Calls Offered</div>
+          <div class="hc-val c-blue" id="h-total">—</div>
+        </div>
+      </div>
+      <div class="hc-bot">
+        <div>
+          <div class="hc-sub">All incoming trunks</div>
+        </div>
+        <div class="hc-chart"><canvas id="h-total-spark"></canvas></div>
+      </div>
     </div>
+    <!-- 2 -->
     <div class="hero-card" style="--accent:var(--green)">
-      <div class="hc-lbl">Service Level (SL%)</div>
-      <div class="hc-val c-green"><span id="h-sl_pct">—</span><span class="unit">%</span></div>
-      <div class="hc-sub" id="h-sl_calls_sub">— calls answered ≤30s</div>
+      <div class="hc-top">
+        <div>
+          <div class="hc-lbl">Service Level (SL%)</div>
+          <div class="hc-val c-green"><span id="h-sl_pct">—</span><span class="unit">%</span></div>
+        </div>
+      </div>
+      <div class="hc-bot">
+        <div>
+          <div class="hc-sub" id="h-sl_calls_sub">— calls answered ≤30s</div>
+        </div>
+        <div class="hc-chart"><canvas id="h-sl-spark"></canvas></div>
+      </div>
     </div>
+    <!-- 3 -->
+    <div class="hero-card" style="--accent:var(--blue)">
+      <div class="hc-top">
+        <div>
+          <div class="hc-lbl">Answer Level (AL%)</div>
+          <div class="hc-val c-blue"><span id="h-al_pct">—</span><span class="unit">%</span></div>
+        </div>
+      </div>
+      <div class="hc-bot">
+        <div>
+          <div class="hc-sub">Answered / Agent Offered</div>
+        </div>
+        <div class="hc-chart"><canvas id="h-al-spark"></canvas></div>
+      </div>
+    </div>
+    <!-- 4 -->
     <div class="hero-card" style="--accent:var(--red)">
-      <div class="hc-lbl">Net Abandonment</div>
-      <div class="hc-val c-red"><span id="h-net_abn">—</span></div>
-      <div class="hc-sub"><span id="h-net_pct">—</span>% Net Abn Rate</div>
+      <div class="hc-top">
+        <div>
+          <div class="hc-lbl">Net Abandonment</div>
+          <div class="hc-val c-red"><span id="h-net_abn">—</span></div>
+        </div>
+      </div>
+      <div class="hc-bot">
+        <div>
+          <div class="hc-sub"><span id="h-net_pct">—</span>% Net Abn Rate</div>
+        </div>
+        <div class="hc-chart"><canvas id="h-net-spark"></canvas></div>
+      </div>
     </div>
+    <!-- 5 -->
     <div class="hero-card" style="--accent:var(--amber)">
-      <div class="hc-lbl">Answered AHT</div>
-      <div class="hc-val c-amber"><span id="h-aht">—</span><span class="unit">s</span></div>
-      <div class="hc-sub">Avg handling duration</div>
+      <div class="hc-top">
+        <div>
+          <div class="hc-lbl">Answered AHT</div>
+          <div class="hc-val c-amber"><span id="h-aht">—</span><span class="unit">s</span></div>
+        </div>
+      </div>
+      <div class="hc-bot">
+        <div>
+          <div class="hc-sub">Avg handling duration</div>
+        </div>
+        <div class="hc-chart"><canvas id="h-aht-spark"></canvas></div>
+      </div>
+    </div>
+    <!-- 6: CSAT -->
+    <div class="hero-card" style="--accent:var(--purple)">
+      <div class="hc-top">
+        <div>
+          <div class="hc-lbl">CSAT Ratings</div>
+          <div class="hc-val c-purple" id="h-csat_total">—</div>
+        </div>
+      </div>
+      <div class="hc-bot" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);">
+        <div style="display:flex; justify-content:space-between; width:100%; gap:4px;">
+           <div style="flex:1; display:flex; flex-direction:column; align-items:center; background:rgba(107,114,128,0.1); border:1px solid rgba(107,114,128,0.2); border-radius:6px; padding:4px 0;">
+             <div style="font-size:0.65rem; font-weight:700; color:#6b7280; display:flex; align-items:center; gap:2px;">0 <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+             <div id="csat-0" style="font-weight:800; font-size:0.85rem; color:var(--text); margin-top:1px;">-</div>
+           </div>
+           <div style="flex:1; display:flex; flex-direction:column; align-items:center; background:rgba(220,38,38,0.1); border:1px solid rgba(220,38,38,0.2); border-radius:6px; padding:4px 0;">
+             <div style="font-size:0.65rem; font-weight:700; color:#dc2626; display:flex; align-items:center; gap:2px;">1 <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+             <div id="csat-1" style="font-weight:800; font-size:0.85rem; color:var(--text); margin-top:1px;">-</div>
+           </div>
+           <div style="flex:1; display:flex; flex-direction:column; align-items:center; background:rgba(249,115,22,0.1); border:1px solid rgba(249,115,22,0.2); border-radius:6px; padding:4px 0;">
+             <div style="font-size:0.65rem; font-weight:700; color:#f97316; display:flex; align-items:center; gap:2px;">2 <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+             <div id="csat-2" style="font-weight:800; font-size:0.85rem; color:var(--text); margin-top:1px;">-</div>
+           </div>
+           <div style="flex:1; display:flex; flex-direction:column; align-items:center; background:rgba(234,179,8,0.1); border:1px solid rgba(234,179,8,0.2); border-radius:6px; padding:4px 0;">
+             <div style="font-size:0.65rem; font-weight:700; color:#eab308; display:flex; align-items:center; gap:2px;">3 <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+             <div id="csat-3" style="font-weight:800; font-size:0.85rem; color:var(--text); margin-top:1px;">-</div>
+           </div>
+           <div style="flex:1; display:flex; flex-direction:column; align-items:center; background:rgba(132,204,22,0.1); border:1px solid rgba(132,204,22,0.2); border-radius:6px; padding:4px 0;">
+             <div style="font-size:0.65rem; font-weight:700; color:#84cc16; display:flex; align-items:center; gap:2px;">4 <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+             <div id="csat-4" style="font-weight:800; font-size:0.85rem; color:var(--text); margin-top:1px;">-</div>
+           </div>
+           <div style="flex:1; display:flex; flex-direction:column; align-items:center; background:rgba(22,163,74,0.1); border:1px solid rgba(22,163,74,0.2); border-radius:6px; padding:4px 0;">
+             <div style="font-size:0.65rem; font-weight:700; color:#16a34a; display:flex; align-items:center; gap:2px;">5 <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+             <div id="csat-5" style="font-weight:800; font-size:0.85rem; color:var(--text); margin-top:1px;">-</div>
+           </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- SEGMENT SWITCHER -->
-  <div class="seg-bar">
-    <button class="seg-btn active" data-bunch="traffic">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      Volume & Funnel
-    </button>
-    <button class="seg-btn" data-bunch="service">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-      Service & Ops
-    </button>
-    <button class="seg-btn" data-bunch="failure">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-      Abandonment
-    </button>
-    <button class="seg-btn" data-bunch="quality">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
-      Exceptions & QA
-    </button>
+  <div class="seg-bar" style="overflow-x:auto;flex-wrap:nowrap;">
+    <button class="seg-btn active" data-bunch="overall">🌐 Overall</button>
+    <button class="seg-btn" data-bunch="journey">🚌 Journey Volume</button>
+    <button class="seg-btn" data-bunch="volume">📞 Call Volume</button>
+    <button class="seg-btn" data-bunch="abandonment">❌ Abandonment</button>
+    <button class="seg-btn" data-bunch="handling">⏱ Handling &amp; Productivity</button>
+    <button class="seg-btn" data-bunch="repeat">🔁 Repeat Calls</button>
+    <button class="seg-btn" data-bunch="operations">⚠️ Operations Impact</button>
+    <button class="seg-btn" data-bunch="callback">📲 Callback &amp; Completion</button>
+    <button class="seg-btn" data-bunch="disconnection">🔌 Agent Disconnection</button>
+    <button class="seg-btn" data-bunch="wrapup">📋 Wrap-up Compliance</button>
   </div>
 
-  <!-- BUNCH 1: Volume & Funnel -->
-  <div class="bunch active" id="bunch-traffic">
+  <!-- BUNCH 1: Journey Volume -->
+  <div class="bunch" id="bunch-journey">
     <div class="bunch-grid">
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Calls Answered</span><div class="mc-icon b-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.7A2 2 0 012.18 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.08 6.08l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div></div><div class="mc-val c-green" id="m-answered">—</div><div class="mc-foot">Status = Answered</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Overall Abandoned</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.5 16.5L19 19M5.3 5.3A14.96 14.96 0 001 12"/></svg></div></div><div class="mc-val c-red" id="m-overall_abn">—</div><div class="mc-foot">Status = Unanswered</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Answer Level (AL%)</span><div class="mc-icon b-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div></div><div class="mc-val c-green"><span id="m-al_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Answered / Agent Offered</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">WH Calls Offered</span><div class="mc-icon b-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div></div><div class="mc-val c-purple" id="m-wh_offered">—</div><div class="mc-foot">Campaign = WomenHelpline</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">WH Calls Answered</span><div class="mc-icon b-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div></div><div class="mc-val c-green" id="m-wh_answered">—</div><div class="mc-foot">WomenHelpline + Answered</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Travel Update Offered</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div></div><div class="mc-val" id="m-travel_update_offered">—</div><div class="mc-foot">Campaign = TravelUpdate</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Inbound + WH Offered</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div></div><div class="mc-val" id="m-inbound_wh_offered">—</div><div class="mc-foot">Total − TravelUpdate</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Gross Seats</span><div class="mc-icon b-blue"></div></div><div class="mc-val c-blue" id="m-gross-seats">—</div><div class="mc-foot">Total seats operated</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Gross Tickets</span><div class="mc-icon b-blue"></div></div><div class="mc-val c-blue" id="m-gross-tickets">—</div><div class="mc-foot">Tickets booked</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Intr/Journey(Overall)</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-intr-journey">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Interactions per journey</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Intr/Journey % ( Inbound + WH)</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-intr-journey-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Journey interaction rate</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Intr/Journey % ( Travel update )</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-travel-update-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Tracker Data</div></div>
     </div>
   </div>
 
-  <!-- BUNCH 2: Service & Ops -->
-  <div class="bunch" id="bunch-service">
+  <!-- BUNCH 2: Call Volume -->
+  <div class="bunch" id="bunch-volume">
     <div class="bunch-grid">
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Agent Calls Offered</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div></div><div class="mc-val" id="m-agent_offered">—</div><div class="mc-foot">Agent ≠ blank, Answered + Unanswered</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">SL Calls (≤30s)</span><div class="mc-icon b-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div></div><div class="mc-val c-green" id="m-sl_calls">—</div><div class="mc-foot">TTA ≤30s + Answered</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Service Level (SL%)</span><div class="mc-icon b-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div></div><div class="mc-val c-green"><span id="m-sl_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">SL Calls / Agent Offered</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Avg Wait Time</span><div class="mc-icon b-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div></div><div class="mc-val c-amber"><span id="m-avg_wait">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Avg(Time to Answer)</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Avg Hold Time</span><div class="mc-icon b-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div><div class="mc-val"><span id="m-avg_hold">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Avg Hold Time where Hold &gt;0</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">On Hold Calls</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg></div></div><div class="mc-val" id="m-on_hold">—</div><div class="mc-foot">Hold Time &gt; 0s</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Handling &gt;5 mins</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/></svg></div></div><div class="mc-val c-red" id="m-long_calls">—</div><div class="mc-foot">Answered + Duration &gt;300s</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Long Call %</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg></div></div><div class="mc-val c-red"><span id="m-long_call_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Long Calls / Answered</div></div>
+
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Agent Calls Offered</span><div class="mc-icon"></div></div><div class="mc-val" id="m-agent-offered">—</div><div class="mc-foot">Agent ≠ blank</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Calls Answered</span><div class="mc-icon b-green"></div></div><div class="mc-val c-green" id="m-answered">—</div><div class="mc-foot">Status = Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">SL Calls</span><div class="mc-icon b-green"></div></div><div class="mc-val c-green" id="m-sl-calls">—</div><div class="mc-foot">Answered ≤ 30s</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">WH Total Calls Offered</span><div class="mc-icon b-purple"></div></div><div class="mc-val c-purple" id="m-wh-offered">—</div><div class="mc-foot">Women Helpline</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">WH Calls Answered</span><div class="mc-icon b-green"></div></div><div class="mc-val c-green" id="m-wh-answered">—</div><div class="mc-foot">WH + Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Calls Offered (Inbound+WH)</span><div class="mc-icon"></div></div><div class="mc-val" id="m-inbound-wh-offered">—</div><div class="mc-foot">Total − TravelUpdate</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Calls Offered (Travel Update)</span><div class="mc-icon"></div></div><div class="mc-val" id="m-travel-update-offered">—</div><div class="mc-foot">TravelUpdate campaign</div></div>
     </div>
   </div>
 
   <!-- BUNCH 3: Abandonment -->
-  <div class="bunch" id="bunch-failure">
+  <div class="bunch" id="bunch-abandonment">
     <div class="bunch-grid">
-      <div class="mc" style="border-color:rgba(220,38,38,.3)"><div class="mc-head"><span class="mc-lbl">Net Abandoned Calls</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div></div><div class="mc-val c-red" id="m-net_abn">—</div><div class="mc-foot">Agent ≠ blank, Unanswered, Duration &gt;5s</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Net Abn %</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/></svg></div></div><div class="mc-val c-red"><span id="m-net_abn_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Net Abn / Total Offered</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Short Call Abn</span><div class="mc-icon b-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div></div><div class="mc-val c-amber" id="m-short_abn">—</div><div class="mc-foot">Unanswered, Duration ≤5s</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Short Call % – Abn</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-short_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Short Abn / Answered</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Gross Abn% (WO Short)</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg></div></div><div class="mc-val c-red"><span id="m-gross_abn_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">(Overall Abn − Short) / Total Offered</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Queue Level Failure</span><div class="mc-icon b-purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18M15 3v18"/></svg></div></div><div class="mc-val c-purple" id="m-queue_level">—</div><div class="mc-foot">Agent = queue, Unanswered, &gt;5s</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Overall Abandoned</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-overall-abn">—</div><div class="mc-foot">Status = Unanswered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Net Abandoned Calls</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-net-abn">—</div><div class="mc-foot">Agent ≠ blank, Unanswered, &gt;5s</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Short Call Abn</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber" id="m-short-abn">—</div><div class="mc-foot">Unanswered, Duration ≤ 5s</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Short Call % – Abn</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-short-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Short Abn / Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Gross Abn%</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-gross-abn-with-short">—</span><span class="mc-unit">%</span></div><div class="mc-foot">All Abn / Total Offered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Gross Abn% (WO Short)</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-gross-abn-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">(Abn − Short) / Total Offered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Net Abn%</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-net-abn-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Net Abn / Total Offered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Queue Level Abn</span><div class="mc-icon b-purple"></div></div><div class="mc-val c-purple" id="m-queue-level">—</div><div class="mc-foot">Abandoned before agent</div></div>
     </div>
   </div>
 
-  <!-- BUNCH 4: Exceptions & QA -->
-  <div class="bunch" id="bunch-quality">
+
+  <!-- BUNCH 5: Call Handling & Productivity -->
+  <div class="bunch" id="bunch-handling">
     <div class="bunch-grid">
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Repeat Calls</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div></div><div class="mc-val" id="m-same_day_repeat">—</div><div class="mc-foot">Same Caller + Same Date, count &gt;1</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Same Day Repeat %</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div></div><div class="mc-val"><span id="m-repeat_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Same Day Repeats / Total Offered</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Same Day Disp. Repeat %</span><div class="mc-icon b-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div></div><div class="mc-val c-amber"><span id="m-disp_repeat_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Disp Repeat / Calls Answered</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call Drop</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="1" y1="1" x2="23" y2="23"/><path d="M16.5 16.5L19 19M5.3 5.3A14.96 14.96 0 001 12"/></svg></div></div><div class="mc-val c-red" id="m-call_drop">—</div><div class="mc-foot">Answered + Disp = Call Drop</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Blank Call</span><div class="mc-icon b-amber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><line x1="1" y1="1" x2="23" y2="23"/></svg></div></div><div class="mc-val c-amber" id="m-blank_call">—</div><div class="mc-foot">Answered + Disp = Blank Call</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call Back</span><div class="mc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 14 4 19 4 14"/><path d="M20 4v7a4 4 0 01-4 4H4"/></svg></div></div><div class="mc-val" id="m-call_back">—</div><div class="mc-foot">Call Drop + Blank Call</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Agent Disconnected</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="18" y1="8" x2="23" y2="13"/><line x1="23" y1="8" x2="18" y2="13"/></svg></div></div><div class="mc-val c-red" id="m-agent_disconnected">—</div><div class="mc-foot">Answered + Hangup = AgentHangup</div></div>
-      <div class="mc"><div class="mc-head"><span class="mc-lbl">Agent Disconnected %</span><div class="mc-icon b-red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="5" x2="5" y2="19"/><circle cx="6.5" cy="6.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg></div></div><div class="mc-val c-red"><span id="m-agent_disconnected_pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Agent Disconnected / Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Duration – AHT</span><div class="mc-icon b-blue"></div></div><div class="mc-val c-blue"><span id="m-duration-aht">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Avg Duration (Answered)</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Answered – AHT</span><div class="mc-icon b-blue"></div></div><div class="mc-val c-blue"><span id="m-answered-aht">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Avg Handling Time</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Total Wait Time</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-total-wait">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Sum TTA (Answered)</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Avg Wait Time</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-avg-wait">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Avg Time to Answer</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Avg Hold Time</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-avg-hold">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Avg Hold where &gt; 0</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">On Hold Calls</span><div class="mc-icon"></div></div><div class="mc-val" id="m-on-hold">—</div><div class="mc-foot">Hold Time &gt; 0s</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Hold Call %</span><div class="mc-icon"></div></div><div class="mc-val"><span id="m-hold-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">On Hold / Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Present Agent HC</span><div class="mc-icon b-green"></div></div><div class="mc-val c-green" id="m-agent-hc">—</div><div class="mc-foot">Tracker Data</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Handling Time &gt;5 mins</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-long-calls">—</div><div class="mc-foot">Answered + Duration &gt; 300s</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Long Call %</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-long-call-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Long Calls / Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call / Agent</span><div class="mc-icon"></div></div><div class="mc-val" id="m-call-per-agent">—</div><div class="mc-foot">Answered / Agent HC</div></div>
+    </div>
+  </div>
+
+  <!-- BUNCH 6: Repeat Calls -->
+  <div class="bunch" id="bunch-repeat">
+    <div class="bunch-grid">
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Disposition (Repeat Calls)</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber" id="m-disp-repeat">—</div><div class="mc-foot">Same Day + Same Disp</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Repeat Calls</span><div class="mc-icon"></div></div><div class="mc-val" id="m-repeat-calls">—</div><div class="mc-foot">Same Caller + Same Date</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Same Day Repeat %</span><div class="mc-icon"></div></div><div class="mc-val"><span id="m-same-day-repeat-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Repeat / Total Offered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Same Day Same Disp – Repeat %</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-disp-repeat-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Disp Repeat / Answered</div></div>
+    </div>
+  </div>
+
+  <!-- BUNCH 7: Operations Impact -->
+  <div class="bunch" id="bunch-operations">
+    <div class="bunch-grid">
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">No. of Service Delay</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-svc-delay">—</div><div class="mc-foot">Tracker Data</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Delay Pax Impacted</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-delay-pax">—</div><div class="mc-foot">Tracker Data</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">No. of Service Cancel</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-svc-cancel">—</div><div class="mc-foot">Tracker Data</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Service Cancel Pax Impacted</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-cancel-pax">—</div><div class="mc-foot">Tracker Data</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">No. of Service Breakdown</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-svc-breakdown">—</div><div class="mc-foot">Tracker Data</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Breakdown Pax Impacted</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-breakdown-pax">—</div><div class="mc-foot">Tracker Data</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Total Pax Impacted</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-total-pax">—</div><div class="mc-foot">Tracker Data</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Impacted %</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-impacted-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Tracker Data</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Cancellations Impact %</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-cancel-impact-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Tracker Data</div></div>
+    </div>
+  </div>
+
+  <!-- BUNCH 8: Callback & Call Completion -->
+  <div class="bunch" id="bunch-callback">
+    <div class="bunch-grid">
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call Back</span><div class="mc-icon"></div></div><div class="mc-val" id="m-call-back">—</div><div class="mc-foot">Call Drop + Blank Call</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call Drop</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-call-drop">—</div><div class="mc-foot">Disp = Call Drop</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Blank Call</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber" id="m-blank-call">—</div><div class="mc-foot">Disp = Blank Call</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Total (Drop + Blank)</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-total-callback">—</div><div class="mc-foot">Call Drop + Blank Call</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call Drop Not Done</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-drop-not-done">—</div><div class="mc-foot">Callback not completed</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Blank Call Not Done</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber" id="m-blank-not-done">—</div><div class="mc-foot">Callback not completed</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Overall Call Not Done</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-overall-not-done">—</div><div class="mc-foot">Total callbacks not completed</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call Not Done %</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-not-done-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Not Done / Call Back</div></div>
+    </div>
+  </div>
+
+  <!-- BUNCH 9: Agent Disconnection -->
+  <div class="bunch" id="bunch-disconnection">
+    <div class="bunch-grid">
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call Received</span><div class="mc-icon b-blue"></div></div><div class="mc-val c-blue" id="m-disc-received">—</div><div class="mc-foot">Total Calls Offered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Answered</span><div class="mc-icon b-green"></div></div><div class="mc-val c-green" id="m-disc-answered">—</div><div class="mc-foot">Calls Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Agent Disconnected</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-agent-disconnected">—</div><div class="mc-foot">Hangup By = Agent</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Agent Disconnected %</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-agent-disconnected-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Agent Disc / Answered</div></div>
+    </div>
+  </div>
+
+  <!-- BUNCH 10: Wrap-up & Disposition Compliance -->
+  <div class="bunch" id="bunch-wrapup">
+    <div class="bunch-grid">
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call Received</span><div class="mc-icon b-blue"></div></div><div class="mc-val c-blue" id="m-wrapup-received">—</div><div class="mc-foot">Total Calls Offered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Answered</span><div class="mc-icon b-green"></div></div><div class="mc-val c-green" id="m-wrapup-answered">—</div><div class="mc-foot">Calls Answered</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call Not Disposed</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-call-not-disposed">—</div><div class="mc-foot">Answered + No Disposition</div></div>
+      <div class="mc"><div class="mc-head"><span class="mc-lbl">Call Not Disposed %</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-not-disposed-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Not Disposed / Answered</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ DYNAMIC INSIGHT STRIP ═══ -->
+  <div class="vi-insight-strip" id="globalInsightStrip" style="display:none;">
+    <span>💡</span>
+    <span id="insightText">Analyzing operational metrics...</span>
+  </div>
+
+  <!-- ═══ VISUAL INTELLIGENCE WORKSPACE ═══ -->
+  <!-- BUNCH OVERALL VISUALS -->
+  <div class="bunch" id="bunch-visuals-overall">
+    <div class="vi-grid">
+      <!-- O1: Operations Pulse (8 col) -->
+      <div class="vi-col-8 vi-card">
+        <div class="vi-card-title">Operations Pulse</div>
+        <div class="vi-card-sub">Demand, service performance and customer friction movement (Normalized)</div>
+        <div class="canvas-wrap" style="height:300px; width:100%;"><canvas id="opPulseChart"></canvas></div>
+      </div>
+      <!-- O2: Needs Attention (4 col) -->
+      <div class="vi-col-4 vi-card">
+        <div class="vi-card-title">Needs Attention</div>
+        <div class="vi-card-sub">Highest-priority operational deteriorations in the selected period</div>
+        <div id="needsAttentionBoard" style="flex:1; overflow-y:auto; display:flex; flex-direction:column; gap:12px;">
+          <div style="font-size:0.8rem; color:var(--text-muted); text-align:center; padding-top:40px;">Calculating priorities...</div>
+        </div>
+      </div>
+      <!-- O3: Operational Relationship Matrix (12 col) -->
+      <div class="vi-col-12 vi-card">
+        <div class="vi-card-title">Operational Relationship Matrix</div>
+        <div class="vi-card-sub">Operational metrics that consistently move together (Pearson Correlation)</div>
+        <div id="relationshipMatrixGrid" style="display:grid; grid-template-columns:repeat(5, 1fr); gap:8px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUNCH ABANDONMENT VISUALS -->
+  <div class="bunch" id="bunch-visuals-abandonment" style="display:none;">
+    <div class="vi-grid">
+      <!-- A2: Abandonment Rate Diagnostic (8 col) -->
+      <div class="vi-col-8 vi-card">
+        <div class="vi-card-title">Abandonment Rate Diagnostic</div>
+        <div class="vi-card-sub">Gross, adjusted and net abandonment movement</div>
+        <div class="canvas-wrap" style="height:300px; width:100%;"><canvas id="abnDiagnosticChart"></canvas></div>
+      </div>
+      <!-- A1: Abandonment Bridge (4 col) -->
+      <div class="vi-col-4 vi-card">
+        <div class="vi-card-title">From Overall to Net Abandonment</div>
+        <div class="vi-card-sub">How reported abandonment converts into actionable abandonment</div>
+        <div class="canvas-wrap" style="height:300px; width:100%;"><canvas id="abnBridgeChart"></canvas></div>
+      </div>
+      <!-- A3: When Abandonment Happens (12 col) -->
+      <div class="vi-col-12 vi-card">
+        <div class="vi-card-title">When Abandonment Happens</div>
+        <div class="vi-card-sub">Abandonment pressure by day and hour</div>
+        <div id="hmWrap2" style="position:relative; width:100%; display:flex; gap:4px; font-size:11px; overflow-x:auto;">
+          <div class="hm-hdrs" id="hmHdrs"></div>
+          <div class="hm-rows" id="hmRows"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUNCH CALL HANDLING & PRODUCTIVITY VISUALS -->
+  <div class="bunch" id="bunch-visuals-handling" style="display:none;">
+    <div class="vi-grid">
+      <!-- H1: Capacity vs Wait Pressure (7 col) -->
+      <div class="vi-col-7 vi-card">
+        <div class="vi-card-title">Capacity vs Customer Wait Pressure</div>
+        <div class="vi-card-sub">Agent workload compared with average customer wait time</div>
+        <div class="canvas-wrap" style="height:300px; width:100%;"><canvas id="capacityWaitChart"></canvas></div>
+      </div>
+      <!-- H2: Call Complexity & Handling Pressure (5 col) -->
+      <div class="vi-col-5 vi-card">
+        <div class="vi-card-title">Call Complexity & Handling Pressure</div>
+        <div class="vi-card-sub">AHT movement compared with long-call concentration</div>
+        <div class="canvas-wrap" style="height:300px; width:100%;"><canvas id="complexityHandlingChart"></canvas></div>
+      </div>
+      <!-- H3: Where Customers Are Waiting (12 col) -->
+      <div class="vi-col-12 vi-card">
+        <div class="vi-card-title">Where Customers Are Waiting</div>
+        <div class="vi-card-sub">Pre-answer wait pressure compared with in-call hold pressure</div>
+        <div class="canvas-wrap" style="height:300px; width:100%;"><canvas id="waitLocationChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUNCH REPEAT CALLS VISUALS -->
+  <div class="bunch" id="bunch-visuals-repeat" style="display:none;">
+    <div class="vi-grid">
+      <!-- R1: Repeat Contact Pressure (7 col) -->
+      <div class="vi-col-7 vi-card">
+        <div class="vi-card-title">Repeat Contact Pressure</div>
+        <div class="vi-card-sub">Repeat call volume and same-day issue recurrence</div>
+        <div class="canvas-wrap" style="height:300px; width:100%;"><canvas id="repeatPressureChart"></canvas></div>
+      </div>
+      <!-- R2: Repeat Call Driver Pareto (5 col) -->
+      <div class="vi-col-5 vi-card">
+        <div class="vi-card-title">Dispositions Driving Repeat Calls</div>
+        <div class="vi-card-sub">Issue categories contributing most to repeat contact</div>
+        <div class="canvas-wrap" style="height:300px; width:100%;"><canvas id="repeatParetoChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUNCH OPERATIONS IMPACT VISUALS -->
+  <div class="bunch" id="bunch-visuals-impact" style="display:none;">
+    <div class="vi-grid">
+      <!-- OP1: Incident Frequency vs Passenger Impact (5 col) -->
+      <div class="vi-col-5 vi-card">
+        <div class="vi-card-title">Incident Frequency vs Passenger Impact</div>
+        <div class="vi-card-sub">Compare how often incidents occur with how many passengers they affect</div>
+        <div class="canvas-wrap" style="height:300px; width:100%;"><canvas id="incidentFreqChart"></canvas></div>
+      </div>
+      <!-- OP2: Passenger Impact Driver Trend (7 col) -->
+      <div class="vi-col-7 vi-card">
+        <div class="vi-card-title">What Is Driving Passenger Impact</div>
+        <div class="vi-card-sub">Passenger impact contribution by operational incident type</div>
+        <div class="canvas-wrap" style="height:300px; width:100%;"><canvas id="impactDriverChart"></canvas></div>
+      </div>
+      <!-- OP3: Customer Impact Exposure (12 col) -->
+      <div class="vi-col-12 vi-card">
+        <div class="vi-card-title">Customer Impact Exposure</div>
+        <div class="vi-card-sub">Share of passengers affected by operational disruptions</div>
+        <div class="canvas-wrap" style="height:300px; width:100%;"><canvas id="impactExposureChart"></canvas></div>
+      </div>
     </div>
   </div>
 
@@ -596,16 +981,6 @@
         </div>
       </div>
     </div>
-
-    <div class="panel">
-      <div class="ph">
-        <div class="ph-left">
-          <div class="ph-title">CSAT Ratings Distribution</div>
-          <div class="ph-sub">Customer feedback count (0 to 5 stars)</div>
-        </div>
-      </div>
-      <div class="canvas-wrap" style="height:220px"><canvas id="ratingDistChart"></canvas></div>
-    </div>
   </div>
 
   <!-- ═══ CHARTS ROW 3: 3-col comparison ═══ -->
@@ -624,22 +999,32 @@
     </div>
   </div>
 
+  <!-- BUNCH 0: Overall (Contains only dispositions as requested) -->
+  <div class="bunch" id="bunch-overall">
   <!-- ═══ TOP 10 DISPOSITIONS ═══ -->
   <div class="panel">
     <div class="ph">
       <div class="ph-left">
-        <div class="ph-title">Top 10 Dispositions</div>
+        <div class="ph-title" id="dispPanelTitle">Top 10 Dispositions</div>
         <div class="ph-sub">Ranked by call frequency in selected period</div>
       </div>
+      <div class="ph-actions">
+        <button class="disp-toggle-btn" id="dispToggleBtn">📊 View All Dispositions</button>
+      </div>
     </div>
-    <div id="top10List"></div>
+    <div class="disp-list-wrap">
+      <div id="top10List"></div>
+    </div>
   </div>
+  
+  </div> <!-- END BUNCH OVERALL -->
 
 </main>
 </div>
 
 <div class="hm-tip" id="hmTip"></div>
 
+<script src="visual_engine.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

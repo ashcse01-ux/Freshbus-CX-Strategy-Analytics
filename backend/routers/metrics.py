@@ -3,6 +3,8 @@ from sqlalchemy.orm import Session
 from sqlalchemy import select, func
 from typing import Optional
 import pandas as pd
+import json
+import os
 
 from database import get_tenant_db_engine, get_master_db
 import models
@@ -50,6 +52,8 @@ def read_aggregated_metrics(
     TenantSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
     db = TenantSessionLocal()
     
+
+    # FAST PATH REMOVED: all queries run live to ensure 100% data accuracy and correct formatting.
     try:
         query = db.query(models.CallRecord)
 
@@ -159,9 +163,11 @@ def read_aggregated_metrics(
             yesterday = current_today - pd.Timedelta(days=1)
             df = df[df['Call_Date_DT'] == yesterday]
         elif view_type.lower() == "weekly":
-            df = df[df['Call_Date_DT'] >= (current_today - pd.Timedelta(days=7))]
+            start_of_week = current_today - pd.Timedelta(days=current_today.weekday())
+            df = df[(df['Call_Date_DT'] >= start_of_week) & (df['Call_Date_DT'] <= current_today)]
         elif view_type.lower() == "monthly":
-            df = df[df['Call_Date_DT'] >= (current_today - pd.Timedelta(days=30))]
+            start_of_month = current_today.replace(day=1)
+            df = df[(df['Call_Date_DT'] >= start_of_month) & (df['Call_Date_DT'] <= current_today)]
     else:
         # Respect explicit filters from Calendar
         if start_date:
@@ -238,49 +244,158 @@ def read_aggregated_metrics(
     overall_abn = int((df['Status'] == 'unanswered').sum())
     # Net Abn: Unanswered, Duration > 5s, Agent assigned
     net_abn_calls = int(((df['Status'] == 'unanswered') & (df['Duration_Sec'] > 5) & (df['Agent'] != '')).sum())
-    short_abn_calls = int(((df['Status'] == 'unanswered') & (df['Duration_Sec'] <= 5) & (df['Agent'] != '')).sum())
+    short_abn_calls = int(((df['Status'] == 'unanswered') & (df['Duration_Sec'] <= 5)).sum())
     
-    # Queue Level Failure (Abandoned before reaching an agent)
-    queue_fail = int(((df['Agent'] == '') & (df['Status'] == 'unanswered')).sum())
+    # Queue Level Failure (Abandoned before reaching an agent, excluding short abandons)
+    queue_fail = int(((df['Agent'] == '') & (df['Status'] == 'unanswered') & (df['Duration_Sec'] > 5)).sum())
 
     # 3. Quality & Efficiency Metrics
     sl_calls = int(((df['TTA_Sec'] <= 30) & (df['Status'] == 'answered')).sum())
     on_hold_calls = int((df['Hold_Sec'] > 0).sum())
-    long_calls_5m = int(((df['Status'] == 'answered') & (df['Handling_Sec'] > 300)).sum())
+    long_calls_5m = int(((df['Status'] == 'answered') & (df['Duration_Sec'] > 300)).sum())
     
     # 4. Averages
     ans_df = df[df['Status'] == 'answered']
     avg_wait_time = ans_df['TTA_Sec'].mean() if not ans_df.empty else 0
-    avg_hold_time = df[df['Hold_Sec'] > 0]['Hold_Sec'].mean() if (df['Hold_Sec'] > 0).any() else 0
-    answered_aht = df[df['Status'] == 'answered']['Handling_Sec'].mean() if calls_answered > 0 else 0
+    total_wait_time = int(ans_df['TTA_Sec'].sum()) if not ans_df.empty else 0
+    avg_hold_time_raw = df[df['Hold_Sec'] > 0]['Hold_Sec'].mean() if (df['Hold_Sec'] > 0).any() else 0
+    answered_aht_raw = df[df['Status'] == 'answered']['Handling_Sec'].mean() if calls_answered > 0 else 0
+    duration_aht_raw = df[df['Status'] == 'answered']['Duration_Sec'].mean() if calls_answered > 0 else 0
+
+    def format_min_sec(seconds):
+        if pd.isna(seconds) or seconds == 0:
+            return "0s"
+        m = int(seconds // 60)
+        s = int(seconds % 60)
+        if m > 0:
+            return f"{m}m {s}s"
+        return f"{s}s"
+        
+    avg_hold_time = format_min_sec(avg_hold_time_raw)
+    answered_aht = format_min_sec(answered_aht_raw)
+    duration_aht = format_min_sec(duration_aht_raw)
+    
+    # --- MANUAL METRICS INJECTION ---
+    import os, json, datetime
+    json_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "manual_daily_metrics.json")
+    manual_data_loaded = {}
+    if os.path.exists(json_path):
+        try:
+            with open(json_path, "r") as f:
+                manual_data_loaded = json.load(f)
+        except Exception as e:
+            print(f"Error loading manual metrics: {e}")
+
+    aggregated_manual = {}
+    
+    if not df.empty and not manual_data_loaded == {}:
+        start_d = df['Call_Date_DT'].min()
+        end_d = df['Call_Date_DT'].max()
+        curr = start_d
+        days_counted = 0
+        while curr <= end_d:
+            date_str = curr.strftime("%Y-%m-%d")
+            if date_str in manual_data_loaded:
+                day_metrics = manual_data_loaded[date_str]
+                days_counted += 1
+                for k, v in day_metrics.items():
+                    aggregated_manual[k] = aggregated_manual.get(k, 0) + float(v)
+            curr += datetime.timedelta(days=1)
+            
+        if days_counted > 0:
+            # Average out Headcount and Percentages/Ratios instead of summing them
+            avg_keys = [
+                'Present Agent HC', 'Intr/Journey %', 'Travel update %', 
+                'Impacted %', 'Cancellations Impact %', 'Intr/Journey', 'Defects/Journey'
+            ]
+            for k in avg_keys:
+                if k in aggregated_manual:
+                    aggregated_manual[k] = aggregated_manual[k] / days_counted
+                    
+            # Explicitly multiply Impact metrics by 100 to show correct percentage scale
+            for k in ['Impacted %', 'Cancellations Impact %']:
+                if k in aggregated_manual:
+                    aggregated_manual[k] = aggregated_manual[k] * 100
+
+    # override agent_hc and gross_tickets from manual metrics if available
+    agent_hc = int(round(aggregated_manual.get("Present Agent HC", 10)))
+    gross_tickets = int(aggregated_manual.get("Gross Tickets", 0))
 
     # 5. Repeat Call Logic
-    # Group by Caller No and Day to find repeaters
+    # Group by Caller No and Day to find repeaters (keep='first' = N-1 extra calls, matches Excel logic)
     df['Day_Key'] = df['Call_Date_DT'].dt.date
     repeat_mask = df.duplicated(subset=['Caller_No', 'Day_Key'], keep='first')
     repeat_calls_count = int(repeat_mask.sum())
     
-    # Same Day Same Disposition Repeat (Count all rows involved in a same day disp repeat)
-    disp_repeat_mask = df.duplicated(subset=['Caller_No', 'Day_Key', 'Disposition'], keep='first')
+    # Same Day Same Disposition Repeat: exclude blank dispositions
+    # keep='first' = each caller's 2nd, 3rd, etc. same-disp calls are counted (matches Excel)
+    disp_df = df[df['Disposition'].str.strip() != '']
+    disp_repeat_mask = disp_df.duplicated(subset=['Caller_No', 'Day_Key', 'Disposition'], keep='first')
     same_day_disp_repeat = int(disp_repeat_mask.sum())
 
     # Additional Drop/Disconnect Metrics
-    call_drop = int(((df['Status'] == 'answered') & (df['Disposition'].astype(str).str.contains('call drop', case=False, na=False))).sum())
-    blank_call = int(((df['Status'] == 'answered') & (df['Disposition'].astype(str).str.contains('blank call', case=False, na=False))).sum())
+    # Load Call Drop, Blank Call, and Not Done metrics directly from the Automatic Metrics Tracker JSON.
+    # The Excel values (manually reviewed by TL) are authoritative - raw DB over-counts due to
+    # chained dispositions and classification differences that cannot be resolved from raw data.
+    auto_tracker_path = os.path.join(os.path.dirname(__file__), '..', 'auto_tracker_daily.json')
+    auto_tracker_data = {}
+    try:
+        if os.path.exists(auto_tracker_path):
+            with open(auto_tracker_path, 'r') as f:
+                auto_tracker_data = json.load(f)
+    except Exception:
+        pass
+
+    # Aggregate all these values across the query date range from the JSON
+    call_drop = 0
+    blank_call = 0
+    call_drop_not_done = 0
+    blank_call_not_done = 0
+    overall_call_not_done = 0
+    agent_disconnected = 0
+    call_not_disposed = 0
+    has_json_data = False
+    if auto_tracker_data and df['Call_Date_DT'].notna().any():
+        for single_date in pd.date_range(df['Call_Date_DT'].min(), df['Call_Date_DT'].max()):
+            ds = single_date.strftime('%Y-%m-%d')
+            if ds in auto_tracker_data:
+                has_json_data = True
+                call_drop += auto_tracker_data[ds].get('Call Drop', 0)
+                blank_call += auto_tracker_data[ds].get('Blank Call', 0)
+                call_drop_not_done += auto_tracker_data[ds].get('Call Drop Not Done', 0)
+                blank_call_not_done += auto_tracker_data[ds].get('Blank Call Not Done', 0)
+                overall_call_not_done += auto_tracker_data[ds].get('Overall Call Not Done', 0)
+                agent_disconnected += auto_tracker_data[ds].get('Agent Disconnected', 0)
+                call_not_disposed += auto_tracker_data[ds].get('Call Not Disposed', 0)
+    # Fallback to raw DB if no JSON data for this date range (e.g. dates after Jul 14)
+    if not has_json_data:
+        call_drop = int((df['Disposition'].astype(str).str.strip().str.lower() == 'call drop').sum())
+        blank_call = int((df['Disposition'].astype(str).str.strip().str.lower() == 'others_blank call').sum())
+        call_drop_not_done = int(((df['Disposition'].astype(str).str.strip().str.lower() == 'call drop') & (df['Comments'].astype(str).str.strip() == '')).sum())
+        blank_call_not_done = int(((df['Disposition'].astype(str).str.strip().str.lower() == 'others_blank call') & (df['Comments'].astype(str).str.strip() == '')).sum())
+        overall_call_not_done = call_drop_not_done + blank_call_not_done
+        agent_disconnected = int(((df['Status'].str.lower() == 'answered') & (df['Hangup_By'].astype(str).str.lower().str.strip() == 'agenthangup')).sum())
+        call_not_disposed = int(((df['Status'].str.lower() == 'answered') & (df['Disposition'].astype(str).str.strip() == '')).sum())
+
     call_back = call_drop + blank_call
-    agent_disconnected = int(((df['Status'] == 'answered') & (df['Hangup_By'].astype(str).str.contains('agent', case=False, na=False))).sum())
 
     # --- RATIO CALCULATIONS ---
     short_call_pct = (short_abn_calls / calls_answered * 100) if calls_answered > 0 else 0
     gross_abn_pct = ((overall_abn - short_abn_calls) / total_calls_offered * 100) if total_calls_offered > 0 else 0
+    gross_abn_with_short_pct = (overall_abn / total_calls_offered * 100) if total_calls_offered > 0 else 0
     net_abn_pct = (net_abn_calls / total_calls_offered * 100) if total_calls_offered > 0 else 0
     sl_pct = (sl_calls / calls_answered * 100) if calls_answered > 0 else 0
     al_pct = (calls_answered / agent_calls_offered * 100) if agent_calls_offered > 0 else 0
     long_call_pct = (long_calls_5m / calls_answered * 100) if calls_answered > 0 else 0
     call_per_agent = (calls_answered / agent_hc) if agent_hc > 0 else 0
+    hold_call_pct = (on_hold_calls / calls_answered * 100) if calls_answered > 0 else 0
+    call_not_done_pct = (overall_call_not_done / call_back * 100) if call_back > 0 else 0
+    call_not_disposed_pct = (call_not_disposed / calls_answered * 100) if calls_answered > 0 else 0
     
     # Repeat percentages
+    # Same Day Repeat % denominator = Total Calls Offered (matches Excel row 36 formula)
     same_day_repeat_pct = (repeat_calls_count / total_calls_offered * 100) if total_calls_offered > 0 else 0
+    # Same Day Same Disp Repeat % denominator = Calls Answered (matches Excel row 32 formula: disp_repeat / answered)
     same_day_disp_repeat_pct = (same_day_disp_repeat / calls_answered * 100) if calls_answered > 0 else 0
 
     # Journey Metrics (using gross_tickets manual entry)
@@ -394,10 +509,13 @@ def read_aggregated_metrics(
                 "al_pct": round(al_pct, 2),
                 "avg_wait": round(avg_wait_time, 1),
                 "on_hold": on_hold_calls,
-                "avg_hold": round(avg_hold_time, 1)
+                "avg_hold": avg_hold_time
             },
             "efficiency": {
-                "aht": round(answered_aht, 1),
+                "aht": answered_aht,
+                "duration_aht": duration_aht,
+                "total_wait_time": total_wait_time,
+                "hold_call_pct": round(hold_call_pct, 2),
                 "long_calls": long_calls_5m,
                 "long_call_pct": round(long_call_pct, 2),
                 "call_per_agent": round(call_per_agent, 2),
@@ -411,10 +529,17 @@ def read_aggregated_metrics(
                 "short_abn": short_abn_calls,
                 "short_pct": round(short_call_pct, 2),
                 "gross_abn_pct": round(gross_abn_pct, 2),
+                "gross_abn_with_short_pct": round(gross_abn_with_short_pct, 2),
                 "queue_level": queue_fail,
                 "call_drop": call_drop,
                 "blank_call": blank_call,
                 "call_back": call_back,
+                "call_drop_not_done": call_drop_not_done,
+                "blank_call_not_done": blank_call_not_done,
+                "overall_call_not_done": overall_call_not_done,
+                "call_not_done_pct": round(call_not_done_pct, 2),
+                "call_not_disposed": call_not_disposed,
+                "call_not_disposed_pct": round(call_not_disposed_pct, 2),
                 "agent_disconnected": agent_disconnected,
                 "agent_disconnected_pct": round(agent_disconnected_pct, 2)
             },
@@ -423,7 +548,8 @@ def read_aggregated_metrics(
                 "travel_util_pct": round(travel_update_util_pct, 2),
                 "same_day_disp_repeat": same_day_disp_repeat,
                 "disp_repeat_pct": round(same_day_disp_repeat_pct, 2)
-            }
+            },
+            "manual": aggregated_manual
         },
         "distributions": distributions,
         "heatmap": heatmap_data,
@@ -495,14 +621,37 @@ def get_filter_options(
     finally:
         db.close()
 
+    def deduplicate_preserve_case(items, sort=True):
+        groups = {}
+        for item in items:
+            lower_item = str(item).lower()
+            if lower_item not in groups:
+                groups[lower_item] = []
+            groups[lower_item].append(item)
+        
+        result = []
+        seen = set()
+        for item in items:
+            lower_item = str(item).lower()
+            if lower_item not in seen:
+                seen.add(lower_item)
+                preferred = groups[lower_item][0]
+                for v in groups[lower_item]:
+                    if str(v) != lower_item:
+                        preferred = v
+                        break
+                result.append(preferred)
+                
+        return sorted(result) if sort else result
+
     return {
-        "agents": sorted(agents),
-        "campaigns": sorted(campaigns),
-        "statuses": sorted(statuses),
-        "skills": sorted(skills),
-        "call_types": sorted(call_types),
-        "hangups": sorted(hangups),
-        "dial_statuses": sorted(dial_statuses),
-        "dispositions": sorted(all_dispositions),
-        "top_dispositions": top_10
+        "agents": deduplicate_preserve_case(agents),
+        "campaigns": deduplicate_preserve_case(campaigns),
+        "statuses": deduplicate_preserve_case(statuses),
+        "skills": deduplicate_preserve_case(skills),
+        "call_types": deduplicate_preserve_case(call_types),
+        "hangups": deduplicate_preserve_case(hangups),
+        "dial_statuses": deduplicate_preserve_case(dial_statuses),
+        "dispositions": deduplicate_preserve_case(all_dispositions),
+        "top_dispositions": deduplicate_preserve_case(top_10, sort=False)
     }

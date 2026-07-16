@@ -1,0 +1,158 @@
+Created At: 2026-07-14T21:55:29Z
+Completed At: 2026-07-14T21:55:30Z
+File Path: `file:///c:/Users/Ayush%20Jain/Downloads/Freshbus%20CX%20Analytics/inbound.html`
+Total Lines: 1032
+Total Bytes: 63569
+Showing lines 601 to 750
+The following code has been modified to include a line number before every line, in the format: <line_number>: <original_line>. Please note that any changes targeting the original code should remove the line number, colon, and leading space.
+601:         <div>
+602:           <div class="hc-sub"><span id="h-net_pct">—</span>% Net Abn Rate</div>
+603:           <div class="hc-trend neutral" id="h-net_abn-trend">—</div>
+604:         </div>
+605:         <div class="hc-chart"><canvas id="h-net-spark"></canvas></div>
+606:       </div>
+607:     </div>
+608:     <!-- 5 -->
+609:     <div class="hero-card" style="--accent:var(--amber)">
+610:       <div class="hc-top">
+611:         <div>
+612:           <div class="hc-lbl">Answered AHT</div>
+613:           <div class="hc-val c-amber"><span id="h-aht">—</span><span class="unit">s</span></div>
+614:         </div>
+615:       </div>
+616:       <div class="hc-bot">
+617:         <div>
+618:           <div class="hc-sub">Avg handling duration</div>
+619:           <div class="hc-trend neutral" id="h-aht-trend">—</div>
+620:         </div>
+621:         <div class="hc-chart"><canvas id="h-aht-spark"></canvas></div>
+622:       </div>
+623:     </div>
+624:     <!-- 6: CSAT -->
+625:     <div class="hero-card" style="--accent:var(--purple)">
+626:       <div class="hc-top">
+627:         <div>
+628:           <div class="hc-lbl">CSAT Ratings</div>
+629:           <div class="hc-val c-purple" id="h-csat_total">—</div>
+630:         </div>
+631:       </div>
+632:       <div class="hc-bot" style="margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border);">
+633:         <div style="display:flex; justify-content:space-between; width:100%; gap:4px;">
+634:            <div style="flex:1; display:flex; flex-direction:column; align-items:center; background:rgba(107,114,128,0.1); border:1px solid rgba(107,114,128,0.2); border-radius:6px; padding:4px 0;">
+635:              <div style="font-size:0.65rem; font-weight:700; color:#6b7280; display:flex; align-items:center; gap:2px;">0 <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+636:              <div id="csat-0" style="font-weight:800; font-size:0.85rem; color:var(--text); margin-top:1px;">-</div>
+637:            </div>
+638:            <div style="flex:1; display:flex; flex-direction:column; align-items:center; background:rgba(220,38,38,0.1); border:1px solid rgba(220,38,38,0.2); border-radius:6px; padding:4px 0;">
+639:              <div style="font-size:0.65rem; font-weight:700; color:#dc2626; display:flex; align-items:center; gap:2px;">1 <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+640:              <div id="csat-1" style="font-weight:800; font-size:0.85rem; color:var(--text); margin-top:1px;">-</div>
+641:            </div>
+642:            <div style="flex:1; display:flex; flex-direction:column; align-items:center; background:rgba(249,115,22,0.1); border:1px solid rgba(249,115,22,0.2); border-radius:6px; padding:4px 0;">
+643:              <div style="font-size:0.65rem; font-weight:700; color:#f97316; display:flex; align-items:center; gap:2px;">2 <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+644:              <div id="csat-2" style="font-weight:800; font-size:0.85rem; color:var(--text); margin-top:1px;">-</div>
+645:            </div>
+646:            <div style="flex:1; display:flex; flex-direction:column; align-items:center; background:rgba(234,179,8,0.1); border:1px solid rgba(234,179,8,0.2); border-radius:6px; padding:4px 0;">
+647:              <div style="font-size:0.65rem; font-weight:700; color:#eab308; display:flex; align-items:center; gap:2px;">3 <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+648:              <div id="csat-3" style="font-weight:800; font-size:0.85rem; color:var(--text); margin-top:1px;">-</div>
+649:            </div>
+650:            <div style="flex:1; display:flex; flex-direction:column; align-items:center; background:rgba(132,204,22,0.1); border:1px solid rgba(132,204,22,0.2); border-radius:6px; padding:4px 0;">
+651:              <div style="font-size:0.65rem; font-weight:700; color:#84cc16; display:flex; align-items:center; gap:2px;">4 <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+652:              <div id="csat-4" style="font-weight:800; font-size:0.85rem; color:var(--text); margin-top:1px;">-</div>
+653:            </div>
+654:            <div style="flex:1; display:flex; flex-direction:column; align-items:center; background:rgba(22,163,74,0.1); border:1px solid rgba(22,163,74,0.2); border-radius:6px; padding:4px 0;">
+655:              <div style="font-size:0.65rem; font-weight:700; color:#16a34a; display:flex; align-items:center; gap:2px;">5 <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+656:              <div id="csat-5" style="font-weight:800; font-size:0.85rem; color:var(--text); margin-top:1px;">-</div>
+657:            </div>
+658:         </div>
+659:       </div>
+660:     </div>
+661:   </div>
+662: 
+663:   <!-- SEGMENT SWITCHER -->
+664:   <div class="seg-bar" style="overflow-x:auto;flex-wrap:nowrap;">
+665:     <button class="seg-btn active" data-bunch="journey">🚌 Journey Volume</button>
+666:     <button class="seg-btn" data-bunch="volume">📞 Call Volume</button>
+667:     <button class="seg-btn" data-bunch="abandonment">❌ Abandonment</button>
+668:     <button class="seg-btn" data-bunch="handling">⏱ Handling &amp; Productivity</button>
+669:     <button class="seg-btn" data-bunch="repeat">🔁 Repeat Calls</button>
+670:     <button class="seg-btn" data-bunch="operations">⚠️ Operations Impact</button>
+671:     <button class="seg-btn" data-bunch="callback">📲 Callback &amp; Completion</button>
+672:     <button class="seg-btn" data-bunch="disconnection">🔌 Agent Disconnection</button>
+673:     <button class="seg-btn" data-bunch="wrapup">📋 Wrap-up Compliance</button>
+674:   </div>
+675: 
+676:   <!-- BUNCH 1: Journey Volume -->
+677:   <div class="bunch active" id="bunch-journey">
+678:     <div class="bunch-grid">
+679:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Gross Seats</span><div class="mc-icon b-blue"></div></div><div class="mc-val c-blue" id="m-gross-seats">—</div><div class="mc-foot">Total seats operated</div></div>
+680:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Gross Tickets</span><div class="mc-icon b-blue"></div></div><div class="mc-val c-blue" id="m-gross-tickets">—</div><div class="mc-foot">Tickets booked</div></div>
+681:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Intr/Journey(Overall)</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-intr-journey">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Interactions per journey</div></div>
+682:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Intr/Journey % ( Inbound + WH)</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-intr-journey-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Journey interaction rate</div></div>
+683:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Intr/Journey % ( Travel update )</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-travel-update-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Tracker Data</div></div>
+684:     </div>
+685:   </div>
+686: 
+687:   <!-- BUNCH 2: Call Volume -->
+688:   <div class="bunch" id="bunch-volume">
+689:     <div class="bunch-grid">
+690:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Total Calls Offered</span><div class="mc-icon b-blue"></div></div><div class="mc-val c-blue" id="m-total-offered">—</div><div class="mc-foot">All inbound calls</div></div>
+691:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Agent Calls Offered</span><div class="mc-icon"></div></div><div class="mc-val" id="m-agent-offered">—</div><div class="mc-foot">Agent ≠ blank</div></div>
+692:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Calls Answered</span><div class="mc-icon b-green"></div></div><div class="mc-val c-green" id="m-answered">—</div><div class="mc-foot">Status = Answered</div></div>
+693:       <div class="mc"><div class="mc-head"><span class="mc-lbl">SL Calls</span><div class="mc-icon b-green"></div></div><div class="mc-val c-green" id="m-sl-calls">—</div><div class="mc-foot">Answered ≤ 30s</div></div>
+694:       <div class="mc"><div class="mc-head"><span class="mc-lbl">WH Total Calls Offered</span><div class="mc-icon b-purple"></div></div><div class="mc-val c-purple" id="m-wh-offered">—</div><div class="mc-foot">Women Helpline</div></div>
+695:       <div class="mc"><div class="mc-head"><span class="mc-lbl">WH Calls Answered</span><div class="mc-icon b-green"></div></div><div class="mc-val c-green" id="m-wh-answered">—</div><div class="mc-foot">WH + Answered</div></div>
+696:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Calls Offered (Inbound+WH)</span><div class="mc-icon"></div></div><div class="mc-val" id="m-inbound-wh-offered">—</div><div class="mc-foot">Total − TravelUpdate</div></div>
+697:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Calls Offered (Travel Update)</span><div class="mc-icon"></div></div><div class="mc-val" id="m-travel-update-offered">—</div><div class="mc-foot">TravelUpdate campaign</div></div>
+698:     </div>
+699:   </div>
+700: 
+701:   <!-- BUNCH 3: Abandonment -->
+702:   <div class="bunch" id="bunch-abandonment">
+703:     <div class="bunch-grid">
+704:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Overall Abandoned</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-overall-abn">—</div><div class="mc-foot">Status = Unanswered</div></div>
+705:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Net Abandoned Calls</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-net-abn">—</div><div class="mc-foot">Agent ≠ blank, Unanswered, &gt;5s</div></div>
+706:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Short Call Abn</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber" id="m-short-abn">—</div><div class="mc-foot">Unanswered, Duration ≤ 5s</div></div>
+707:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Short Call % – Abn</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-short-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Short Abn / Answered</div></div>
+708:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Gross Abn%</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-gross-abn-with-short">—</span><span class="mc-unit">%</span></div><div class="mc-foot">All Abn / Total Offered</div></div>
+709:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Gross Abn% (WO Short)</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-gross-abn-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">(Abn − Short) / Total Offered</div></div>
+710:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Net Abn%</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-net-abn-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Net Abn / Total Offered</div></div>
+711:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Queue Level Abn</span><div class="mc-icon b-purple"></div></div><div class="mc-val c-purple" id="m-queue-level">—</div><div class="mc-foot">Abandoned before agent</div></div>
+712:     </div>
+713:   </div>
+714: 
+715: 
+716:   <!-- BUNCH 5: Call Handling & Productivity -->
+717:   <div class="bunch" id="bunch-handling">
+718:     <div class="bunch-grid">
+719:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Duration – AHT</span><div class="mc-icon b-blue"></div></div><div class="mc-val c-blue"><span id="m-duration-aht">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Avg Duration (Answered)</div></div>
+720:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Answered – AHT</span><div class="mc-icon b-blue"></div></div><div class="mc-val c-blue"><span id="m-answered-aht">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Avg Handling Time</div></div>
+721:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Total Wait Time</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-total-wait">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Sum TTA (Answered)</div></div>
+722:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Avg Wait Time</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-avg-wait">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Avg Time to Answer</div></div>
+723:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Avg Hold Time</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-avg-hold">—</span><span class="mc-unit">s</span></div><div class="mc-foot">Avg Hold where &gt; 0</div></div>
+724:       <div class="mc"><div class="mc-head"><span class="mc-lbl">On Hold Calls</span><div class="mc-icon"></div></div><div class="mc-val" id="m-on-hold">—</div><div class="mc-foot">Hold Time &gt; 0s</div></div>
+725:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Hold Call %</span><div class="mc-icon"></div></div><div class="mc-val"><span id="m-hold-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">On Hold / Answered</div></div>
+726:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Present Agent HC</span><div class="mc-icon b-green"></div></div><div class="mc-val c-green" id="m-agent-hc">—</div><div class="mc-foot">Tracker Data</div></div>
+727:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Handling Time &gt;5 mins</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-long-calls">—</div><div class="mc-foot">Answered + Duration &gt; 300s</div></div>
+728:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Long Call %</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red"><span id="m-long-call-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Long Calls / Answered</div></div>
+729:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Call / Agent</span><div class="mc-icon"></div></div><div class="mc-val" id="m-call-per-agent">—</div><div class="mc-foot">Answered / Agent HC</div></div>
+730:     </div>
+731:   </div>
+732: 
+733:   <!-- BUNCH 6: Repeat Calls -->
+734:   <div class="bunch" id="bunch-repeat">
+735:     <div class="bunch-grid">
+736:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Disposition (Repeat Calls)</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber" id="m-disp-repeat">—</div><div class="mc-foot">Same Day + Same Disp</div></div>
+737:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Repeat Calls</span><div class="mc-icon"></div></div><div class="mc-val" id="m-repeat-calls">—</div><div class="mc-foot">Same Caller + Same Date</div></div>
+738:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Same Day Repeat %</span><div class="mc-icon"></div></div><div class="mc-val"><span id="m-same-day-repeat-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Repeat / Total Offered</div></div>
+739:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Same Day Same Disp – Repeat %</span><div class="mc-icon b-amber"></div></div><div class="mc-val c-amber"><span id="m-disp-repeat-pct">—</span><span class="mc-unit">%</span></div><div class="mc-foot">Disp Repeat / Answered</div></div>
+740:     </div>
+741:   </div>
+742: 
+743:   <!-- BUNCH 7: Operations Impact -->
+744:   <div class="bunch" id="bunch-operations">
+745:     <div class="bunch-grid">
+746:       <div class="mc"><div class="mc-head"><span class="mc-lbl">No. of Service Delay</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-svc-delay">—</div><div class="mc-foot">Tracker Data</div></div>
+747:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Delay Pax Impacted</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-delay-pax">—</div><div class="mc-foot">Tracker Data</div></div>
+748:       <div class="mc"><div class="mc-head"><span class="mc-lbl">No. of Service Cancel</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-svc-cancel">—</div><div class="mc-foot">Tracker Data</div></div>
+749:       <div class="mc"><div class="mc-head"><span class="mc-lbl">Service Cancel Pax Impacted</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-cancel-pax">—</div><div class="mc-foot">Tracker Data</div></div>
+750:       <div class="mc"><div class="mc-head"><span class="mc-lbl">No. of Service Breakdown</span><div class="mc-icon b-red"></div></div><div class="mc-val c-red" id="m-svc-breakdown">—</div><div class="mc-foot">Tracker Data</div></div>
+The above content does NOT show the entire file contents. If you need to view any lines of the file which were not shown to complete your task, call this tool again to view those lines.

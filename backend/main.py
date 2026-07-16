@@ -54,7 +54,7 @@ async def startup_event():
             )
             db.add(inbound_group)
             db.flush()
-            print("📦 Created new 'Inbound' campaign group.")
+            print("Created new 'Inbound' campaign group.")
 
         # Sync relational sub-campaigns
         if inbound_group and OZONETEL_CAMPAIGNS:
@@ -77,16 +77,18 @@ async def startup_event():
             
             if added_count > 0 or removed_count > 0:
                 db.commit()
-                print(f"✅ Synced 'Inbound' campaigns: Added {added_count}, Removed {removed_count}")
+                print(f"Synced 'Inbound' campaigns: Added {added_count}, Removed {removed_count}")
             else:
-                print(f"✨ 'Inbound' group is already in sync with {len(inbound_group.sub_campaigns)} campaigns.")
+                print(f"'Inbound' group is already in sync with {len(inbound_group.sub_campaigns)} campaigns.")
 
     except Exception as e:
-        print(f"⚠️ Failed to migrate campaigns: {e}")
+        print(f"Failed to migrate campaigns: {e}")
     finally:
         db.close()
 
+    # Start OzoneTel background monitoring and bootstrap
     asyncio.create_task(sync.bootstrap_historical_data())
+    asyncio.create_task(sync.background_monitoring_task())
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(BASE_DIR)
