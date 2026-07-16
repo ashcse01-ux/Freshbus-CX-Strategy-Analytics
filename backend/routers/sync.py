@@ -193,12 +193,12 @@ def _is_rate_limited(data: dict) -> bool:
 
 def _try_fetch_cdrs(token, payload):
     """
-    Fetches CDR data using GET with JSON body  the only method OzoneTel accepts.
-    - GET with URL params  returns 'Invalid Json Pass Valid Json'
-    - POST  returns 405 Method Not Allowed
-    - GET with JSON body  works correctly
+    Fetches CDR data using GET with JSON body - the only method OzoneTel accepts.
+    - GET with URL params - returns 'Invalid Json Pass Valid Json'
+    - POST - returns 405 Method Not Allowed
+    - GET with JSON body - works correctly
     Returns (data, is_401).
-    Raises RateLimitError if rate-limit detected in response body.
+    Raises RateLimitError if rate-limit detected in response body or headers.
     """
     headers = {
         "Authorization": f"Bearer {token}",
@@ -216,12 +216,19 @@ def _try_fetch_cdrs(token, payload):
             print(f"     401 raw: {r.text[:300]}")
         return None, True
 
+    if r.status_code == 429:
+        raise RateLimitError()
+
     if r.status_code != 200:
+        if r.text and "rate limit" in r.text.lower():
+            raise RateLimitError()
         raise Exception(f"CDR fetch failed [HTTP {r.status_code}]: {r.text[:300]}")
 
     try:
         data = r.json()
     except Exception:
+        if r.text and "rate limit" in r.text.lower():
+            raise RateLimitError()
         raise Exception(f"CDR returned non-JSON body: {r.text[:300]}")
 
     # Detect rate limit signalled via HTTP 200 + message body
@@ -230,7 +237,7 @@ def _try_fetch_cdrs(token, payload):
         print(f"     Rate limit body detected. New token provided: {'yes' if new_token else 'no'}")
         raise RateLimitError(new_token=new_token)
 
-    # Detect "Invalid Json"  means we're sending the request wrong
+    # Detect "Invalid Json" - means we're sending the request wrong
     if isinstance(data, dict) and "invalid" in str(data.get("message", "")).lower():
         raise Exception(f"OzoneTel rejected request format: {data}")
 
@@ -363,18 +370,17 @@ def map_ozonetel_to_model(oz_row):
 # Smart Missing-Dates Detector
 # ---------------------------------------------------------------------------
 
-def get_missing_dates(db: Session, base_date: datetime, days: int = 15):
+def get_missing_dates(db: Session, base_date: datetime, group_name: str, days: int = 15):
     """
     Returns a list of dates (YYYY-MM-DD) in the past `days` days that
-    have NO records for at least one campaign. This allows the bootstrap
-    to resume from where it left off rather than always starting fresh.
+    have NO records for at least one campaign AND have not been marked as synced.
     """
     all_dates = [
         (base_date - timedelta(days=i)).strftime("%Y-%m-%d")
         for i in range(1, days + 1)
     ]
 
-    # Get the set of dates we already have at least one record for
+    # 1. Get dates from existing CallRecords
     existing_dates_raw = db.query(models.CallRecord.Call_Date).distinct().all()
     # DB stores as DD-MM-YYYY, convert back for comparison
     existing_dates = set()
@@ -386,8 +392,23 @@ def get_missing_dates(db: Session, base_date: datetime, days: int = 15):
             except Exception:
                 pass
 
+    # 2. Get dates that were already synced via API (even if they had 0 records)
+    # We look for file_id pattern: api_sync_YYYY-MM-DD_{group_name}
+    synced_records = db.query(models.ProcessedSync.file_id).filter(
+        models.ProcessedSync.file_id.like(f"api_sync_%_{group_name}")
+    ).all()
+    for (fid,) in synced_records:
+        try:
+            parts = fid.split('_')
+            # fid format: api_sync_YYYY-MM-DD_GroupName
+            if len(parts) >= 4:
+                date_part = parts[2]
+                existing_dates.add(date_part)
+        except Exception:
+            pass
+
     missing = [d for d in all_dates if d not in existing_dates]
-    print(f" Coverage check: {len(all_dates) - len(missing)}/{len(all_dates)} days covered. "
+    print(f" [{group_name}] Coverage check: {len(all_dates) - len(missing)}/{len(all_dates)} days covered. "
           f"Missing: {len(missing)} days.")
     return missing
 
@@ -397,7 +418,7 @@ def get_missing_dates(db: Session, base_date: datetime, days: int = 15):
 
 async def ingest_days(db: Session, dates_to_fetch: list, token: str, group, label: str = "Sync"):
     """
-    Iterates over dates  sub-campaigns for a SINGLE parent group, fetches data, 
+    Iterates over dates & sub-campaigns for a SINGLE parent group, fetches data, 
     deduplicates and inserts into the provided Tenant Session (`db`).
     """
     total_inserted = 0
@@ -421,6 +442,8 @@ async def ingest_days(db: Session, dates_to_fetch: list, token: str, group, labe
 
             while attempt < max_attempts:
                 try:
+                    # Spacing sleep before each API call to avoid rate limits
+                    await asyncio.sleep(5)
                     cdr_data, current_token = fetch_ozonetel_cdrs(
                         current_token,
                         f"{target_date} 00:00:00",
@@ -497,6 +520,22 @@ async def ingest_days(db: Session, dates_to_fetch: list, token: str, group, labe
         else:
             print(f"  Day Summary [{target_date}]: No new records.")
 
+        # Mark the past date as synced in ProcessedSync so we don't query it again on next start
+        today_str = pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None).strftime("%Y-%m-%d")
+        if target_date != today_str:
+            sync_file_id = f"api_sync_{target_date}_{group.name}"
+            exists = db.query(models.ProcessedSync).filter(
+                models.ProcessedSync.file_id == sync_file_id
+            ).first()
+            if not exists:
+                new_sync = models.ProcessedSync(
+                    file_id=sync_file_id,
+                    filename=f"API Sync: {group.name} for {target_date}",
+                    record_count=len(day_rows)
+                )
+                db.add(new_sync)
+                db.commit()
+
     return total_inserted, current_token
 
 # ---------------------------------------------------------------------------
@@ -530,7 +569,7 @@ async def bootstrap_historical_data():
             
             try:
                 base_date = pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None)
-                missing_dates = get_missing_dates(tenant_db, base_date, days=15)
+                missing_dates = get_missing_dates(tenant_db, base_date, group.name, days=15)
 
                 # Always include today's date to fetch real-time call records
                 today_str = base_date.strftime("%Y-%m-%d")
@@ -578,7 +617,7 @@ async def run_sync_api(campaign: str = "Inbound", db_master: Session = Depends(g
     
     try:
         base_date = pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None)
-        missing_dates = get_missing_dates(db_tenant, base_date, days=15)
+        missing_dates = get_missing_dates(db_tenant, base_date, campaign, days=15)
 
         # Always include today's date to fetch real-time call records
         today_str = base_date.strftime("%Y-%m-%d")
@@ -619,6 +658,39 @@ async def run_sync_api(campaign: str = "Inbound", db_master: Session = Depends(g
         raise HTTPException(status_code=500, detail=str(e))
 
 
+@router.post("/sync-today")
+async def sync_today_api(campaign: str = "Inbound", db_master: Session = Depends(get_master_db)):
+    """Manually trigger a sync for today's OzoneTel CDR data for a specific campaign group."""
+    from database import get_tenant_db_engine
+    from sqlalchemy.orm import sessionmaker
+    
+    engine = get_tenant_db_engine(campaign)
+    TenantSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+    db_tenant = TenantSessionLocal()
+    
+    try:
+        group = db_master.query(models.CampaignGroup).filter(models.CampaignGroup.name == campaign).first()
+        if not group:
+            raise HTTPException(status_code=404, detail="Campaign group not found in master DB")
+            
+        token = get_or_refresh_token()
+        base_date = pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None)
+        today_str = base_date.strftime("%Y-%m-%d")
+        
+        print(f"Manual Sync Today triggered for {campaign} on {today_str}")
+        total, token = await ingest_days(db_tenant, [today_str], token, group, label=f"Manual-Sync-Today-{campaign}")
+        
+        return {
+            "status": "success",
+            "message": f"Successfully synced today's calls for {campaign}",
+            "records_inserted": total
+        }
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    finally:
+        db_tenant.close()
+
+
 @router.get("/status")
 def get_sync_status(campaign: str = None, db_master: Session = Depends(get_master_db)):
     """Status for a specific campaign tenant DB. If no campaign provided, returns global state."""
@@ -644,7 +716,7 @@ def get_sync_status(campaign: str = None, db_master: Session = Depends(get_maste
 
         # Coverage summary
         base_date = pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None)
-        missing_dates = get_missing_dates(db_tenant, base_date, days=15)
+        missing_dates = get_missing_dates(db_tenant, base_date, campaign, days=15)
 
         # Config from Master
         group = db_master.query(models.CampaignGroup).filter(models.CampaignGroup.name == campaign).first()
@@ -744,9 +816,9 @@ def wipe_database(campaign: str):
 
 async def background_monitoring_task():
     """Periodically syncs all active groups to keep the dashboard real-time."""
-    print(" OzoneTel Auto-Monitor Started (Runs every 10 minutes)")
+    print(" OzoneTel Auto-Monitor Started (Runs every 1 hour)")
     while True:
-        await asyncio.sleep(600)  # Wait 10 minutes
+        await asyncio.sleep(3600)  # Wait 1 hour (3600 seconds)
         try:
             print(" Running periodic background sync...")
             await bootstrap_historical_data()
