@@ -129,7 +129,7 @@ def clear_cached_token():
             print(f" Failed to delete cache file: {e}")
 
 def fetch_ozonetel_token(force_refresh=False):
-    """Generates a fresh bearer token from the OzoneTel Auth API."""
+    """Generates a fresh bearer token from the OzoneTel Auth API with retry for rate limit."""
     global _active_token
     if not force_refresh:
         token = load_cached_token()
@@ -145,24 +145,42 @@ def fetch_ozonetel_token(force_refresh=False):
     }
     payload = {"userName": OZONETEL_USER_NAME}
     
-    try:
-        response = requests.post(OZONETEL_AUTH_URL, headers=headers, json=payload, timeout=30)
-        if response.status_code == 200:
-            data = response.json()
-            if str(data.get("status", "")).lower() == "false":
-                raise Exception(f"Auth failed via JSON body: {data}")
-            if "rate limit" in str(data.get("message", "")).lower():
-                raise Exception("OzoneTel Token Generation Rate Limit Exceeded.")
-            token = data.get("token")
-            if not token:
-                raise Exception(f"Auth succeeded but no token returned: {data}")
-            save_cached_token(token)
-            print(f" Fresh token acquired.")
-            return token
-        else:
-            raise Exception(f"Auth failed [{response.status_code}]: {response.text}")
-    except Exception as e:
-        raise Exception(f"Token Generation Error: {str(e)}")
+    max_retries = 5
+    retry_delay = 65  # OzoneTel rate limit window is 60 seconds
+    
+    for attempt in range(1, max_retries + 1):
+        try:
+            response = requests.post(OZONETEL_AUTH_URL, headers=headers, json=payload, timeout=30)
+            if response.status_code == 200:
+                data = response.json()
+                if "rate limit" in str(data.get("message", "")).lower():
+                    print(f"Token generation rate limited (Attempt {attempt}/{max_retries}). Sleeping {retry_delay}s...")
+                    time.sleep(retry_delay)
+                    continue
+                if str(data.get("status", "")).lower() == "false":
+                    raise Exception(f"Auth failed via JSON body: {data}")
+                token = data.get("token")
+                if not token:
+                    raise Exception(f"Auth succeeded but no token returned: {data}")
+                save_cached_token(token)
+                print(f" Fresh token acquired.")
+                return token
+            elif response.status_code == 429:
+                print(f"Token generation HTTP 429 (Attempt {attempt}/{max_retries}). Sleeping {retry_delay}s...")
+                time.sleep(retry_delay)
+                continue
+            else:
+                raise Exception(f"Auth failed [{response.status_code}]: {response.text}")
+        except Exception as e:
+            if "rate limit" in str(e).lower() and attempt < max_retries:
+                print(f"Token generation error containing rate limit (Attempt {attempt}/{max_retries}). Sleeping {retry_delay}s...")
+                time.sleep(retry_delay)
+                continue
+            if attempt == max_retries:
+                raise Exception(f"Token Generation Error after {max_retries} attempts: {str(e)}")
+            print(f"Token generation error: {e}. Retrying in 10s...")
+            time.sleep(10)
+    raise Exception(f"Token Generation Error: Failed to generate token after {max_retries} attempts.")
 
 def get_or_refresh_token():
     """Returns the cached token, fetching a new one if none exists."""
@@ -454,6 +472,12 @@ async def ingest_days(db: Session, dates_to_fetch: list, token: str, group, labe
                     
                     campaign_count = 0
                     for row in details:
+                        # Filter outbound campaigns to only keep Inbound call types
+                        if "outbound" in campaign_name.lower():
+                            row_type = row.get("Type")
+                            if not row_type or str(row_type).strip().lower() != "inbound":
+                                continue
+
                         h = get_row_hash(row)
                         if h in seen_hashes_for_day:
                             continue

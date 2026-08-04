@@ -129,6 +129,12 @@ def ingest():
             
             unique_dates.add(date_str)
             
+            campaign = clean_string(row.get("Campaign"))
+            if campaign and "outbound" in campaign.lower():
+                call_type = clean_string(row.get("Call_Type"))
+                if not call_type or call_type.lower() != "inbound":
+                    continue
+
             call_id = clean_string(row.get("Call_ID"))
             caller_no = clean_string(row.get("Caller_No"))
             start_time = parse_time_str(row.get("Start_Time"))

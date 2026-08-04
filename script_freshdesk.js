@@ -5,14 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const lastWeek = new Date(today);
     lastWeek.setDate(today.getDate() - 7);
     
+    const handleDateChange = () => {
+        const vbtns = document.querySelectorAll('.hdr-vbtn');
+        vbtns.forEach(b => b.classList.remove('active'));
+        updatePeriodButtonsVisibility('');
+    };
+
     // Flatpickr initialization
     const fpStart = flatpickr("#filter_start_date", {
         dateFormat: "Y-m-d",
         defaultDate: lastWeek,
+        onChange: handleDateChange
     });
     const fpEnd = flatpickr("#filter_end_date", {
         dateFormat: "Y-m-d",
         defaultDate: today,
+        onChange: handleDateChange
     });
 
     // 2. Tab Switching Logic
@@ -207,11 +215,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     // --- DATE PRESET BUTTONS ---
+    function updatePeriodButtonsVisibility(view) {
+        const isTodaySelected = (view === 'daily');
+        const hrButtons = document.querySelectorAll('.hdr-vbtn[data-view="1hr"], .hdr-vbtn[data-view="2hr"], .hdr-vbtn[data-view="3hr"]');
+        hrButtons.forEach(btn => {
+            if (isTodaySelected) {
+                btn.style.display = '';
+                btn.disabled = false;
+            } else {
+                btn.style.display = 'none';
+                btn.disabled = true;
+            }
+        });
+
+        if (!isTodaySelected && ['1hr', '2hr', '3hr'].includes(view)) {
+            const vbtns = document.querySelectorAll('.hdr-vbtn');
+            vbtns.forEach(b => b.classList.remove('active'));
+            const todayBtn = document.querySelector('.hdr-vbtn[data-view="daily"]');
+            if (todayBtn) {
+                todayBtn.classList.add('active');
+            }
+            const d = new Date();
+            fpStart.setDate(d);
+            fpEnd.setDate(d);
+            fetchData();
+        }
+    }
+
     const vbtns = document.querySelectorAll('.hdr-vbtn');
     vbtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const view = btn.getAttribute('data-view');
             if(!view) return;
+
+            // Toggle active class
+            vbtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
             
             const d = new Date();
             let start = new Date(d);
@@ -231,6 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
             fpStart.setDate(start);
             fpEnd.setDate(end);
             
+            updatePeriodButtonsVisibility(view);
             fetchData();
         });
     });
@@ -252,5 +292,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     // Auto-fetch on load
+    updatePeriodButtonsVisibility('');
     fetchData();
 });

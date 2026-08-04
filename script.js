@@ -94,9 +94,51 @@
   }
 
   /* ─────────────────────────────────────────────────────
+     PERIOD BUTTONS VISIBILITY HELPER
+  ─────────────────────────────────────────────────────── */
+  function updatePeriodButtonsVisibility() {
+    const isTodaySelected = ['daily', '1hr', '2hr', '3hr'].includes(viewType);
+    const hrButtons = qsa('.hdr-vbtn[data-view="1hr"], .hdr-vbtn[data-view="2hr"], .hdr-vbtn[data-view="3hr"]');
+    
+    hrButtons.forEach(btn => {
+      if (isTodaySelected) {
+        btn.style.display = '';
+        btn.disabled = false;
+      } else {
+        btn.style.display = 'none';
+        btn.disabled = true;
+      }
+    });
+
+    // If one of the 1h/2h/3h buttons was active and we're hiding them, fallback to Today (daily)
+    if (!isTodaySelected && ['1hr', '2hr', '3hr'].includes(viewType)) {
+      qsa('.hdr-vbtn[data-view]').forEach(b => b.classList.remove('active'));
+      const todayBtn = qs('.hdr-vbtn[data-view="daily"]');
+      if (todayBtn) {
+        todayBtn.classList.add('active');
+        viewType = 'daily';
+      }
+    }
+  }
+
+  /* ─────────────────────────────────────────────────────
      DATE PICKERS (Flatpickr)
   ─────────────────────────────────────────────────────── */
-  const fpOpts = { dateFormat: 'Y-m-d', allowInput: false };
+  let isProgrammaticDateChange = false;
+
+  const handleDateChange = () => {
+    if (isProgrammaticDateChange) return;
+    // Custom date picked -> not today preset -> hide 1hr, 2hr, 3hr buttons
+    qsa('.hdr-vbtn[data-view]').forEach(b => b.classList.remove('active'));
+    viewType = '';
+    updatePeriodButtonsVisibility();
+  };
+
+  const fpOpts = { 
+    dateFormat: 'Y-m-d', 
+    allowInput: false,
+    onChange: handleDateChange
+  };
   let fpStart, fpEnd;
   if (window.flatpickr) {
     fpStart = flatpickr('#filter_start_date', {
@@ -117,8 +159,12 @@
       viewType = btn.dataset.view;
 
       // Rule: If a view period is clicked, clear the custom date range
+      isProgrammaticDateChange = true;
       if (fpStart) fpStart.clear();
       if (fpEnd) fpEnd.clear();
+      isProgrammaticDateChange = false;
+
+      updatePeriodButtonsVisibility();
     });
   });
 
@@ -1236,6 +1282,7 @@
     });
     await loadFilters();
     // Do not auto-fetch on init if no date is selected by default
+    updatePeriodButtonsVisibility();
   }
 
   init();
