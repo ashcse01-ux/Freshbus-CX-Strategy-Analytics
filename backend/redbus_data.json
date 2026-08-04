@@ -1,0 +1,1505 @@
+{
+    "cards": {
+        "Meta Redbus Data": 119159,
+        "Meta Response Rate %": "32.25%",
+        "Overall Redbus Data": 92756,
+        "Organic": 20013,
+        "Organic (Average)": 4.41,
+        "Organic + Not Connected": 20013,
+        "Organic + InOrganic": 38432,
+        "Average (Overall Redbus)": 4.55,
+        "Organic + InOrganic Response Rate %": "32.25%",
+        "Data Assigned": 72743,
+        "InOrganic Ratings": 18419,
+        "Difference (Organic / Inorganic)": "1594",
+        "InOrganic Average": 4.7,
+        "InOrganic Response Rate %": "25.32%",
+        "Data Loss MMT": 0,
+        "Data Loss IBIBO": 0
+    },
+    "routes": [
+        {
+            "route": "Anakapalle to Eluru",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Anakapalle to Guntur (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 3.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Anakapalle to Rajahmundry",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Anakapalle to Vijayawada",
+            "travel_count": 0,
+            "rating_count": 5,
+            "avg_rating": 4.6,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Anakapalle to Visakhapatnam",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Annavaram to Anakapalle",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 4.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Annavaram to Guntur (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Annavaram to Vijayawada",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 4.75,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Annavaram to Visakhapatnam",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 3.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "BANGALORE - CHENNAI",
+            "travel_count": 13945,
+            "rating_count": 4022,
+            "avg_rating": 4.53,
+            "response_rate": "28.8%"
+        },
+        {
+            "route": "BANGALORE - COIMBATORE",
+            "travel_count": 2545,
+            "rating_count": 774,
+            "avg_rating": 4.4,
+            "response_rate": "30.4%"
+        },
+        {
+            "route": "BANGALORE - ERODE",
+            "travel_count": 740,
+            "rating_count": 247,
+            "avg_rating": 4.57,
+            "response_rate": "33.4%"
+        },
+        {
+            "route": "BANGALORE - PONDICHERRY",
+            "travel_count": 3961,
+            "rating_count": 1074,
+            "avg_rating": 4.57,
+            "response_rate": "27.1%"
+        },
+        {
+            "route": "BANGALORE - TIRUPATI",
+            "travel_count": 10162,
+            "rating_count": 2626,
+            "avg_rating": 4.47,
+            "response_rate": "25.8%"
+        },
+        {
+            "route": "Bangalore to Chennai",
+            "travel_count": 0,
+            "rating_count": 75,
+            "avg_rating": 4.51,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Chittoor (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 8,
+            "avg_rating": 4.88,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Coimbatore",
+            "travel_count": 0,
+            "rating_count": 19,
+            "avg_rating": 4.37,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Erode",
+            "travel_count": 0,
+            "rating_count": 3,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Gingee",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Hosur",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Kanchipuram",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 4.25,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Krishnagiri",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Pondicherry",
+            "travel_count": 0,
+            "rating_count": 22,
+            "avg_rating": 4.32,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Salem",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Sankagiri",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Tirupati",
+            "travel_count": 0,
+            "rating_count": 89,
+            "avg_rating": 4.47,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Tiruvannamalai",
+            "travel_count": 0,
+            "rating_count": 9,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bangalore to Vellore",
+            "travel_count": 0,
+            "rating_count": 16,
+            "avg_rating": 4.12,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Chennai",
+            "travel_count": 0,
+            "rating_count": 273,
+            "avg_rating": 4.58,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Chittoor (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 29,
+            "avg_rating": 4.86,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Coimbatore",
+            "travel_count": 0,
+            "rating_count": 64,
+            "avg_rating": 4.41,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Dharmapuri (Tamil Nadu)",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Erode",
+            "travel_count": 0,
+            "rating_count": 9,
+            "avg_rating": 4.44,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Gingee",
+            "travel_count": 0,
+            "rating_count": 11,
+            "avg_rating": 4.82,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Hosur",
+            "travel_count": 0,
+            "rating_count": 3,
+            "avg_rating": 4.33,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Kanchipuram",
+            "travel_count": 0,
+            "rating_count": 5,
+            "avg_rating": 4.6,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Krishnagiri",
+            "travel_count": 0,
+            "rating_count": 5,
+            "avg_rating": 4.2,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Pondicherry",
+            "travel_count": 0,
+            "rating_count": 82,
+            "avg_rating": 4.43,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Salem",
+            "travel_count": 0,
+            "rating_count": 12,
+            "avg_rating": 4.75,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Sankagiri",
+            "travel_count": 0,
+            "rating_count": 3,
+            "avg_rating": 3.67,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Tirupati",
+            "travel_count": 0,
+            "rating_count": 325,
+            "avg_rating": 4.59,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Tirupur",
+            "travel_count": 0,
+            "rating_count": 9,
+            "avg_rating": 4.44,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Tiruvannamalai",
+            "travel_count": 0,
+            "rating_count": 48,
+            "avg_rating": 4.48,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Uthangarai",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 1.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bengaluru to Vellore",
+            "travel_count": 0,
+            "rating_count": 45,
+            "avg_rating": 4.6,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Bhavani to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "CHENNAI - BANGALORE",
+            "travel_count": 13488,
+            "rating_count": 4114,
+            "avg_rating": 4.6,
+            "response_rate": "30.5%"
+        },
+        {
+            "route": "CHENNAI - PONDICHERRY",
+            "travel_count": 5028,
+            "rating_count": 1177,
+            "avg_rating": 4.49,
+            "response_rate": "23.4%"
+        },
+        {
+            "route": "CHENNAI - TIRUPATI",
+            "travel_count": 4954,
+            "rating_count": 1250,
+            "avg_rating": 4.58,
+            "response_rate": "25.2%"
+        },
+        {
+            "route": "COIMBATORE - BANGALORE",
+            "travel_count": 2211,
+            "rating_count": 670,
+            "avg_rating": 4.44,
+            "response_rate": "30.3%"
+        },
+        {
+            "route": "COIMBATORE - MADURAI",
+            "travel_count": 1132,
+            "rating_count": 323,
+            "avg_rating": 4.56,
+            "response_rate": "28.5%"
+        },
+        {
+            "route": "Chennai to Bangalore",
+            "travel_count": 0,
+            "rating_count": 51,
+            "avg_rating": 4.53,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Chennai to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 289,
+            "avg_rating": 4.68,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Chennai to Goa",
+            "travel_count": 0,
+            "rating_count": 0,
+            "avg_rating": 1.0,
+            "response_rate": "0.0%"
+        },
+        {
+            "route": "Chennai to Hosur",
+            "travel_count": 0,
+            "rating_count": 58,
+            "avg_rating": 4.83,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Chennai to Kanchipuram",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Chennai to Krishnagiri",
+            "travel_count": 0,
+            "rating_count": 53,
+            "avg_rating": 4.75,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Chennai to Pondicherry",
+            "travel_count": 0,
+            "rating_count": 174,
+            "avg_rating": 4.43,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Chennai to Tirupati",
+            "travel_count": 0,
+            "rating_count": 202,
+            "avg_rating": 4.38,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Chennai to Tiruthanni",
+            "travel_count": 0,
+            "rating_count": 10,
+            "avg_rating": 4.2,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Chennai to Vellore",
+            "travel_count": 0,
+            "rating_count": 72,
+            "avg_rating": 4.51,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Chilakaluripet to Tirupati",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Chittoor (Andhra Pradesh) to Bangalore",
+            "travel_count": 0,
+            "rating_count": 12,
+            "avg_rating": 4.67,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Chittoor (Andhra Pradesh) to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 37,
+            "avg_rating": 4.78,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Coimbatore to Bangalore",
+            "travel_count": 0,
+            "rating_count": 22,
+            "avg_rating": 4.36,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Coimbatore to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 70,
+            "avg_rating": 3.91,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Coimbatore to Dharmapuri (Tamil Nadu)",
+            "travel_count": 0,
+            "rating_count": 7,
+            "avg_rating": 4.86,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Coimbatore to Dindigul",
+            "travel_count": 0,
+            "rating_count": 14,
+            "avg_rating": 4.5,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Coimbatore to Hosur",
+            "travel_count": 0,
+            "rating_count": 11,
+            "avg_rating": 4.36,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Coimbatore to Krishnagiri",
+            "travel_count": 0,
+            "rating_count": 6,
+            "avg_rating": 4.83,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Coimbatore to Madurai",
+            "travel_count": 0,
+            "rating_count": 99,
+            "avg_rating": 4.47,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Dharmapuri (Tamil Nadu) to Bangalore",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Dharmapuri (Tamil Nadu) to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Dharmapuri (Tamil Nadu) to Coimbatore",
+            "travel_count": 0,
+            "rating_count": 6,
+            "avg_rating": 4.33,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Dindigul to Coimbatore",
+            "travel_count": 0,
+            "rating_count": 36,
+            "avg_rating": 4.67,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "ELURU - HYDERABAD",
+            "travel_count": 2141,
+            "rating_count": 578,
+            "avg_rating": 4.6,
+            "response_rate": "27.0%"
+        },
+        {
+            "route": "ERODE - BANGALORE",
+            "travel_count": 927,
+            "rating_count": 290,
+            "avg_rating": 4.41,
+            "response_rate": "31.3%"
+        },
+        {
+            "route": "Eluru to Anakapalle",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 4.5,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Eluru to Hyderabad",
+            "travel_count": 0,
+            "rating_count": 20,
+            "avg_rating": 4.85,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Eluru to Rajahmundry",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Eluru to Vijayawada",
+            "travel_count": 0,
+            "rating_count": 3,
+            "avg_rating": 4.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Eluru to Visakhapatnam",
+            "travel_count": 0,
+            "rating_count": 17,
+            "avg_rating": 4.71,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Erode to Bangalore",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Erode to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 15,
+            "avg_rating": 4.53,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Erode to Hosur",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Erode to Krishnagiri",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Gannavaram to Annavaram",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 4.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Gannavaram to Hyderabad",
+            "travel_count": 0,
+            "rating_count": 11,
+            "avg_rating": 4.73,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Gannavaram to Rajahmundry",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Gannavaram to Tuni",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Gannavaram to Visakhapatnam",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 4.75,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Gingee to Bangalore",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 4.5,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Gingee to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 8,
+            "avg_rating": 4.75,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Guntur (Andhra Pradesh) to Annavaram",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 3.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Guntur (Andhra Pradesh) to Hyderabad",
+            "travel_count": 0,
+            "rating_count": 28,
+            "avg_rating": 4.43,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Guntur (Andhra Pradesh) to Rajahmundry",
+            "travel_count": 0,
+            "rating_count": 3,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Guntur (Andhra Pradesh) to Rajanagaram (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Guntur (Andhra Pradesh) to SriKalahasthi",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 3.5,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Guntur (Andhra Pradesh) to Tirupati",
+            "travel_count": 0,
+            "rating_count": 8,
+            "avg_rating": 4.25,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Guntur (Andhra Pradesh) to Visakhapatnam",
+            "travel_count": 0,
+            "rating_count": 21,
+            "avg_rating": 4.67,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "HYDERABAD - ELURU",
+            "travel_count": 2005,
+            "rating_count": 502,
+            "avg_rating": 4.72,
+            "response_rate": "25.0%"
+        },
+        {
+            "route": "HYDERABAD - VIJAYAWADA",
+            "travel_count": 9112,
+            "rating_count": 2569,
+            "avg_rating": 4.53,
+            "response_rate": "28.2%"
+        },
+        {
+            "route": "Hanuman Junction to Hyderabad",
+            "travel_count": 0,
+            "rating_count": 10,
+            "avg_rating": 4.6,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hanuman Junction to Visakhapatnam",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hosur to Chennai",
+            "travel_count": 0,
+            "rating_count": 102,
+            "avg_rating": 4.6,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hosur to Coimbatore",
+            "travel_count": 0,
+            "rating_count": 11,
+            "avg_rating": 4.18,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hosur to Erode",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hosur to Pondicherry",
+            "travel_count": 0,
+            "rating_count": 6,
+            "avg_rating": 4.33,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hyderabad to Eluru",
+            "travel_count": 0,
+            "rating_count": 14,
+            "avg_rating": 4.93,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hyderabad to Gannavaram",
+            "travel_count": 0,
+            "rating_count": 7,
+            "avg_rating": 4.71,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hyderabad to Guntur (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 55,
+            "avg_rating": 4.67,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hyderabad to Hanuman Junction",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 4.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hyderabad to Ibrahimpatnam",
+            "travel_count": 0,
+            "rating_count": 5,
+            "avg_rating": 4.6,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hyderabad to Mangalagiri",
+            "travel_count": 0,
+            "rating_count": 10,
+            "avg_rating": 4.8,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hyderabad to Nandigama",
+            "travel_count": 0,
+            "rating_count": 7,
+            "avg_rating": 4.71,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Hyderabad to Vijayawada",
+            "travel_count": 0,
+            "rating_count": 398,
+            "avg_rating": 4.57,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Ibrahimpatnam to Hyderabad",
+            "travel_count": 0,
+            "rating_count": 6,
+            "avg_rating": 4.5,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Kanchipuram to Bangalore",
+            "travel_count": 0,
+            "rating_count": 6,
+            "avg_rating": 4.33,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Kanchipuram to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 14,
+            "avg_rating": 4.79,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Krishnagiri to Chennai",
+            "travel_count": 0,
+            "rating_count": 52,
+            "avg_rating": 4.48,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Krishnagiri to Coimbatore",
+            "travel_count": 0,
+            "rating_count": 13,
+            "avg_rating": 4.46,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Krishnagiri to Erode",
+            "travel_count": 0,
+            "rating_count": 3,
+            "avg_rating": 4.33,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Krishnagiri to Pondicherry",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 4.75,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "MADURAI - COIMBATORE",
+            "travel_count": 1350,
+            "rating_count": 365,
+            "avg_rating": 4.48,
+            "response_rate": "27.0%"
+        },
+        {
+            "route": "Madurai to Coimbatore",
+            "travel_count": 0,
+            "rating_count": 109,
+            "avg_rating": 4.55,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Madurai to Palladam",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Madurai to Tirupur",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Mahabalipuram to Pondicherry",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 4.5,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Mangalagiri to Hyderabad",
+            "travel_count": 0,
+            "rating_count": 11,
+            "avg_rating": 4.27,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Nandigama to Hyderabad",
+            "travel_count": 0,
+            "rating_count": 12,
+            "avg_rating": 4.92,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Nellore to Tirupati",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Nellore to Vijayawada",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "No",
+            "travel_count": 0,
+            "rating_count": 129,
+            "avg_rating": 4.07,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Ongole to Tirupati",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "PONDICHERRY - BANGALORE",
+            "travel_count": 3679,
+            "rating_count": 1010,
+            "avg_rating": 4.65,
+            "response_rate": "27.5%"
+        },
+        {
+            "route": "PONDICHERRY - CHENNAI",
+            "travel_count": 4975,
+            "rating_count": 1147,
+            "avg_rating": 4.53,
+            "response_rate": "23.1%"
+        },
+        {
+            "route": "Palladam to Madurai",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Pondicherry to Bangalore",
+            "travel_count": 0,
+            "rating_count": 25,
+            "avg_rating": 4.52,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Pondicherry to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 84,
+            "avg_rating": 4.71,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Pondicherry to Chennai",
+            "travel_count": 0,
+            "rating_count": 175,
+            "avg_rating": 4.53,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Pondicherry to Hosur",
+            "travel_count": 0,
+            "rating_count": 10,
+            "avg_rating": 4.7,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Pondicherry to Krishnagiri",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 4.25,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Pondicherry to Mahabalipuram",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 3.5,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Pondicherry to Tiruvannamalai",
+            "travel_count": 0,
+            "rating_count": 7,
+            "avg_rating": 4.43,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Pondicherry to Uthangarai",
+            "travel_count": 0,
+            "rating_count": 5,
+            "avg_rating": 4.6,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Rajahmundry to Anakapalle",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Rajahmundry to Eluru",
+            "travel_count": 0,
+            "rating_count": 3,
+            "avg_rating": 4.67,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Rajahmundry to Guntur (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Rajahmundry to Vijayawada",
+            "travel_count": 0,
+            "rating_count": 14,
+            "avg_rating": 4.93,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Rajahmundry to Visakhapatnam",
+            "travel_count": 0,
+            "rating_count": 18,
+            "avg_rating": 4.17,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Rajanagaram (Andhra Pradesh) to Anakapalle",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Rajanagaram (Andhra Pradesh) to Vijayawada",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Rajanagaram (Andhra Pradesh) to Visakhapatnam",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Salem to Bangalore",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 4.5,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Salem to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 22,
+            "avg_rating": 4.86,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Salem to Coimbatore",
+            "travel_count": 0,
+            "rating_count": 7,
+            "avg_rating": 4.29,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Salem to Hosur",
+            "travel_count": 0,
+            "rating_count": 3,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Salem to Krishnagiri",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Siddantam to Anakapalle",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 3.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "SriKalahasthi to Guntur (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 2.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "TIRUPATI - BANGALORE",
+            "travel_count": 10833,
+            "rating_count": 2994,
+            "avg_rating": 4.53,
+            "response_rate": "27.6%"
+        },
+        {
+            "route": "TIRUPATI - CHENNAI",
+            "travel_count": 4446,
+            "rating_count": 1299,
+            "avg_rating": 4.59,
+            "response_rate": "29.2%"
+        },
+        {
+            "route": "TIRUPATI - VIJAYAWADA",
+            "travel_count": 1018,
+            "rating_count": 358,
+            "avg_rating": 4.53,
+            "response_rate": "35.2%"
+        },
+        {
+            "route": "Tirupati to Bangalore",
+            "travel_count": 0,
+            "rating_count": 65,
+            "avg_rating": 4.26,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tirupati to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 356,
+            "avg_rating": 4.58,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tirupati to Chennai",
+            "travel_count": 0,
+            "rating_count": 162,
+            "avg_rating": 4.54,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tirupati to Guntur (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tirupati to Mysore",
+            "travel_count": 0,
+            "rating_count": 0,
+            "avg_rating": 5.0,
+            "response_rate": "0.0%"
+        },
+        {
+            "route": "Tirupati to Ongole",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 4.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tirupati to Vijayawada",
+            "travel_count": 0,
+            "rating_count": 11,
+            "avg_rating": 4.64,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tirupur to Bangalore",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 3.5,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tirupur to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 7,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tirupur to Madurai",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 4.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tiruthanni to Chennai",
+            "travel_count": 0,
+            "rating_count": 8,
+            "avg_rating": 4.12,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tiruvannamalai to Bangalore",
+            "travel_count": 0,
+            "rating_count": 6,
+            "avg_rating": 4.83,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tiruvannamalai to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 34,
+            "avg_rating": 4.85,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tiruvannamalai to Pondicherry",
+            "travel_count": 0,
+            "rating_count": 22,
+            "avg_rating": 4.23,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tuni to Guntur (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tuni to Rajahmundry",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tuni to Vijayawada",
+            "travel_count": 0,
+            "rating_count": 9,
+            "avg_rating": 4.67,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Tuni to Visakhapatnam",
+            "travel_count": 0,
+            "rating_count": 9,
+            "avg_rating": 4.56,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Uthangarai to Pondicherry",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 4.5,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "VIJAYAWADA - HYDERABAD",
+            "travel_count": 9007,
+            "rating_count": 2438,
+            "avg_rating": 4.58,
+            "response_rate": "27.1%"
+        },
+        {
+            "route": "VIJAYAWADA - TIRUPATI",
+            "travel_count": 1391,
+            "rating_count": 422,
+            "avg_rating": 4.51,
+            "response_rate": "30.3%"
+        },
+        {
+            "route": "VIJAYAWADA - VISAKHAPATNAM",
+            "travel_count": 4993,
+            "rating_count": 1334,
+            "avg_rating": 4.6,
+            "response_rate": "26.7%"
+        },
+        {
+            "route": "VISAKHAPATNAM - VIJAYAWADA",
+            "travel_count": 5116,
+            "rating_count": 1367,
+            "avg_rating": 4.61,
+            "response_rate": "26.7%"
+        },
+        {
+            "route": "Vellore to Bangalore",
+            "travel_count": 0,
+            "rating_count": 13,
+            "avg_rating": 4.31,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vellore to Bengaluru",
+            "travel_count": 0,
+            "rating_count": 47,
+            "avg_rating": 4.49,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vellore to Chennai",
+            "travel_count": 0,
+            "rating_count": 42,
+            "avg_rating": 4.86,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vijayawada to Anakapalle",
+            "travel_count": 0,
+            "rating_count": 6,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vijayawada to Annavaram",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 4.5,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vijayawada to Eluru",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vijayawada to Hyderabad",
+            "travel_count": 0,
+            "rating_count": 392,
+            "avg_rating": 4.64,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vijayawada to Naidupeta",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vijayawada to Nellore",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vijayawada to Rajahmundry",
+            "travel_count": 0,
+            "rating_count": 6,
+            "avg_rating": 4.67,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vijayawada to Rajanagaram (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 1,
+            "avg_rating": 1.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vijayawada to Tirupati",
+            "travel_count": 0,
+            "rating_count": 10,
+            "avg_rating": 4.3,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vijayawada to Tuni",
+            "travel_count": 0,
+            "rating_count": 8,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Vijayawada to Visakhapatnam",
+            "travel_count": 0,
+            "rating_count": 108,
+            "avg_rating": 4.53,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Visakhapatnam to Annavaram",
+            "travel_count": 0,
+            "rating_count": 3,
+            "avg_rating": 3.33,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Visakhapatnam to Eluru",
+            "travel_count": 0,
+            "rating_count": 9,
+            "avg_rating": 4.89,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Visakhapatnam to Gannavaram",
+            "travel_count": 0,
+            "rating_count": 2,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Visakhapatnam to Guntur (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 29,
+            "avg_rating": 4.62,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Visakhapatnam to Hanuman Junction",
+            "travel_count": 0,
+            "rating_count": 3,
+            "avg_rating": 5.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Visakhapatnam to Rajahmundry",
+            "travel_count": 0,
+            "rating_count": 11,
+            "avg_rating": 4.73,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Visakhapatnam to Rajanagaram (Andhra Pradesh)",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 4.5,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Visakhapatnam to Tuni",
+            "travel_count": 0,
+            "rating_count": 4,
+            "avg_rating": 4.0,
+            "response_rate": "inf%"
+        },
+        {
+            "route": "Visakhapatnam to Vijayawada",
+            "travel_count": 0,
+            "rating_count": 86,
+            "avg_rating": 4.42,
+            "response_rate": "inf%"
+        }
+    ],
+    "tls": [
+        {
+            "tl": "Krishan Priya",
+            "count": 6322,
+            "avg": 4.66,
+            "response_rate": "31.6%"
+        },
+        {
+            "tl": "Manideep",
+            "count": 6150,
+            "avg": 4.63,
+            "response_rate": "30.0%"
+        },
+        {
+            "tl": "Uma",
+            "count": 8304,
+            "avg": 4.64,
+            "response_rate": "31.0%"
+        }
+    ]
+}

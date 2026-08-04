@@ -1,0 +1,264 @@
+
+/* =========================================
+   TOP 10 DISPOSITIONS
+========================================= */
+.top-10-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.top-10-row:last-child {
+  border-bottom: none;
+}
+.top-10-rank {
+  font-weight: 700;
+  color: var(--text-m);
+  width: 24px;
+}
+.top-10-rank.gold {
+  color: #FBBC04;
+}
+.top-10-name {
+  flex: 1;
+  color: var(--text-h);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.top-10-bar-wrap {
+  width: 100px;
+  height: 6px;
+  background: var(--surface-3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.top-10-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+.top-10-count {
+  font-weight: 600;
+  width: 45px;
+  text-align: right;
+  color: var(--text-h);
+}
+.top-10-pct {
+  width: 45px;
+  text-align: right;
+  color: var(--text-m);
+  font-size: 0.8rem;
+}
+
+/* =========================================
+   EXCEL VIEW MODAL
+========================================= */
+.excel-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px);
+  padding: 20px;
+}
+.excel-modal.show {
+  display: flex;
+  opacity: 1;
+  align-items: center;
+  justify-content: center;
+}
+.excel-modal-content {
+  background: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  width: 100%;
+  height: 100%;
+  border-radius: var(--r);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.excel-header {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+}
+.excel-title h2 {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-h);
+  letter-spacing: -0.03em;
+}
+.excel-title p {
+  margin: 4px 0 0;
+  font-size: 0.85rem;
+  color: var(--text-m);
+}
+.excel-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Excel Style Inputs */
+.excel-date-wrap {
+  display: flex;
+  align-items: center;
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  gap: 8px;
+}
+.excel-date-wrap input {
+  background: transparent;
+  border: none;
+  color: var(--text-h);
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  width: 100px;
+}
+
+/* Buttons */
+.btn-yellow {
+  background: linear-gradient(135deg, rgba(255,234,32,0.9), rgba(255,200,0,0.8)) !important;
+  color: #0c4dc3 !important;
+  font-weight: 800 !important;
+  border: 1px solid rgba(255,255,255,0.4) !important;
+  border-radius: 20px !important;
+  padding: 8px 24px !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  transition: all 0.3s ease !important;
+  letter-spacing: 0.5px;
+}
+.btn-yellow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2) !important;
+}
+
+.btn-blue {
+  background: linear-gradient(135deg, var(--blue), var(--blue-d)) !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  border: 1px solid rgba(26,115,232,0.4) !important;
+  border-radius: 20px !important;
+  padding: 8px 24px !important;
+  box-shadow: 0 4px 12px rgba(26,115,232,0.2) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  transition: all 0.3s ease !important;
+  letter-spacing: 0.5px;
+}
+.btn-blue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(26,115,232,0.3) !important;
+}
+
+/* Loader */
+.excel-loader {
+  padding: 20px;
+  text-align: center;
+  color: var(--text-m);
+  font-weight: 500;
+}
+
+/* Table Area */
+.excel-body {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  background: transparent;
+  padding: 10px;
+}
+.excel-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.85rem;
+  transition: opacity 0.3s ease;
+  background: var(--surface2);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+.excel-table th, .excel-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+  text-align: center;
+}
+.excel-table th {
+  background: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  color: var(--text-h);
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+/* Fixed First Column */
+.excel-table .col-metric {
+  position: sticky;
+  left: 0;
+  background: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  z-index: 20;
+  text-align: left;
+  min-width: 250px;
+  font-weight: 700;
+  color: var(--blue);
+  box-shadow: 4px 0 12px rgba(0,0,0,0.05);
+}
+/* Ensure top-left corner stays above both */
+.excel-table thead tr:first-child th.col-metric {
+  z-index: 30;
+  background: var(--blue);
+  color: #fff;
+  border-right: none;
+}
+.excel-table thead tr:nth-child(2) th.col-metric {
+  z-index: 30;
+  background: var(--blue-d);
+  color: #fff;
+}
+
+.excel-table tbody tr:hover td {
+  background: var(--surface);
+}
+.excel-table tbody tr:hover td.col-metric {
+  background: var(--surface);
+}
+
+/* Collapsible Columns */
+.col-collapsed {
+  display: none !important;
+}
+.expand-icon {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.7rem;
+  color: var(--text-m);
+  cursor: pointer;
+}
+.expand-icon:hover {
+  color: var(--text-h);
+}

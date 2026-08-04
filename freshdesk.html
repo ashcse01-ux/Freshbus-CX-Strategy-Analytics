@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FreshBus | Helpdesk Analytics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <style>
+  /* ─────────────────────────────────────────────────
+     VARIABLES & RESET
+  ──────────────────────────────────────────────────── */
+  :root {
+    --blue:#1A73E8; --blue-d:#1557b0; --blue-soft:rgba(26,115,232,.15);
+    --yellow:#FBBC04; --yellow-soft:rgba(251,188,4,.15);
+    --green:#16a34a; --green-soft:rgba(22,163,74,.15);
+    --red:#dc2626; --red-soft:rgba(220,38,38,.15);
+    --amber:#d97706; --amber-soft:rgba(217,119,6,.15);
+    --purple:#7c3aed; --purple-soft:rgba(124,58,237,.15);
+
+    /* Liquid Glass Theme Colors */
+    --bg-gradient: radial-gradient(circle at 15% 50%, rgba(26, 115, 232, 0.2) 0%, transparent 50%),
+                   radial-gradient(circle at 85% 30%, rgba(251, 188, 4, 0.2) 0%, transparent 50%),
+                   linear-gradient(135deg, #f0f4fa 0%, #e2eafc 100%);
+    --surface: rgba(255, 255, 255, 0.6);
+    --surface-solid: #ffffff;
+    --surface2: rgba(255, 255, 255, 0.4);
+    --border: rgba(255, 255, 255, 0.7);
+    --border-focus: var(--blue);
+    --text: #0f1d35; --text2: #374151; --text-m: #4b5563;
+
+    --sidebar: rgba(255, 255, 255, 0.45);
+    --sidebar-text: #0f1d35;
+    
+    --glass-blur: blur(20px);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+
+    --sidebar-w:258px;
+    --hdr-h:64px;
+    --r:16px; --r-sm:10px;
+    --shadow: var(--glass-shadow);
+    --shadow-md: 0 12px 40px rgba(26,115,232,.15);
+    --shadow-blue: 0 4px 20px rgba(251,188,4,.3);
+    --tr:.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  [data-theme="dark"] {
+    --bg-gradient: radial-gradient(circle at 15% 50%, rgba(26, 115, 232, 0.25) 0%, transparent 50%),
+                   radial-gradient(circle at 85% 30%, rgba(251, 188, 4, 0.15) 0%, transparent 50%),
+                   linear-gradient(135deg, #0a0f1e 0%, #111927 100%);
+    --surface: rgba(17, 25, 39, 0.6);
+    --surface-solid: #111927;
+    --surface2: rgba(26, 36, 54, 0.4);
+    --border: rgba(255, 255, 255, 0.1);
+    --text: #f1f5f9; --text2: #cbd5e1; --text-m: #94a3b8;
+    --sidebar: rgba(17, 25, 39, 0.6);
+    --sidebar-text: #f1f5f9;
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;overflow:hidden;}
+  body{font-family:'Inter',sans-serif;font-size:14px;color:var(--text);background:var(--bg-gradient);background-attachment:fixed;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;}
+  a{text-decoration:none;color:inherit;}
+  button{font-family:inherit;cursor:pointer;}
+  input,select{font-family:inherit;}
+
+  /* ─── HEADER ─── */
+  .hdr {
+    height: 72px; background: #0c4dc3; /* Solid premium blue matching FreshBus logo */
+    display:flex; align-items:center; padding:0 1.5rem; gap:1rem; flex-shrink:0; z-index:100;
+    box-shadow: 0 4px 15px rgba(12,77,195,0.25); border-bottom: none;
+  }
+  .hdr-logo { display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0; }
+  .hdr-lm {
+    width:36px; height:36px; border-radius:8px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hdr-lm svg { width:100%; height:100%; }
+  
+  .hdr-brand-wrap { display: flex; flex-direction: column; justify-content: center; margin-top:-2px; }
+  .hdr-ln { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.4rem; font-weight:800; color:#FFEA20; line-height:1.1; letter-spacing:-0.03em; }
+  .hdr-sub { font-size:0.68rem; font-weight:600; color:rgba(255,255,255,0.65); letter-spacing:0.06em; text-transform:uppercase; margin-top:2px; }
+
+  .hdr-sep { width:1px; height:28px; background:rgba(255,255,255,0.15); flex-shrink:0; margin: 0 5px; }
+  
+  .hdr-fill { flex:1; }
+  
+  .hdr-datewrap {
+    display:flex; align-items:center; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
+    border-radius:8px; padding:0 12px; height:38px; gap:8px; font-size:0.85rem; font-weight:600; color:#fff;
+  }
+  .hdr-datewrap svg { width:14px; color:rgba(255,255,255,0.7); flex-shrink:0; }
+  .hdr-datewrap input {
+    background:none; border:none; outline:none; color:#fff; font-family:inherit;
+    font-size:0.85rem; font-weight:600; width:115px; cursor:pointer;
+  }
+  .hdr-datewrap input::placeholder { color:rgba(255,255,255,0.6); }
+  .hdr-datewrap .sep { color:rgba(255,255,255,0.5); }
+  
+  .hdr-vbtns {
+    display:flex; align-items:center; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); border-radius:8px; padding:4px; gap:4px;
+  }
+  .hdr-vbtn {
+    background:transparent; border:none; padding:5px 14px; border-radius:6px;
+    font-size:0.8rem; font-weight:600; color:rgba(255,255,255,0.7); transition:all 0.2s ease;
+  }
+  .hdr-vbtn:hover { color:#fff; background:rgba(255,255,255,0.1); }
+  .hdr-vbtn.active { background:#fff; color:#0c4dc3; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+  
+  .hdr-acts { display:flex; gap:6px; }
+  .hdr-ibtn {
+    width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15);
+    display:flex; align-items:center; justify-content:center; color:#fff; transition:all 0.2s ease;
+  }
+  .hdr-ibtn:hover { background:rgba(255,255,255,0.25); transform:translateY(-1px); }
+  .hdr-ibtn svg { width:16px; }
+  
+  .hdr-user { display:flex; align-items:center; gap:10px; cursor:pointer; padding-left:10px; border-left:1px solid rgba(255,255,255,0.2); }
+  .hdr-av { width:36px; height:36px; border-radius:50%; border:2px solid rgba(255,255,255,0.4); overflow:hidden; }
+  .hdr-av img { width:100%; height:100%; object-fit:cover; }
+  .hdr-un { font-size:0.85rem; font-weight:700; color:#fff; }
+
+  /* ─── APP BODY ─── */
+  .app-body { display:flex; flex:1; overflow:hidden; }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    width:var(--sidebar-w); background:var(--sidebar); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); flex-shrink:0;
+    overflow-y:auto; display:flex; flex-direction:column;
+    scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.08) transparent;
+    padding:1.25rem 1rem; gap:0.3rem; border-right:1px solid var(--border);
+  }
+  .sb-sec { font-size:0.67rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--text-m); padding:0.8rem 0.75rem 0.35rem; }
+  .sb-sync {
+    display:flex; align-items:center; gap:8px; background:rgba(22,163,74,.12);
+    border:1px solid rgba(22,163,74,.25); border-radius:9px; padding:9px 12px;
+    font-size:0.75rem; font-weight:600; color:#4ade80; margin-bottom:0.25rem;
+  }
+  .sb-dot { width:6px; height:6px; border-radius:50%; background:#4ade80; animation:sbpulse 1.5s ease-in-out infinite; flex-shrink:0; }
+  @keyframes sbpulse{0%,100%{opacity:1}50%{opacity:.35}}
+  .sb-fg {
+    background:var(--surface2); border:1px solid var(--border); border-radius:9px; padding:0.75rem;
+    display:flex; flex-direction:column; gap:3px; margin-bottom:3px;
+  }
+  .sb-fg label { font-size:0.7rem; font-weight:600; color:var(--text-m); margin-bottom:2px; }
+  .sb-fg select, .sb-fg input[type="text"] {
+    width:100%; background:var(--surface); border:1px solid var(--border);
+    border-radius:7px; padding:7px 10px; color:var(--text); font-size:0.8rem; font-weight:500;
+    outline:none; -webkit-appearance:none; transition:border-color var(--tr);
+  }
+  .sb-fg select:focus, .sb-fg input:focus { border-color:var(--yellow); }
+  .sb-fg select option { background:var(--surface-solid); color:var(--text); }
+  .sb-btn {
+    width:100%; border:none; border-radius:8px; padding:9px; font-size:0.78rem;
+    font-weight:700; display:flex; align-items:center; justify-content:center; gap:6px;
+    transition:all var(--tr); margin-top:4px;
+  }
+  .sb-btn svg { width:13px; }
+  .sb-btn-primary { background:var(--blue); color:#fff; }
+  .sb-btn-primary:hover { background:var(--blue-d); }
+  .sb-btn-warn { background:rgba(220,38,38,.15); color:#f87171; border:1px solid rgba(220,38,38,.25); }
+  .sb-btn-warn:hover { background:rgba(220,38,38,.25); }
+  .sb-btn-yellow { background:var(--yellow); color:#0f1d35; }
+  .sb-btn-yellow:hover { filter:brightness(1.08); }
+
+  /* ─── MAIN ─── */
+  .app-main { flex:1; overflow-y:auto; padding:1.75rem 2rem; display:flex; flex-direction:column; gap:1.75rem; }
+  .app-main > * { flex-shrink: 0; }
+
+  /* Scrollbar */
+  .app-main::-webkit-scrollbar { width:5px; }
+  .app-main::-webkit-scrollbar-thumb { background:rgba(0,0,0,.12); border-radius:99px; }
+  [data-theme="dark"] .app-main::-webkit-scrollbar-thumb { background:rgba(255,255,255,.1); }
+
+  /* ─── PAGE TITLE ─── */
+  .pg-head { display:flex; align-items:center; justify-content:space-between; }
+  .pg-head h1 { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.55rem; font-weight:800; letter-spacing:-0.03em; }
+  .pg-head p { font-size:0.82rem; color:var(--text-m); margin-top:3px; }
+  .pg-badge { font-size:0.72rem; font-weight:700; padding:4px 12px; border-radius:100px; background:var(--blue-soft); color:var(--blue); border:1px solid rgba(26,115,232,.2); }
+
+  /* ─── HERO KPI CARDS (Responsive & Sparklines) ─── */
+  .hero-row { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.25rem; }
+  .hero-card {
+    background:var(--surface); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:1.5px solid var(--border); border-radius:var(--r);
+    padding:1.25rem 1.5rem; box-shadow:var(--shadow); position:relative; overflow:hidden;
+    transition:box-shadow var(--tr), transform var(--tr);
+    display: flex; flex-direction: column; justify-content: space-between; gap: 8px;
+  }
+  .hero-card:hover { box-shadow:var(--shadow-md); transform:translateY(-2px); }
+  .hero-card::after { content:''; position:absolute; top:0; left:0; right:0; height:3px; border-radius:var(--r) var(--r) 0 0; opacity:0; transition:opacity var(--tr); background:var(--accent,var(--blue)); }
+  .hero-card:hover::after { opacity:1; }
+  .hc-top { display:flex; align-items:flex-start; justify-content:space-between; }
+  .hc-lbl { font-size:0.75rem; font-weight:700; color:var(--text-m); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.3rem; }
+  .hc-val { font-family:'Plus Jakarta Sans',sans-serif; font-size:2.4rem; font-weight:800; line-height:1; letter-spacing:-0.05em; }
+  .hc-val .unit { font-size:1.3rem; font-weight:700; opacity:.6; }
+  .hc-sub { font-size:0.74rem; color:var(--text-m); }
+  .hc-trend { font-size: 0.72rem; font-weight: 700; padding: 2px 6px; border-radius: 4px; display: inline-flex; align-items: center; gap: 3px; margin-top: 4px; }
+  .hc-trend.up { background: rgba(22,163,74,0.15); color: var(--green); }
+  .hc-trend.down { background: rgba(220,38,38,0.15); color: var(--red); }
+  .hc-trend.neutral { background: rgba(107,114,128,0.15); color: var(--text-m); }
+  .hc-bot { display:flex; align-items:flex-end; justify-content:space-between; gap: 10px; }
+  .hc-chart { width: 80px; height: 35px; flex-shrink: 0; }
+
+  /* ─── SEGMENT SWITCHER ─── */
+  .seg-bar {
+    display:flex; background:var(--surface); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:1px solid var(--border); border-radius:var(--r);
+    padding:5px; gap:4px; box-shadow:var(--shadow);
+    overflow-x:auto; flex-wrap:nowrap; scrollbar-width:none; -ms-overflow-style:none;
+  }
+  .seg-bar::-webkit-scrollbar { display:none; }
+  .seg-btn {
+    flex:0 0 auto; background:none; border:none; padding:9px 14px; border-radius:var(--r-sm);
+    font-size:0.82rem; font-weight:600; color:var(--text-m);
+    display:flex; align-items:center; justify-content:center; gap:7px;
+    transition:all .2s; white-space:nowrap;
+  }
+  .seg-btn svg { width:14px; }
+  .seg-btn.active { background:var(--blue); color:#fff; box-shadow:var(--shadow-blue); }
+
+  /* ─── METRIC BUNCHES ─── */
+  .bunch { display:none; animation:fadeUp .3s ease forwards; }
+  .bunch.active { display:block; }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+  .bunch-grid {
+    display:flex; flex-wrap:nowrap; overflow-x:auto; gap:1.25rem;
+    padding-bottom:1rem; /* Space for scrollbar */
+    scrollbar-width:thin; scrollbar-color:rgba(26,115,232,.35) rgba(0,0,0,0.03);
+  }
+  .bunch-grid::-webkit-scrollbar { height:8px; display:block; }
+  .bunch-grid::-webkit-scrollbar-track { background:rgba(0,0,0,0.03); border-radius:10px; }
+  [data-theme="dark"] .bunch-grid::-webkit-scrollbar-track { background:rgba(255,255,255,0.05); }
+  .bunch-grid::-webkit-scrollbar-thumb { background:rgba(26,115,232,.35); border-radius:10px; border: 2px solid transparent; background-clip: padding-box; }
+  .bunch-grid::-webkit-scrollbar-thumb:hover { background-color:rgba(26,115,232,.6); }
+
+  /* Metric Card */
+  .mc {
+    flex: 0 0 250px;
+    background:var(--surface); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:1.5px solid var(--border); border-radius:var(--r);
+    padding:1.2rem 1.3rem; box-shadow:var(--shadow); position:relative; overflow:hidden;
+    transition:all var(--tr);
+  }
+  .mc:hover { box-shadow:var(--shadow-md); transform:translateY(-2px); border-color:rgba(26,115,232,.3); }
+  .mc-head { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:0.7rem; gap:8px; }
+  .mc-lbl { font-size:0.76rem; font-weight:600; color:var(--text-m); line-height:1.3; }
+  .mc-icon {
+    width:30px; height:30px; border-radius:8px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--ib,var(--blue-soft)); color:var(--ic,var(--blue));
+  }
+  .mc-icon svg { width:14px; }
+  .mc-val { font-family:'Plus Jakarta Sans',sans-serif; font-size:1.85rem; font-weight:800; line-height:1; letter-spacing:-0.04em; display:flex; align-items:baseline; gap:3px; }
+  .mc-unit { font-size:0.95rem; font-weight:600; opacity:.55; }
+  .mc-foot { font-size:0.7rem; color:var(--text-m); margin-top:6px; }
+
+  /* Color helpers for mc */
+  .c-blue{color:var(--blue)!important;} .c-green{color:var(--green)!important;} .c-red{color:var(--red)!important;} .c-amber{color:var(--amber)!important;} .c-purple{color:var(--purple)!important;}
+  .b-red{--ib:var(--red-soft);--ic:var(--red)!important;} .b-green{--ib:var(--green-soft);--ic:var(--green)!important;} .b-amber{--ib:var(--amber-soft);--ic:var(--amber)!important;} .b-purple{--ib:var(--purple-soft);--ic:var(--purple)!important;}
+
+  /* ─── CHARTS ─── */
+  .chart-row { display:grid; gap:1.25rem; }
+  .cr-main { grid-template-columns:2fr 1fr; }
+  .cr-3 { grid-template-columns:1fr 1fr 1fr; }
+  .cr-full { grid-template-columns:1fr; }
+
+  .panel {
+    background:var(--surface); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:1.5px solid var(--border); border-radius:var(--r);
+    padding:1.4rem; box-shadow:var(--shadow);
+  }
+  .ph { display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:1.2rem; }
+  .ph-left { }
+  .ph-title { font-family:'Plus Jakarta Sans',sans-serif; font-size:0.95rem; font-weight:700; }
+  .ph-sub { font-size:0.74rem; color:var(--text-m); margin-top:3px; }
+  .ph-actions { display:flex; gap:5px; }
+  .ph-seg {
+    background:var(--surface2); border:1px solid var(--border); color:var(--text-m);
+    border-radius:6px; padding:4px 10px; font-size:0.72rem; font-weight:600;
+    cursor:pointer; transition:all var(--tr);
+  }
+  .ph-seg.active { background:var(--blue); border-color:var(--blue); color:#fff; }
+
+  .canvas-wrap { position:relative; width:100%; }
+
+  /* ─── HEATMAP ─── */
+  .heatmap-grid-wrap { overflow-x:auto; }
+  .hm-labels-row {
+    display:grid; grid-template-columns:46px repeat(24,1fr); gap:3px; margin-bottom:4px;
+  }
+  .hm-h-lbl { font-size:0.6rem; color:var(--text-m); font-weight:700; text-align:center; }
+  .hm-row-wrap { display:grid; grid-template-columns:46px repeat(24,1fr); gap:3px; margin-bottom:3px; align-items:center; }
+  .hm-day-lbl { font-size:0.72rem; font-weight:700; color:var(--text-m); text-align:right; padding-right:10px; }
+  .hm-cell {
+    aspect-ratio:1.2; border-radius:3px; cursor:crosshair;
+    transition:transform .1s, box-shadow .1s;
+    background:rgba(0,0,0,.04);
+  }
+  [data-theme="dark"] .hm-cell { background:rgba(255,255,255,.03); }
+  .hm-cell:hover { transform:scale(1.6); z-index:10; position:relative; box-shadow:0 0 10px rgba(251,188,4,.5); }
+  .hm-tip {
+    position:fixed; z-index:9999; background:var(--text); color:var(--surface);
+    border-radius:8px; padding:8px 12px; font-size:0.76rem; font-weight:700;
+    pointer-events:none; display:none; white-space:nowrap; box-shadow:var(--shadow-md);
+  }
+
+  /* ─── TOP 10 DISPOSITIONS TABLE ─── */
+  .top-10-row { display:flex; align-items:center; padding:9px 0; border-bottom:1px solid var(--border); gap:10px; }
+  .top-10-row:last-child { border-bottom:none; }
+  .top-10-rank { width:22px; height:22px; border-radius:6px; background:var(--blue-soft); color:var(--blue); font-size:0.72rem; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .top-10-rank.gold { background:rgba(251,188,4,.15); color:var(--amber); }
+  .top-10-name { flex:1; font-size:0.82rem; font-weight:600; color:var(--text2); }
+  .top-10-bar-wrap { width:120px; height:6px; background:var(--surface2); border-radius:99px; overflow:hidden; }
+  .top-10-bar { height:100%; border-radius:99px; background:var(--blue); transition:width .5s ease; }
+  .top-10-count { font-family:'Plus Jakarta Sans',sans-serif; font-size:0.85rem; font-weight:800; color:var(--text); min-width:36px; text-align:right; }
+  .top-10-pct { font-size:0.72rem; color:var(--text-m); font-weight:600; min-width:38px; text-align:right; }
+
+  /* Disposition toggle button */
+  .disp-toggle-btn {
+    background:var(--yellow-soft); color:var(--amber); border:1px solid rgba(217,119,6,.25);
+    border-radius:8px; padding:6px 14px; font-size:0.75rem; font-weight:700;
+    cursor:pointer; transition:all .2s; white-space:nowrap; font-family:inherit;
+  }
+  .disp-toggle-btn:hover { filter:brightness(1.08); }
+
+  /* Scrollable disposition container */
+  .disp-list-wrap {
+    max-height:480px; overflow-y:auto; padding-right:4px;
+    scrollbar-width:thin; scrollbar-color:rgba(26,115,232,.25) transparent;
+  }
+  .disp-list-wrap::-webkit-scrollbar { width:4px; }
+  .disp-list-wrap::-webkit-scrollbar-thumb { background:rgba(26,115,232,.25); border-radius:4px; }
+
+  /* Legend */
+  .legend { display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
+  .lg-item { display:flex; align-items:center; gap:5px; font-size:0.74rem; color:var(--text-m); font-weight:500; }
+  .lg-dot { width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+  .lg-line { width:16px; height:2px; border-radius:2px; flex-shrink:0; }
+
+  /* Utility */
+  @media(max-width:1440px) {
+    .hdr { padding: 0 1rem; gap: 0.5rem; }
+    .hdr-datewrap input { width: 90px; font-size: 0.75rem; }
+    .hdr-vbtn { padding: 4px 10px; font-size: 0.75rem; }
+    .hdr-vbtns { gap: 2px; }
+    .hdr-logo { gap: 8px; }
+    .hdr-brand-wrap { transform: scale(0.9); transform-origin: left center; }
+  }
+  @media(max-width:1280px) { 
+    .hero-row{grid-template-columns:repeat(2,1fr);} 
+    .cr-main{grid-template-columns:1fr;} 
+    .cr-3{grid-template-columns:1fr 1fr;} 
+  }
+  @media(max-width:1100px) {
+    .hdr { flex-wrap: wrap; height: auto; min-height: 72px; padding: 12px 1rem; }
+    .hdr-fill { display: none; }
+    .hdr-logo { margin-right: auto; }
+    .hdr-datewrap, .hdr-vbtns { order: 3; margin-top: 8px; }
+    .hdr-vbtns { overflow-x: auto; max-width: 100%; scrollbar-width: none; }
+    .hdr-vbtns::-webkit-scrollbar { display: none; }
+  }
+  @media(max-width:900px) { 
+    .cr-3{grid-template-columns:1fr;} 
+    .sidebar{display:none;} 
+  }
+  </style>
+</head>
+<body>
+<!-- HEADER -->
+<header class="hdr">
+  <a href="campaign.html" class="hdr-logo">
+    <div class="hdr-lm">
+      <!-- FreshBus Yellow Logo SVG -->
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 32 82 L 32 20 C 32 14, 37 10, 43 10 L 71 10 C 80 10, 84 21, 76 28 L 56 46 L 70 46 C 79 46, 83 57, 75 64 L 43 92 C 35 99, 32 92, 32 85 Z" fill="#FFEA20"/>
+      </svg>
+    </div>
+    <div class="hdr-brand-wrap">
+      <span class="hdr-ln">Fresh Bus</span>
+      <span class="hdr-sub">CX & Strategy Analytics</span>
+    </div>
+  </a>
+
+  <!-- Date pickers -->
+  <div class="hdr-datewrap" style="margin-left: 4px;">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+    <input type="text" id="filter_start_date" placeholder="Start Date" readonly>
+    <span class="sep">→</span>
+    <input type="text" id="filter_end_date" placeholder="End Date" readonly>
+  </div>
+  <div class="hdr-fill"></div>
+  <style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+
+  <!-- View period -->
+  <div class="hdr-vbtns">
+    <button class="hdr-vbtn" data-view="1hr">1 Hr</button>
+    <button class="hdr-vbtn" data-view="2hr">2 Hr</button>
+    <button class="hdr-vbtn" data-view="3hr">3 Hr</button>
+    <button class="hdr-vbtn" data-view="daily">Today</button>
+    <button class="hdr-vbtn" data-view="yesterday">Yesterday</button>
+    <button class="hdr-vbtn" data-view="weekly">Weekly</button>
+    <button class="hdr-vbtn" data-view="monthly">Monthly</button>
+    <button id="goBtn" class="hdr-vbtn" style="
+      padding: 6px 20px; 
+      margin-left: 12px; 
+      background: linear-gradient(135deg, rgba(255,234,32,0.9), rgba(255,200,0,0.8));
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.4);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      color: #0c4dc3;
+      font-weight: 800;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+    ">Go</button>
+    
+    <div id="dataLoader" style="display:none; width:18px; height:18px; border:2.5px solid var(--text); border-top-color:transparent; border-radius:50%; animation:spin 1s linear infinite; margin-left:12px;"></div>
+  </div>
+
+  <!-- Actions -->
+  <div class="hdr-acts">
+    <button class="hdr-ibtn" id="goBtn" title="Fetch Data">
+      GO
+    </button>
+    <button class="hdr-ibtn" id="themeBtn" title="Toggle dark/light">
+      <svg id="themeIco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+  </div>
+
+  <div class="hdr-user">
+    <div class="hdr-av"><img src="https://ui-avatars.com/api/?name=Admin&background=FFEA20&color=0c4dc3&size=64" alt=""></div>
+    <span class="hdr-un">Admin</span>
+  </div>
+</header>
+
+<div class="app-body">
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <div class="sb-sec">Filters</div>
+    
+    <div class="sb-fg" data-tabs="bunch-helpdesk">
+      <label>LOB</label>
+      <select id="filter_lob">
+        <option value="All" selected>All</option>
+      </select>
+    </div>
+    
+    <div class="sb-fg" data-tabs="bunch-helpdesk,bunch-complaint,bunch-adoption">
+      <label>Status</label>
+      <select id="filter_status">
+        <option value="All" selected>All</option>
+      </select>
+    </div>
+    
+    <div class="sb-fg" data-tabs="bunch-helpdesk">
+      <label>Type</label>
+      <select id="filter_type">
+        <option value="All" selected>All</option>
+      </select>
+    </div>
+    
+    <div class="sb-fg" data-tabs="bunch-helpdesk">
+      <label>Group</label>
+      <select id="filter_group">
+        <option value="All" selected>All</option>
+      </select>
+    </div>
+    
+    <div class="sb-fg" data-tabs="bunch-helpdesk">
+      <label>Priority</label>
+      <select id="filter_priority">
+        <option value="All" selected>All</option>
+      </select>
+    </div>
+    
+    <div class="sb-fg" data-tabs="bunch-helpdesk,bunch-adoption">
+      <label>Agent</label>
+      <select id="filter_agent">
+        <option value="All" selected>All</option>
+      </select>
+    </div>
+    
+    <div class="sb-fg" data-tabs="bunch-adoption">
+      <label>Source (HD Adoption)</label>
+      <select id="filter_source">
+        <option value="All" selected>All</option>
+      </select>
+    </div>
+
+    <div class="sb-fg" data-tabs="bunch-complaint">
+      <label>Complaint Type</label>
+      <select id="filter_complaint_type">
+        <option value="All" selected>All</option>
+      </select>
+    </div>
+
+    <div class="sb-sec" style="margin-top:.5rem;">Actions</div>
+    <button class="sb-btn sb-btn-primary" id="applyBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Apply Filters
+    </button>
+    <button class="sb-btn sb-btn-primary" id="clearBtn" style="background:var(--surface2);color:var(--text-muted);margin-top:2px;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
+      Reset Filters
+    </button>
+  </aside>
+
+<!-- MAIN CONTENT -->
+<main class="app-main">
+    <div class="pg-head">
+      <div>
+        <h1>Helpdesk Analytics</h1>
+        <p>Live performance analytics &middot; All metrics per business formulas</p>
+      </div>
+      <span class="pg-badge">Live A Database</span>
+    </div>
+
+    <!-- TABS -->
+    <div class="seg-bar">
+      <button class="seg-btn active" data-bunch="bunch-helpdesk">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/></svg>
+        Helpdesk
+      </button>
+      <button class="seg-btn" data-bunch="bunch-complaint">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Complaint Tracker
+      </button>
+      <button class="seg-btn" data-bunch="bunch-adoption">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        HD Adoption
+      </button>
+    </div>
+
+    <!-- METRIC BUNCHES -->
+    <div id="bunch-helpdesk" class="bunch active">
+      <div class="bunch-grid">
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Tickets Created</div></div><div class="mc-val" id="hd-tickets-created">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">FTR Tickets</div></div><div class="mc-val" id="hd-ftr-tickets">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">NFTR Tickets</div></div><div class="mc-val" id="hd-nftr-tickets">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Blanks (FTR/NFTR)</div></div><div class="mc-val" id="hd-blanks">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Tickets Closed</div></div><div class="mc-val" id="hd-tickets-closed">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Tickets Pending (Open)</div></div><div class="mc-val" id="hd-tickets-pending">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Inbound Calls Ans</div></div><div class="mc-val" id="hd-calls-ans">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Ticket Not Created FD</div></div><div class="mc-val" id="hd-not-created">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Resolution Time (FTR Avg Hrs)</div></div><div class="mc-val" id="hd-ftr-restime">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Resolution Time (NFTR Avg Hrs)</div></div><div class="mc-val" id="hd-nftr-restime">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Overall Resolution Time (Avg Hrs)</div></div><div class="mc-val" id="hd-overall-restime">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Fresh Desk Adoption %</div></div><div class="mc-val" id="hd-fd-adoption">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Seats</div></div><div class="mc-val" id="hd-seats">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">PNR</div></div><div class="mc-val" id="hd-pnr">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Defect Rate %</div></div><div class="mc-val" id="hd-defect-rate">0</div></div>
+      </div>
+      <h3 style="margin:1rem 0; font-family:'Plus Jakarta Sans';">Ticket Source Breakdowns</h3>
+      <div class="bunch-grid">
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">InBound FTR</div></div><div class="mc-val" id="hd-inbound-ftr">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">InBound NFTR</div></div><div class="mc-val" id="hd-inbound-nftr">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">InBound Res Time</div></div><div class="mc-val" id="hd-inbound-rt">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">OutBound FTR</div></div><div class="mc-val" id="hd-outbound-ftr">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">OutBound NFTR</div></div><div class="mc-val" id="hd-outbound-nftr">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">OutBound Res Time</div></div><div class="mc-val" id="hd-outbound-rt">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Email FTR</div></div><div class="mc-val" id="hd-email-ftr">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Email NFTR</div></div><div class="mc-val" id="hd-email-nftr">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Email Res Time</div></div><div class="mc-val" id="hd-email-rt">0</div></div>
+      </div>
+    </div>
+
+    <div id="bunch-complaint" class="bunch">
+      <div class="bunch-grid">
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">New Tickets</div></div><div class="mc-val" id="comp-new">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Back Dated Total Cases</div></div><div class="mc-val" id="comp-backdated">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Closed</div></div><div class="mc-val" id="comp-closed">0</div></div>
+      </div>
+    </div>
+
+    <div id="bunch-adoption" class="bunch">
+      <div class="bunch-grid">
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Tickets Created</div></div><div class="mc-val" id="adop-tickets-created">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">FTR Tickets</div></div><div class="mc-val" id="adop-ftr-tickets">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">NFTR Tickets (Overall)</div></div><div class="mc-val" id="adop-nftr-tickets">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Blanks (FTR/NFTR)</div></div><div class="mc-val" id="adop-blanks">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Tickets Closed</div></div><div class="mc-val" id="adop-tickets-closed">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Ticket Pending (Open)</div></div><div class="mc-val" id="adop-tickets-pending">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Inbound Calls Ans</div></div><div class="mc-val" id="adop-calls-ans">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Ticket Not Created FD</div></div><div class="mc-val" id="adop-not-created">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">FTR Resolution Time (Avg Hr)</div></div><div class="mc-val" id="adop-ftr-restime">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">NFTR Resolution Time (Avg Hr)</div></div><div class="mc-val" id="adop-nftr-restime">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Overall Resolution Time (Avg Hr)</div></div><div class="mc-val" id="adop-overall-restime">0</div></div>
+        <div class="mc"><div class="mc-head"><div class="mc-lbl">Fresh Desk Adoption %</div></div><div class="mc-val" id="adop-fd-adoption">0</div></div>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+<div class="hm-tip" id="hmTip"></div>
+
+
+
+<style>
+/* Excel Modal Styles */
+.excel-modal {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+  z-index: 10000; opacity: 0; visibility: hidden; transition: all 0.3s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.excel-modal.show {
+  opacity: 1; visibility: visible;
+}
+.excel-modal-content {
+  background: var(--surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  width: 95%;
+  height: 90%;
+  border-radius: var(--r);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.excel-header {
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, var(--blue), var(--blue-d));
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.excel-title {
+  display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.55rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+.excel-title svg { width: 24px; height: 24px; }
+.excel-actions {
+  display: flex; align-items: center; gap: 15px;
+}
+.excel-close-btn {
+  background: transparent; border: none; color: #fff; cursor: pointer; padding: 4px;
+  border-radius: 4px; transition: all 0.2s;
+}
+.excel-close-btn:hover { background: rgba(255,255,255,0.2); }
+.excel-close-btn svg { width: 24px; height: 24px; }
+.excel-body {
+  flex: 1; overflow: auto; padding: 10px; background: transparent;
+}
+.excel-table {
+  border-collapse: separate; border-spacing: 0; width: max-content; min-width: 100%; text-align: center;
+  background: var(--surface2); border-radius: 8px; border: 1px solid var(--border);
+}
+.excel-table th, .excel-table td {
+  border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); padding: 10px 14px; font-size: 0.85rem; white-space: nowrap;
+}
+.excel-table th {
+  background: var(--surface); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+  font-weight: 700; color: var(--text-h); position: sticky; box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.excel-table thead tr:nth-child(1) th { top: 0; z-index: 10; }
+.excel-table thead tr:nth-child(2) th { top: 35px; z-index: 10; }
+.excel-table thead tr:nth-child(3) th { top: 70px; z-index: 10; }
+.col-metric {
+  position: sticky; left: 0; 
+  background: var(--surface); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+  z-index: 20; text-align: left; font-weight: 700; color: var(--blue);
+  box-shadow: 4px 0 12px rgba(0,0,0,0.05); font-family: 'Inter', sans-serif;
+}
+.excel-table thead tr:first-child th.col-metric { z-index: 30; background: var(--blue); color: #fff; border-right: none; }
+.excel-table thead tr:nth-child(2) th.col-metric { z-index: 30; background: var(--blue-d); color: #fff; }
+
+.col-collapsed { display: none !important; }
+.expand-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  margin-left: 8px; font-size: 0.75rem; color: var(--blue); cursor: pointer;
+  background: var(--blue-soft); width: 20px; height: 20px; border-radius: 50%; transition: all 0.2s ease;
+}
+.expand-icon:hover { background: var(--blue); color: #fff; }
+.excel-table tbody tr:hover td { background: var(--surface); }
+.excel-table tbody tr:hover td.col-metric { background: var(--surface); }
+
+/* Buttons */
+.btn-yellow {
+  background: linear-gradient(135deg, rgba(255,234,32,0.9), rgba(255,200,0,0.8)) !important;
+  color: #0c4dc3 !important; font-weight: 800 !important; border: 1px solid rgba(255,255,255,0.4) !important;
+  border-radius: 20px !important; padding: 8px 24px !important; box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+  backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important;
+  transition: all 0.3s ease !important; letter-spacing: 0.5px;
+}
+.btn-yellow:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.2) !important; }
+.btn-blue {
+  background: linear-gradient(135deg, var(--blue), var(--blue-d)) !important;
+  color: #fff !important; font-weight: 700 !important; border: 1px solid rgba(26,115,232,0.4) !important;
+  border-radius: 20px !important; padding: 8px 24px !important; box-shadow: 0 4px 12px rgba(26,115,232,0.2) !important;
+  backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important;
+  transition: all 0.3s ease !important; letter-spacing: 0.5px;
+  display: inline-flex !important; align-items: center !important; gap: 8px !important; justify-content: center !important;
+}
+.btn-blue:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(26,115,232,0.3) !important; }
+</style>
+
+
+<!-- Excel View Modal Overlay -->
+<div id="excelModal" class="excel-modal">
+  <div class="excel-modal-content">
+    <div class="excel-header">
+      <div class="excel-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        <span>Data Export View</span>
+      </div>
+      <div class="excel-actions">
+        <div class="hdr-datewrap" style="background:rgba(0,0,0,0.2); border-color:rgba(255,255,255,0.2);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <input type="text" id="excel_start_date" placeholder="Start Date" readonly>
+          <span class="sep">→</span>
+          <input type="text" id="excel_end_date" placeholder="End Date" readonly>
+        </div>
+        <button id="excelDownloadBtn" class="btn-blue" style="width:auto; padding:8px 16px; margin:0; border-radius: 6px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download Report
+        </button>
+        <button id="excelCloseBtn" class="btn-yellow" style="padding:8px 16px; border-radius: 6px;">
+          Close
+        </button>
+      </div>
+    </div>
+    <div class="excel-body" style="position:relative;">
+      <div id="excelLoader" style="display:none; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); width:30px; height:30px; border:3px solid var(--text); border-top-color:transparent; border-radius:50%; animation:spin 1s linear infinite;"></div>
+      <table class="excel-table" id="excelTable">
+        <thead>
+          <tr id="excelRowMonths"></tr>
+          <tr id="excelRowWeeks"></tr>
+          <tr id="excelRowDays"></tr>
+        </thead>
+        <tbody id="excelTableBody">
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="visual_engine.js?v=8"></script>
+<script src="script_freshdesk.js?v=8"></script>
+</body>
+</html>

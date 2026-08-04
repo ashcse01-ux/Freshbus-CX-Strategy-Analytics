@@ -26,9 +26,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+
 # Include API Routers
 app.include_router(sync.router)
 app.include_router(metrics.router)
+from routers import excel_api
+app.include_router(excel_api.router)
+from routers import helpdesk
+app.include_router(helpdesk.router)
+from routers import redbus
+app.include_router(redbus.router)
 
 
 @app.on_event("startup")
@@ -101,6 +108,14 @@ async def serve_campaign():
 @app.get("/inbound")
 async def serve_inbound():
     return FileResponse(os.path.join(ROOT_DIR, "inbound.html"))
+
+@app.get("/freshdesk")
+async def serve_freshdesk():
+    return FileResponse(os.path.join(ROOT_DIR, "freshdesk.html"))
+
+@app.get("/redbus")
+async def serve_redbus():
+    return FileResponse(os.path.join(ROOT_DIR, "redbus.html"))
 
 
 # Mount static files for simple HTML/JS frontend

@@ -310,7 +310,10 @@ def read_aggregated_metrics(
             ]
             for k in avg_keys:
                 if k in aggregated_manual:
-                    aggregated_manual[k] = aggregated_manual[k] / days_counted
+                    aggregated_manual[k] = round(aggregated_manual[k] / days_counted, 2)
+            # Also round Intr/Journey if it exists
+            if 'Intr/Journey' in aggregated_manual:
+                aggregated_manual['Intr/Journey'] = round(aggregated_manual['Intr/Journey'], 2)
                     
             # Explicitly multiply Impact metrics by 100 to show correct percentage scale
             for k in ['Impacted %', 'Cancellations Impact %']:
@@ -434,15 +437,14 @@ def read_aggregated_metrics(
     # --- DISTRIBUTIONS for Charts ---
     def get_top_dist(col, limit=10):
         """Return top N distribution as ordered dict (excludes blanks)."""
-        return (
-            df[df[col] != ''][col]
-            .value_counts()
-            .head(limit)
-            .to_dict()
-        )
+        counts = df[df[col] != ''][col].value_counts()
+        if limit is None:
+            return counts.to_dict()
+        return counts.head(limit).to_dict()
 
     distributions = {
         "dispositions": get_top_dist('Disposition', 10),
+        "all_dispositions": get_top_dist('Disposition', None),
         "campaigns":    get_top_dist('Campaign', 10),
         "hangups":      get_top_dist('Hangup_By', 10),
         "agents":       get_top_dist('Agent', 10)

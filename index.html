@@ -33,13 +33,13 @@
     /* Logo */
     .lp-logo { display:flex; align-items:center; gap:16px; margin-bottom:3.5rem; }
     .lp-logo-mark {
-      width:60px; height:60px; border-radius:14px;
-      background:#1A73E8; display:flex; align-items:center; justify-content:center;
-      box-shadow:0 8px 32px rgba(26,115,232,.45); flex-shrink:0;
+      width:48px; height:48px;
+      display:flex; align-items:center; justify-content:center;
+      flex-shrink:0;
     }
-    .lp-logo-mark svg { width:36px; height:36px; }
+    .lp-logo-mark svg { width:100%; height:100%; }
     .lp-logo-text { font-family:'Plus Jakarta Sans',sans-serif; }
-    .lp-logo-text .brand { font-size:1.8rem; font-weight:800; color:#fff; line-height:1; letter-spacing:-0.02em; }
+    .lp-logo-text .brand { font-size:1.8rem; font-weight:800; color:#FFEA20; line-height:1; letter-spacing:-0.02em; }
     .lp-logo-text .tag { font-size:0.78rem; font-weight:500; color:rgba(255,255,255,.5); margin-top:4px; letter-spacing:0.04em; text-transform:uppercase; }
 
     .lp-headline {
@@ -136,23 +136,17 @@
   <div class="lp-left">
     <div class="lp-inner">
       <!-- Logo -->
-      <div class="lp-logo">
-        <div class="lp-logo-mark">
-          <!-- FreshBus official chevron-F mark, traced from brand assets -->
-          <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Outer F vertical spine -->
-            <rect x="4" y="4" width="7" height="28" rx="2" fill="white"/>
-            <!-- Top horizontal bar — angled right like the brand chevron -->
-            <path d="M11 4 L32 4 L32 10 L18 10 L18 14 L11 14 Z" fill="white"/>
-            <!-- Middle horizontal bar — slightly shorter, brand proportion -->
-            <path d="M11 16 L26 16 L26 22 L18 22 L18 26 L11 26 Z" fill="white" opacity="0.75"/>
-          </svg>
-        </div>
-        <div class="lp-logo-text">
-          <div class="brand">FreshBus</div>
-          <div class="tag">Analytics Platform</div>
-        </div>
-      </div>
+      <div class="lp-logo" style="display:flex; align-items:center; gap:12px; text-decoration:none; flex-shrink:0; margin-bottom:3.5rem;">
+  <div class="hdr-lm" style="width:48px; height:48px; border-radius:8px; display:flex; align-items:center; justify-content:center;">
+    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%;">
+      <path d="M 32 82 L 32 20 C 32 14, 37 10, 43 10 L 71 10 C 80 10, 84 21, 76 28 L 56 46 L 70 46 C 79 46, 83 57, 75 64 L 43 92 C 35 99, 32 92, 32 85 Z" fill="#FFEA20"/>
+    </svg>
+  </div>
+  <div class="hdr-brand-wrap" style="display: flex; flex-direction: column; justify-content: center; margin-top:-2px;">
+    <span class="hdr-ln" style="font-family:'Plus Jakarta Sans',sans-serif; font-size:1.8rem; font-weight:800; color:#FFEA20; line-height:1.1; letter-spacing:-0.03em;">Fresh Bus</span>
+    <span class="hdr-sub" style="font-size:0.8rem; font-weight:600; color:rgba(255,255,255,0.65); letter-spacing:0.06em; text-transform:uppercase; margin-top:2px;">Analytics Platform</span>
+  </div>
+</div>
 
       <h1 class="lp-headline">
         One Command Center<br>

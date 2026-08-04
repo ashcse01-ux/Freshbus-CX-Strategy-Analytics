@@ -658,3 +658,327 @@ tbody tr:hover td { background: var(--surface-2); }
   .kpi-summary-row { grid-template-columns: 1fr 1fr; }
   .app-sidebar { display: none; }
 }
+
+/* =========================================
+   TOP 10 DISPOSITIONS
+========================================= */
+.top-10-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.top-10-row:last-child {
+  border-bottom: none;
+}
+.top-10-rank {
+  font-weight: 700;
+  color: var(--text-m);
+  width: 24px;
+}
+.top-10-rank.gold {
+  color: #FBBC04;
+}
+.top-10-name {
+  flex: 1;
+  color: var(--text-h);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.top-10-bar-wrap {
+  width: 100px;
+  height: 6px;
+  background: var(--surface-3);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.top-10-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+.top-10-count {
+  font-weight: 600;
+  width: 45px;
+  text-align: right;
+  color: var(--text-h);
+}
+.top-10-pct {
+  width: 45px;
+  text-align: right;
+  color: var(--text-m);
+  font-size: 0.8rem;
+}
+
+/* =========================================
+   EXCEL VIEW MODAL (LIQUID GLASS UI)
+========================================= */
+.excel-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 23, 42, 0.4);
+  z-index: 9999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 30px;
+}
+.excel-modal.show {
+  display: flex;
+  opacity: 1;
+  align-items: center;
+  justify-content: center;
+}
+.excel-modal-content {
+  background: rgba(255, 255, 255, 0.6);
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+[data-theme="dark"] .excel-modal-content {
+  background: rgba(15, 23, 42, 0.6);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.excel-header {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 60%, var(--yellow) 150%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+[data-theme="dark"] .excel-header {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 60%, var(--yellow) 150%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.excel-title h2 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.excel-title p {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.85);
+}
+.excel-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+/* Excel Style Inputs */
+.excel-date-wrap {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 8px;
+  padding: 6px 12px;
+  gap: 8px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+  transition: all 0.2s ease;
+}
+[data-theme="dark"] .excel-date-wrap {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.excel-date-wrap:focus-within {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-soft);
+}
+.excel-date-wrap input {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  outline: none;
+  width: 110px;
+}
+
+/* Buttons */
+.btn-yellow, .btn-blue, .btn-close {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-yellow {
+  background: linear-gradient(135deg, #FFD000 0%, #FBBC04 100%);
+  color: #1f2937;
+}
+.btn-yellow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(251, 188, 4, 0.4);
+}
+
+.btn-blue {
+  background: linear-gradient(135deg, #3b82f6 0%, #1A73E8 100%);
+  color: #fff;
+}
+.btn-blue:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(26, 115, 232, 0.4);
+}
+
+.btn-close {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+.btn-close:hover {
+  background: #ef4444;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgba(239, 68, 68, 0.4);
+}
+
+/* Loader */
+.excel-loader {
+  padding: 40px;
+  text-align: center;
+  color: var(--blue);
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Table Area */
+.excel-body {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  background: transparent;
+  padding: 0 1px 1px 0; /* space for borders */
+}
+.excel-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-size: 0.9rem;
+  transition: opacity 0.3s ease;
+}
+.excel-table th, .excel-table td {
+  padding: 12px 16px;
+  border-right: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  white-space: nowrap;
+  text-align: center;
+  color: var(--text);
+}
+[data-theme="dark"] .excel-table th, [data-theme="dark"] .excel-table td {
+  border-right: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.excel-table th {
+  background: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+[data-theme="dark"] .excel-table th {
+  background: rgba(30, 41, 59, 0.85);
+}
+
+/* Fixed First Column - FIX OVERLAP */
+.excel-table .col-metric {
+  position: sticky;
+  left: 0;
+  background: linear-gradient(to right, #f8faff, #ffffff);
+  z-index: 20;
+  text-align: left;
+  min-width: 280px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  box-shadow: 3px 0 10px rgba(0,0,0,0.06);
+  border-right: 2px solid var(--blue-soft) !important;
+}
+[data-theme="dark"] .excel-table .col-metric {
+  background: linear-gradient(to right, #111827, #1e293b);
+  color: #e2e8f3;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.3);
+  border-right: 2px solid rgba(255,255,255,0.1) !important;
+}
+
+/* Ensure top-left corner stays above both row/col headers */
+.excel-table thead tr:first-child th.col-metric {
+  z-index: 30;
+}
+.excel-table thead tr:nth-child(2) th.col-metric {
+  z-index: 30;
+  top: 45px; /* approx height of first row */
+}
+
+/* Row Hover */
+.excel-table tbody tr {
+  transition: background 0.2s ease;
+}
+.excel-table tbody tr:hover td {
+  background-color: rgba(26, 115, 232, 0.05);
+}
+[data-theme="dark"] .excel-table tbody tr:hover td {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.excel-table tbody tr:hover td.col-metric {
+  /* Must remain solid on hover */
+  background-color: #f1f5f9;
+}
+[data-theme="dark"] .excel-table tbody tr:hover td.col-metric {
+  background-color: #334155;
+}
+
+/* Collapsible Columns */
+.col-collapsed {
+  display: none !important;
+}
+.expand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  font-size: 0.75rem;
+  color: var(--blue);
+  cursor: pointer;
+  background: var(--blue-soft);
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+.expand-icon:hover {
+  background: var(--blue);
+  color: #fff;
+}
