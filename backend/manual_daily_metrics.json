@@ -1,1076 +1,2565 @@
 {
-  "2023-11-01": {},
-  "2023-11-02": {},
-  "2023-11-03": {},
-  "2023-11-04": {},
-  "2023-11-05": {},
-  "2023-11-06": {},
-  "2023-11-07": {},
-  "2023-11-08": {},
-  "2023-11-09": {},
-  "2023-11-10": {},
-  "2023-11-11": {},
-  "2023-11-12": {},
-  "2023-11-13": {},
-  "2023-11-14": {},
-  "2023-11-15": {},
-  "2023-11-16": {},
-  "2023-11-17": {},
-  "2023-11-18": {},
-  "2023-11-19": {},
-  "2023-11-20": {},
-  "2023-11-21": {},
-  "2023-11-22": {},
-  "2023-11-23": {},
-  "2023-11-24": {},
-  "2023-11-25": {},
-  "2023-11-26": {},
-  "2023-11-27": {},
-  "2023-11-28": {},
-  "2023-11-29": {},
-  "2023-11-30": {},
+  "2023-11-01": {
+    "Overall Call Not Done": 46.0,
+    "Call Not Done %": 46.0,
+    "Agent Disconnected": 38.0,
+    "Agent Disconnected %": 38.0
+  },
+  "2023-11-02": {
+    "Overall Call Not Done": 50.0,
+    "Call Not Done %": 50.0,
+    "Agent Disconnected": 41.0,
+    "Agent Disconnected %": 41.0
+  },
+  "2023-11-03": {
+    "Overall Call Not Done": 28.0,
+    "Call Not Done %": 28.0,
+    "Agent Disconnected": 22.0,
+    "Agent Disconnected %": 22.0
+  },
+  "2023-11-04": {
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 23.0,
+    "Call Not Done %": 24.0,
+    "Agent Disconnected": 16.0,
+    "Agent Disconnected %": 16.0
+  },
+  "2023-11-05": {
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 22.0,
+    "Call Not Done %": 29.0,
+    "Agent Disconnected": 7.0,
+    "Agent Disconnected %": 7.0
+  },
+  "2023-11-06": {
+    "Blank Call Not Done": 20.0,
+    "Overall Call Not Done": 30.0,
+    "Call Not Done %": 50.0,
+    "Agent Disconnected": 6.0,
+    "Agent Disconnected %": 8.0
+  },
+  "2023-11-07": {
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 29.0,
+    "Call Not Done %": 42.0,
+    "Agent Disconnected": 5.0,
+    "Agent Disconnected %": 7.0
+  },
+  "2023-11-08": {
+    "Blank Call Not Done": 21.0,
+    "Overall Call Not Done": 29.0,
+    "Call Not Done %": 50.0,
+    "Agent Disconnected": 7.0,
+    "Agent Disconnected %": 15.0
+  },
+  "2023-11-09": {
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 16.0,
+    "Call Not Done %": 23.0,
+    "Agent Disconnected": 8.0,
+    "Agent Disconnected %": 9.0
+  },
+  "2023-11-10": {
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 21.0,
+    "Call Not Done %": 24.0,
+    "Agent Disconnected": 8.0,
+    "Agent Disconnected %": 8.0
+  },
+  "2023-11-11": {
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 16.0,
+    "Call Not Done %": 27.0,
+    "Agent Disconnected": 4.0,
+    "Agent Disconnected %": 6.0
+  },
+  "2023-11-12": {
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 10.0,
+    "Call Not Done %": 12.0,
+    "Agent Disconnected": 4.0,
+    "Agent Disconnected %": 4.0
+  },
+  "2023-11-13": {
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 23.0,
+    "Call Not Done %": 32.0,
+    "Agent Disconnected": 6.0,
+    "Agent Disconnected %": 7.0
+  },
+  "2023-11-14": {
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 21.0,
+    "Call Not Done %": 28.0,
+    "Agent Disconnected": 9.0,
+    "Agent Disconnected %": 12.0
+  },
+  "2023-11-15": {
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 26.0,
+    "Call Not Done %": 31.0,
+    "Agent Disconnected": 17.0,
+    "Agent Disconnected %": 20.0
+  },
+  "2023-11-16": {
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 21.0,
+    "Call Not Done %": 31.0,
+    "Agent Disconnected": 6.0,
+    "Agent Disconnected %": 9.0
+  },
+  "2023-11-17": {
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 21.0,
+    "Call Not Done %": 32.0,
+    "Agent Disconnected": 17.0,
+    "Agent Disconnected %": 22.0
+  },
+  "2023-11-18": {
+    "Blank Call Not Done": 16.0,
+    "Overall Call Not Done": 27.0,
+    "Call Not Done %": 43.0,
+    "Agent Disconnected": 10.0,
+    "Agent Disconnected %": 17.0
+  },
+  "2023-11-19": {
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 16.0,
+    "Call Not Done %": 23.0,
+    "Agent Disconnected": 9.0,
+    "Agent Disconnected %": 11.0
+  },
+  "2023-11-20": {
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 32.0,
+    "Call Not Done %": 37.0,
+    "Agent Disconnected": 20.0,
+    "Agent Disconnected %": 22.0
+  },
+  "2023-11-21": {
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 35.0,
+    "Call Not Done %": 47.0,
+    "Agent Disconnected": 26.0,
+    "Agent Disconnected %": 30.0
+  },
+  "2023-11-22": {
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 42.0,
+    "Call Not Done %": 53.0,
+    "Agent Disconnected": 32.0,
+    "Agent Disconnected %": 38.0
+  },
+  "2023-11-23": {
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 18.0,
+    "Call Not Done %": 24.0,
+    "Agent Disconnected": 15.0,
+    "Agent Disconnected %": 17.0
+  },
+  "2023-11-24": {
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 40.0,
+    "Call Not Done %": 49.0,
+    "Agent Disconnected": 29.0,
+    "Agent Disconnected %": 35.0
+  },
+  "2023-11-25": {
+    "Blank Call Not Done": 66.0,
+    "Overall Call Not Done": 210.0,
+    "Call Not Done %": 276.0,
+    "Agent Disconnected": 141.0,
+    "Agent Disconnected %": 170.0
+  },
+  "2023-11-26": {
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 24.0,
+    "Call Not Done %": 27.0,
+    "Agent Disconnected": 20.0,
+    "Agent Disconnected %": 22.0
+  },
+  "2023-11-27": {
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 27.0,
+    "Call Not Done %": 35.0,
+    "Agent Disconnected": 20.0,
+    "Agent Disconnected %": 23.0
+  },
+  "2023-11-28": {
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 13.0,
+    "Call Not Done %": 17.0,
+    "Agent Disconnected": 8.0,
+    "Agent Disconnected %": 11.0
+  },
+  "2023-11-29": {
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 43.0,
+    "Call Not Done %": 55.0,
+    "Agent Disconnected": 38.0,
+    "Agent Disconnected %": 45.0
+  },
+  "2023-11-30": {
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 42.0,
+    "Call Not Done %": 53.0,
+    "Agent Disconnected": 37.0,
+    "Agent Disconnected %": 47.0
+  },
   "2023-12-01": {
-    "Gross Seats": 1062.0
+    "Gross Seats": 1062.0,
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 22.0,
+    "Call Not Done %": 34.0,
+    "Agent Disconnected": 19.0,
+    "Agent Disconnected %": 28.0
   },
   "2023-12-02": {
-    "Gross Seats": 1202.0
+    "Gross Seats": 1202.0,
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 25.0,
+    "Call Not Done %": 38.0,
+    "Agent Disconnected": 23.0,
+    "Agent Disconnected %": 35.0
   },
   "2023-12-03": {
-    "Gross Seats": 1203.0
+    "Gross Seats": 1203.0,
+    "Blank Call Not Done": 63.0,
+    "Overall Call Not Done": 196.0,
+    "Call Not Done %": 259.0,
+    "Agent Disconnected": 165.0,
+    "Agent Disconnected %": 211.0
   },
   "2023-12-04": {
-    "Gross Seats": 1048.0
+    "Gross Seats": 1048.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 23.0,
+    "Call Not Done %": 27.0,
+    "Agent Disconnected": 20.0,
+    "Agent Disconnected %": 21.0
   },
   "2023-12-05": {
-    "Gross Seats": 791.0
+    "Gross Seats": 791.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 31.0,
+    "Call Not Done %": 40.0,
+    "Agent Disconnected": 27.0,
+    "Agent Disconnected %": 34.0
   },
   "2023-12-06": {
-    "Gross Seats": 1011.0
+    "Gross Seats": 1011.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 28.0,
+    "Call Not Done %": 34.0,
+    "Agent Disconnected": 24.0,
+    "Agent Disconnected %": 28.0
   },
   "2023-12-07": {
-    "Gross Seats": 1110.0
+    "Gross Seats": 1110.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 20.0,
+    "Call Not Done %": 22.0,
+    "Agent Disconnected": 18.0,
+    "Agent Disconnected %": 20.0
   },
   "2023-12-08": {
-    "Gross Seats": 1095.0
+    "Gross Seats": 1095.0,
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 32.0,
+    "Call Not Done %": 44.0,
+    "Agent Disconnected": 23.0,
+    "Agent Disconnected %": 30.0
   },
   "2023-12-09": {
-    "Gross Seats": 1233.0
+    "Gross Seats": 1233.0,
+    "Blank Call Not Done": 16.0,
+    "Overall Call Not Done": 31.0,
+    "Call Not Done %": 47.0,
+    "Agent Disconnected": 28.0,
+    "Agent Disconnected %": 39.0
   },
   "2023-12-10": {
-    "Gross Seats": 1341.0
+    "Gross Seats": 1341.0,
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 34.0,
+    "Call Not Done %": 46.0,
+    "Agent Disconnected": 24.0,
+    "Agent Disconnected %": 29.0
   },
   "2023-12-11": {
-    "Gross Seats": 1024.0
+    "Gross Seats": 1024.0,
+    "Blank Call Not Done": 61.0,
+    "Overall Call Not Done": 199.0,
+    "Call Not Done %": 260.0,
+    "Agent Disconnected": 164.0,
+    "Agent Disconnected %": 201.0
   },
   "2023-12-12": {
-    "Gross Seats": 804.0
+    "Gross Seats": 804.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 22.0,
+    "Call Not Done %": 32.0,
+    "Agent Disconnected": 14.0,
+    "Agent Disconnected %": 15.0
   },
   "2023-12-13": {
-    "Gross Seats": 1034.0
+    "Gross Seats": 1034.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 27.0,
+    "Call Not Done %": 33.0,
+    "Agent Disconnected": 9.0,
+    "Agent Disconnected %": 11.0
   },
   "2023-12-14": {
-    "Gross Seats": 1085.0
+    "Gross Seats": 1085.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 32.0,
+    "Call Not Done %": 38.0,
+    "Agent Disconnected": 10.0,
+    "Agent Disconnected %": 12.0
   },
   "2023-12-15": {
-    "Gross Seats": 1258.0
+    "Gross Seats": 1258.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 19.0,
+    "Call Not Done %": 26.0,
+    "Agent Disconnected": 8.0,
+    "Agent Disconnected %": 11.0
   },
   "2023-12-16": {
-    "Gross Seats": 1305.0
+    "Gross Seats": 1305.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 28.0,
+    "Call Not Done %": 34.0,
+    "Agent Disconnected": 12.0,
+    "Agent Disconnected %": 16.0
   },
   "2023-12-17": {
-    "Gross Seats": 1306.0
+    "Gross Seats": 1306.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 23.0,
+    "Call Not Done %": 27.0,
+    "Agent Disconnected": 7.0,
+    "Agent Disconnected %": 8.0
   },
   "2023-12-18": {
-    "Gross Seats": 1149.0
+    "Gross Seats": 1149.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 40.0,
+    "Call Not Done %": 50.0,
+    "Agent Disconnected": 11.0,
+    "Agent Disconnected %": 14.0
   },
   "2023-12-19": {
-    "Gross Seats": 927.0
+    "Gross Seats": 927.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 26.0,
+    "Call Not Done %": 35.0,
+    "Agent Disconnected": 6.0,
+    "Agent Disconnected %": 9.0
   },
   "2023-12-20": {
-    "Gross Seats": 1093.0
+    "Gross Seats": 1093.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 22.0,
+    "Call Not Done %": 25.0,
+    "Agent Disconnected": 7.0,
+    "Agent Disconnected %": 7.0
   },
   "2023-12-21": {
-    "Gross Seats": 1060.0
+    "Gross Seats": 1060.0,
+    "Blank Call Not Done": 61.0,
+    "Overall Call Not Done": 239.0,
+    "Call Not Done %": 300.0,
+    "Agent Disconnected": 84.0,
+    "Agent Disconnected %": 103.0
   },
   "2023-12-22": {
-    "Gross Seats": 1264.0
+    "Gross Seats": 1264.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 4.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2023-12-23": {
-    "Gross Seats": 1378.0
+    "Gross Seats": 1378.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 7.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2023-12-24": {
-    "Gross Seats": 1161.0
+    "Gross Seats": 1161.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2023-12-25": {
-    "Gross Seats": 1200.0
+    "Gross Seats": 1200.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2023-12-26": {
-    "Gross Seats": 1031.0
+    "Gross Seats": 1031.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 2.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2023-12-27": {
-    "Gross Seats": 1003.0
+    "Gross Seats": 1003.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 3.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2023-12-28": {
-    "Gross Seats": 970.0
+    "Gross Seats": 970.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 3.0
   },
   "2023-12-29": {
-    "Gross Seats": 974.0
+    "Gross Seats": 974.0,
+    "Blank Call Not Done": 20.0,
+    "Overall Call Not Done": 15.0,
+    "Call Not Done %": 35.0,
+    "Agent Disconnected": 4.0,
+    "Agent Disconnected %": 6.0
   },
   "2023-12-30": {
-    "Gross Seats": 1253.0
+    "Gross Seats": 1253.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 3.0
   },
   "2023-12-31": {
-    "Gross Seats": 941.0
+    "Gross Seats": 941.0,
+    "Blank Call Not Done": 14.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 16.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 7.0
   },
   "2024-01-01": {
-    "Gross Seats": 1073.0
+    "Gross Seats": 1073.0,
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 16.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 4.0
   },
   "2024-01-02": {
-    "Gross Seats": 1061.0
+    "Gross Seats": 1061.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 7.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-01-03": {
-    "Gross Seats": 931.0
+    "Gross Seats": 931.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-04": {
-    "Gross Seats": 807.0
+    "Gross Seats": 807.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 13.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-05": {
-    "Gross Seats": 944.0
+    "Gross Seats": 944.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-06": {
-    "Gross Seats": 1103.0
+    "Gross Seats": 1103.0,
+    "Blank Call Not Done": 67.0,
+    "Overall Call Not Done": 11.0,
+    "Call Not Done %": 78.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 16.0
   },
   "2024-01-07": {
-    "Gross Seats": 1104.0
+    "Gross Seats": 1104.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-08": {
-    "Gross Seats": 1022.0
+    "Gross Seats": 1022.0,
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 13.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-01-09": {
-    "Gross Seats": 990.0
+    "Gross Seats": 990.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-10": {
-    "Gross Seats": 1044.0
+    "Gross Seats": 1044.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-11": {
-    "Gross Seats": 1065.0
+    "Gross Seats": 1065.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-12": {
-    "Gross Seats": 1344.0
+    "Gross Seats": 1344.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 10.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-13": {
-    "Gross Seats": 1204.0
+    "Gross Seats": 1204.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-14": {
-    "Gross Seats": 649.0
+    "Gross Seats": 649.0,
+    "Blank Call Not Done": 46.0,
+    "Overall Call Not Done": 14.0,
+    "Call Not Done %": 60.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-01-15": {
-    "Gross Seats": 704.0
+    "Gross Seats": 704.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-16": {
-    "Gross Seats": 1051.0
+    "Gross Seats": 1051.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 13.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-17": {
-    "Gross Seats": 1272.0
+    "Gross Seats": 1272.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 12.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-18": {
-    "Gross Seats": 1131.0
+    "Gross Seats": 1131.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-19": {
-    "Gross Seats": 919.0
+    "Gross Seats": 919.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-20": {
-    "Gross Seats": 1237.0
+    "Gross Seats": 1237.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-21": {
-    "Gross Seats": 1269.0
+    "Gross Seats": 1269.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 3.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-22": {
-    "Gross Seats": 1093.0
+    "Gross Seats": 1093.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-23": {
-    "Gross Seats": 869.0
+    "Gross Seats": 869.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 8.0,
+    "Call Not Done %": 18.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-24": {
-    "Gross Seats": 888.0
+    "Gross Seats": 888.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-25": {
-    "Gross Seats": 1216.0
+    "Gross Seats": 1216.0,
+    "Blank Call Not Done": 62.0,
+    "Overall Call Not Done": 34.0,
+    "Call Not Done %": 96.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-26": {
-    "Gross Seats": 1022.0
+    "Gross Seats": 1022.0,
+    "Blank Call Not Done": 195.0,
+    "Overall Call Not Done": 74.0,
+    "Call Not Done %": 269.0,
+    "Agent Disconnected": 5.0,
+    "Agent Disconnected %": 24.0
   },
   "2024-01-27": {
-    "Gross Seats": 1028.0
+    "Gross Seats": 1028.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-01-28": {
-    "Gross Seats": 1375.0
+    "Gross Seats": 1375.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-29": {
     "Gross Seats": 1053.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-01-30": {
     "Gross Seats": 748.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-01-31": {
     "Gross Seats": 798.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-02-01": {
     "Gross Seats": 903.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 4.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-02": {
     "Gross Seats": 870.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 1.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-03": {
     "Gross Seats": 1017.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 34.0,
+    "Overall Call Not Done": 16.0,
+    "Call Not Done %": 50.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 3.0
   },
   "2024-02-04": {
     "Gross Seats": 1029.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-02-05": {
     "Gross Seats": 1066.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 4.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-06": {
     "Gross Seats": 868.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 7.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-07": {
     "Gross Seats": 912.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-02-08": {
     "Gross Seats": 936.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-09": {
     "Gross Seats": 1174.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 7.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-10": {
     "Gross Seats": 1367.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 7.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-11": {
     "Gross Seats": 1411.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 37.0,
+    "Overall Call Not Done": 10.0,
+    "Call Not Done %": 47.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-02-12": {
     "Gross Seats": 1260.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-13": {
     "Gross Seats": 1179.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 7.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-02-14": {
     "Gross Seats": 1227.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 4.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-15": {
     "Gross Seats": 1173.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-16": {
     "Gross Seats": 1266.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-17": {
     "Gross Seats": 1405.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-18": {
     "Gross Seats": 1531.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-19": {
     "Gross Seats": 1323.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 27.0,
+    "Overall Call Not Done": 12.0,
+    "Call Not Done %": 39.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-02-20": {
     "Gross Seats": 1040.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 7.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-21": {
     "Gross Seats": 1102.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-02-22": {
     "Gross Seats": 1220.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-23": {
     "Gross Seats": 1299.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 7.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-24": {
     "Gross Seats": 1292.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-25": {
     "Gross Seats": 1377.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 9.0,
+    "Call Not Done %": 11.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-26": {
     "Gross Seats": 1239.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 11.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-02-27": {
     "Gross Seats": 1044.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 26.0,
+    "Overall Call Not Done": 29.0,
+    "Call Not Done %": 55.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-02-28": {
     "Gross Seats": 1166.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 124.0,
+    "Overall Call Not Done": 67.0,
+    "Call Not Done %": 191.0,
+    "Agent Disconnected": 6.0,
+    "Agent Disconnected %": 7.0
   },
   "2024-02-29": {
     "Gross Seats": 1209.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 11.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-01": {
     "Gross Seats": 1157.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-02": {
     "Gross Seats": 1307.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-03-03": {
     "Gross Seats": 1297.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 7.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-03-04": {
     "Gross Seats": 1189.0,
-    "Present Agent HC": 3.0
+    "Present Agent HC": 3.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-05": {
     "Gross Seats": 1008.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-06": {
     "Gross Seats": 1090.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-07": {
     "Gross Seats": 1319.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 35.0,
+    "Overall Call Not Done": 25.0,
+    "Call Not Done %": 60.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-03-08": {
     "Gross Seats": 1055.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-09": {
     "Gross Seats": 1006.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 7.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-10": {
     "Gross Seats": 1297.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-11": {
     "Gross Seats": 1140.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 10.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-12": {
     "Gross Seats": 926.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 7.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-13": {
     "Gross Seats": 1000.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 11.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-14": {
     "Gross Seats": 1059.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-03-15": {
     "Gross Seats": 1238.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 42.0,
+    "Overall Call Not Done": 19.0,
+    "Call Not Done %": 61.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-03-16": {
     "Gross Seats": 1210.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-17": {
     "Gross Seats": 1214.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-03-18": {
     "Gross Seats": 1063.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 3.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-19": {
     "Gross Seats": 948.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-20": {
     "Gross Seats": 1101.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 13.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-03-21": {
     "Gross Seats": 1048.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-22": {
     "Gross Seats": 1263.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 10.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-23": {
     "Gross Seats": 1347.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 46.0,
+    "Overall Call Not Done": 24.0,
+    "Call Not Done %": 70.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 3.0
   },
   "2024-03-24": {
     "Gross Seats": 1233.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-25": {
     "Gross Seats": 1241.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-26": {
     "Gross Seats": 1137.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-27": {
     "Gross Seats": 1230.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 11.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-03-28": {
     "Gross Seats": 1361.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 10.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-03-29": {
     "Gross Seats": 1187.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 4.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-30": {
     "Gross Seats": 1277.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-03-31": {
     "Gross Seats": 1448.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-01": {
     "Gross Seats": 1237.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-02": {
     "Gross Seats": 968.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-03": {
     "Gross Seats": 1189.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 48.0,
+    "Overall Call Not Done": 28.0,
+    "Call Not Done %": 76.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-04-04": {
     "Gross Seats": 1287.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 171.0,
+    "Overall Call Not Done": 96.0,
+    "Call Not Done %": 267.0,
+    "Agent Disconnected": 8.0,
+    "Agent Disconnected %": 8.0
   },
   "2024-04-05": {
     "Gross Seats": 1006.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-06": {
     "Gross Seats": 1090.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-07": {
     "Gross Seats": 1317.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 14.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 16.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-08": {
     "Gross Seats": 1032.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 3.0
   },
   "2024-04-09": {
     "Gross Seats": 989.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 10.0,
+    "Call Not Done %": 13.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-10": {
     "Gross Seats": 1210.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-11": {
     "Gross Seats": 1190.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 10.0,
+    "Call Not Done %": 19.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-04-12": {
     "Gross Seats": 1209.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 44.0,
+    "Overall Call Not Done": 32.0,
+    "Call Not Done %": 76.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 4.0
   },
   "2024-04-13": {
     "Gross Seats": 1305.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 4.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-14": {
     "Gross Seats": 1482.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 7.0,
+    "Call Not Done %": 12.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-15": {
     "Gross Seats": 1280.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-16": {
     "Gross Seats": 1004.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-17": {
     "Gross Seats": 1045.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 15.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 19.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-18": {
     "Gross Seats": 1145.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-19": {
     "Gross Seats": 1176.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 12.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-04-20": {
     "Gross Seats": 1311.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 60.0,
+    "Overall Call Not Done": 30.0,
+    "Call Not Done %": 90.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-04-21": {
     "Gross Seats": 1430.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 8.0,
+    "Call Not Done %": 18.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-04-22": {
     "Gross Seats": 1276.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 10.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-23": {
     "Gross Seats": 1073.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-24": {
     "Gross Seats": 1135.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 11.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-04-25": {
     "Gross Seats": 1177.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 8.0,
+    "Call Not Done %": 12.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-04-26": {
     "Gross Seats": 1271.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-27": {
     "Gross Seats": 1329.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-28": {
     "Gross Seats": 1344.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 43.0,
+    "Overall Call Not Done": 30.0,
+    "Call Not Done %": 73.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 5.0
   },
   "2024-04-29": {
     "Gross Seats": 1174.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-04-30": {
     "Gross Seats": 1035.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 8.0,
+    "Call Not Done %": 19.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-05-01": {
     "Gross Seats": 1134.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 7.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-05-02": {
     "Gross Seats": 1080.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 7.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-05-03": {
     "Gross Seats": 1177.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 11.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-05-04": {
     "Gross Seats": 1288.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 8.0,
+    "Call Not Done %": 16.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-05-05": {
     "Gross Seats": 1279.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 14.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 19.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-05-06": {
     "Gross Seats": 1141.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-05-07": {
     "Gross Seats": 760.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 4.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-05-08": {
     "Gross Seats": 904.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 68.0,
+    "Overall Call Not Done": 39.0,
+    "Call Not Done %": 107.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-05-09": {
     "Gross Seats": 1114.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 215.0,
+    "Overall Call Not Done": 131.0,
+    "Call Not Done %": 346.0,
+    "Agent Disconnected": 8.0,
+    "Agent Disconnected %": 13.0
   },
   "2024-05-10": {
     "Gross Seats": 1120.0,
-    "Present Agent HC": 6.0
+    "Present Agent HC": 6.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 11.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-05-11": {
     "Gross Seats": 1135.0,
-    "Present Agent HC": 8.0
+    "Present Agent HC": 8.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-05-12": {
     "Gross Seats": 1121.0,
-    "Present Agent HC": 8.0
+    "Present Agent HC": 8.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 6.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-05-13": {
     "Gross Seats": 985.0,
-    "Present Agent HC": 8.0
+    "Present Agent HC": 8.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-05-14": {
     "Gross Seats": 970.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 3.0
   },
   "2024-05-15": {
     "Gross Seats": 1039.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 19.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 22.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-05-16": {
     "Gross Seats": 1141.0,
-    "Present Agent HC": 8.0
+    "Present Agent HC": 8.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 17.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 3.0
   },
   "2024-05-17": {
     "Gross Seats": 1283.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 70.0,
+    "Overall Call Not Done": 30.0,
+    "Call Not Done %": 100.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 11.0
   },
   "2024-05-18": {
     "Gross Seats": 1320.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-05-19": {
     "Gross Seats": 1338.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 16.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 19.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 5.0
   },
   "2024-05-20": {
     "Gross Seats": 1331.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 7.0,
+    "Call Not Done %": 17.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-05-21": {
     "Gross Seats": 1074.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 19.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 19.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-05-22": {
     "Gross Seats": 1234.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 15.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 4.0
   },
   "2024-05-23": {
     "Gross Seats": 1171.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 12.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-05-24": {
     "Gross Seats": 1219.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 10.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-05-25": {
     "Gross Seats": 1316.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 85.0,
+    "Overall Call Not Done": 16.0,
+    "Call Not Done %": 101.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 14.0
   },
   "2024-05-26": {
     "Gross Seats": 1263.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-05-27": {
     "Gross Seats": 1246.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 14.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 20.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-05-28": {
     "Gross Seats": 1003.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-05-29": {
     "Gross Seats": 1083.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 17.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-05-30": {
     "Gross Seats": 1174.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 11.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-05-31": {
     "Gross Seats": 1252.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 17.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-01": {
     "Gross Seats": 1336.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 5.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-02": {
     "Gross Seats": 1311.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 72.0,
+    "Overall Call Not Done": 27.0,
+    "Call Not Done %": 99.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 5.0
   },
   "2024-06-03": {
     "Gross Seats": 1258.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 16.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 18.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-06-04": {
     "Gross Seats": 646.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 15.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 18.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-05": {
     "Gross Seats": 992.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 18.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-06": {
     "Gross Seats": 972.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 15.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 17.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-07": {
     "Gross Seats": 1197.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 8.0,
+    "Overall Call Not Done": 7.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-08": {
     "Gross Seats": 1328.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-09": {
     "Gross Seats": 1297.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-06-10": {
     "Gross Seats": 1250.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 18.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 21.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-11": {
     "Gross Seats": 846.0,
-    "Present Agent HC": 4.0
+    "Present Agent HC": 4.0,
+    "Blank Call Not Done": 15.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 18.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-06-12": {
     "Gross Seats": 1065.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 19.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 22.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-06-13": {
     "Gross Seats": 917.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 138.0,
+    "Overall Call Not Done": 33.0,
+    "Call Not Done %": 171.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 5.0
   },
   "2024-06-14": {
     "Gross Seats": 1070.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 365.0,
+    "Overall Call Not Done": 106.0,
+    "Call Not Done %": 471.0,
+    "Agent Disconnected": 7.0,
+    "Agent Disconnected %": 35.0
   },
   "2024-06-15": {
     "Gross Seats": 1358.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 12.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-16": {
     "Gross Seats": 1235.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 17.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-17": {
     "Gross Seats": 1189.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 13.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-18": {
     "Gross Seats": 1030.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-19": {
     "Gross Seats": 1048.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 16.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 22.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-20": {
     "Gross Seats": 907.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-21": {
     "Gross Seats": 1015.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 23.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 27.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-06-22": {
     "Gross Seats": 1060.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 91.0,
+    "Overall Call Not Done": 29.0,
+    "Call Not Done %": 120.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-06-23": {
     "Gross Seats": 1147.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 14.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 18.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-24": {
     "Gross Seats": 1097.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 16.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-06-25": {
     "Gross Seats": 781.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-06-26": {
     "Gross Seats": 798.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 14.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 19.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-06-27": {
     "Gross Seats": 811.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 9.0,
+    "Call Not Done %": 20.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-06-28": {
     "Gross Seats": 1067.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 18.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 23.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-06-29": {
     "Gross Seats": 1052.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 17.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 23.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-06-30": {
     "Gross Seats": 1317.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 94.0,
+    "Overall Call Not Done": 40.0,
+    "Call Not Done %": 134.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 6.0
   },
   "2024-07-01": {
     "Gross Seats": 1100.0,
     "Gross Tickets": 859.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 15.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 18.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-02": {
     "Gross Seats": 819.0,
     "Gross Tickets": 640.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 19.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 21.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-07-03": {
     "Gross Seats": 853.0,
     "Gross Tickets": 656.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-04": {
     "Gross Seats": 908.0,
     "Gross Tickets": 701.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 6.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 10.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-05": {
     "Gross Seats": 1041.0,
     "Gross Tickets": 797.0,
-    "Present Agent HC": 6.0
+    "Present Agent HC": 6.0,
+    "Blank Call Not Done": 14.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 17.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 4.0
   },
   "2024-07-06": {
     "Gross Seats": 1115.0,
     "Gross Tickets": 840.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 16.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-07": {
     "Gross Seats": 1183.0,
     "Gross Tickets": 874.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 12.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-07-08": {
     "Gross Seats": 1053.0,
     "Gross Tickets": 840.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-07-09": {
     "Gross Seats": 769.0,
     "Gross Tickets": 607.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 5.0,
+    "Overall Call Not Done": 9.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-07-10": {
     "Gross Seats": 837.0,
     "Gross Tickets": 664.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 17.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-11": {
     "Gross Seats": 867.0,
     "Gross Tickets": 650.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 14.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 20.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-07-12": {
     "Gross Seats": 1201.0,
     "Gross Tickets": 922.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 10.0,
+    "Call Not Done %": 22.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-07-13": {
     "Gross Seats": 1168.0,
     "Gross Tickets": 824.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 10.0,
+    "Call Not Done %": 23.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-07-14": {
     "Gross Seats": 1155.0,
     "Gross Tickets": 855.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-15": {
     "Gross Seats": 1087.0,
     "Gross Tickets": 815.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 16.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 17.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-16": {
     "Gross Seats": 814.0,
     "Gross Tickets": 639.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 107.0,
+    "Overall Call Not Done": 48.0,
+    "Call Not Done %": 155.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 6.0
   },
   "2024-07-17": {
     "Gross Seats": 902.0,
     "Gross Tickets": 713.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 375.0,
+    "Overall Call Not Done": 136.0,
+    "Call Not Done %": 511.0,
+    "Agent Disconnected": 8.0,
+    "Agent Disconnected %": 20.0
   },
   "2024-07-18": {
     "Gross Seats": 919.0,
     "Gross Tickets": 691.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 13.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-19": {
     "Gross Seats": 975.0,
     "Gross Tickets": 754.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-07-20": {
     "Gross Seats": 880.0,
     "Gross Tickets": 651.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 10.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-21": {
     "Gross Seats": 1036.0,
     "Gross Tickets": 775.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 8.0,
+    "Call Not Done %": 18.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 5.0
   },
   "2024-07-22": {
     "Gross Seats": 906.0,
     "Gross Tickets": 717.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 15.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-23": {
     "Gross Seats": 710.0,
     "Gross Tickets": 578.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-24": {
     "Gross Seats": 779.0,
     "Gross Tickets": 608.0,
-    "Present Agent HC": 5.0
+    "Present Agent HC": 5.0,
+    "Blank Call Not Done": 81.0,
+    "Overall Call Not Done": 22.0,
+    "Call Not Done %": 103.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 8.0
   },
   "2024-07-25": {
     "Gross Seats": 835.0,
     "Gross Tickets": 638.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-07-26": {
     "Gross Seats": 993.0,
     "Gross Tickets": 760.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-27": {
     "Gross Seats": 964.0,
     "Gross Tickets": 729.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 9.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-28": {
     "Gross Seats": 1101.0,
     "Gross Tickets": 838.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 20.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 23.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-07-29": {
     "Gross Seats": 1044.0,
     "Gross Tickets": 812.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 16.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-30": {
     "Gross Seats": 816.0,
     "Gross Tickets": 655.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 15.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-07-31": {
     "Gross Seats": 1007.0,
     "Gross Tickets": 782.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 91.0,
+    "Overall Call Not Done": 15.0,
+    "Call Not Done %": 106.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 4.0
   },
   "2024-08-01": {
     "Gross Seats": 1014.0,
     "Gross Tickets": 793.0,
-    "Present Agent HC": 6.0
+    "Present Agent HC": 6.0,
+    "Blank Call Not Done": 14.0,
+    "Overall Call Not Done": 7.0,
+    "Call Not Done %": 21.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-08-02": {
     "Gross Seats": 1031.0,
     "Gross Tickets": 807.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 17.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 21.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-08-03": {
     "Gross Seats": 1105.0,
     "Gross Tickets": 850.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 19.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 22.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-08-04": {
     "Gross Seats": 1108.0,
     "Gross Tickets": 832.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 8.0,
+    "Call Not Done %": 17.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-08-05": {
     "Gross Seats": 1120.0,
     "Gross Tickets": 875.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 14.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-08-06": {
     "Gross Seats": 918.0,
     "Gross Tickets": 723.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 16.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-08-07": {
     "Gross Seats": 1043.0,
     "Gross Tickets": 816.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 88.0,
+    "Overall Call Not Done": 39.0,
+    "Call Not Done %": 127.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-08-08": {
     "Gross Seats": 1086.0,
     "Gross Tickets": 848.0,
-    "Present Agent HC": 6.0
+    "Present Agent HC": 6.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 11.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-08-09": {
     "Gross Seats": 1274.0,
     "Gross Tickets": 981.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 9.0,
+    "Overall Call Not Done": 6.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-08-10": {
     "Gross Seats": 1314.0,
     "Gross Tickets": 968.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 16.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-08-11": {
     "Gross Seats": 1244.0,
     "Gross Tickets": 922.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 7.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 8.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0
   },
   "2024-08-12": {
     "Gross Seats": 1164.0,
     "Gross Tickets": 885.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 16.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 20.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 3.0
   },
   "2024-08-13": {
     "Gross Seats": 996.0,
     "Gross Tickets": 790.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 10.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0
   },
   "2024-08-14": {
     "Gross Seats": 1375.0,
     "Gross Tickets": 1128.0,
-    "Present Agent HC": 8.0
+    "Present Agent HC": 8.0,
+    "Blank Call Not Done": 13.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 16.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 2.0
   },
   "2024-08-15": {
     "Gross Seats": 1293.0,
     "Gross Tickets": 962.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-08-16": {
     "Gross Seats": 1139.0,
     "Gross Tickets": 843.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 11.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 16.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 1.0
   },
   "2024-08-17": {
     "Gross Seats": 1373.0,
     "Gross Tickets": 995.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 111.0,
+    "Overall Call Not Done": 39.0,
+    "Call Not Done %": 150.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 8.0
   },
   "2024-08-18": {
     "Gross Seats": 1439.0,
     "Gross Tickets": 1066.0,
-    "Present Agent HC": 6.0
+    "Present Agent HC": 6.0,
+    "Blank Call Not Done": 371.0,
+    "Overall Call Not Done": 115.0,
+    "Call Not Done %": 486.0,
+    "Agent Disconnected": 7.0,
+    "Agent Disconnected %": 21.0
   },
   "2024-08-19": {
     "Gross Seats": 1058.0,
     "Gross Tickets": 1033.0,
-    "Present Agent HC": 6.0
+    "Present Agent HC": 6.0,
+    "Blank Call Not Done": 12.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 15.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 3.0
   },
   "2024-08-20": {
     "Gross Seats": 1226.0,
@@ -1100,7 +2589,12 @@
   "2024-08-25": {
     "Gross Seats": 1157.0,
     "Gross Tickets": 880.0,
-    "Present Agent HC": 7.0
+    "Present Agent HC": 7.0,
+    "Blank Call Not Done": 38.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 42.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 5.0
   },
   "2024-08-26": {
     "Gross Seats": 1142.0,
@@ -2218,7 +3712,7 @@
     "Service Cancel Pax Impacted": 58.0,
     "No. of Service Breakdown": 1.0,
     "Break Down Pax Impacted": 42.0,
-    "Impacted %": 0.1747720365,
+    "Impacted %": 0.17477203647416414,
     "Total Pax Impacted": 230.0
   },
   "2025-04-04": {
@@ -2231,7 +3725,7 @@
     "Service Cancel Pax Impacted": 36.0,
     "No. of Service Breakdown": 1.0,
     "Break Down Pax Impacted": 39.0,
-    "Impacted %": 0.07477906186,
+    "Impacted %": 0.07477906186267845,
     "Total Pax Impacted": 110.0
   },
   "2025-04-05": {
@@ -2240,7 +3734,7 @@
     "Present Agent HC": 9.0,
     "No. of Service Delay": 1.0,
     "Delay Pax Impacted": 24.0,
-    "Impacted %": 0.01655172414,
+    "Impacted %": 0.016551724137931035,
     "Total Pax Impacted": 24.0
   },
   "2025-04-06": {
@@ -2249,7 +3743,7 @@
     "Present Agent HC": 9.0,
     "No. of Service Delay": 1.0,
     "Delay Pax Impacted": 16.0,
-    "Impacted %": 0.01055408971,
+    "Impacted %": 0.010554089709762533,
     "Total Pax Impacted": 16.0
   },
   "2025-04-07": {
@@ -2258,7 +3752,7 @@
     "Present Agent HC": 9.0,
     "No. of Service Delay": 2.0,
     "Delay Pax Impacted": 57.0,
-    "Impacted %": 0.03885480573,
+    "Impacted %": 0.03885480572597137,
     "Total Pax Impacted": 57.0
   },
   "2025-04-08": {
@@ -2267,7 +3761,7 @@
     "Present Agent HC": 9.0,
     "No. of Service Delay": 2.0,
     "Delay Pax Impacted": 72.0,
-    "Impacted %": 0.06310254163,
+    "Impacted %": 0.06310254163014899,
     "Total Pax Impacted": 72.0,
     "Cancellations Impact %": 0.0
   },
@@ -2281,9 +3775,9 @@
     "Service Cancel Pax Impacted": 26.0,
     "No. of Service Breakdown": 1.0,
     "Break Down Pax Impacted": 29.0,
-    "Impacted %": 0.07534246575,
+    "Impacted %": 0.07534246575342465,
     "Total Pax Impacted": 99.0,
-    "Cancellations Impact %": 0.0197869102
+    "Cancellations Impact %": 0.0197869101978691
   },
   "2025-04-10": {
     "Gross Seats": 1305.0,
@@ -2293,9 +3787,9 @@
     "Service Cancel Pax Impacted": 2.0,
     "No. of Service Breakdown": 1.0,
     "Break Down Pax Impacted": 23.0,
-    "Impacted %": 0.01915708812,
+    "Impacted %": 0.019157088122605363,
     "Total Pax Impacted": 25.0,
-    "Cancellations Impact %": 0.00153256705
+    "Cancellations Impact %": 0.0015325670498084292
   },
   "2025-04-11": {
     "Gross Seats": 1494.0,
@@ -2307,9 +3801,9 @@
     "Service Cancel Pax Impacted": 28.0,
     "No. of Service Breakdown": 1.0,
     "Break Down Pax Impacted": 39.0,
-    "Impacted %": 0.1432396252,
+    "Impacted %": 0.14323962516733602,
     "Total Pax Impacted": 214.0,
-    "Cancellations Impact %": 0.0187416332
+    "Cancellations Impact %": 0.018741633199464525
   },
   "2025-04-12": {
     "Gross Seats": 1420.0,
@@ -2319,9 +3813,9 @@
     "Delay Pax Impacted": 472.0,
     "No. of Service Cancel": 2.0,
     "Service Cancel Pax Impacted": 17.0,
-    "Impacted %": 0.3443661972,
+    "Impacted %": 0.3443661971830986,
     "Total Pax Impacted": 489.0,
-    "Cancellations Impact %": 0.01197183099
+    "Cancellations Impact %": 0.011971830985915493
   },
   "2025-04-13": {
     "Gross Seats": 1484.0,
@@ -2329,7 +3823,7 @@
     "Present Agent HC": 9.0,
     "No. of Service Delay": 1.0,
     "Delay Pax Impacted": 24.0,
-    "Impacted %": 0.01617250674,
+    "Impacted %": 0.016172506738544475,
     "Total Pax Impacted": 24.0,
     "Cancellations Impact %": 0.0
   },
@@ -2339,7 +3833,7 @@
     "Present Agent HC": 9.0,
     "No. of Service Delay": 3.0,
     "Delay Pax Impacted": 93.0,
-    "Impacted %": 0.06050748211,
+    "Impacted %": 0.0605074821080026,
     "Total Pax Impacted": 93.0,
     "Cancellations Impact %": 0.0
   },
@@ -2351,9 +3845,9 @@
     "Delay Pax Impacted": 23.0,
     "No. of Service Cancel": 4.0,
     "Service Cancel Pax Impacted": 22.0,
-    "Impacted %": 0.03743760399,
+    "Impacted %": 0.03743760399334443,
     "Total Pax Impacted": 45.0,
-    "Cancellations Impact %": 0.01830282862
+    "Cancellations Impact %": 0.018302828618968387
   },
   "2025-04-16": {
     "Gross Seats": 1303.0,
@@ -2361,7 +3855,7 @@
     "Present Agent HC": 9.0,
     "No. of Service Delay": 2.0,
     "Delay Pax Impacted": 64.0,
-    "Impacted %": 0.04911742134,
+    "Impacted %": 0.04911742133537989,
     "Total Pax Impacted": 64.0,
     "Cancellations Impact %": 0.0
   },
@@ -2371,7 +3865,7 @@
     "Present Agent HC": 9.0,
     "No. of Service Delay": 3.0,
     "Delay Pax Impacted": 131.0,
-    "Impacted %": 0.08539765319,
+    "Impacted %": 0.08539765319426336,
     "Total Pax Impacted": 131.0,
     "Cancellations Impact %": 0.0
   },
@@ -2381,7 +3875,7 @@
     "Present Agent HC": 8.0,
     "No. of Service Delay": 1.0,
     "Delay Pax Impacted": 40.0,
-    "Impacted %": 0.02715546504,
+    "Impacted %": 0.027155465037338764,
     "Total Pax Impacted": 40.0,
     "Cancellations Impact %": 0.0
   },
@@ -2391,7 +3885,7 @@
     "Present Agent HC": 9.0,
     "No. of Service Delay": 2.0,
     "Delay Pax Impacted": 61.0,
-    "Impacted %": 0.04468864469,
+    "Impacted %": 0.04468864468864469,
     "Total Pax Impacted": 61.0,
     "Cancellations Impact %": 0.0
   },
@@ -2401,7 +3895,7 @@
     "Present Agent HC": 9.0,
     "No. of Service Delay": 1.0,
     "Delay Pax Impacted": 22.0,
-    "Impacted %": 0.01457919152,
+    "Impacted %": 0.0145791915175613,
     "Total Pax Impacted": 22.0,
     "Cancellations Impact %": 0.0
   },
@@ -2411,7 +3905,7 @@
     "Present Agent HC": 9.0,
     "No. of Service Delay": 2.0,
     "Delay Pax Impacted": 87.0,
-    "Impacted %": 0.06024930748,
+    "Impacted %": 0.06024930747922438,
     "Total Pax Impacted": 87.0,
     "Cancellations Impact %": 0.0
   },
@@ -2421,7 +3915,7 @@
     "Present Agent HC": 9.0,
     "No. of Service Delay": 1.0,
     "Delay Pax Impacted": 43.0,
-    "Impacted %": 0.03060498221,
+    "Impacted %": 0.030604982206405694,
     "Total Pax Impacted": 43.0,
     "Cancellations Impact %": 0.0
   },
@@ -2457,9 +3951,9 @@
     "Delay Pax Impacted": 138.0,
     "No. of Service Cancel": 3.0,
     "Service Cancel Pax Impacted": 1.0,
-    "Impacted %": 0.1150662252,
+    "Impacted %": 0.11506622516556292,
     "Total Pax Impacted": 139.0,
-    "Cancellations Impact %": 0.0008278145695
+    "Cancellations Impact %": 0.0008278145695364238
   },
   "2025-04-27": {
     "Gross Seats": 1264.0,
@@ -2475,9 +3969,9 @@
     "Present Agent HC": 9.0,
     "No. of Service Cancel": 2.0,
     "Service Cancel Pax Impacted": 1.0,
-    "Impacted %": 0.000756429652,
+    "Impacted %": 0.0007564296520423601,
     "Total Pax Impacted": 1.0,
-    "Cancellations Impact %": 0.000756429652
+    "Cancellations Impact %": 0.0007564296520423601
   },
   "2025-04-29": {
     "Gross Seats": 1440.0,
@@ -2485,9 +3979,9 @@
     "Present Agent HC": 8.0,
     "No. of Service Cancel": 2.0,
     "Service Cancel Pax Impacted": 1.0,
-    "Impacted %": 0.0006944444444,
+    "Impacted %": 0.0006944444444444445,
     "Total Pax Impacted": 1.0,
-    "Cancellations Impact %": 0.0006944444444
+    "Cancellations Impact %": 0.0006944444444444445
   },
   "2025-04-30": {
     "Gross Seats": 1564.0,
@@ -2495,9 +3989,9 @@
     "Present Agent HC": 8.0,
     "No. of Service Cancel": 1.0,
     "Service Cancel Pax Impacted": 4.0,
-    "Impacted %": 0.002557544757,
+    "Impacted %": 0.0025575447570332483,
     "Total Pax Impacted": 4.0,
-    "Cancellations Impact %": 0.002557544757
+    "Cancellations Impact %": 0.0025575447570332483
   },
   "2026-01-01": {
     "Gross Seats": 3621.0,
@@ -2510,7 +4004,15 @@
     "Service Cancel Pax Impacted": 15.0,
     "Impacted %": 0.0041,
     "Total Pax Impacted": 15.0,
-    "Cancellations Impact %": 0.0041
+    "Cancellations Impact %": 0.0041,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0074
   },
   "2026-01-02": {
     "Gross Seats": 4256.0,
@@ -2525,7 +4027,15 @@
     "Service Cancel Pax Impacted": 12.0,
     "Impacted %": 0.0183,
     "Total Pax Impacted": 78.0,
-    "Cancellations Impact %": 0.0028
+    "Cancellations Impact %": 0.0028,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0205,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0274
   },
   "2026-01-03": {
     "Gross Seats": 4270.0,
@@ -2538,7 +4048,15 @@
     "Service Cancel Pax Impacted": 3.0,
     "Impacted %": 0.0007,
     "Total Pax Impacted": 3.0,
-    "Cancellations Impact %": 0.0007
+    "Cancellations Impact %": 0.0007,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0067
   },
   "2026-01-04": {
     "Gross Seats": 4245.0,
@@ -2551,7 +4069,15 @@
     "Delay Pax Impacted": 15.0,
     "Impacted %": 0.0035,
     "Total Pax Impacted": 15.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-01-05": {
     "Gross Seats": 4919.0,
@@ -2566,7 +4092,15 @@
     "Break Down Pax Impacted": 42.0,
     "Impacted %": 0.0478,
     "Total Pax Impacted": 235.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0209
   },
   "2026-01-06": {
     "Gross Seats": 5729.0,
@@ -2579,7 +4113,15 @@
     "Delay Pax Impacted": 65.0,
     "Impacted %": 0.0113,
     "Total Pax Impacted": 65.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 10.0,
+    "Call Not Disposed %": 0.0422
   },
   "2026-01-07": {
     "Gross Seats": 5110.0,
@@ -2594,7 +4136,15 @@
     "Service Cancel Pax Impacted": 28.0,
     "Impacted %": 0.0209,
     "Total Pax Impacted": 107.0,
-    "Cancellations Impact %": 0.0055
+    "Cancellations Impact %": 0.0055,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.0308
   },
   "2026-01-13": {
     "Gross Seats": 3727.0,
@@ -2609,7 +4159,15 @@
     "Service Cancel Pax Impacted": 22.0,
     "Impacted %": 0.0145,
     "Total Pax Impacted": 54.0,
-    "Cancellations Impact %": 0.0059
+    "Cancellations Impact %": 0.0059,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0108
   },
   "2026-01-14": {
     "Gross Seats": 3273.0,
@@ -2622,7 +4180,15 @@
     "Service Cancel Pax Impacted": 15.0,
     "Impacted %": 0.0046,
     "Total Pax Impacted": 15.0,
-    "Cancellations Impact %": 0.0046
+    "Cancellations Impact %": 0.0046,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0311
   },
   "2026-01-15": {
     "Gross Seats": 2558.0,
@@ -2637,7 +4203,15 @@
     "Service Cancel Pax Impacted": 57.0,
     "Impacted %": 0.0309,
     "Total Pax Impacted": 79.0,
-    "Cancellations Impact %": 0.0223
+    "Cancellations Impact %": 0.0223,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0348
   },
   "2026-01-16": {
     "Gross Seats": 2631.0,
@@ -2650,7 +4224,15 @@
     "Service Cancel Pax Impacted": 93.0,
     "Impacted %": 0.0353,
     "Total Pax Impacted": 93.0,
-    "Cancellations Impact %": 0.0353
+    "Cancellations Impact %": 0.0353,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.15,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0168,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0336
   },
   "2026-01-17": {
     "Gross Seats": 3724.0,
@@ -2665,7 +4247,15 @@
     "Service Cancel Pax Impacted": 27.0,
     "Impacted %": 0.0199,
     "Total Pax Impacted": 74.0,
-    "Cancellations Impact %": 0.0073
+    "Cancellations Impact %": 0.0073,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0195
   },
   "2026-01-18": {
     "Gross Seats": 4265.0,
@@ -2680,7 +4270,15 @@
     "Service Cancel Pax Impacted": 1.0,
     "Impacted %": 0.0204,
     "Total Pax Impacted": 87.0,
-    "Cancellations Impact %": 0.0002
+    "Cancellations Impact %": 0.0002,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0083,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.025
   },
   "2026-01-19": {
     "Gross Seats": 4070.0,
@@ -2697,7 +4295,15 @@
     "Break Down Pax Impacted": 38.0,
     "Impacted %": 0.0398,
     "Total Pax Impacted": 162.0,
-    "Cancellations Impact %": 0.0042
+    "Cancellations Impact %": 0.0042,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0047,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0142
   },
   "2026-01-20": {
     "Gross Seats": 3707.0,
@@ -2710,7 +4316,15 @@
     "Delay Pax Impacted": 31.0,
     "Impacted %": 0.0084,
     "Total Pax Impacted": 31.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 4.0,
+    "Agent Disconnected %": 0.0272,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-01-21": {
     "Gross Seats": 3593.0,
@@ -2725,7 +4339,15 @@
     "Service Cancel Pax Impacted": 14.0,
     "Impacted %": 0.0186,
     "Total Pax Impacted": 67.0,
-    "Cancellations Impact %": 0.0039
+    "Cancellations Impact %": 0.0039,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0066
   },
   "2026-01-22": {
     "Gross Seats": 3698.0,
@@ -2742,7 +4364,15 @@
     "Break Down Pax Impacted": 70.0,
     "Impacted %": 0.0641,
     "Total Pax Impacted": 237.0,
-    "Cancellations Impact %": 0.0124
+    "Cancellations Impact %": 0.0124,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0062,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0309
   },
   "2026-01-23": {
     "Gross Seats": 4046.0,
@@ -2759,7 +4389,15 @@
     "Break Down Pax Impacted": 33.0,
     "Impacted %": 0.061,
     "Total Pax Impacted": 247.0,
-    "Cancellations Impact %": 0.0156
+    "Cancellations Impact %": 0.0156,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0041,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0248
   },
   "2026-01-24": {
     "Gross Seats": 4486.0,
@@ -2772,7 +4410,15 @@
     "Delay Pax Impacted": 294.0,
     "Impacted %": 0.0655,
     "Total Pax Impacted": 294.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0091,
+    "Call Not Disposed": 9.0,
+    "Call Not Disposed %": 0.0409
   },
   "2026-01-25": {
     "Gross Seats": 4160.0,
@@ -2785,7 +4431,15 @@
     "Delay Pax Impacted": 76.0,
     "Impacted %": 0.0183,
     "Total Pax Impacted": 76.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0174
   },
   "2026-01-26": {
     "Gross Seats": 4389.0,
@@ -2798,7 +4452,15 @@
     "Break Down Pax Impacted": 82.0,
     "Impacted %": 0.0187,
     "Total Pax Impacted": 82.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.005
   },
   "2026-01-27": {
     "Gross Seats": 3964.0,
@@ -2813,7 +4475,15 @@
     "Service Cancel Pax Impacted": 40.0,
     "Impacted %": 0.0207,
     "Total Pax Impacted": 82.0,
-    "Cancellations Impact %": 0.0101
+    "Cancellations Impact %": 0.0101,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0051,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0203
   },
   "2026-01-28": {
     "Gross Seats": 3989.0,
@@ -2830,7 +4500,15 @@
     "Break Down Pax Impacted": 38.0,
     "Impacted %": 0.0321,
     "Total Pax Impacted": 128.0,
-    "Cancellations Impact %": 0.002
+    "Cancellations Impact %": 0.002,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 12.0,
+    "Call Not Disposed %": 0.0723
   },
   "2026-01-29": {
     "Gross Seats": 3481.0,
@@ -2845,7 +4523,15 @@
     "Service Cancel Pax Impacted": 38.0,
     "Impacted %": 0.0204,
     "Total Pax Impacted": 71.0,
-    "Cancellations Impact %": 0.0109
+    "Cancellations Impact %": 0.0109,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0263
   },
   "2026-01-30": {
     "Gross Seats": 4258.0,
@@ -2860,7 +4546,15 @@
     "Service Cancel Pax Impacted": 28.0,
     "Impacted %": 0.0233,
     "Total Pax Impacted": 99.0,
-    "Cancellations Impact %": 0.0066
+    "Cancellations Impact %": 0.0066,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0321
   },
   "2026-01-31": {
     "Gross Seats": 4258.0,
@@ -2875,7 +4569,15 @@
     "Service Cancel Pax Impacted": 5.0,
     "Impacted %": 0.0117,
     "Total Pax Impacted": 50.0,
-    "Cancellations Impact %": 0.0012
+    "Cancellations Impact %": 0.0012,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0248
   },
   "2026-02-01": {
     "Gross Seats": 3811.0,
@@ -2886,7 +4588,15 @@
     "Intr/Journey %  ( Travel update )": 0.0124,
     "Impacted %": 0.0,
     "Total Pax Impacted": 0.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.14,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0488
   },
   "2026-02-02": {
     "Gross Seats": 3687.0,
@@ -2901,7 +4611,15 @@
     "Service Cancel Pax Impacted": 29.0,
     "Impacted %": 0.035,
     "Total Pax Impacted": 129.0,
-    "Cancellations Impact %": 0.0079
+    "Cancellations Impact %": 0.0079,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0188,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0063
   },
   "2026-02-03": {
     "Gross Seats": 3824.0,
@@ -2918,7 +4636,15 @@
     "Break Down Pax Impacted": 23.0,
     "Impacted %": 0.0314,
     "Total Pax Impacted": 120.0,
-    "Cancellations Impact %": 0.0146
+    "Cancellations Impact %": 0.0146,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.013
   },
   "2026-02-04": {
     "Gross Seats": 4687.0,
@@ -2933,7 +4659,15 @@
     "Service Cancel Pax Impacted": 12.0,
     "Impacted %": 0.0154,
     "Total Pax Impacted": 72.0,
-    "Cancellations Impact %": 0.0026
+    "Cancellations Impact %": 0.0026,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0263
   },
   "2026-02-05": {
     "Gross Seats": 4960.0,
@@ -2948,7 +4682,15 @@
     "Service Cancel Pax Impacted": 64.0,
     "Impacted %": 0.0302,
     "Total Pax Impacted": 150.0,
-    "Cancellations Impact %": 0.0129
+    "Cancellations Impact %": 0.0129,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.13,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0119,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0238
   },
   "2026-02-06": {
     "Gross Seats": 4935.0,
@@ -2963,7 +4705,15 @@
     "Break Down Pax Impacted": 33.0,
     "Impacted %": 0.0168,
     "Total Pax Impacted": 83.0,
-    "Cancellations Impact %": 0.0101
+    "Cancellations Impact %": 0.0101,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0045,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.0315
   },
   "2026-02-07": {
     "Gross Seats": 5071.0,
@@ -2978,7 +4728,15 @@
     "Break Down Pax Impacted": 41.0,
     "Impacted %": 0.0136,
     "Total Pax Impacted": 69.0,
-    "Cancellations Impact %": 0.0055
+    "Cancellations Impact %": 0.0055,
+    "Call Drop Not Done": 2.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.13,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0045,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0181
   },
   "2026-02-13": {
     "Gross Seats": 4200.0,
@@ -2993,7 +4751,15 @@
     "Service Cancel Pax Impacted": 24.0,
     "Impacted %": 0.0114,
     "Total Pax Impacted": 48.0,
-    "Cancellations Impact %": 0.0057
+    "Cancellations Impact %": 0.0057,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-02-14": {
     "Gross Seats": 4300.0,
@@ -3008,7 +4774,15 @@
     "Break Down Pax Impacted": 42.0,
     "Impacted %": 0.0219,
     "Total Pax Impacted": 94.0,
-    "Cancellations Impact %": 0.0121
+    "Cancellations Impact %": 0.0121,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-02-15": {
     "Gross Seats": 4204.0,
@@ -3021,7 +4795,15 @@
     "Break Down Pax Impacted": 40.0,
     "Impacted %": 0.0095,
     "Total Pax Impacted": 40.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0205,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0205
   },
   "2026-02-16": {
     "Gross Seats": 3971.0,
@@ -3036,7 +4818,15 @@
     "Service Cancel Pax Impacted": 13.0,
     "Impacted %": 0.0048,
     "Total Pax Impacted": 19.0,
-    "Cancellations Impact %": 0.0033
+    "Cancellations Impact %": 0.0033,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.14,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0181,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0181
   },
   "2026-02-17": {
     "Gross Seats": 3246.0,
@@ -3051,7 +4841,15 @@
     "Service Cancel Pax Impacted": 31.0,
     "Impacted %": 0.0222,
     "Total Pax Impacted": 72.0,
-    "Cancellations Impact %": 0.0096
+    "Cancellations Impact %": 0.0096,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.021,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.021
   },
   "2026-02-18": {
     "Gross Seats": 3592.0,
@@ -3066,7 +4864,15 @@
     "Service Cancel Pax Impacted": 49.0,
     "Impacted %": 0.0239,
     "Total Pax Impacted": 86.0,
-    "Cancellations Impact %": 0.0136
+    "Cancellations Impact %": 0.0136,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0182,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0182
   },
   "2026-02-19": {
     "Gross Seats": 3704.0,
@@ -3081,7 +4887,15 @@
     "Service Cancel Pax Impacted": 50.0,
     "Impacted %": 0.0181,
     "Total Pax Impacted": 67.0,
-    "Cancellations Impact %": 0.0135
+    "Cancellations Impact %": 0.0135,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.021,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.021
   },
   "2026-02-20": {
     "Gross Seats": 4310.0,
@@ -3094,7 +4908,15 @@
     "Delay Pax Impacted": 118.0,
     "Impacted %": 0.0274,
     "Total Pax Impacted": 118.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0169,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0169
   },
   "2026-02-21": {
     "Gross Seats": 4457.0,
@@ -3109,7 +4931,15 @@
     "Break Down Pax Impacted": 115.0,
     "Impacted %": 0.0819,
     "Total Pax Impacted": 365.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0179,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0179
   },
   "2026-02-22": {
     "Gross Seats": 4324.0,
@@ -3122,7 +4952,15 @@
     "Service Cancel Pax Impacted": 41.0,
     "Impacted %": 0.0095,
     "Total Pax Impacted": 41.0,
-    "Cancellations Impact %": 0.0095
+    "Cancellations Impact %": 0.0095,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0186,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0186
   },
   "2026-02-23": {
     "Gross Seats": 3939.0,
@@ -3137,7 +4975,15 @@
     "Service Cancel Pax Impacted": 45.0,
     "Impacted %": 0.0157,
     "Total Pax Impacted": 62.0,
-    "Cancellations Impact %": 0.0114
+    "Cancellations Impact %": 0.0114,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.2,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0204,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0204
   },
   "2026-02-24": {
     "Gross Seats": 3438.0,
@@ -3152,7 +4998,15 @@
     "Service Cancel Pax Impacted": 79.0,
     "Impacted %": 0.0291,
     "Total Pax Impacted": 100.0,
-    "Cancellations Impact %": 0.023
+    "Cancellations Impact %": 0.023,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0204,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0204
   },
   "2026-02-25": {
     "Gross Seats": 3641.0,
@@ -3167,7 +5021,15 @@
     "Service Cancel Pax Impacted": 65.0,
     "Impacted %": 0.0288,
     "Total Pax Impacted": 105.0,
-    "Cancellations Impact %": 0.0179
+    "Cancellations Impact %": 0.0179,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0186,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0186
   },
   "2026-02-26": {
     "Gross Seats": 3652.0,
@@ -3182,7 +5044,15 @@
     "Service Cancel Pax Impacted": 65.0,
     "Impacted %": 0.0268,
     "Total Pax Impacted": 98.0,
-    "Cancellations Impact %": 0.0178
+    "Cancellations Impact %": 0.0178,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.021,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.021
   },
   "2026-02-27": {
     "Gross Seats": 3896.0,
@@ -3195,7 +5065,15 @@
     "Service Cancel Pax Impacted": 41.0,
     "Impacted %": 0.0105,
     "Total Pax Impacted": 41.0,
-    "Cancellations Impact %": 0.0105
+    "Cancellations Impact %": 0.0105,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0183,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0183
   },
   "2026-02-28": {
     "Gross Seats": 4182.0,
@@ -3212,7 +5090,15 @@
     "Break Down Pax Impacted": 36.0,
     "Impacted %": 0.0459,
     "Total Pax Impacted": 192.0,
-    "Cancellations Impact %": 0.01
+    "Cancellations Impact %": 0.01,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.015,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.015
   },
   "2026-03-01": {
     "Gross Seats": 4008.0,
@@ -3227,7 +5113,15 @@
     "Service Cancel Pax Impacted": 2.0,
     "Impacted %": 0.0202,
     "Total Pax Impacted": 81.0,
-    "Cancellations Impact %": 0.0005
+    "Cancellations Impact %": 0.0005,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0068
   },
   "2026-03-02": {
     "Gross Seats": 3167.0,
@@ -3242,7 +5136,15 @@
     "Service Cancel Pax Impacted": 57.0,
     "Impacted %": 0.0234,
     "Total Pax Impacted": 74.0,
-    "Cancellations Impact %": 0.018
+    "Cancellations Impact %": 0.018,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0074,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0074
   },
   "2026-03-03": {
     "Gross Seats": 3233.0,
@@ -3259,7 +5161,15 @@
     "Break Down Pax Impacted": 31.0,
     "Impacted %": 0.0343,
     "Total Pax Impacted": 111.0,
-    "Cancellations Impact %": 0.0133
+    "Cancellations Impact %": 0.0133,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0146
   },
   "2026-03-04": {
     "Gross Seats": 4502.0,
@@ -3274,7 +5184,15 @@
     "Service Cancel Pax Impacted": 17.0,
     "Impacted %": 0.0262,
     "Total Pax Impacted": 118.0,
-    "Cancellations Impact %": 0.0038
+    "Cancellations Impact %": 0.0038,
+    "Call Drop Not Done": 5.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0157
   },
   "2026-03-05": {
     "Gross Seats": 5114.0,
@@ -3287,7 +5205,15 @@
     "Delay Pax Impacted": 119.0,
     "Impacted %": 0.0233,
     "Total Pax Impacted": 119.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0135,
+    "Call Not Disposed": 13.0,
+    "Call Not Disposed %": 0.0583
   },
   "2026-03-06": {
     "Gross Seats": 5222.0,
@@ -3304,7 +5230,15 @@
     "Break Down Pax Impacted": 36.0,
     "Impacted %": 0.0442,
     "Total Pax Impacted": 231.0,
-    "Cancellations Impact %": 0.0103
+    "Cancellations Impact %": 0.0103,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.032
   },
   "2026-03-07": {
     "Gross Seats": 5445.0,
@@ -3319,7 +5253,15 @@
     "Service Cancel Pax Impacted": 4.0,
     "Impacted %": 0.0226,
     "Total Pax Impacted": 123.0,
-    "Cancellations Impact %": 0.0007
+    "Cancellations Impact %": 0.0007,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.008,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-03-13": {
     "Gross Seats": 4378.0,
@@ -3334,7 +5276,15 @@
     "Service Cancel Pax Impacted": 31.0,
     "Impacted %": 0.0091,
     "Total Pax Impacted": 40.0,
-    "Cancellations Impact %": 0.0071
+    "Cancellations Impact %": 0.0071,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0116
   },
   "2026-03-14": {
     "Gross Seats": 4478.0,
@@ -3349,7 +5299,15 @@
     "Service Cancel Pax Impacted": 10.0,
     "Impacted %": 0.01,
     "Total Pax Impacted": 45.0,
-    "Cancellations Impact %": 0.0022
+    "Cancellations Impact %": 0.0022,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0108
   },
   "2026-03-15": {
     "Gross Seats": 4579.0,
@@ -3362,7 +5320,15 @@
     "Service Cancel Pax Impacted": 4.0,
     "Impacted %": 0.0009,
     "Total Pax Impacted": 4.0,
-    "Cancellations Impact %": 0.0009
+    "Cancellations Impact %": 0.0009,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0133
   },
   "2026-03-16": {
     "Gross Seats": 3962.0,
@@ -3375,7 +5341,15 @@
     "Service Cancel Pax Impacted": 27.0,
     "Impacted %": 0.0068,
     "Total Pax Impacted": 27.0,
-    "Cancellations Impact %": 0.0068
+    "Cancellations Impact %": 0.0068,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.13,
+    "Agent Disconnected": 5.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-03-17": {
     "Gross Seats": 3665.0,
@@ -3388,7 +5362,15 @@
     "Service Cancel Pax Impacted": 43.0,
     "Impacted %": 0.0117,
     "Total Pax Impacted": 43.0,
-    "Cancellations Impact %": 0.0117
+    "Cancellations Impact %": 0.0117,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0252
   },
   "2026-03-18": {
     "Gross Seats": 4293.0,
@@ -3405,7 +5387,15 @@
     "Break Down Pax Impacted": 42.0,
     "Impacted %": 0.054,
     "Total Pax Impacted": 232.0,
-    "Cancellations Impact %": 0.007
+    "Cancellations Impact %": 0.007,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0216
   },
   "2026-03-19": {
     "Gross Seats": 3677.0,
@@ -3422,7 +5412,15 @@
     "Break Down Pax Impacted": 33.0,
     "Impacted %": 0.0403,
     "Total Pax Impacted": 148.0,
-    "Cancellations Impact %": 0.0185
+    "Cancellations Impact %": 0.0185,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.08,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0117
   },
   "2026-03-20": {
     "Gross Seats": 3987.0,
@@ -3437,7 +5435,15 @@
     "Service Cancel Pax Impacted": 2.0,
     "Impacted %": 0.0324,
     "Total Pax Impacted": 129.0,
-    "Cancellations Impact %": 0.0005
+    "Cancellations Impact %": 0.0005,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-03-21": {
     "Gross Seats": 4047.0,
@@ -3452,7 +5458,15 @@
     "Service Cancel Pax Impacted": 21.0,
     "Impacted %": 0.0208,
     "Total Pax Impacted": 84.0,
-    "Cancellations Impact %": 0.0052
+    "Cancellations Impact %": 0.0052,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0063
   },
   "2026-03-22": {
     "Gross Seats": 4646.0,
@@ -3467,7 +5481,15 @@
     "Service Cancel Pax Impacted": 12.0,
     "Impacted %": 0.0082,
     "Total Pax Impacted": 38.0,
-    "Cancellations Impact %": 0.0026
+    "Cancellations Impact %": 0.0026,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0062
   },
   "2026-03-23": {
     "Gross Seats": 4125.0,
@@ -3482,7 +5504,15 @@
     "Service Cancel Pax Impacted": 27.0,
     "Impacted %": 0.0245,
     "Total Pax Impacted": 101.0,
-    "Cancellations Impact %": 0.0065
+    "Cancellations Impact %": 0.0065,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0055
   },
   "2026-03-24": {
     "Gross Seats": 4010.0,
@@ -3497,7 +5527,15 @@
     "Break Down Pax Impacted": 38.0,
     "Impacted %": 0.019,
     "Total Pax Impacted": 76.0,
-    "Cancellations Impact %": 0.0095
+    "Cancellations Impact %": 0.0095,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.007
   },
   "2026-03-25": {
     "Gross Seats": 4038.0,
@@ -3514,7 +5552,15 @@
     "Break Down Pax Impacted": 28.0,
     "Impacted %": 0.0713,
     "Total Pax Impacted": 288.0,
-    "Cancellations Impact %": 0.0119
+    "Cancellations Impact %": 0.0119,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.09,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0066
   },
   "2026-03-26": {
     "Gross Seats": 3989.0,
@@ -3527,7 +5573,15 @@
     "Service Cancel Pax Impacted": 12.0,
     "Impacted %": 0.003,
     "Total Pax Impacted": 12.0,
-    "Cancellations Impact %": 0.003
+    "Cancellations Impact %": 0.003,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.1,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0247
   },
   "2026-03-27": {
     "Gross Seats": 4132.0,
@@ -3540,7 +5594,15 @@
     "Delay Pax Impacted": 284.0,
     "Impacted %": 0.0687,
     "Total Pax Impacted": 284.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0165
   },
   "2026-03-28": {
     "Gross Seats": 4391.0,
@@ -3557,7 +5619,15 @@
     "Break Down Pax Impacted": 38.0,
     "Impacted %": 0.0162,
     "Total Pax Impacted": 71.0,
-    "Cancellations Impact %": 0.0002
+    "Cancellations Impact %": 0.0002,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0125
   },
   "2026-03-29": {
     "Gross Seats": 4742.0,
@@ -3574,7 +5644,15 @@
     "Break Down Pax Impacted": 31.0,
     "Impacted %": 0.0194,
     "Total Pax Impacted": 92.0,
-    "Cancellations Impact %": 0.0065
+    "Cancellations Impact %": 0.0065,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0377
   },
   "2026-03-30": {
     "Gross Seats": 4260.0,
@@ -3587,7 +5665,15 @@
     "Service Cancel Pax Impacted": 16.0,
     "Impacted %": 0.0038,
     "Total Pax Impacted": 16.0,
-    "Cancellations Impact %": 0.0038
+    "Cancellations Impact %": 0.0038,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0117
   },
   "2026-03-31": {
     "Gross Seats": 4128.0,
@@ -3602,7 +5688,15 @@
     "Break Down Pax Impacted": 39.0,
     "Impacted %": 0.0148,
     "Total Pax Impacted": 61.0,
-    "Cancellations Impact %": 0.0053
+    "Cancellations Impact %": 0.0053,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0123
   },
   "2026-04-01": {
     "Gross Seats": 4331.0,
@@ -3617,7 +5711,15 @@
     "Service Cancel Pax Impacted": 3.0,
     "Impacted %": 0.0224,
     "Total Pax Impacted": 97.0,
-    "Cancellations Impact %": 0.0007
+    "Cancellations Impact %": 0.0007,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.13,
+    "Agent Disconnected": 5.0,
+    "Agent Disconnected %": 0.0282,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0113
   },
   "2026-04-02": {
     "Gross Seats": 3302.0,
@@ -3632,7 +5734,15 @@
     "Service Cancel Pax Impacted": 53.0,
     "Impacted %": 0.0215,
     "Total Pax Impacted": 71.0,
-    "Cancellations Impact %": 0.0161
+    "Cancellations Impact %": 0.0161,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.11,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-04-03": {
     "Gross Seats": 3684.0,
@@ -3647,7 +5757,15 @@
     "Service Cancel Pax Impacted": 49.0,
     "Impacted %": 0.0174,
     "Total Pax Impacted": 64.0,
-    "Cancellations Impact %": 0.0133
+    "Cancellations Impact %": 0.0133,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.14,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0062
   },
   "2026-04-04": {
     "Gross Seats": 4513.0,
@@ -3662,7 +5780,15 @@
     "Break Down Pax Impacted": 42.0,
     "Impacted %": 0.0211,
     "Total Pax Impacted": 95.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 0.33,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0088
   },
   "2026-04-05": {
     "Gross Seats": 4879.0,
@@ -3675,7 +5801,14 @@
     "Delay Pax Impacted": 108.0,
     "Impacted %": 0.0221,
     "Total Pax Impacted": 108.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0039,
+    "Call Not Disposed": 16.0,
+    "Call Not Disposed %": 0.0627
   },
   "2026-04-06": {
     "Gross Seats": 5055.0,
@@ -3690,7 +5823,15 @@
     "Service Cancel Pax Impacted": 43.0,
     "Impacted %": 0.0131,
     "Total Pax Impacted": 66.0,
-    "Cancellations Impact %": 0.0085
+    "Cancellations Impact %": 0.0085,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0047,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0188
   },
   "2026-04-07": {
     "Gross Seats": 5633.0,
@@ -3705,7 +5846,15 @@
     "Service Cancel Pax Impacted": 5.0,
     "Impacted %": 0.0337,
     "Total Pax Impacted": 190.0,
-    "Cancellations Impact %": 0.0009
+    "Cancellations Impact %": 0.0009,
+    "Call Drop Not Done": 2.0,
+    "Blank Call Not Done": 3.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 0.28,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-04-13": {
     "Gross Seats": 4530.0,
@@ -3720,7 +5869,15 @@
     "Service Cancel Pax Impacted": 47.0,
     "Impacted %": 0.0291,
     "Total Pax Impacted": 132.0,
-    "Cancellations Impact %": 0.0104
+    "Cancellations Impact %": 0.0104,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0049,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0098
   },
   "2026-04-14": {
     "Gross Seats": 4379.0,
@@ -3731,7 +5888,15 @@
     "Intr/Journey %  ( Travel update )": 0.0098,
     "Impacted %": 0.0,
     "Total Pax Impacted": 0.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.17,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0104,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-04-15": {
     "Gross Seats": 4221.0,
@@ -3746,7 +5911,15 @@
     "Service Cancel Pax Impacted": 27.0,
     "Impacted %": 0.0204,
     "Total Pax Impacted": 86.0,
-    "Cancellations Impact %": 0.0064
+    "Cancellations Impact %": 0.0064,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.11,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0167,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0222
   },
   "2026-04-16": {
     "Gross Seats": 3989.0,
@@ -3759,7 +5932,15 @@
     "Service Cancel Pax Impacted": 55.0,
     "Impacted %": 0.0138,
     "Total Pax Impacted": 55.0,
-    "Cancellations Impact %": 0.0138
+    "Cancellations Impact %": 0.0138,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0163,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0217
   },
   "2026-04-17": {
     "Gross Seats": 4478.0,
@@ -3774,7 +5955,15 @@
     "Service Cancel Pax Impacted": 1.0,
     "Impacted %": 0.0116,
     "Total Pax Impacted": 52.0,
-    "Cancellations Impact %": 0.0002
+    "Cancellations Impact %": 0.0002,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0101,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0101
   },
   "2026-04-18": {
     "Gross Seats": 4742.0,
@@ -3789,7 +5978,15 @@
     "Break Down Pax Impacted": 25.0,
     "Impacted %": 0.0103,
     "Total Pax Impacted": 49.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 2.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.18,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0056,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0112
   },
   "2026-04-19": {
     "Gross Seats": 4840.0,
@@ -3804,7 +6001,14 @@
     "Service Cancel Pax Impacted": 2.0,
     "Impacted %": 0.0209,
     "Total Pax Impacted": 101.0,
-    "Cancellations Impact %": 0.0004
+    "Cancellations Impact %": 0.0004,
+    "Call Drop Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.08,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0124,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0373
   },
   "2026-04-20": {
     "Gross Seats": 4842.0,
@@ -3821,7 +6025,15 @@
     "Break Down Pax Impacted": 40.0,
     "Impacted %": 0.0122,
     "Total Pax Impacted": 59.0,
-    "Cancellations Impact %": 0.0004
+    "Cancellations Impact %": 0.0004,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0048,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0143
   },
   "2026-04-21": {
     "Gross Seats": 4413.0,
@@ -3838,7 +6050,15 @@
     "Break Down Pax Impacted": 40.0,
     "Impacted %": 0.0304,
     "Total Pax Impacted": 134.0,
-    "Cancellations Impact %": 0.0082
+    "Cancellations Impact %": 0.0082,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0074,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-04-22": {
     "Gross Seats": 4848.0,
@@ -3853,7 +6073,15 @@
     "Service Cancel Pax Impacted": 3.0,
     "Impacted %": 0.0285,
     "Total Pax Impacted": 138.0,
-    "Cancellations Impact %": 0.0006
+    "Cancellations Impact %": 0.0006,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0042,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0252
   },
   "2026-04-23": {
     "Gross Seats": 4873.0,
@@ -3868,7 +6096,15 @@
     "Service Cancel Pax Impacted": 38.0,
     "Impacted %": 0.0579,
     "Total Pax Impacted": 282.0,
-    "Cancellations Impact %": 0.0078
+    "Cancellations Impact %": 0.0078,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.0269
   },
   "2026-04-24": {
     "Gross Seats": 4759.0,
@@ -3881,7 +6117,15 @@
     "Delay Pax Impacted": 140.0,
     "Impacted %": 0.0294,
     "Total Pax Impacted": 140.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0156
   },
   "2026-04-25": {
     "Gross Seats": 4906.0,
@@ -3894,7 +6138,15 @@
     "Delay Pax Impacted": 77.0,
     "Impacted %": 0.0157,
     "Total Pax Impacted": 77.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0041,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0331
   },
   "2026-04-26": {
     "Gross Seats": 5168.0,
@@ -3909,7 +6161,15 @@
     "Break Down Pax Impacted": 40.0,
     "Impacted %": 0.0134,
     "Total Pax Impacted": 69.0,
-    "Cancellations Impact %": 0.0056
+    "Cancellations Impact %": 0.0056,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 10.0,
+    "Call Not Disposed %": 0.0488
   },
   "2026-04-27": {
     "Gross Seats": 4722.0,
@@ -3926,7 +6186,15 @@
     "Break Down Pax Impacted": 11.0,
     "Impacted %": 0.0244,
     "Total Pax Impacted": 115.0,
-    "Cancellations Impact %": 0.0053
+    "Cancellations Impact %": 0.0053,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.06,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0217
   },
   "2026-04-28": {
     "Gross Seats": 4284.0,
@@ -3943,7 +6211,15 @@
     "Break Down Pax Impacted": 40.0,
     "Impacted %": 0.0331,
     "Total Pax Impacted": 142.0,
-    "Cancellations Impact %": 0.0145
+    "Cancellations Impact %": 0.0145,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0099,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0198
   },
   "2026-04-29": {
     "Gross Seats": 4826.0,
@@ -3960,7 +6236,15 @@
     "Break Down Pax Impacted": 33.0,
     "Impacted %": 0.0676,
     "Total Pax Impacted": 326.0,
-    "Cancellations Impact %": 0.0062
+    "Cancellations Impact %": 0.0062,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.17,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0119,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0238
   },
   "2026-04-30": {
     "Gross Seats": 5005.0,
@@ -3977,7 +6261,15 @@
     "Break Down Pax Impacted": 41.0,
     "Impacted %": 0.0184,
     "Total Pax Impacted": 92.0,
-    "Cancellations Impact %": 0.002
+    "Cancellations Impact %": 0.002,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-05-01": {
     "Gross Seats": 3772.0,
@@ -3992,7 +6284,15 @@
     "Service Cancel Pax Impacted": 16.0,
     "Impacted %": 0.0186,
     "Total Pax Impacted": 70.0,
-    "Cancellations Impact %": 0.0042
+    "Cancellations Impact %": 0.0042,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.5,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.014,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.014
   },
   "2026-05-02": {
     "Gross Seats": 3593.0,
@@ -4005,7 +6305,15 @@
     "Service Cancel Pax Impacted": 40.0,
     "Impacted %": 0.0111,
     "Total Pax Impacted": 40.0,
-    "Cancellations Impact %": 0.0111
+    "Cancellations Impact %": 0.0111,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.13,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0061,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0061
   },
   "2026-05-03": {
     "Gross Seats": 3834.0,
@@ -4020,7 +6328,15 @@
     "Service Cancel Pax Impacted": 6.0,
     "Impacted %": 0.0107,
     "Total Pax Impacted": 41.0,
-    "Cancellations Impact %": 0.0016
+    "Cancellations Impact %": 0.0016,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.006
   },
   "2026-05-04": {
     "Gross Seats": 4658.0,
@@ -4033,7 +6349,15 @@
     "Service Cancel Pax Impacted": 26.0,
     "Impacted %": 0.0056,
     "Total Pax Impacted": 26.0,
-    "Cancellations Impact %": 0.0056
+    "Cancellations Impact %": 0.0056,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0146
   },
   "2026-05-05": {
     "Gross Seats": 4751.0,
@@ -4046,7 +6370,15 @@
     "Service Cancel Pax Impacted": 36.0,
     "Impacted %": 0.0076,
     "Total Pax Impacted": 36.0,
-    "Cancellations Impact %": 0.0076
+    "Cancellations Impact %": 0.0076,
+    "Call Drop Not Done": 2.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 0.2,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0052,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0419
   },
   "2026-05-06": {
     "Gross Seats": 5196.0,
@@ -4061,7 +6393,15 @@
     "Break Down Pax Impacted": 39.0,
     "Impacted %": 0.0329,
     "Total Pax Impacted": 171.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.02
   },
   "2026-05-07": {
     "Gross Seats": 5824.0,
@@ -4078,7 +6418,15 @@
     "Break Down Pax Impacted": 9.0,
     "Impacted %": 0.0338,
     "Total Pax Impacted": 197.0,
-    "Cancellations Impact %": 0.0084
+    "Cancellations Impact %": 0.0084,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.06,
+    "Agent Disconnected": 4.0,
+    "Agent Disconnected %": 0.0141,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-05-13": {
     "Gross Seats": 4829.0,
@@ -4093,7 +6441,15 @@
     "Service Cancel Pax Impacted": 59.0,
     "Impacted %": 0.0292,
     "Total Pax Impacted": 141.0,
-    "Cancellations Impact %": 0.0122
+    "Cancellations Impact %": 0.0122,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.08,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.04
   },
   "2026-05-14": {
     "Gross Seats": 4792.0,
@@ -4110,7 +6466,15 @@
     "Break Down Pax Impacted": 34.0,
     "Impacted %": 0.0442,
     "Total Pax Impacted": 212.0,
-    "Cancellations Impact %": 0.0098
+    "Cancellations Impact %": 0.0098,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.1,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0126,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-05-15": {
     "Gross Seats": 4989.0,
@@ -4127,7 +6491,15 @@
     "Break Down Pax Impacted": 41.0,
     "Impacted %": 0.0698,
     "Total Pax Impacted": 348.0,
-    "Cancellations Impact %": 0.0046
+    "Cancellations Impact %": 0.0046,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0042,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0333
   },
   "2026-05-16": {
     "Gross Seats": 5314.0,
@@ -4142,7 +6514,15 @@
     "Break Down Pax Impacted": 26.0,
     "Impacted %": 0.0329,
     "Total Pax Impacted": 175.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.1,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0236
   },
   "2026-05-17": {
     "Gross Seats": 5464.0,
@@ -4159,7 +6539,15 @@
     "Break Down Pax Impacted": 37.0,
     "Impacted %": 0.0225,
     "Total Pax Impacted": 123.0,
-    "Cancellations Impact %": 0.0022
+    "Cancellations Impact %": 0.0022,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0046,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0138
   },
   "2026-05-18": {
     "Gross Seats": 5456.0,
@@ -4176,7 +6564,15 @@
     "Break Down Pax Impacted": 37.0,
     "Impacted %": 0.0482,
     "Total Pax Impacted": 263.0,
-    "Cancellations Impact %": 0.0022
+    "Cancellations Impact %": 0.0022,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.06,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0041,
+    "Call Not Disposed": 13.0,
+    "Call Not Disposed %": 0.0537
   },
   "2026-05-19": {
     "Gross Seats": 4885.0,
@@ -4193,7 +6589,15 @@
     "Break Down Pax Impacted": 121.0,
     "Impacted %": 0.052,
     "Total Pax Impacted": 254.0,
-    "Cancellations Impact %": 0.0115
+    "Cancellations Impact %": 0.0115,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.09,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.008,
+    "Call Not Disposed": 10.0,
+    "Call Not Disposed %": 0.0402
   },
   "2026-05-20": {
     "Gross Seats": 5268.0,
@@ -4210,7 +6614,15 @@
     "Break Down Pax Impacted": 40.0,
     "Impacted %": 0.0211,
     "Total Pax Impacted": 111.0,
-    "Cancellations Impact %": 0.0034
+    "Cancellations Impact %": 0.0034,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0041,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.0289
   },
   "2026-05-21": {
     "Gross Seats": 5086.0,
@@ -4225,7 +6637,15 @@
     "Service Cancel Pax Impacted": 40.0,
     "Impacted %": 0.0256,
     "Total Pax Impacted": 130.0,
-    "Cancellations Impact %": 0.0079
+    "Cancellations Impact %": 0.0079,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0037,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-05-22": {
     "Gross Seats": 5206.0,
@@ -4238,7 +6658,15 @@
     "Delay Pax Impacted": 89.0,
     "Impacted %": 0.0171,
     "Total Pax Impacted": 89.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.06,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0084,
+    "Call Not Disposed": 9.0,
+    "Call Not Disposed %": 0.0378
   },
   "2026-05-23": {
     "Gross Seats": 5653.0,
@@ -4253,7 +6681,15 @@
     "Break Down Pax Impacted": 68.0,
     "Impacted %": 0.0324,
     "Total Pax Impacted": 183.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0234
   },
   "2026-05-24": {
     "Gross Seats": 5549.0,
@@ -4270,7 +6706,15 @@
     "Break Down Pax Impacted": 24.0,
     "Impacted %": 0.0204,
     "Total Pax Impacted": 113.0,
-    "Cancellations Impact %": 0.0117
+    "Cancellations Impact %": 0.0117,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 10.0,
+    "Call Not Disposed %": 0.0407
   },
   "2026-05-25": {
     "Gross Seats": 5761.0,
@@ -4283,7 +6727,15 @@
     "Delay Pax Impacted": 65.0,
     "Impacted %": 0.0113,
     "Total Pax Impacted": 65.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0039,
+    "Call Not Disposed": 10.0,
+    "Call Not Disposed %": 0.0394
   },
   "2026-05-26": {
     "Gross Seats": 5082.0,
@@ -4298,7 +6750,15 @@
     "Service Cancel Pax Impacted": 8.0,
     "Impacted %": 0.0301,
     "Total Pax Impacted": 153.0,
-    "Cancellations Impact %": 0.0016
+    "Cancellations Impact %": 0.0016,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0042
   },
   "2026-05-27": {
     "Gross Seats": 5491.0,
@@ -4313,7 +6773,15 @@
     "Service Cancel Pax Impacted": 22.0,
     "Impacted %": 0.0279,
     "Total Pax Impacted": 153.0,
-    "Cancellations Impact %": 0.004
+    "Cancellations Impact %": 0.004,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0126
   },
   "2026-05-28": {
     "Gross Seats": 5224.0,
@@ -4330,7 +6798,15 @@
     "Break Down Pax Impacted": 40.0,
     "Impacted %": 0.0161,
     "Total Pax Impacted": 84.0,
-    "Cancellations Impact %": 0.0044
+    "Cancellations Impact %": 0.0044,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.11,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0128,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-05-29": {
     "Gross Seats": 5265.0,
@@ -4347,7 +6823,15 @@
     "Break Down Pax Impacted": 80.0,
     "Impacted %": 0.023,
     "Total Pax Impacted": 121.0,
-    "Cancellations Impact %": 0.004
+    "Cancellations Impact %": 0.004,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-05-30": {
     "Gross Seats": 5730.0,
@@ -4364,7 +6848,15 @@
     "Break Down Pax Impacted": 67.0,
     "Impacted %": 0.0325,
     "Total Pax Impacted": 186.0,
-    "Cancellations Impact %": 0.0026
+    "Cancellations Impact %": 0.0026,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.06,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-05-31": {
     "Gross Seats": 5729.0,
@@ -4379,7 +6871,15 @@
     "Break Down Pax Impacted": 36.0,
     "Impacted %": 0.0288,
     "Total Pax Impacted": 165.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.09,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-06-01": {
     "Gross Seats": 3158.0,
@@ -4396,7 +6896,15 @@
     "Break Down Pax Impacted": 29.0,
     "Impacted %": 0.0291,
     "Total Pax Impacted": 92.0,
-    "Cancellations Impact %": 0.007
+    "Cancellations Impact %": 0.007,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0083,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0248
   },
   "2026-06-02": {
     "Gross Seats": 4105.0,
@@ -4411,7 +6919,15 @@
     "Service Cancel Pax Impacted": 21.0,
     "Impacted %": 0.0404,
     "Total Pax Impacted": 166.0,
-    "Cancellations Impact %": 0.0051
+    "Cancellations Impact %": 0.0051,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0097,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0097
   },
   "2026-06-03": {
     "Gross Seats": 4221.0,
@@ -4424,7 +6940,15 @@
     "Delay Pax Impacted": 63.0,
     "Impacted %": 0.0149,
     "Total Pax Impacted": 63.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.017
   },
   "2026-06-04": {
     "Gross Seats": 4282.0,
@@ -4441,7 +6965,15 @@
     "Break Down Pax Impacted": 40.0,
     "Impacted %": 0.0339,
     "Total Pax Impacted": 145.0,
-    "Cancellations Impact %": 0.0159
+    "Cancellations Impact %": 0.0159,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.038
   },
   "2026-06-05": {
     "Gross Seats": 4741.0,
@@ -4458,7 +6990,15 @@
     "Break Down Pax Impacted": 41.0,
     "Impacted %": 0.0291,
     "Total Pax Impacted": 138.0,
-    "Cancellations Impact %": 0.0095
+    "Cancellations Impact %": 0.0095,
+    "Call Drop Not Done": 2.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.09,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 15.0,
+    "Call Not Disposed %": 0.0622
   },
   "2026-06-06": {
     "Gross Seats": 5503.0,
@@ -4473,7 +7013,15 @@
     "Break Down Pax Impacted": 31.0,
     "Impacted %": 0.0193,
     "Total Pax Impacted": 106.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0212
   },
   "2026-06-07": {
     "Gross Seats": 5210.0,
@@ -4488,7 +7036,15 @@
     "Service Cancel Pax Impacted": 14.0,
     "Impacted %": 0.024,
     "Total Pax Impacted": 125.0,
-    "Cancellations Impact %": 0.0027
+    "Cancellations Impact %": 0.0027,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-06-13": {
     "Gross Seats": 5641.0,
@@ -4503,7 +7059,15 @@
     "Break Down Pax Impacted": 36.0,
     "Impacted %": 0.0254,
     "Total Pax Impacted": 143.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.04,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0042,
+    "Call Not Disposed": 11.0,
+    "Call Not Disposed %": 0.0458
   },
   "2026-06-14": {
     "Gross Seats": 5587.0,
@@ -4518,7 +7082,15 @@
     "Break Down Pax Impacted": 49.0,
     "Impacted %": 0.0143,
     "Total Pax Impacted": 80.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-06-15": {
     "Gross Seats": 5387.0,
@@ -4535,7 +7107,15 @@
     "Break Down Pax Impacted": 36.0,
     "Impacted %": 0.0191,
     "Total Pax Impacted": 103.0,
-    "Cancellations Impact %": 0.0059
+    "Cancellations Impact %": 0.0059,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 10.0,
+    "Call Not Disposed %": 0.0457
   },
   "2026-06-16": {
     "Gross Seats": 4974.0,
@@ -4552,7 +7132,15 @@
     "Break Down Pax Impacted": 166.0,
     "Impacted %": 0.0533,
     "Total Pax Impacted": 265.0,
-    "Cancellations Impact %": 0.0068
+    "Cancellations Impact %": 0.0068,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.05,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.004,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.012
   },
   "2026-06-17": {
     "Gross Seats": 5195.0,
@@ -4569,7 +7157,15 @@
     "Break Down Pax Impacted": 29.0,
     "Impacted %": 0.0579,
     "Total Pax Impacted": 301.0,
-    "Cancellations Impact %": 0.0202
+    "Cancellations Impact %": 0.0202,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.0275
   },
   "2026-06-18": {
     "Gross Seats": 5284.0,
@@ -4584,7 +7180,15 @@
     "Service Cancel Pax Impacted": 33.0,
     "Impacted %": 0.0138,
     "Total Pax Impacted": 73.0,
-    "Cancellations Impact %": 0.0062
+    "Cancellations Impact %": 0.0062,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0047,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0094
   },
   "2026-06-19": {
     "Gross Seats": 5322.0,
@@ -4599,7 +7203,15 @@
     "Service Cancel Pax Impacted": 159.0,
     "Impacted %": 0.0325,
     "Total Pax Impacted": 173.0,
-    "Cancellations Impact %": 0.0299
+    "Cancellations Impact %": 0.0299,
+    "Call Drop Not Done": 3.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 0.24,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0078,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0313
   },
   "2026-06-20": {
     "Gross Seats": 5607.0,
@@ -4616,7 +7228,15 @@
     "Break Down Pax Impacted": 74.0,
     "Impacted %": 0.0389,
     "Total Pax Impacted": 218.0,
-    "Cancellations Impact %": 0.0125
+    "Cancellations Impact %": 0.0125,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0062,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0125
   },
   "2026-06-21": {
     "Gross Seats": 5687.0,
@@ -4633,7 +7253,15 @@
     "Break Down Pax Impacted": 29.0,
     "Impacted %": 0.0223,
     "Total Pax Impacted": 127.0,
-    "Cancellations Impact %": 0.0056
+    "Cancellations Impact %": 0.0056,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.08,
+    "Agent Disconnected": 5.0,
+    "Agent Disconnected %": 0.0181,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-06-22": {
     "Gross Seats": 5379.0,
@@ -4648,7 +7276,15 @@
     "Service Cancel Pax Impacted": 16.0,
     "Impacted %": 0.0145,
     "Total Pax Impacted": 78.0,
-    "Cancellations Impact %": 0.003
+    "Cancellations Impact %": 0.003,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0038,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0229
   },
   "2026-06-23": {
     "Gross Seats": 5149.0,
@@ -4665,7 +7301,15 @@
     "Break Down Pax Impacted": 180.0,
     "Impacted %": 0.0552,
     "Total Pax Impacted": 284.0,
-    "Cancellations Impact %": 0.0054
+    "Cancellations Impact %": 0.0054,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0041,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0247
   },
   "2026-06-24": {
     "Gross Seats": 5471.0,
@@ -4680,7 +7324,15 @@
     "Service Cancel Pax Impacted": 90.0,
     "Impacted %": 0.0494,
     "Total Pax Impacted": 270.0,
-    "Cancellations Impact %": 0.0165
+    "Cancellations Impact %": 0.0165,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0219
   },
   "2026-06-25": {
     "Gross Seats": 5313.0,
@@ -4697,7 +7349,15 @@
     "Break Down Pax Impacted": 83.0,
     "Impacted %": 0.0578,
     "Total Pax Impacted": 307.0,
-    "Cancellations Impact %": 0.0081
+    "Cancellations Impact %": 0.0081,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.05,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0223
   },
   "2026-06-26": {
     "Gross Seats": 5442.0,
@@ -4712,7 +7372,15 @@
     "Break Down Pax Impacted": 77.0,
     "Impacted %": 0.0162,
     "Total Pax Impacted": 88.0,
-    "Cancellations Impact %": 0.002
+    "Cancellations Impact %": 0.002,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.09,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0064,
+    "Call Not Disposed": 10.0,
+    "Call Not Disposed %": 0.0321
   },
   "2026-06-27": {
     "Gross Seats": 5704.0,
@@ -4727,7 +7395,15 @@
     "Service Cancel Pax Impacted": 9.0,
     "Impacted %": 0.013,
     "Total Pax Impacted": 74.0,
-    "Cancellations Impact %": 0.0016
+    "Cancellations Impact %": 0.0016,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.04,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.011,
+    "Call Not Disposed": 9.0,
+    "Call Not Disposed %": 0.0331
   },
   "2026-06-28": {
     "Gross Seats": 6052.0,
@@ -4744,7 +7420,15 @@
     "Break Down Pax Impacted": 82.0,
     "Impacted %": 0.0261,
     "Total Pax Impacted": 158.0,
-    "Cancellations Impact %": 0.0012
+    "Cancellations Impact %": 0.0012,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0033,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-06-29": {
     "Gross Seats": 5707.0,
@@ -4759,7 +7443,15 @@
     "Service Cancel Pax Impacted": 12.0,
     "Impacted %": 0.0074,
     "Total Pax Impacted": 42.0,
-    "Cancellations Impact %": 0.0021
+    "Cancellations Impact %": 0.0021,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0083,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-06-30": {
     "Gross Seats": 5311.0,
@@ -4774,7 +7466,15 @@
     "Service Cancel Pax Impacted": 21.0,
     "Impacted %": 0.009,
     "Total Pax Impacted": 48.0,
-    "Cancellations Impact %": 0.004
+    "Cancellations Impact %": 0.004,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0085,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-07-01": {
     "Gross Seats": 3236.0,
@@ -4789,7 +7489,15 @@
     "Service Cancel Pax Impacted": 42.0,
     "Impacted %": 0.0238,
     "Total Pax Impacted": 77.0,
-    "Cancellations Impact %": 0.013
+    "Cancellations Impact %": 0.013,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 0.5,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0132
   },
   "2026-07-02": {
     "Gross Seats": 4268.0,
@@ -4802,7 +7510,15 @@
     "Service Cancel Pax Impacted": 21.0,
     "Impacted %": 0.0049,
     "Total Pax Impacted": 21.0,
-    "Cancellations Impact %": 0.0049
+    "Cancellations Impact %": 0.0049,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0184,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-07-03": {
     "Gross Seats": 4372.0,
@@ -4817,7 +7533,15 @@
     "Break Down Pax Impacted": 87.0,
     "Impacted %": 0.0489,
     "Total Pax Impacted": 214.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0056
   },
   "2026-07-04": {
     "Gross Seats": 4061.0,
@@ -4832,7 +7556,15 @@
     "Service Cancel Pax Impacted": 34.0,
     "Impacted %": 0.0212,
     "Total Pax Impacted": 86.0,
-    "Cancellations Impact %": 0.0084
+    "Cancellations Impact %": 0.0084,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.05,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0345
   },
   "2026-07-05": {
     "Gross Seats": 4517.0,
@@ -4845,7 +7577,15 @@
     "Service Cancel Pax Impacted": 191.0,
     "Impacted %": 0.0423,
     "Total Pax Impacted": 191.0,
-    "Cancellations Impact %": 0.0423
+    "Cancellations Impact %": 0.0423,
+    "Call Drop Not Done": 2.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 0.18,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0306
   },
   "2026-07-06": {
     "Gross Seats": 5703.0,
@@ -4862,7 +7602,15 @@
     "Break Down Pax Impacted": 94.0,
     "Impacted %": 0.0509,
     "Total Pax Impacted": 290.0,
-    "Cancellations Impact %": 0.0133
+    "Cancellations Impact %": 0.0133,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0038,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-07-07": {
     "Gross Seats": 5023.0,
@@ -4879,7 +7627,15 @@
     "Break Down Pax Impacted": 41.0,
     "Impacted %": 0.0207,
     "Total Pax Impacted": 104.0,
-    "Cancellations Impact %": 0.0066
+    "Cancellations Impact %": 0.0066,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-07-08": {
     "Gross Seats": 5220.0,
@@ -4894,7 +7650,15 @@
     "Service Cancel Pax Impacted": 50.0,
     "Impacted %": 0.0103,
     "Total Pax Impacted": 54.0,
-    "Cancellations Impact %": 0.0096
+    "Cancellations Impact %": 0.0096,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0252
   },
   "2026-07-09": {
     "Gross Seats": 5275.0,
@@ -4911,7 +7675,15 @@
     "Break Down Pax Impacted": 72.0,
     "Impacted %": 0.032,
     "Total Pax Impacted": 169.0,
-    "Cancellations Impact %": 0.0138
+    "Cancellations Impact %": 0.0138,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.004,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.0283
   },
   "2026-07-10": {
     "Gross Seats": 5774.0,
@@ -4926,7 +7698,15 @@
     "Service Cancel Pax Impacted": 1.0,
     "Impacted %": 0.0145,
     "Total Pax Impacted": 84.0,
-    "Cancellations Impact %": 0.0002
+    "Cancellations Impact %": 0.0002,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0167
   },
   "2026-07-11": {
     "Gross Seats": 6031.0,
@@ -4941,7 +7721,15 @@
     "Service Cancel Pax Impacted": 1.0,
     "Impacted %": 0.0181,
     "Total Pax Impacted": 109.0,
-    "Cancellations Impact %": 0.0002
+    "Cancellations Impact %": 0.0002,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.04,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.004,
+    "Call Not Disposed": 9.0,
+    "Call Not Disposed %": 0.036
   },
   "2026-07-12": {
     "Gross Seats": 6042.0,
@@ -4958,7 +7746,15 @@
     "Break Down Pax Impacted": 45.0,
     "Impacted %": 0.0195,
     "Total Pax Impacted": 118.0,
-    "Cancellations Impact %": 0.0078
+    "Cancellations Impact %": 0.0078,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.13,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0255
   },
   "2026-07-13": {
     "Gross Seats": 5464.0,
@@ -4975,7 +7771,15 @@
     "Break Down Pax Impacted": 32.0,
     "Impacted %": 0.0223,
     "Total Pax Impacted": 122.0,
-    "Cancellations Impact %": 0.0027
+    "Cancellations Impact %": 0.0027,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0075,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0189
   },
   "2026-07-14": {
     "Gross Seats": 4986.0,
@@ -4992,7 +7796,15 @@
     "Break Down Pax Impacted": 122.0,
     "Impacted %": 0.0556,
     "Total Pax Impacted": 277.0,
-    "Cancellations Impact %": 0.0128
+    "Cancellations Impact %": 0.0128,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0043,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-07-15": {
     "Gross Seats": 5360.0,
@@ -5009,7 +7821,15 @@
     "Break Down Pax Impacted": 28.0,
     "Impacted %": 0.0606,
     "Total Pax Impacted": 325.0,
-    "Cancellations Impact %": 0.0138
+    "Cancellations Impact %": 0.0138,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0064,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0256
   },
   "2026-07-16": {
     "Gross Seats": 5414.0,
@@ -5026,7 +7846,15 @@
     "Break Down Pax Impacted": 106.0,
     "Impacted %": 0.0447,
     "Total Pax Impacted": 242.0,
-    "Cancellations Impact %": 0.0072
+    "Cancellations Impact %": 0.0072,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0046,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0369
   },
   "2026-07-17": {
     "Gross Seats": 5547.0,
@@ -5041,7 +7869,15 @@
     "Service Cancel Pax Impacted": 54.0,
     "Impacted %": 0.0508,
     "Total Pax Impacted": 282.0,
-    "Cancellations Impact %": 0.0097
+    "Cancellations Impact %": 0.0097,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.05,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0033,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0262
   },
   "2026-07-18": {
     "Gross Seats": 5701.0,
@@ -5056,7 +7892,15 @@
     "Service Cancel Pax Impacted": 81.0,
     "Impacted %": 0.0363,
     "Total Pax Impacted": 207.0,
-    "Cancellations Impact %": 0.0142
+    "Cancellations Impact %": 0.0142,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.0232
   },
   "2026-07-19": {
     "Gross Seats": 5935.0,
@@ -5073,7 +7917,15 @@
     "Break Down Pax Impacted": 23.0,
     "Impacted %": 0.0131,
     "Total Pax Impacted": 78.0,
-    "Cancellations Impact %": 0.0002
+    "Cancellations Impact %": 0.0002,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0142
   },
   "2026-07-20": {
     "Gross Seats": 5677.0,
@@ -5088,7 +7940,15 @@
     "Break Down Pax Impacted": 40.0,
     "Impacted %": 0.022,
     "Total Pax Impacted": 125.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0049
   },
   "2026-07-21": {
     "Gross Seats": 4920.0,
@@ -5103,7 +7963,15 @@
     "Break Down Pax Impacted": 59.0,
     "Impacted %": 0.015,
     "Total Pax Impacted": 74.0,
-    "Cancellations Impact %": 0.003
+    "Cancellations Impact %": 0.003,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.015
   },
   "2026-07-22": {
     "Gross Seats": 5210.0,
@@ -5120,7 +7988,15 @@
     "Break Down Pax Impacted": 23.0,
     "Impacted %": 0.0203,
     "Total Pax Impacted": 106.0,
-    "Cancellations Impact %": 0.0061
+    "Cancellations Impact %": 0.0061,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0052,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0258
   },
   "2026-07-23": {
     "Gross Seats": 5229.0,
@@ -5135,7 +8011,15 @@
     "Service Cancel Pax Impacted": 68.0,
     "Impacted %": 0.0229,
     "Total Pax Impacted": 120.0,
-    "Cancellations Impact %": 0.013
+    "Cancellations Impact %": 0.013,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0218
   },
   "2026-07-24": {
     "Gross Seats": 5475.0,
@@ -5150,7 +8034,15 @@
     "Service Cancel Pax Impacted": 96.0,
     "Impacted %": 0.0259,
     "Total Pax Impacted": 142.0,
-    "Cancellations Impact %": 0.0175
+    "Cancellations Impact %": 0.0175,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 6.0,
+    "Call Not Disposed %": 0.0235
   },
   "2026-07-25": {
     "Gross Seats": 5693.0,
@@ -5163,7 +8055,15 @@
     "Service Cancel Pax Impacted": 77.0,
     "Impacted %": 0.0135,
     "Total Pax Impacted": 77.0,
-    "Cancellations Impact %": 0.0135
+    "Cancellations Impact %": 0.0135,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 10.0,
+    "Call Not Disposed %": 0.0391
   },
   "2026-07-26": {
     "Gross Seats": 5860.0,
@@ -5180,7 +8080,15 @@
     "Break Down Pax Impacted": 26.0,
     "Impacted %": 0.0181,
     "Total Pax Impacted": 106.0,
-    "Cancellations Impact %": 0.0087
+    "Cancellations Impact %": 0.0087,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0147
   },
   "2026-07-27": {
     "Gross Seats": 5544.0,
@@ -5197,7 +8105,15 @@
     "Break Down Pax Impacted": 66.0,
     "Impacted %": 0.0494,
     "Total Pax Impacted": 274.0,
-    "Cancellations Impact %": 0.0069
+    "Cancellations Impact %": 0.0069,
+    "Call Drop Not Done": 2.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 0.15,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 11.0,
+    "Call Not Disposed %": 0.0343
   },
   "2026-07-28": {
     "Gross Seats": 4971.0,
@@ -5214,7 +8130,14 @@
     "Break Down Pax Impacted": 34.0,
     "Impacted %": 0.029,
     "Total Pax Impacted": 144.0,
-    "Cancellations Impact %": 0.0151
+    "Cancellations Impact %": 0.0151,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0038,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0303
   },
   "2026-07-29": {
     "Gross Seats": 5193.0,
@@ -5231,7 +8154,15 @@
     "Break Down Pax Impacted": 42.0,
     "Impacted %": 0.0383,
     "Total Pax Impacted": 199.0,
-    "Cancellations Impact %": 0.0052
+    "Cancellations Impact %": 0.0052,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.13,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0037,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.0259
   },
   "2026-07-30": {
     "Gross Seats": 5213.0,
@@ -5244,7 +8175,15 @@
     "Service Cancel Pax Impacted": 3.0,
     "Impacted %": 0.0006,
     "Total Pax Impacted": 3.0,
-    "Cancellations Impact %": 0.0006
+    "Cancellations Impact %": 0.0006,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0325
   },
   "2026-07-31": {
     "Gross Seats": 5554.0,
@@ -5259,7 +8198,15 @@
     "Break Down Pax Impacted": 44.0,
     "Impacted %": 0.022,
     "Total Pax Impacted": 122.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.06,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0078,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0195
   },
   "2026-08-01": {
     "Gross Seats": 5954.0,
@@ -5274,7 +8221,14 @@
     "Break Down Pax Impacted": 82.0,
     "Impacted %": 0.0435,
     "Total Pax Impacted": 259.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 2.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 4.0,
+    "Agent Disconnected %": 0.0124,
+    "Call Not Disposed": 9.0,
+    "Call Not Disposed %": 0.028
   },
   "2026-08-02": {
     "Gross Seats": 5906.0,
@@ -5289,7 +8243,15 @@
     "Service Cancel Pax Impacted": 123.0,
     "Impacted %": 0.0466,
     "Total Pax Impacted": 275.0,
-    "Cancellations Impact %": 0.0208
+    "Cancellations Impact %": 0.0208,
+    "Call Drop Not Done": 2.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 3.0,
+    "Call Not Done %": 0.2,
+    "Agent Disconnected": 5.0,
+    "Agent Disconnected %": 0.0208,
+    "Call Not Disposed": 12.0,
+    "Call Not Disposed %": 0.05
   },
   "2026-08-03": {
     "Gross Seats": 5917.0,
@@ -5317,7 +8279,15 @@
     "Service Cancel Pax Impacted": 20.0,
     "Impacted %": 0.0235,
     "Total Pax Impacted": 105.0,
-    "Cancellations Impact %": 0.0045
+    "Cancellations Impact %": 0.0045,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0116,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0173
   },
   "2026-08-05": {
     "Gross Seats": 5112.0,
@@ -5330,7 +8300,15 @@
     "Delay Pax Impacted": 191.0,
     "Impacted %": 0.0374,
     "Total Pax Impacted": 191.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 10.0,
+    "Call Not Disposed %": 0.0467
   },
   "2026-08-06": {
     "Gross Seats": 5387.0,
@@ -5345,7 +8323,15 @@
     "Service Cancel Pax Impacted": 21.0,
     "Impacted %": 0.0338,
     "Total Pax Impacted": 182.0,
-    "Cancellations Impact %": 0.0039
+    "Cancellations Impact %": 0.0039,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 5.0,
+    "Call Not Disposed %": 0.0183
   },
   "2026-09-01": {
     "Gross Seats": 3745.0,
@@ -5360,7 +8346,15 @@
     "Service Cancel Pax Impacted": 5.0,
     "Impacted %": 0.0563,
     "Total Pax Impacted": 211.0,
-    "Cancellations Impact %": 0.0013
+    "Cancellations Impact %": 0.0013,
+    "Call Drop Not Done": 7.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 7.0,
+    "Call Not Done %": 0.44,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.009,
+    "Call Not Disposed": 11.0,
+    "Call Not Disposed %": 0.0493
   },
   "2026-09-02": {
     "Gross Seats": 4268.0,
@@ -5373,7 +8367,15 @@
     "Service Cancel Pax Impacted": 49.0,
     "Impacted %": 0.0115,
     "Total Pax Impacted": 49.0,
-    "Cancellations Impact %": 0.0115
+    "Cancellations Impact %": 0.0115,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 3.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-09-03": {
     "Gross Seats": 3857.0,
@@ -5390,7 +8392,15 @@
     "Break Down Pax Impacted": 40.0,
     "Impacted %": 0.0513,
     "Total Pax Impacted": 198.0,
-    "Cancellations Impact %": 0.0122
+    "Cancellations Impact %": 0.0122,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0114
   },
   "2026-09-04": {
     "Gross Seats": 4275.0,
@@ -5405,7 +8415,15 @@
     "Service Cancel Pax Impacted": 25.0,
     "Impacted %": 0.0161,
     "Total Pax Impacted": 69.0,
-    "Cancellations Impact %": 0.0058
+    "Cancellations Impact %": 0.0058,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0099,
+    "Call Not Disposed": 2.0,
+    "Call Not Disposed %": 0.0099
   },
   "2026-09-05": {
     "Gross Seats": 5298.0,
@@ -5418,7 +8436,15 @@
     "Delay Pax Impacted": 376.0,
     "Impacted %": 0.071,
     "Total Pax Impacted": 376.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 5.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 5.0,
+    "Call Not Done %": 0.26,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0043,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0346
   },
   "2026-09-06": {
     "Gross Seats": 4876.0,
@@ -5433,7 +8459,15 @@
     "Service Cancel Pax Impacted": 22.0,
     "Impacted %": 0.0459,
     "Total Pax Impacted": 224.0,
-    "Cancellations Impact %": 0.0045
+    "Cancellations Impact %": 0.0045,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.06,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 11.0,
+    "Call Not Disposed %": 0.0487
   },
   "2026-10-01": {
     "Gross Seats": 4005.0,
@@ -5448,7 +8482,15 @@
     "Service Cancel Pax Impacted": 35.0,
     "Impacted %": 0.0552,
     "Total Pax Impacted": 221.0,
-    "Cancellations Impact %": 0.0087
+    "Cancellations Impact %": 0.0087,
+    "Call Drop Not Done": 4.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 0.25,
+    "Agent Disconnected": 4.0,
+    "Agent Disconnected %": 0.0181,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.0317
   },
   "2026-10-02": {
     "Gross Seats": 3350.0,
@@ -5463,7 +8505,15 @@
     "Service Cancel Pax Impacted": 33.0,
     "Impacted %": 0.0182,
     "Total Pax Impacted": 61.0,
-    "Cancellations Impact %": 0.0099
+    "Cancellations Impact %": 0.0099,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-10-03": {
     "Gross Seats": 3404.0,
@@ -5480,7 +8530,15 @@
     "Break Down Pax Impacted": 8.0,
     "Impacted %": 0.02,
     "Total Pax Impacted": 68.0,
-    "Cancellations Impact %": 0.0147
+    "Cancellations Impact %": 0.0147,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0061
   },
   "2026-10-04": {
     "Gross Seats": 4526.0,
@@ -5495,7 +8553,15 @@
     "Service Cancel Pax Impacted": 42.0,
     "Impacted %": 0.0378,
     "Total Pax Impacted": 171.0,
-    "Cancellations Impact %": 0.0093
+    "Cancellations Impact %": 0.0093,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0138,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0046
   },
   "2026-10-05": {
     "Gross Seats": 5281.0,
@@ -5512,7 +8578,15 @@
     "Break Down Pax Impacted": 18.0,
     "Impacted %": 0.0447,
     "Total Pax Impacted": 236.0,
-    "Cancellations Impact %": 0.0064
+    "Cancellations Impact %": 0.0064,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.06,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 12.0,
+    "Call Not Disposed %": 0.0566
   },
   "2026-10-06": {
     "Gross Seats": 5232.0,
@@ -5527,7 +8601,15 @@
     "Service Cancel Pax Impacted": 20.0,
     "Impacted %": 0.0147,
     "Total Pax Impacted": 77.0,
-    "Cancellations Impact %": 0.0038
+    "Cancellations Impact %": 0.0038,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.07,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0362
   },
   "2026-11-01": {
     "Gross Seats": 3929.0,
@@ -5540,7 +8622,15 @@
     "Delay Pax Impacted": 77.0,
     "Impacted %": 0.0196,
     "Total Pax Impacted": 77.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 2.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.29,
+    "Agent Disconnected": 3.0,
+    "Agent Disconnected %": 0.0173,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.0405
   },
   "2026-11-02": {
     "Gross Seats": 3643.0,
@@ -5553,7 +8643,15 @@
     "Service Cancel Pax Impacted": 46.0,
     "Impacted %": 0.0126,
     "Total Pax Impacted": 46.0,
-    "Cancellations Impact %": 0.0126
+    "Cancellations Impact %": 0.0126,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 1.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.11,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 0.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-11-03": {
     "Gross Seats": 3637.0,
@@ -5568,7 +8666,15 @@
     "Service Cancel Pax Impacted": 39.0,
     "Impacted %": 0.0203,
     "Total Pax Impacted": 74.0,
-    "Cancellations Impact %": 0.0107
+    "Cancellations Impact %": 0.0107,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0065
   },
   "2026-11-04": {
     "Gross Seats": 4919.0,
@@ -5585,7 +8691,15 @@
     "Break Down Pax Impacted": 40.0,
     "Impacted %": 0.0484,
     "Total Pax Impacted": 238.0,
-    "Cancellations Impact %": 0.0057
+    "Cancellations Impact %": 0.0057,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 2.0,
+    "Agent Disconnected %": 0.0087,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0174
   },
   "2026-11-05": {
     "Gross Seats": 4899.0,
@@ -5602,7 +8716,15 @@
     "Break Down Pax Impacted": 20.0,
     "Impacted %": 0.0349,
     "Total Pax Impacted": 171.0,
-    "Cancellations Impact %": 0.0051
+    "Cancellations Impact %": 0.0051,
+    "Call Drop Not Done": 2.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.11,
+    "Agent Disconnected": 4.0,
+    "Agent Disconnected %": 0.017,
+    "Call Not Disposed": 9.0,
+    "Call Not Disposed %": 0.0383
   },
   "2026-11-06": {
     "Gross Seats": 5094.0,
@@ -5617,7 +8739,15 @@
     "Service Cancel Pax Impacted": 31.0,
     "Impacted %": 0.034,
     "Total Pax Impacted": 173.0,
-    "Cancellations Impact %": 0.0061
+    "Cancellations Impact %": 0.0061,
+    "Call Drop Not Done": 1.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 1.0,
+    "Call Not Done %": 0.05,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0386
   },
   "2026-12-01": {
     "Gross Seats": 3576.0,
@@ -5632,7 +8762,15 @@
     "Service Cancel Pax Impacted": 17.0,
     "Impacted %": 0.0252,
     "Total Pax Impacted": 90.0,
-    "Cancellations Impact %": 0.0048
+    "Cancellations Impact %": 0.0048,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0057,
+    "Call Not Disposed": 9.0,
+    "Call Not Disposed %": 0.0517
   },
   "2026-12-02": {
     "Gross Seats": 3687.0,
@@ -5647,7 +8785,15 @@
     "Service Cancel Pax Impacted": 23.0,
     "Impacted %": 0.0149,
     "Total Pax Impacted": 55.0,
-    "Cancellations Impact %": 0.0062
+    "Cancellations Impact %": 0.0062,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 1.0,
+    "Call Not Disposed %": 0.0
   },
   "2026-12-03": {
     "Gross Seats": 3764.0,
@@ -5662,7 +8808,15 @@
     "Service Cancel Pax Impacted": 39.0,
     "Impacted %": 0.0327,
     "Total Pax Impacted": 123.0,
-    "Cancellations Impact %": 0.0104
+    "Cancellations Impact %": 0.0104,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 7.0,
+    "Call Not Disposed %": 0.0483
   },
   "2026-12-04": {
     "Gross Seats": 4784.0,
@@ -5677,7 +8831,15 @@
     "Service Cancel Pax Impacted": 38.0,
     "Impacted %": 0.0232,
     "Total Pax Impacted": 111.0,
-    "Cancellations Impact %": 0.0079
+    "Cancellations Impact %": 0.0079,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 0.0,
+    "Call Not Done %": 0.0,
+    "Agent Disconnected": 5.0,
+    "Agent Disconnected %": 0.0229,
+    "Call Not Disposed": 4.0,
+    "Call Not Disposed %": 0.0183
   },
   "2026-12-05": {
     "Gross Seats": 4568.0,
@@ -5692,7 +8854,15 @@
     "Service Cancel Pax Impacted": 74.0,
     "Impacted %": 0.0188,
     "Total Pax Impacted": 86.0,
-    "Cancellations Impact %": 0.0162
+    "Cancellations Impact %": 0.0162,
+    "Call Drop Not Done": 4.0,
+    "Blank Call Not Done": 0.0,
+    "Overall Call Not Done": 4.0,
+    "Call Not Done %": 0.27,
+    "Agent Disconnected": 1.0,
+    "Agent Disconnected %": 0.0053,
+    "Call Not Disposed": 10.0,
+    "Call Not Disposed %": 0.0535
   },
   "2026-12-06": {
     "Gross Seats": 5348.0,
@@ -5705,6 +8875,14 @@
     "Delay Pax Impacted": 36.0,
     "Impacted %": 0.0067,
     "Total Pax Impacted": 36.0,
-    "Cancellations Impact %": 0.0
+    "Cancellations Impact %": 0.0,
+    "Call Drop Not Done": 0.0,
+    "Blank Call Not Done": 2.0,
+    "Overall Call Not Done": 2.0,
+    "Call Not Done %": 0.1,
+    "Agent Disconnected": 0.0,
+    "Agent Disconnected %": 0.0,
+    "Call Not Disposed": 8.0,
+    "Call Not Disposed %": 0.0352
   }
 }

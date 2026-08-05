@@ -93,6 +93,16 @@ class DailyManualMetric(TenantBase):
     impacted_pct             = Column(Float)   # decimal e.g. 0.0435
     cancellations_impact_pct = Column(Float)   # decimal
 
+    # New Inbound Metrics
+    call_drop_not_done       = Column(Integer)
+    blank_call_not_done      = Column(Integer)
+    overall_call_not_done    = Column(Integer)
+    call_not_done_pct        = Column(Float)
+    agent_disconnected       = Column(Integer)
+    agent_disconnected_pct   = Column(Float)
+    call_not_disposed        = Column(Integer)
+    call_not_disposed_pct    = Column(Float)
+
 
 class ProcessedSync(TenantBase):
     __tablename__ = "processed_syncs"

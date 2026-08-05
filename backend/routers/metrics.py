@@ -307,19 +307,22 @@ def read_aggregated_metrics(
             # Average out Headcount and Percentages/Ratios instead of summing them
             avg_keys = [
                 'Present Agent HC', 'Intr/Journey %', 'Travel update %', 
-                'Impacted %', 'Cancellations Impact %', 'Intr/Journey', 'Defects/Journey'
+                'Impacted %', 'Cancellations Impact %', 'Intr/Journey', 'Defects/Journey',
+                'Call Not Done %', 'Agent Disconnected %', 'Call Not Disposed %'
             ]
             for k in avg_keys:
                 if k in aggregated_manual:
-                    aggregated_manual[k] = round(aggregated_manual[k] / days_counted, 2)
+                    aggregated_manual[k] = round(aggregated_manual[k] / days_counted, 4)
             # Also round Intr/Journey if it exists
             if 'Intr/Journey' in aggregated_manual:
-                aggregated_manual['Intr/Journey'] = round(aggregated_manual['Intr/Journey'], 2)
+                aggregated_manual['Intr/Journey'] = round(aggregated_manual['Intr/Journey'], 4)
                     
-            # Explicitly multiply Impact metrics by 100 to show correct percentage scale
-            for k in ['Impacted %', 'Cancellations Impact %']:
+            # Explicitly multiply Impact metrics by 100 to show correct percentage scale if stored as decimal
+            for k in ['Impacted %', 'Cancellations Impact %', 'Call Not Done %', 'Agent Disconnected %', 'Call Not Disposed %']:
                 if k in aggregated_manual:
-                    aggregated_manual[k] = aggregated_manual[k] * 100
+                    if aggregated_manual[k] <= 1.0:
+                        aggregated_manual[k] = aggregated_manual[k] * 100
+                    aggregated_manual[k] = round(aggregated_manual[k], 2)
 
     # override agent_hc and gross_tickets from manual metrics if available
     agent_hc = int(round(aggregated_manual.get("Present Agent HC", 10)))
@@ -374,12 +377,39 @@ def read_aggregated_metrics(
     # Fallback to raw DB if no JSON data for this date range (e.g. dates after Jul 14)
     if not has_json_data:
         call_drop = int((df['Disposition'].astype(str).str.strip().str.lower() == 'call drop').sum())
-        blank_call = int((df['Disposition'].astype(str).str.strip().str.lower() == 'others_blank call').sum())
-        call_drop_not_done = int(((df['Disposition'].astype(str).str.strip().str.lower() == 'call drop') & (df['Comments'].astype(str).str.strip() == '')).sum())
-        blank_call_not_done = int(((df['Disposition'].astype(str).str.strip().str.lower() == 'others_blank call') & (df['Comments'].astype(str).str.strip() == '')).sum())
-        overall_call_not_done = call_drop_not_done + blank_call_not_done
-        agent_disconnected = int(((df['Status'].str.lower() == 'answered') & (df['Hangup_By'].astype(str).str.lower().str.strip() == 'agenthangup')).sum())
-        call_not_disposed = int(((df['Status'].str.lower() == 'answered') & (df['Disposition'].astype(str).str.strip() == '')).sum())
+        blank_call = int(((df['Disposition'].astype(str).str.strip().str.lower() == 'others_blank call') & (df['Duration_Sec'] > 5)).sum())
+        
+        # Pull counts from manual metrics JSON first
+        m_call_drop_nd = aggregated_manual.get("Call Drop Not Done")
+        m_blank_call_nd = aggregated_manual.get("Blank Call Not Done")
+        m_overall_nd = aggregated_manual.get("Overall Call Not Done")
+        m_agent_disc = aggregated_manual.get("Agent Disconnected")
+        m_call_ndisp = aggregated_manual.get("Call Not Disposed")
+
+        if m_call_drop_nd is not None:
+            call_drop_not_done = int(round(m_call_drop_nd))
+        else:
+            call_drop_not_done = int(((df['Disposition'].astype(str).str.strip().str.lower() == 'call drop') & (df['Comments'].astype(str).str.strip() == '')).sum())
+
+        if m_blank_call_nd is not None:
+            blank_call_not_done = int(round(m_blank_call_nd))
+        else:
+            blank_call_not_done = int(((df['Disposition'].astype(str).str.strip().str.lower() == 'others_blank call') & (df['Duration_Sec'] > 5) & (df['Comments'].astype(str).str.strip() == '')).sum())
+
+        if m_overall_nd is not None:
+            overall_call_not_done = int(round(m_overall_nd))
+        else:
+            overall_call_not_done = call_drop_not_done + blank_call_not_done
+
+        if m_agent_disc is not None:
+            agent_disconnected = int(round(m_agent_disc))
+        else:
+            agent_disconnected = int(((df['Status'].str.lower() == 'answered') & (df['Hangup_By'].astype(str).str.lower().str.strip() == 'agenthangup')).sum())
+
+        if m_call_ndisp is not None:
+            call_not_disposed = int(round(m_call_ndisp))
+        else:
+            call_not_disposed = int(((df['Status'].str.lower() == 'answered') & (df['Disposition'].astype(str).str.strip() == '')).sum())
 
     call_back = call_drop + blank_call
 
@@ -393,8 +423,17 @@ def read_aggregated_metrics(
     long_call_pct = (long_calls_5m / calls_answered * 100) if calls_answered > 0 else 0
     call_per_agent = (calls_answered / agent_hc) if agent_hc > 0 else 0
     hold_call_pct = (on_hold_calls / calls_answered * 100) if calls_answered > 0 else 0
-    call_not_done_pct = (overall_call_not_done / call_back * 100) if call_back > 0 else 0
-    call_not_disposed_pct = (call_not_disposed / calls_answered * 100) if calls_answered > 0 else 0
+    call_not_done_pct_manual = aggregated_manual.get("Call Not Done %")
+    if call_not_done_pct_manual is not None:
+        call_not_done_pct = float(call_not_done_pct_manual)
+    else:
+        call_not_done_pct = (overall_call_not_done / call_back * 100) if call_back > 0 else 0
+
+    call_not_disposed_pct_manual = aggregated_manual.get("Call Not Disposed %")
+    if call_not_disposed_pct_manual is not None:
+        call_not_disposed_pct = float(call_not_disposed_pct_manual)
+    else:
+        call_not_disposed_pct = (call_not_disposed / calls_answered * 100) if calls_answered > 0 else 0
     
     # Repeat percentages
     # Same Day Repeat % denominator = Total Calls Offered (matches Excel row 36 formula)
@@ -405,7 +444,12 @@ def read_aggregated_metrics(
     # Journey Metrics (using gross_tickets manual entry)
     intr_journey_pct = ((inbound_wh_offered - gross_tickets) / inbound_wh_offered * 100) if inbound_wh_offered > 0 else 0
     travel_update_util_pct = ((travel_update_offered - gross_tickets) / travel_update_offered * 100) if travel_update_offered > 0 else 0
-    agent_disconnected_pct = (agent_disconnected / calls_answered * 100) if calls_answered > 0 else 0
+
+    agent_disconnected_pct_manual = aggregated_manual.get("Agent Disconnected %")
+    if agent_disconnected_pct_manual is not None:
+        agent_disconnected_pct = float(agent_disconnected_pct_manual)
+    else:
+        agent_disconnected_pct = (agent_disconnected / calls_answered * 100) if calls_answered > 0 else 0
 
     # --- BUCKETIZATION CALCULATIONS ---
     # TTA Buckets: 0-10s, 11-30s, 31-60s, 1-2m, >2m

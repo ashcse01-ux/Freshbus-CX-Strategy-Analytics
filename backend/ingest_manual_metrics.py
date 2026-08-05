@@ -40,6 +40,14 @@ METRIC_ROW_MAP = {
     "Impacted %":                        16,
     "Total Pax Impacted":                17,
     "Cancellations Impact %":            18,
+    "Call Drop Not Done":                20,
+    "Blank Call Not Done":                21,
+    "Overall Call Not Done":              22,
+    "Call Not Done %":                    23,
+    "Agent Disconnected":                 25,
+    "Agent Disconnected %":               26,
+    "Call Not Disposed":                  28,
+    "Call Not Disposed %":                29,
 }
 # ─────────────────────────────────────────────────────────────────────────────
 
@@ -143,6 +151,8 @@ def ingest():
         day_json = {k: v for k, v in raw.items() if v is not None}
         existing_json[date_key] = day_json
 
+        in_range = (datetime(2026, 1, 1) <= dt <= datetime(2026, 8, 2))
+
         # ── Build DB record ───────────────────────────────────────────────
         db_row = models.DailyManualMetric(
             date                    = date_key,
@@ -163,6 +173,15 @@ def ingest():
             impacted_pct            = raw.get("Impacted %"),
             total_pax_impacted      = to_int(raw.get("Total Pax Impacted")),
             cancellations_impact_pct= raw.get("Cancellations Impact %"),
+            
+            call_drop_not_done       = to_int(raw.get("Call Drop Not Done")) if in_range else None,
+            blank_call_not_done      = to_int(raw.get("Blank Call Not Done")) if in_range else None,
+            overall_call_not_done    = to_int(raw.get("Overall Call Not Done")) if in_range else None,
+            call_not_done_pct        = raw.get("Call Not Done %") if in_range else None,
+            agent_disconnected       = to_int(raw.get("Agent Disconnected")) if in_range else None,
+            agent_disconnected_pct   = raw.get("Agent Disconnected %") if in_range else None,
+            call_not_disposed        = to_int(raw.get("Call Not Disposed")) if in_range else None,
+            call_not_disposed_pct    = raw.get("Call Not Disposed %") if in_range else None,
         )
 
         # Upsert: delete existing row for this date then re-insert

@@ -223,6 +223,13 @@ def get_excel_view(parent_campaign: str = Query("Inbound")):
             service_breakdown_count = sum(getattr(r, 'service_breakdown_count', 0) or 0 for r in sub_manual)
             breakdown_pax_impacted = sum(getattr(r, 'breakdown_pax_impacted', 0) or 0 for r in sub_manual)
             total_pax_impacted = sum(getattr(r, 'total_pax_impacted', 0) or 0 for r in sub_manual)
+
+            # Manual metrics for new drop/disconnect/disposed fields
+            call_drop_not_done_manual = sum(getattr(r, 'call_drop_not_done', 0) or 0 for r in sub_manual) if sub_manual else None
+            blank_call_not_done_manual = sum(getattr(r, 'blank_call_not_done', 0) or 0 for r in sub_manual) if sub_manual else None
+            overall_call_not_done_manual = sum(getattr(r, 'overall_call_not_done', 0) or 0 for r in sub_manual) if sub_manual else None
+            agent_disconnected_manual = sum(getattr(r, 'agent_disconnected', 0) or 0 for r in sub_manual) if sub_manual else None
+            call_not_disposed_manual = sum(getattr(r, 'call_not_disposed', 0) or 0 for r in sub_manual) if sub_manual else None
             
             # Manual metrics averages
             def avg_attr(attr):
@@ -237,6 +244,10 @@ def get_excel_view(parent_campaign: str = Query("Inbound")):
             intr_journey_travel = avg_attr('intr_journey_travel')
             impacted_pct = avg_attr('impacted_pct')
             cancellations_impact_pct = avg_attr('cancellations_impact_pct')
+
+            call_not_done_pct_manual = avg_attr('call_not_done_pct')
+            agent_disconnected_pct_manual = avg_attr('agent_disconnected_pct')
+            call_not_disposed_pct_manual = avg_attr('call_not_disposed_pct')
 
             # Call metrics calculations
             total_calls = len(sub_df)
@@ -317,13 +328,46 @@ def get_excel_view(parent_campaign: str = Query("Inbound")):
                         
             if not has_json_data:
                 call_drop = len(sub_df[sub_df['Disposition'] == 'call drop'])
-                blank_call = len(sub_df[sub_df['Disposition'] == 'others_blank call'])
+                blank_call = len(sub_df[(sub_df['Disposition'] == 'others_blank call') & (sub_df['Duration_Sec'] > 5)])
                 call_drop_not_done = len(sub_df[(sub_df['Disposition'] == 'call drop') & (sub_df['Comments'] == '')])
-                blank_call_not_done = len(sub_df[(sub_df['Disposition'] == 'others_blank call') & (sub_df['Comments'] == '')])
+                blank_call_not_done = len(sub_df[(sub_df['Disposition'] == 'others_blank call') & (sub_df['Duration_Sec'] > 5) & (sub_df['Comments'] == '')])
                 overall_call_not_done = call_drop_not_done + blank_call_not_done
+
+            # Prioritize manual metrics DB/Excel rows if available
+            if call_drop_not_done_manual is not None:
+                call_drop_not_done = call_drop_not_done_manual
+            if blank_call_not_done_manual is not None:
+                blank_call_not_done = blank_call_not_done_manual
+            if overall_call_not_done_manual is not None:
+                overall_call_not_done = overall_call_not_done_manual
                 
             call_back = call_drop + blank_call
-            call_not_done_pct = (overall_call_not_done / call_back * 100) if call_back > 0 else 0
+            
+            if call_not_done_pct_manual is not None:
+                call_not_done_pct = call_not_done_pct_manual * 100 if call_not_done_pct_manual <= 1.0 else call_not_done_pct_manual
+            else:
+                call_not_done_pct = (overall_call_not_done / call_back * 100) if call_back > 0 else 0
+
+            # Calculate agent disconnection and call disposal metrics
+            if agent_disconnected_manual is not None:
+                agent_disconnected = agent_disconnected_manual
+            else:
+                agent_disconnected = len(sub_df[(sub_df['Status'] == 'answered') & (sub_df['Hangup_By'] == 'agenthangup')])
+
+            if agent_disconnected_pct_manual is not None:
+                agent_disconnected_pct = agent_disconnected_pct_manual * 100 if agent_disconnected_pct_manual <= 1.0 else agent_disconnected_pct_manual
+            else:
+                agent_disconnected_pct = (agent_disconnected / ans * 100) if ans > 0 else 0
+
+            if call_not_disposed_manual is not None:
+                call_not_disposed = call_not_disposed_manual
+            else:
+                call_not_disposed = len(sub_df[(sub_df['Status'] == 'answered') & (sub_df['Disposition'] == '')])
+
+            if call_not_disposed_pct_manual is not None:
+                call_not_disposed_pct = call_not_disposed_pct_manual * 100 if call_not_disposed_pct_manual <= 1.0 else call_not_disposed_pct_manual
+            else:
+                call_not_disposed_pct = (call_not_disposed / ans * 100) if ans > 0 else 0
 
             calculated_columns.append({
                 "Gross Seats": fmt_num(gross_seats) if sub_manual else "",
@@ -382,7 +426,11 @@ def get_excel_view(parent_campaign: str = Query("Inbound")):
                 "Call Drop Not Done": fmt_num(call_drop_not_done),
                 "Blank Call Not Done": fmt_num(blank_call_not_done),
                 "Overall Call Not Done": fmt_num(overall_call_not_done),
-                "Call Not Done %": fmt_pct(call_not_done_pct)
+                "Call Not Done %": fmt_pct(call_not_done_pct),
+                "Agent Disconnected": fmt_num(agent_disconnected),
+                "Agent Disconnected %": fmt_pct(agent_disconnected_pct),
+                "Call Not Disposed": fmt_num(call_not_disposed),
+                "Call Not Disposed %": fmt_pct(call_not_disposed_pct)
             })
 
         # 4. Map values back to metrics array (reordered: call metrics first, then manual metrics)
@@ -397,7 +445,9 @@ def get_excel_view(parent_campaign: str = Query("Inbound")):
             "Calls Offered (Inbound +Women Helpline)", "Calls Offered (Travel Update)",
             "Repeat calls", "Same Day Repeat %", "Call Drop", "Blank Call",
             "Call Back (Call Drop + Blank Call)", "Call Drop Not Done", "Blank Call Not Done",
-            "Overall Call Not Done", "Call Not Done %"
+            "Overall Call Not Done", "Call Not Done %",
+            "Agent Disconnected", "Agent Disconnected %",
+            "Call Not Disposed", "Call Not Disposed %"
         ]
 
         manual_metric_names = [
