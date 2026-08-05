@@ -356,7 +356,10 @@ def map_ozonetel_to_model(oz_row):
         if model_key in categorical_cols:
             record_dict[model_key] = normalize_categorical(val)
         else:
-            record_dict[model_key] = str(val).strip() if val is not None else ""
+            val_str = str(val).strip() if val is not None else ""
+            if model_key == "Ratings" and (val_str == "" or val_str.lower() in ("none", "nan", "null")):
+                val_str = "0"
+            record_dict[model_key] = val_str
             
     # Always resolve chained agents (A -> B -> C) to the final agent bucket
     if record_dict.get("Agent") and "->" in record_dict["Agent"]:

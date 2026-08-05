@@ -76,12 +76,13 @@ def read_aggregated_metrics(
 
     # --- ROBUST NORMALIZATION ---
     # Convert all object columns to lowercase and strip whitespace
-    text_cols = ['Agent', 'Status', 'Campaign', 'Disposition', 'Hangup_By', 'DID', 'Skill', 'Call_Type', 'Dial_Status', 'Transfer_Details', 'Ratings']
+    text_cols = ['Agent', 'Status', 'Campaign', 'Disposition', 'Hangup_By', 'DID', 'Skill', 'Call_Type', 'Dial_Status', 'Transfer_Details']
     for col in text_cols:
         if col in df.columns:
             df[col] = df[col].astype(str).str.strip().str.lower()
             # Special case: handle 'none' or 'nan' as empty strings
             df.loc[df[col].isin(['nan', 'none', 'null']), col] = ''
+
 
     # Date/Time Normalization
     df['Call_Date_DT'] = pd.to_datetime(df['Call_Date'], format='%d-%m-%Y', errors='coerce')
