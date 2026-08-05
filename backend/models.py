@@ -56,6 +56,44 @@ class CallRecord(TenantBase):
     DynamicDid = Column(String)
     DID = Column(String, index=True)
 
+class DailyManualMetric(TenantBase):
+    """One row per date — stores all manual/operational metrics from the Excel sheet."""
+    __tablename__ = "daily_manual_metrics"
+    id              = Column(Integer, primary_key=True, index=True)
+    date            = Column(String, unique=True, index=True)   # YYYY-MM-DD
+
+    # Business volume
+    gross_seats     = Column(Float)
+    gross_tickets   = Column(Float)
+
+    # Journey interaction
+    intr_journey_overall    = Column(Float)   # ratio  e.g. 0.0531
+    intr_journey_inbound_wh = Column(Float)   # ratio
+    intr_journey_travel     = Column(Float)   # ratio
+
+    # Quality
+    defects         = Column(Float)
+    defects_journey = Column(Float)
+
+    # Headcount
+    present_agent_hc = Column(Integer)
+
+    # Service disruptions — counts
+    service_delay_count     = Column(Integer)
+    service_cancel_count    = Column(Integer)
+    service_breakdown_count = Column(Integer)
+
+    # Service disruptions — pax impacted
+    delay_pax_impacted     = Column(Integer)
+    cancel_pax_impacted    = Column(Integer)
+    breakdown_pax_impacted = Column(Integer)
+    total_pax_impacted     = Column(Integer)
+
+    # Impact percentages
+    impacted_pct             = Column(Float)   # decimal e.g. 0.0435
+    cancellations_impact_pct = Column(Float)   # decimal
+
+
 class ProcessedSync(TenantBase):
     __tablename__ = "processed_syncs"
     id = Column(Integer, primary_key=True, index=True)

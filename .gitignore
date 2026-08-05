@@ -14,3 +14,7 @@ freshbus/
 # Large data files
 *.xlsx
 *.csv
+
+# Exception: allow the manual metrics dump folder to be tracked
+!additional_metrics_dump/
+!additional_metrics_dump/**
