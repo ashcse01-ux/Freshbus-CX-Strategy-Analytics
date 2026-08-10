@@ -598,16 +598,16 @@ async def bootstrap_historical_data():
                 base_date = pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None)
                 missing_dates = get_missing_dates(tenant_db, base_date, group.name, days=15)
 
-                # Always include today's date to fetch real-time call records
+                # Always sync today first so "Today" view has live data before backfill
                 today_str = base_date.strftime("%Y-%m-%d")
-                if today_str not in missing_dates:
-                    missing_dates.append(today_str)
+                missing_dates = [d for d in missing_dates if d != today_str]
+                missing_dates.insert(0, today_str)
 
                 if not missing_dates:
                     print(f" {group.name}: All 15 days covered.")
                     continue
 
-                print(f" {group.name} Bootstrap  filling {len(missing_dates)} days.")
+                print(f" {group.name} Bootstrap  filling {len(missing_dates)} days (today first).")
                 total, token = await ingest_days(tenant_db, missing_dates, token, group, label=f"Bootstrap-{group.name}")
 
                 if total > 0:
@@ -646,10 +646,10 @@ async def run_sync_api(campaign: str = "Inbound", db_master: Session = Depends(g
         base_date = pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None)
         missing_dates = get_missing_dates(db_tenant, base_date, campaign, days=15)
 
-        # Always include today's date to fetch real-time call records
+        # Always sync today first so "Today" view has live data before backfill
         today_str = base_date.strftime("%Y-%m-%d")
-        if today_str not in missing_dates:
-            missing_dates.append(today_str)
+        missing_dates = [d for d in missing_dates if d != today_str]
+        missing_dates.insert(0, today_str)
 
         if not missing_dates:
             return {"status": "up_to_date", "message": f"All 15 days already covered for {campaign}.", "total_integrated": 0}

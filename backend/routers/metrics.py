@@ -136,39 +136,42 @@ def read_aggregated_metrics(
         df = df.drop(columns=['_status_score', '_agent_score', '_disp_score', 'Min_Timestamp', 'Actual_Answer_Time', 'Actual_End_Time', 'Max_End_Timestamp', 'Cum_TTA_Sec', 'Cum_Dur_Sec', 'temp_TTA_Sec', 'temp_Dur_Sec'])
 
     # --- DEFAULT DATE INTELLIGENCE ---
-    # We want "Today" for Daily, but if Today is empty, fall back to the Latest Day found.
-    # Weekly and Monthly should show the trailing windows.
+    # Use IST to match OzoneTel sync / ops calendar.
     latest_db_date = df['Call_Date_DT'].max()
-    current_today = pd.Timestamp.now().normalize()
+    now_ist = pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None)
+    current_today = now_ist.normalize()
     
     if not start_date and not end_date:
         if view_type.lower() == "1hr":
-            base_time = df['Timestamp'].max()
-            if pd.notna(base_time):
-                df = df[df['Timestamp'] >= (base_time - pd.Timedelta(hours=1))]
+            df = df[df['Timestamp'] >= (now_ist - pd.Timedelta(hours=1))]
         elif view_type.lower() == "2hr":
-            base_time = df['Timestamp'].max()
-            if pd.notna(base_time):
-                df = df[df['Timestamp'] >= (base_time - pd.Timedelta(hours=2))]
+            df = df[df['Timestamp'] >= (now_ist - pd.Timedelta(hours=2))]
         elif view_type.lower() == "3hr":
-            base_time = df['Timestamp'].max()
-            if pd.notna(base_time):
-                df = df[df['Timestamp'] >= (base_time - pd.Timedelta(hours=3))]
+            df = df[df['Timestamp'] >= (now_ist - pd.Timedelta(hours=3))]
         elif view_type.lower() == "daily":
-            # Focus on today, fallback to latest available day in DB
-            if (df['Call_Date_DT'] == current_today).any():
-                df = df[df['Call_Date_DT'] == current_today]
-            else:
-                df = df[df['Call_Date_DT'] == latest_db_date]
+            # Strictly calendar today — never silently substitute another day
+            df = df[df['Call_Date_DT'] == current_today]
         elif view_type.lower() == "yesterday":
             yesterday = current_today - pd.Timedelta(days=1)
             df = df[df['Call_Date_DT'] == yesterday]
         elif view_type.lower() == "weekly":
             start_of_week = current_today - pd.Timedelta(days=current_today.weekday())
-            df = df[(df['Call_Date_DT'] >= start_of_week) & (df['Call_Date_DT'] <= current_today)]
+            week_df = df[(df['Call_Date_DT'] >= start_of_week) & (df['Call_Date_DT'] <= current_today)]
+            # Calendar week can be empty early in the week (e.g. Monday with only prior-week data).
+            # Fall back to the last 7 days that actually exist in the DB.
+            if week_df.empty and pd.notna(latest_db_date):
+                df = df[(df['Call_Date_DT'] >= (latest_db_date - pd.Timedelta(days=6))) & (df['Call_Date_DT'] <= latest_db_date)]
+            else:
+                df = week_df
         elif view_type.lower() == "monthly":
             start_of_month = current_today.replace(day=1)
-            df = df[(df['Call_Date_DT'] >= start_of_month) & (df['Call_Date_DT'] <= current_today)]
+            month_df = df[(df['Call_Date_DT'] >= start_of_month) & (df['Call_Date_DT'] <= current_today)]
+            if month_df.empty and pd.notna(latest_db_date):
+                month_start = latest_db_date.replace(day=1)
+                df = df[(df['Call_Date_DT'] >= month_start) & (df['Call_Date_DT'] <= latest_db_date)]
+            else:
+                df = month_df
+
     else:
         # Respect explicit filters from Calendar
         if start_date:
