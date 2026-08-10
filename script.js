@@ -9,7 +9,7 @@
   // Base URL for backend API requests.
   // When running on GitHub Pages, this defaults to your local backend (http://localhost:8000) so you can test it.
   // If you deploy your backend to the cloud (e.g. Render, AWS), replace this with your deployed backend URL.
-  const API_BASE = 'http://localhost:8000';
+  const API_BASE = 'http://localhost:8001';
 
   /* ─────────────────────────────────────────────────────
      GUARD — only initialise on /inbound or inbound.html

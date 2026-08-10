@@ -334,10 +334,15 @@ def read_aggregated_metrics(
     repeat_mask = df.duplicated(subset=['Caller_No', 'Day_Key'], keep='first')
     repeat_calls_count = int(repeat_mask.sum())
     
-    # Same Day Same Disposition Repeat: exclude blank dispositions
-    # keep='first' = each caller's 2nd, 3rd, etc. same-disp calls are counted (matches Excel)
-    disp_df = df[df['Disposition'].str.strip() != '']
-    disp_repeat_mask = disp_df.duplicated(subset=['Caller_No', 'Day_Key', 'Disposition'], keep='first')
+    # Same Day Same Disposition Repeat: include blank dispositions
+    # (blank counts as a disposition value — matches Excel "Disposition Wise" Unique/Repeated)
+    # keep='first' = each caller's 2nd, 3rd, etc. same-disp calls are counted
+    disp_key = df['Disposition'].fillna('').astype(str).str.strip()
+    disp_repeat_mask = pd.DataFrame({
+        'Caller_No': df['Caller_No'],
+        'Day_Key': df['Day_Key'],
+        'Disposition': disp_key
+    }).duplicated(subset=['Caller_No', 'Day_Key', 'Disposition'], keep='first')
     same_day_disp_repeat = int(disp_repeat_mask.sum())
 
     # Additional Drop/Disconnect Metrics

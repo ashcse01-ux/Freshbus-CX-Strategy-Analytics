@@ -297,8 +297,13 @@ def get_excel_view(parent_campaign: str = Query("Inbound")):
                 dup_sub = sub_df.duplicated(subset=['Caller_No', 'date_key'], keep='first')
                 repeat_calls_count = int(dup_sub.sum())
                 
-                disp_df = sub_df[sub_df['Disposition'] != '']
-                disp_dup = disp_df.duplicated(subset=['Caller_No', 'date_key', 'Disposition'], keep='first')
+                # Include blank dispositions (blank counts as a disposition value)
+                disp_key = sub_df['Disposition'].fillna('').astype(str).str.strip()
+                disp_dup = pd.DataFrame({
+                    'Caller_No': sub_df['Caller_No'],
+                    'date_key': sub_df['date_key'],
+                    'Disposition': disp_key
+                }).duplicated(subset=['Caller_No', 'date_key', 'Disposition'], keep='first')
                 same_day_disp_repeat = int(disp_dup.sum())
                 
             same_day_disp_repeat_pct = (same_day_disp_repeat / ans * 100) if ans > 0 else 0
