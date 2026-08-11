@@ -1,27 +1,86 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize Date Pickers
-    const today = new Date();
-    const lastWeek = new Date(today);
-    lastWeek.setDate(today.getDate() - 7);
-    
+    // Day-1 only: Jan 1 2026 → yesterday (never today/future)
+    const DATE_MIN = new Date(2026, 0, 1); // 1 Jan 2026
+
+    function getYesterday() {
+        const d = new Date();
+        d.setHours(0, 0, 0, 0);
+        d.setDate(d.getDate() - 1);
+        return d;
+    }
+
+    function earliestOf(a, b) {
+        if (!a) return b;
+        if (!b) return a;
+        return a.getTime() <= b.getTime() ? a : b;
+    }
+
+    function latestOf(a, b) {
+        if (!a) return b;
+        if (!b) return a;
+        return a.getTime() >= b.getTime() ? a : b;
+    }
+
+    function clampToAllowed(date) {
+        const yesterday = getYesterday();
+        let d = new Date(date);
+        d.setHours(0, 0, 0, 0);
+        if (d < DATE_MIN) d = new Date(DATE_MIN);
+        if (d > yesterday) d = new Date(yesterday);
+        return d;
+    }
+
+    let isProgrammaticDateChange = false;
+
+    function applyDateBounds() {
+        const yesterday = getYesterday();
+        const startVal = fpStart.selectedDates[0] || null;
+        const endVal = fpEnd.selectedDates[0] || null;
+
+        fpStart.set('minDate', DATE_MIN);
+        fpStart.set('maxDate', earliestOf(endVal, yesterday));
+
+        fpEnd.set('minDate', latestOf(startVal, DATE_MIN));
+        fpEnd.set('maxDate', yesterday);
+    }
+
     const handleDateChange = () => {
+        applyDateBounds();
+        if (isProgrammaticDateChange) return;
         const vbtns = document.querySelectorAll('.hdr-vbtn');
         vbtns.forEach(b => b.classList.remove('active'));
-        updatePeriodButtonsVisibility('');
     };
+
+    const yesterday = getYesterday();
+    const defaultStart = clampToAllowed(new Date(yesterday.getTime() - 6 * 24 * 60 * 60 * 1000));
 
     // Flatpickr initialization
     const fpStart = flatpickr("#filter_start_date", {
         dateFormat: "Y-m-d",
-        defaultDate: lastWeek,
+        allowInput: false,
+        defaultDate: defaultStart,
+        minDate: DATE_MIN,
+        maxDate: yesterday,
+        onOpen: applyDateBounds,
         onChange: handleDateChange
     });
     const fpEnd = flatpickr("#filter_end_date", {
         dateFormat: "Y-m-d",
-        defaultDate: today,
+        allowInput: false,
+        defaultDate: yesterday,
+        minDate: DATE_MIN,
+        maxDate: yesterday,
+        onOpen: applyDateBounds,
         onChange: handleDateChange
     });
+    applyDateBounds();
+
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) applyDateBounds();
+    });
+    window.addEventListener('focus', applyDateBounds);
 
     // 2. Tab Switching Logic
     const segBtns = document.querySelectorAll('.seg-btn');
@@ -215,33 +274,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     // --- DATE PRESET BUTTONS ---
-    function updatePeriodButtonsVisibility(view) {
-        const isTodaySelected = (view === 'daily');
-        const hrButtons = document.querySelectorAll('.hdr-vbtn[data-view="1hr"], .hdr-vbtn[data-view="2hr"], .hdr-vbtn[data-view="3hr"]');
-        hrButtons.forEach(btn => {
-            if (isTodaySelected) {
-                btn.style.display = '';
-                btn.disabled = false;
-            } else {
-                btn.style.display = 'none';
-                btn.disabled = true;
-            }
-        });
-
-        if (!isTodaySelected && ['1hr', '2hr', '3hr'].includes(view)) {
-            const vbtns = document.querySelectorAll('.hdr-vbtn');
-            vbtns.forEach(b => b.classList.remove('active'));
-            const todayBtn = document.querySelector('.hdr-vbtn[data-view="daily"]');
-            if (todayBtn) {
-                todayBtn.classList.add('active');
-            }
-            const d = new Date();
-            fpStart.setDate(d);
-            fpEnd.setDate(d);
-            fetchData();
-        }
-    }
-
     const vbtns = document.querySelectorAll('.hdr-vbtn');
     vbtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
@@ -252,25 +284,25 @@ document.addEventListener('DOMContentLoaded', () => {
             vbtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             
-            const d = new Date();
-            let start = new Date(d);
-            let end = new Date(d);
+            const end = getYesterday();
+            let start = new Date(end);
             
-            if(view === 'daily') {
-                // Today
-            } else if(view === 'yesterday') {
-                start.setDate(d.getDate() - 1);
-                end.setDate(d.getDate() - 1);
+            if(view === 'yesterday') {
+                start = new Date(end);
             } else if(view === 'weekly') {
-                start.setDate(d.getDate() - 7);
+                start.setDate(end.getDate() - 6);
             } else if(view === 'monthly') {
-                start.setDate(d.getDate() - 30);
+                start.setDate(end.getDate() - 29);
             }
+
+            start = clampToAllowed(start);
             
+            isProgrammaticDateChange = true;
             fpStart.setDate(start);
             fpEnd.setDate(end);
+            isProgrammaticDateChange = false;
+            applyDateBounds();
             
-            updatePeriodButtonsVisibility(view);
             fetchData();
         });
     });
@@ -292,6 +324,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     // Auto-fetch on load
-    updatePeriodButtonsVisibility('');
     fetchData();
 });

@@ -94,59 +94,77 @@
   }
 
   /* ─────────────────────────────────────────────────────
-     PERIOD BUTTONS VISIBILITY HELPER
-  ─────────────────────────────────────────────────────── */
-  function updatePeriodButtonsVisibility() {
-    const isTodaySelected = ['daily', '1hr', '2hr', '3hr'].includes(viewType);
-    const hrButtons = qsa('.hdr-vbtn[data-view="1hr"], .hdr-vbtn[data-view="2hr"], .hdr-vbtn[data-view="3hr"]');
-    
-    hrButtons.forEach(btn => {
-      if (isTodaySelected) {
-        btn.style.display = '';
-        btn.disabled = false;
-      } else {
-        btn.style.display = 'none';
-        btn.disabled = true;
-      }
-    });
-
-    // If one of the 1h/2h/3h buttons was active and we're hiding them, fallback to Today (daily)
-    if (!isTodaySelected && ['1hr', '2hr', '3hr'].includes(viewType)) {
-      qsa('.hdr-vbtn[data-view]').forEach(b => b.classList.remove('active'));
-      const todayBtn = qs('.hdr-vbtn[data-view="daily"]');
-      if (todayBtn) {
-        todayBtn.classList.add('active');
-        viewType = 'daily';
-      }
-    }
-  }
-
-  /* ─────────────────────────────────────────────────────
      DATE PICKERS (Flatpickr)
+     Day-1 only: Jan 1 2026 → yesterday (never today/future)
   ─────────────────────────────────────────────────────── */
   let isProgrammaticDateChange = false;
 
+  const DATE_MIN = new Date(2026, 0, 1); // 1 Jan 2026
+
+  function getYesterday() {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() - 1);
+    return d;
+  }
+
+  function earliestOf(a, b) {
+    if (!a) return b;
+    if (!b) return a;
+    return a.getTime() <= b.getTime() ? a : b;
+  }
+
+  function latestOf(a, b) {
+    if (!a) return b;
+    if (!b) return a;
+    return a.getTime() >= b.getTime() ? a : b;
+  }
+
+  function applyDateBounds() {
+    if (!fpStart || !fpEnd) return;
+    const yesterday = getYesterday();
+    const startVal = fpStart.selectedDates[0] || null;
+    const endVal = fpEnd.selectedDates[0] || null;
+
+    fpStart.set('minDate', DATE_MIN);
+    fpStart.set('maxDate', earliestOf(endVal, yesterday));
+
+    fpEnd.set('minDate', latestOf(startVal, DATE_MIN));
+    fpEnd.set('maxDate', yesterday);
+  }
+
   const handleDateChange = () => {
+    applyDateBounds();
     if (isProgrammaticDateChange) return;
-    // Custom date picked -> not today preset -> hide 1hr, 2hr, 3hr buttons
     qsa('.hdr-vbtn[data-view]').forEach(b => b.classList.remove('active'));
     viewType = '';
-    updatePeriodButtonsVisibility();
   };
 
-  const fpOpts = { 
-    dateFormat: 'Y-m-d', 
-    allowInput: false,
-    onChange: handleDateChange
-  };
   let fpStart, fpEnd;
   if (window.flatpickr) {
     fpStart = flatpickr('#filter_start_date', {
-      ...fpOpts
+      dateFormat: 'Y-m-d',
+      allowInput: false,
+      minDate: DATE_MIN,
+      maxDate: getYesterday(),
+      onOpen: applyDateBounds,
+      onChange: handleDateChange
     });
     fpEnd = flatpickr('#filter_end_date', {
-      ...fpOpts
+      dateFormat: 'Y-m-d',
+      allowInput: false,
+      minDate: DATE_MIN,
+      maxDate: getYesterday(),
+      onOpen: applyDateBounds,
+      onChange: handleDateChange
     });
+    applyDateBounds();
+
+    // If the tab stays open past midnight, refresh bounds on focus/visibility
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) applyDateBounds();
+    });
+    window.addEventListener('focus', applyDateBounds);
   }
 
   /* ─────────────────────────────────────────────────────
@@ -163,8 +181,7 @@
       if (fpStart) fpStart.clear();
       if (fpEnd) fpEnd.clear();
       isProgrammaticDateChange = false;
-
-      updatePeriodButtonsVisibility();
+      applyDateBounds();
     });
   });
 
@@ -236,6 +253,7 @@
       }
     });
     fpStart?.clear(); fpEnd?.clear();
+    applyDateBounds();
     fetchData();
   });
 
@@ -1282,7 +1300,6 @@
     });
     await loadFilters();
     // Do not auto-fetch on init if no date is selected by default
-    updatePeriodButtonsVisibility();
   }
 
   init();
