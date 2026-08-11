@@ -94,8 +94,8 @@ async def startup_event():
         db.close()
 
     # Start OzoneTel background monitoring and bootstrap
-    asyncio.create_task(sync.bootstrap_historical_data())
-    asyncio.create_task(sync.background_monitoring_task())
+    # asyncio.create_task(sync.bootstrap_historical_data())
+    # asyncio.create_task(sync.background_monitoring_task())
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(BASE_DIR)

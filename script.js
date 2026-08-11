@@ -9,7 +9,7 @@
   // Base URL for backend API requests.
   // When running on GitHub Pages, this defaults to your local backend (http://localhost:8000) so you can test it.
   // If you deploy your backend to the cloud (e.g. Render, AWS), replace this with your deployed backend URL.
-  const API_BASE = 'http://localhost:8001';
+  const API_BASE = '';
 
   /* ─────────────────────────────────────────────────────
      GUARD — only initialise on /inbound or inbound.html
@@ -255,9 +255,9 @@
 
   $('syncBtn')?.addEventListener('click', async () => {
     const btn = $('syncBtn');
-    btn.disabled = true; btn.textContent = 'Syncing…';
+    btn.disabled = true; btn.innerHTML = 'Syncing… <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex-shrink:0;animation:spin 1s linear infinite;"><path d="M3 12a9 9 0 019-9 9 9 0 016.36 2.64L21 9M21 3v6h-6M21 12a9 9 0 01-9 9 9 9 0 01-6.36-2.64L3 15M3 21v-6h6"/></svg>';
     try { await fetch(API_BASE + '/api/sync/run', { method: 'POST' }); } catch(e) {}
-    btn.disabled = false; btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:13px"><path d="M3 12a9 9 0 019-9 9 9 0 016.36 2.64L21 9M21 3v6h-6"/></svg> Run Sync';
+    btn.disabled = false; btn.innerHTML = 'Run Sync <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex-shrink:0;"><path d="M3 12a9 9 0 019-9 9 9 0 016.36 2.64L21 9M21 3v6h-6M21 12a9 9 0 01-9 9 9 9 0 01-6.36-2.64L3 15M3 21v-6h6"/></svg>';
     await fetchData();
   });
 

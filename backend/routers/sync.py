@@ -634,54 +634,31 @@ async def bootstrap_historical_data():
 
 @router.post("/run")
 async def run_sync_api(campaign: str = "Inbound", db_master: Session = Depends(get_master_db)):
-    """Manual trigger: smart resume for 15 days for a specific tenant campaign."""
-    from database import get_tenant_db_engine
-    from sqlalchemy.orm import sessionmaker
-    
-    engine = get_tenant_db_engine(campaign)
-    TenantSessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-    db_tenant = TenantSessionLocal()
-    
+    """Manual trigger: pull Google Sheet data, then run local file based ingestion."""
     try:
-        base_date = pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None)
-        missing_dates = get_missing_dates(db_tenant, base_date, campaign, days=15)
-
-        # Always sync today first so "Today" view has live data before backfill
-        today_str = base_date.strftime("%Y-%m-%d")
-        missing_dates = [d for d in missing_dates if d != today_str]
-        missing_dates.insert(0, today_str)
-
-        if not missing_dates:
-            return {"status": "up_to_date", "message": f"All 15 days already covered for {campaign}.", "total_integrated": 0}
-
-        group = db_master.query(models.CampaignGroup).filter(models.CampaignGroup.name == campaign).first()
-        if not group:
-             raise HTTPException(status_code=404, detail="Campaign group not found in master DB")
-
-        from routers.google_sheets_sync import sync_manual_metrics, sync_auto_metrics
+        import sync_google_sheet
+        import ingest_dump
+        import ingest_manual_metrics
         
-        # 1. Sync manual metrics
-        sync_manual_metrics()
+        # 1. Pull latest data from Google Sheet into local Excel
+        print("Syncing Google Sheet → local Excel...")
+        new_dates = sync_google_sheet.sync()
         
-        # 2. Sync auto metrics for missing dates
-        total = sync_auto_metrics(db_tenant, missing_dates)
-
-        if total > 0:
-            new_sync = models.ProcessedSync(
-                file_id=f"gs_manual_{pd.Timestamp.now(tz='Asia/Kolkata').tz_localize(None).strftime('%Y%m%d%H%M')}_{campaign}",
-                filename=f"Google Sheets Sync: {campaign}",
-                record_count=total
-            )
-            db_tenant.add(new_sync)
-            db_tenant.commit()
-
+        # 2. Run raw call logs Excel dump ingestion
+        print("Running Inbound call logs ingestion...")
+        ingest_dump.ingest()
+        
+        # 3. Run manual metrics Excel ingestion (reads the updated local Excel)
+        print("Running manual metrics ingestion...")
+        ingest_manual_metrics.ingest()
+        
         return {
             "status": "success",
-            "total_integrated": total,
-            "dates_synced": missing_dates
+            "message": f"Synced {new_dates} new dates from Google Sheet. Call logs and manual metrics updated."
         }
     except Exception as e:
-        db_tenant.rollback()
+        import traceback
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
 

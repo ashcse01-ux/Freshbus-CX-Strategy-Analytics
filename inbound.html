@@ -419,8 +419,9 @@
 
   <!-- Actions -->
   <div class="hdr-acts">
-    <button class="hdr-ibtn" id="refreshBtn" title="Refresh data">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 019-9 9 9 0 016.36 2.64L21 9M21 3v6h-6M21 12a9 9 0 01-9 9 9 9 0 01-6.36-2.64L3 15M3 21v-6h6"/></svg>
+    <button id="syncBtn" title="Sync data from Google Sheet & dump files" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:0 16px;font-size:13px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;background-color:#FFEA20;color:#0a2d6e;border-radius:100px;border:none;cursor:pointer;height:38px;box-shadow:0 4px 12px rgba(255,234,32,0.2);transition:all 0.2s ease;">
+      Run Sync
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:15px;height:15px;flex-shrink:0;"><path d="M3 12a9 9 0 019-9 9 9 0 016.36 2.64L21 9M21 3v6h-6M21 12a9 9 0 01-9 9 9 9 0 01-6.36-2.64L3 15M3 21v-6h6"/></svg>
     </button>
     <button class="hdr-ibtn" id="themeBtn" title="Toggle dark/light">
       <svg id="themeIco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
@@ -509,10 +510,7 @@
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/></svg>
     Reset Filters
   </button>
-  <button class="sb-btn sb-btn-yellow" id="syncBtn" style="margin-top:8px;">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 019-9 9 9 0 016.36 2.64L21 9M21 3v6h-6"/></svg>
-    Run Sync
-  </button>
+
   <button class="sb-btn sb-btn-warn" id="wipeBtn" style="margin-top:3px;">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/></svg>
     Wipe Database

@@ -66,14 +66,23 @@ def ingest():
     xls_files.sort()
     
     engine = get_tenant_db_engine("Inbound")
+    # Ensure tables are created
+    models.TenantBase.metadata.create_all(bind=engine)
     Session = sessionmaker(bind=engine)
     session = Session()
     
+    # Load existing hashes to skip already ingested records
+    existing_hashes = set()
+    try:
+        existing_hashes = set(r[0] for r in session.query(models.CallRecord.row_hash).all())
+    except Exception as e:
+        print(f"Warning: could not query existing hashes: {e}")
+        
     all_records = []
     unique_dates = set()
     seen_hashes = set()
     
-    print(f"Found {len(xls_files)} files in dump directory.")
+    print(f"Found {len(xls_files)} files in dump directory. Loaded {len(existing_hashes)} existing hashes from DB.")
     
     mapping = {
         "Call ID": "Call_ID",
@@ -141,7 +150,7 @@ def ingest():
             agent_id = clean_string(row.get("Agent_ID"))
             
             h = get_row_hash(call_id, date_str, caller_no, start_time, agent_id)
-            if h in seen_hashes:
+            if h in seen_hashes or h in existing_hashes:
                 continue
             seen_hashes.add(h)
             
@@ -188,19 +197,11 @@ def ingest():
             all_records.append(rec)
 
     if not all_records:
-        print("No records found to insert.")
+        print("No new records found to insert.")
+        session.close()
         return
         
-    print(f"Total unique parsed records: {len(all_records)}")
-    print(f"Unique dates to delete/reload: {len(unique_dates)}")
-    
-    unique_dates_list = list(unique_dates)
-    batch_size = 50
-    for i in range(0, len(unique_dates_list), batch_size):
-        batch = unique_dates_list[i:i+batch_size]
-        session.query(models.CallRecord).filter(models.CallRecord.Call_Date.in_(batch)).delete(synchronize_session=False)
-    session.commit()
-    print("Deleted old records for dates in dump.")
+    print(f"Total new unique parsed records to insert: {len(all_records)}")
     
     insert_batch_size = 2000
     for i in range(0, len(all_records), insert_batch_size):
