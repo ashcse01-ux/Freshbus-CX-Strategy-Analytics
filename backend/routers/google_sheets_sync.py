@@ -41,6 +41,30 @@ def get_row_hash(call_id, date_val, caller_id, start_time, agent_id):
     unique_str = f"{str(date_val).strip()}-{str(caller_id).strip()}-{str(start_time).strip()}-{str(agent_id).strip()}"
     return hashlib.md5(unique_str.encode()).hexdigest()
 
+def _parse_sheet_date(date_val):
+    """Parse a sheet date cell; never invent dates from column index."""
+    if isinstance(date_val, datetime):
+        return date_val
+    if pd.isna(date_val):
+        return None
+    raw = str(date_val).strip()
+    if not raw or raw.lower() in ("nan", "none", "-"):
+        return None
+    for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d", "%d-%m-%Y", "%m/%d/%Y", "%d/%m/%Y"):
+        try:
+            return datetime.strptime(raw, fmt)
+        except ValueError:
+            continue
+    # Excel serial numbers sometimes arrive as floats/ints via CSV export
+    try:
+        serial = float(raw)
+        if serial > 20000:
+            return datetime(1899, 12, 30) + timedelta(days=serial)
+    except (TypeError, ValueError):
+        pass
+    return None
+
+
 def sync_manual_metrics():
     print(f"Reading manual metrics from Google Sheets...")
     try:
@@ -55,7 +79,6 @@ def sync_manual_metrics():
     }
     
     metric_names = df.iloc[:, 0].astype(str).str.strip().tolist()
-    current_date = datetime(2026, 1, 1)
     
     json_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "manual_daily_metrics.json")
     if os.path.exists(json_path):
@@ -68,6 +91,7 @@ def sync_manual_metrics():
         manual_data = {}
         
     updated_count = 0
+    skipped_no_date = 0
     
     for col in range(1, df.shape[1]):
         day_val = df.iloc[0, col]
@@ -76,25 +100,13 @@ def sync_manual_metrics():
         if not isinstance(day_val, str):
             continue
         day_clean = day_val.strip().lower()
+        # Skip week/MTD summary columns (e.g. "W4 Jul", "July MTD")
         if day_clean not in day_mapping:
             continue
             
-        col_date = None
-        if col < 590:
-            if isinstance(date_val, datetime):
-                col_date = date_val
-            elif pd.notna(date_val):
-                for fmt in ["%Y-%m-%d %H:%M:%S", "%Y-%m-%d", "%d-%m-%Y", "%m/%d/%Y", "%d/%m/%Y"]:
-                    try:
-                        col_date = datetime.strptime(str(date_val).strip(), fmt)
-                        break
-                    except ValueError:
-                        continue
-        else:
-            col_date = current_date
-            current_date += timedelta(days=1)
-            
+        col_date = _parse_sheet_date(date_val)
         if col_date is None:
+            skipped_no_date += 1
             continue
             
         date_str = col_date.strftime("%Y-%m-%d")
@@ -116,15 +128,23 @@ def sync_manual_metrics():
                 val = 0.0
                 
             day_metrics[metric_name] = val
-            
-        if date_str not in manual_data or manual_data[date_str] != day_metrics:
-            manual_data[date_str] = day_metrics
+
+        # Ignore empty day columns (all zeros / blank) so they don't wipe good data
+        if not any(v != 0.0 for v in day_metrics.values()):
+            continue
+
+        # Merge into existing day so Excel-only fields (call-drop, etc.) are preserved
+        merged = dict(manual_data.get(date_str, {}))
+        merged.update(day_metrics)
+        if manual_data.get(date_str) != merged:
+            manual_data[date_str] = merged
             updated_count += 1
             
     with open(json_path, "w") as f:
         json.dump(manual_data, f, indent=4)
         
-    print(f"Updated {updated_count} manual metrics dates.")
+    print(f"Updated {updated_count} manual metrics dates "
+          f"(skipped {skipped_no_date} weekday cols with no parseable date).")
     return updated_count
 
 def sync_auto_metrics(db_tenant: Session, missing_dates: list):
