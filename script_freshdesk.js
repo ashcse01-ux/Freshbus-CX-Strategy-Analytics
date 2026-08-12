@@ -2,33 +2,34 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Initialize Date Pickers
     // Day-1 only: Jan 1 2026 → yesterday (never today/future)
+    // End date: from selected start → yesterday (all days in between)
     const DATE_MIN = new Date(2026, 0, 1); // 1 Jan 2026
 
-    function getYesterday() {
-        const d = new Date();
+    function startOfDay(date) {
+        const d = new Date(date);
         d.setHours(0, 0, 0, 0);
+        return d;
+    }
+
+    function getYesterday() {
+        const d = startOfDay(new Date());
         d.setDate(d.getDate() - 1);
         return d;
     }
 
-    function earliestOf(a, b) {
-        if (!a) return b;
-        if (!b) return a;
-        return a.getTime() <= b.getTime() ? a : b;
-    }
-
-    function latestOf(a, b) {
-        if (!a) return b;
-        if (!b) return a;
-        return a.getTime() >= b.getTime() ? a : b;
+    function toYmd(date) {
+        const d = startOfDay(date);
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${y}-${m}-${day}`;
     }
 
     function clampToAllowed(date) {
         const yesterday = getYesterday();
-        let d = new Date(date);
-        d.setHours(0, 0, 0, 0);
-        if (d < DATE_MIN) d = new Date(DATE_MIN);
-        if (d > yesterday) d = new Date(yesterday);
+        let d = startOfDay(date);
+        if (d < DATE_MIN) d = startOfDay(DATE_MIN);
+        if (d > yesterday) d = startOfDay(yesterday);
         return d;
     }
 
@@ -36,19 +37,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function applyDateBounds() {
         const yesterday = getYesterday();
-        const startVal = fpStart.selectedDates[0] || null;
-        const endVal = fpEnd.selectedDates[0] || null;
+        const startVal = fpStart.selectedDates[0] ? startOfDay(fpStart.selectedDates[0]) : null;
+        const endVal = fpEnd.selectedDates[0] ? startOfDay(fpEnd.selectedDates[0]) : null;
 
-        fpStart.set('minDate', DATE_MIN);
-        fpStart.set('maxDate', earliestOf(endVal, yesterday));
+        // If start moved past end, bump end up so range stays valid
+        if (startVal && endVal && startVal.getTime() > endVal.getTime()) {
+            isProgrammaticDateChange = true;
+            fpEnd.setDate(startVal, false);
+            isProgrammaticDateChange = false;
+        }
 
-        fpEnd.set('minDate', latestOf(startVal, DATE_MIN));
-        fpEnd.set('maxDate', yesterday);
+        // Start: always Jan 1 2026 → yesterday
+        fpStart.set('minDate', toYmd(DATE_MIN));
+        fpStart.set('maxDate', toYmd(yesterday));
+
+        // End: selected start (or Jan 1) → yesterday — every day in between is open
+        const endMin = startVal || DATE_MIN;
+        fpEnd.set('minDate', toYmd(endMin));
+        fpEnd.set('maxDate', toYmd(yesterday));
     }
 
     const handleDateChange = () => {
-        applyDateBounds();
         if (isProgrammaticDateChange) return;
+        applyDateBounds();
         const vbtns = document.querySelectorAll('.hdr-vbtn');
         vbtns.forEach(b => b.classList.remove('active'));
     };
@@ -60,18 +71,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const fpStart = flatpickr("#filter_start_date", {
         dateFormat: "Y-m-d",
         allowInput: false,
-        defaultDate: defaultStart,
-        minDate: DATE_MIN,
-        maxDate: yesterday,
+        defaultDate: toYmd(defaultStart),
+        minDate: toYmd(DATE_MIN),
+        maxDate: toYmd(yesterday),
         onOpen: applyDateBounds,
         onChange: handleDateChange
     });
     const fpEnd = flatpickr("#filter_end_date", {
         dateFormat: "Y-m-d",
         allowInput: false,
-        defaultDate: yesterday,
-        minDate: DATE_MIN,
-        maxDate: yesterday,
+        defaultDate: toYmd(yesterday),
+        minDate: toYmd(DATE_MIN),
+        maxDate: toYmd(yesterday),
         onOpen: applyDateBounds,
         onChange: handleDateChange
     });
